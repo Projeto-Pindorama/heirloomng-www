@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<!-- This is an automatically generated file.  Do not edit.
+   t
+   SPDX-Licence-Identifier: CDDL-1.0
+  
+   Copyright (c) 2005 Gunnar Ritter, Freiburg i. Br., Germany.
+  
+   Sccsid @(#)fmtmsg.1	1.3 (gritter) 9/25/05
+ -->
+<head>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="../../assets/mandoc.css" type="text/css" media="all"/>
+  <title>FMTMSG(1)</title>
+</head>
+<body>
+<table class="head">
+  <tr>
+    <td class="head-ltitle">FMTMSG(1)</td>
+    <td class="head-vol">User Commands</td>
+    <td class="head-rtitle">FMTMSG(1)</td>
+  </tr>
+</table>
+<div class="manual-text">
+<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+fmtmsg - display a message in standard format
+<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<div class="HP"><b>fmtmsg</b> [<b>-a&#x00A0;</b><i>action</i>]
+  [<b>-c&#x00A0;</b> <i>class</i>] [ <b>-l&#x00A0;</b><i>label</i>]
+  [<b>-s&#x00A0;</b> <i>severity</i>] [<b>-t&#x00A0;</b><i>tag</i>] [
+  <b>-u&#x00A0;</b> <i>subclass</i>[,<i>subclass</i>[,...]]] [<i>text</i>]
+<div>&#x00A0;</div>
+</div>
+<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+The <i>fmtmsg</i> command writes a message either to standard error, to
+  <i>/dev/console</i>, or to both. The <i>text</i> argument specifies the actual
+  message.
+<div class="Pp"></div>
+The following options are accepted:
+<dl class="Bl-tag">
+  <dt><b>-a&#x00A0;</b><i>action</i></dt>
+  <dd>A hint to the user what to do to fix the situation. The <i>action</i>
+      string is written in a second line following the actual message and is
+      preceded by `TO FIX:'.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-c&#x00A0;</b><i>class</i></dt>
+  <dd>A classification for the problem. May be one of `hard' for Hardware,
+      `soft' for Software, or `firm' for Firmware.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-l&#x00A0;</b><i>label</i></dt>
+  <dd>The <i>label</i> indicates which component issued the message, for
+      example, the name of the command which invokes <i>fmtmsg</i>.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-s&#x00A0;</b><i>severity</i></dt>
+  <dd>The <i>severity</i> argument may be one of `halt', `error', `warn', or
+      `info'. It is printed immediately before the actual message.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-t&#x00A0;</b><i>tag</i></dt>
+  <dd>An additional identifier for the message. It is written at the end of a
+      second line following the actual message.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-u&#x00A0;</b><i>subclass</i>[,<i>subclass</i>[,...]]</dt>
+  <dd>A comma-separated list of strings that specifies the message destination,
+      or gives further details about the message. Valid values for
+      <i>subclass</i> are:
+    <table class="tbl">
+      <tr>
+        <td>appl</td>
+        <td>The message originates from an application.</td>
+      </tr>
+      <tr>
+        <td>util</td>
+        <td>The message originates from a utility.</td>
+      </tr>
+      <tr>
+        <td>opsys</td>
+        <td>The message originates from the operating system.</td>
+      </tr>
+      <tr>
+        <td>recov</td>
+        <td>The problem is recoverable.</td>
+      </tr>
+      <tr>
+        <td>nrecov</td>
+        <td>The problem is not recoverable.</td>
+      </tr>
+      <tr>
+        <td>print</td>
+        <td>Print the message to standard error.</td>
+      </tr>
+      <tr>
+        <td>console</td>
+        <td>Print the message to /dev/console .</td>
+      </tr>
+    </table>
+  </dd>
+</dl>
+<div class="Pp"></div>
+Unless at least one of `-u print' or `-u console' is given, <i>fmtmsg</i>
+  produces no output.</div>
+<table class="foot">
+  <tr>
+    <td class="foot-date">9/25/05</td>
+    <td class="foot-os">Heirloom Toolchest</td>
+  </tr>
+</table>
+</body>
+</html>

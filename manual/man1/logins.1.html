@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<!-- This is an automatically generated file.  Do not edit.
+   Copyright (c) 2003 Gunnar Ritter
+  
+   SPDX-Licence-Identifier: Zlib
+  
+   Sccsid @(#)logins.1	1.8 (gritter) 4/17/03
+ -->
+<head>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="../../assets/mandoc.css" type="text/css" media="all"/>
+  <title>LOGINS(1)</title>
+</head>
+<body>
+<table class="head">
+  <tr>
+    <td class="head-ltitle">LOGINS(1)</td>
+    <td class="head-vol">User Commands</td>
+    <td class="head-rtitle">LOGINS(1)</td>
+  </tr>
+</table>
+<div class="manual-text">
+<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+logins - list login information
+<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<b>logins</b> [<b>-admopstux</b>] [<b>-g&#x00A0;</b><i>group</i>[,...]] [
+  <b>-l&#x00A0;</b> <i>login</i>[,...]]
+<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<i>Logins</i> lists the system's login database.
+<div class="Pp"></div>
+The <b>logins</b> command accepts the following options:
+<dl class="Bl-tag">
+  <dt><b>-a</b></dt>
+  <dd>Add the days of inactivity the password remains valid, and the password
+      expiration date to the output.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-d</b></dt>
+  <dd>Show logins with duplicate uids only.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-m</b></dt>
+  <dd>For every login, show all of its group memberships.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-o</b></dt>
+  <dd>Separate output by colons.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-p</b></dt>
+  <dd>Show logins with an empty password string only.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-s</b></dt>
+  <dd>Show system logins only.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-t</b></dt>
+  <dd>Sort output by login name instead of used id.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-u</b></dt>
+  <dd>Show regular user logins only.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-x</b></dt>
+  <dd>Extended format. Adds the following fields for each login: home directory,
+      login shell, password status (PS for password, NP for no password, LK for
+      locked), date of last password change formatted as <i>mmddyy,</i> minimal
+      number of days between password changes, maximum number of days between
+      password changes, days before an expiration warning message is issued to
+      the user.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-g</b><i>&#x00A0;group,[...]</i></dt>
+  <dd>Restrict output to the given <i>group.</i> Multiple groups may be given,
+      separated by commas.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-l</b><i>&#x00A0;login,[...]</i></dt>
+  <dd>Restrict output to the given <i>login.</i> Multiple logins may be given,
+      separated by commas.</dd>
+</dl>
+<h1 class="Sh" title="Sh" id="FILES"><a class="permalink" href="#FILES">FILES</a></h1>
+<dl class="Bl-tag">
+  <dt><b>/etc/passwd</b></dt>
+  <dd>user database</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>/etc/group</b></dt>
+  <dd>group database</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>/etc/shadow</b></dt>
+  <dd>password and aging information database</dd>
+</dl>
+<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+  ALSO</a></h1>
+listusers(1), passwd(5), shadow(5)
+<h1 class="Sh" title="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
+System logins are the ones whose user id is below 100.
+<div class="Pp"></div>
+Reading password and aging information requires special privilege.</div>
+<table class="foot">
+  <tr>
+    <td class="foot-date">4/17/03</td>
+    <td class="foot-os">Heirloom Toolchest</td>
+  </tr>
+</table>
+</body>
+</html>

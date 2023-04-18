@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<!-- This is an automatically generated file.  Do not edit.
+   Sccsid @(#)units.1	1.5 (gritter) 10/11/03
+   Derived from units(1), Unix 7th edition:
+   Copyright(C) Caldera International Inc. 2001-2002. All rights reserved.
+  
+   SPDX-Licence-Identifier: Caldera
+   -->
+<head>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="../../assets/mandoc.css" type="text/css" media="all"/>
+  <title>UNITS(1)</title>
+</head>
+<body>
+<table class="head">
+  <tr>
+    <td class="head-ltitle">UNITS(1)</td>
+    <td class="head-vol">User Commands</td>
+    <td class="head-rtitle">UNITS(1)</td>
+  </tr>
+</table>
+<div class="manual-text">
+<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+units - conversion program
+<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<b>units</b>
+<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<i>Units</i> converts quantities expressed in various standard scales to their
+  equivalents in other scales. It works interactively in this fashion:
+<div class="Pp"></div>
+<i>	You have:</i> inch
+<div>&#x00A0;</div>
+<i>	You want:</i> cm
+<div>&#x00A0;</div>
+<i>		* 2.54000e+00</i>
+<div>&#x00A0;</div>
+<i>		/ 3.93701e-01</i>
+<div class="Pp"></div>
+A quantity is specified as a multiplicative combination of units optionally
+  preceded by a numeric multiplier. Powers are indicated by suffixed positive
+  integers, division by the usual sign:
+<div class="Pp"></div>
+<i>	You have:</i> 15 pounds force/in2
+<div>&#x00A0;</div>
+<i>	You want:</i> atm
+<div>&#x00A0;</div>
+<i>		* 1.02069e+00</i>
+<div>&#x00A0;</div>
+<i>		/ 9.79730e-01</i>
+<div class="Pp"></div>
+<i>Units</i> only does multiplicative scale changes. Thus it can convert Kelvin
+  to Rankine, but not Centigrade to Fahrenheit. Most familiar units,
+  abbreviations, and metric prefixes are recognized, together with a generous
+  leavening of exotica and a few constants of nature including:
+<div class="Pp"></div>
+<pre>
+	pi	ratio of circumference to diameter
+	c	speed of light
+	e	charge on an electron
+	g	acceleration of gravity 
+	force	same as g
+	mole	Avogadro's number
+	water	pressure head per unit height of water
+	au	astronomical unit
+</pre>
+<div class="Pp"></div>
+<br/>
+`Pound' is a unit of mass. Compound names are run together, e.g. `lightyear'.
+  British units that differ from their US counterparts are prefixed thus:
+  `brgallon'. Currency is denoted `belgiumfranc', `britainpound', ...
+<div class="Pp"></div>
+For a complete list of units, `cat /opt/heirloom/lib/unittab'.
+<h1 class="Sh" title="Sh" id="FILES"><a class="permalink" href="#FILES">FILES</a></h1>
+/opt/heirloom/lib/unittab
+<h1 class="Sh" title="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
+Don't base your financial plans on the currency conversions.</div>
+<table class="foot">
+  <tr>
+    <td class="foot-date">10/11/03</td>
+    <td class="foot-os">Heirloom Toolchest</td>
+  </tr>
+</table>
+</body>
+</html>

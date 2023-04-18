@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<!-- This is an automatically generated file.  Do not edit.
+   Sccsid @(#)chown.1	1.9 (gritter) 1/29/05
+   Parts taken from chown(1), Unix 7th edition:
+   Copyright(C) Caldera International Inc. 2001-2002. All rights reserved.
+  
+   SPDX-Licence-Identifier: Caldera
+ -->
+<head>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="../../assets/mandoc.css" type="text/css" media="all"/>
+  <title>CHOWN(1)</title>
+</head>
+<body>
+<table class="head">
+  <tr>
+    <td class="head-ltitle">CHOWN(1)</td>
+    <td class="head-vol">User Commands</td>
+    <td class="head-rtitle">CHOWN(1)</td>
+  </tr>
+</table>
+<div class="manual-text">
+<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+chown, chgrp - change owner or group
+<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<b>chown</b> [<b>-hHLPR</b>] <i>owner</i>[:<i>group</i>] <i>file</i> ...
+<div class="Pp"></div>
+<b>chgrp</b> [<b>-hHLPR</b>] <i>group </i><i>file</i> ...
+<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<b>Chown</b> changes the owner of the <i>files</i> to <i>owner</i>, and, if
+  <i>group</i> is present, the group-ID of the <i>files</i> to <i>group</i>.
+  Both <i>owner</i> and <i>group</i> may be either a decimal <small>UID</small>
+  / <small>GID</small> or a login / group name found in the password file.
+<div class="Pp"></div>
+<b>Chgrp</b> changes the group-ID of the <i>files</i> to <i>group</i>. The
+  <i>group</i> may be either a decimal <small>GID</small> or a group name found
+  in the group-ID file.
+<div class="Pp"></div>
+Both <b>chown</b> and <b>chgrp</b> accept the following options:
+<dl class="Bl-tag">
+  <dt><b>-h</b></dt>
+  <dd>When a symbolic link is encountered, change the owner and group of the
+      link itself, rather than the file it refers to.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-R</b></dt>
+  <dd>Recursively descend into each <i>file</i> operand. Whether owner and group
+      of a symbolic link are changed depends on the <b>-h</b> option, but the
+      link is not followed otherwise.</dd>
+</dl>
+<div class="Pp"></div>
+The following options have been introduced by POSIX.1-2001:
+<dl class="Bl-tag">
+  <dt><b>-H</b></dt>
+  <dd>With the <i>-R</i> option, if a symbolic link given on the command line
+      points to a directory, follow that symbolic link and change owner and
+      group in the files below, but do not handle any other symbolic links
+      specially.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-L</b></dt>
+  <dd>With the <i>-R</i> option, whenever a symbolic link is encountered that
+      points to a directory, follow the symbolic link and change owner and group
+      in the files below,</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-P</b></dt>
+  <dd>With the <i>-R</i> option, do not follow any symbolic links, but change
+      owner and group of the links themselves.</dd>
+</dl>
+<h1 class="Sh" title="Sh" id="FILES"><a class="permalink" href="#FILES">FILES</a></h1>
+<b>/etc/passwd</b>
+<div>&#x00A0;</div>
+<b>/etc/group</b>
+<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+  ALSO</a></h1>
+chown(2), passwd(5), group(5)
+<h1 class="Sh" title="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
+Permission to change owner and group is based either on historical System V
+  behaviour, which is to allow the owner of the file or a privileged user a
+  change to any value; or on historical <small>BSD</small> behaviour, which is
+  to restrict changing the owner to a privileged user and changing the group to
+  a group to which the file owner belongs.
+<div class="Pp"></div>
+The [: <i>group</i>] argument to <i>chown</i> has been introduced with POSIX.2
+  and is not available on older implementations of System&#x00A0;V.</div>
+<table class="foot">
+  <tr>
+    <td class="foot-date">1/29/05</td>
+    <td class="foot-os">Heirloom Toolchest</td>
+  </tr>
+</table>
+</body>
+</html>

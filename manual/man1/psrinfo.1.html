@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<!-- This is an automatically generated file.  Do not edit.
+   Copyright (c) 2003 Gunnar Ritter
+  
+   SPDX-Licence-Identifier: Zlib
+  
+   Sccsid @(#)psrinfo.1	1.5 (gritter) 4/17/03
+ -->
+<head>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="../../assets/mandoc.css" type="text/css" media="all"/>
+  <title>PSRINFO(1)</title>
+</head>
+<body>
+<table class="head">
+  <tr>
+    <td class="head-ltitle">PSRINFO(1)</td>
+    <td class="head-vol">User Commands</td>
+    <td class="head-rtitle">PSRINFO(1)</td>
+  </tr>
+</table>
+<div class="manual-text">
+<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+psrinfo - displays information about processors
+<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<b>psrinfo</b> [ <b>-v</b> ] [ processor_id ... ]
+<div class="Pp"></div>
+<b>psrinfo</b> <b>-s</b> processor_id
+<div class="Pp"></div>
+<b>psrinfo</b> <b>-n</b>
+<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+The <b>psrinfo</b> command displays processor information.
+<div class="Pp"></div>
+If no <i>processor_id</i> is given, all processors are assumed.
+  <i>processor_id</i> can be a single number, or a range, as in <i>0-3</i> to
+  select the first four processors.
+<div class="Pp"></div>
+The <b>psrinfo</b> command accepts the following options:
+<dl class="Bl-tag">
+  <dt><b>-n</b></dt>
+  <dd>Displays the number of processors.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-s</b></dt>
+  <dd>Silent operation. Exactly one <i>processor_id</i> is processed, and it
+      must be a single number. The exit status is zero if the processor is
+      present, non-zero otherwise.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-v</b></dt>
+  <dd>Verbose operation. Displays processor type, clock speed, and availability
+      of a floating point unit.</dd>
+</dl>
+<h1 class="Sh" title="Sh" id="FILES"><a class="permalink" href="#FILES">FILES</a></h1>
+<dl class="Bl-tag">
+  <dt><b>/proc/cpuinfo</b></dt>
+  <dd>Used to determine the clock speeds.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>/proc/stat</b></dt>
+  <dd>Used to determine the number of processors and the on-line times.</dd>
+</dl>
+<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+  ALSO</a></h1>
+uname(1), uname(2), proc(5)</div>
+<table class="foot">
+  <tr>
+    <td class="foot-date">4/17/03</td>
+    <td class="foot-os">Heirloom Toolchest</td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<!-- This is an automatically generated file.  Do not edit.
+   Sccsid @(#)mknod.1m	1.2 (gritter) 8/15/03
+   Parts taken from mknod(1M), Unix 32V:
+   Copyright(C) Caldera International Inc. 2001-2002. All rights reserved.
+  
+   SPDX-Licence-Identifier: Caldera
+   -->
+<head>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="../../assets/mandoc.css" type="text/css" media="all"/>
+  <title>MKNOD(1M)</title>
+</head>
+<body>
+<table class="head">
+  <tr>
+    <td class="head-ltitle">MKNOD(1M)</td>
+    <td class="head-vol">Maintenance Commands</td>
+    <td class="head-rtitle">MKNOD(1M)</td>
+  </tr>
+</table>
+<div class="manual-text">
+<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+mknod - build special file
+<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<b>mknod</b> <i>name</i> <b>b</b> | <b>c</b> <i>major</i> <i>minor</i>
+<div>&#x00A0;</div>
+<b>mknod</b> <i>name</i> <b>p</b>
+<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<i>Mknod</i> makes a special file. The first argument is the <i>name</i> of the
+  entry. The second is <b>b</b> if the special file is block-type (disks, tape)
+  or <b>c</b> if it is character-type (other devices). The last two arguments
+  are numbers specifying the <i>major</i> device type and the <i>minor</i>
+  device (e.g. unit, drive, or line number).
+<div class="Pp"></div>
+If the second argument is <b>p</b>, <i>mknod</i> creates a FIFO special file.
+<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+  ALSO</a></h1>
+mknod(2)</div>
+<table class="foot">
+  <tr>
+    <td class="foot-date">8/15/03</td>
+    <td class="foot-os">Heirloom Toolchest</td>
+  </tr>
+</table>
+</body>
+</html>

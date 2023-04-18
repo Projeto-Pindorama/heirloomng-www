@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<!-- This is an automatically generated file.  Do not edit.
+   Sccsid @(#)test.1	1.3 (gritter) 7/2/05
+   Derived from test(1), Unix 7th edition:
+   Copyright(C) Caldera International Inc. 2001-2002. All rights reserved.
+  
+   SPDX-Licence-Identifier: Caldera
+   -->
+<head>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="../../assets/mandoc.css" type="text/css" media="all"/>
+  <title>TEST(1)</title>
+</head>
+<body>
+<table class="head">
+  <tr>
+    <td class="head-ltitle">TEST(1)</td>
+    <td class="head-vol">User Commands</td>
+    <td class="head-rtitle">TEST(1)</td>
+  </tr>
+</table>
+<div class="manual-text">
+<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+test - condition command
+<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<b>test</b> [<i>expr</i>]
+<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<i>test</i> evaluates the expression <i>expr</i>, and if its value is true then
+  returns zero exit status; otherwise, a non zero exit status is returned.
+  <i>test</i> returns a non zero exit if there are no arguments.
+<div class="Pp"></div>
+The following primitives are used to construct <i>expr</i>:
+<dl class="Bl-tag">
+  <dt><b>-r</b> file</dt>
+  <dd>true if the file exists and is readable.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-w</b> file</dt>
+  <dd>true if the file exists and is writable.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-u</b> file</dt>
+  <dd>true if the file exists and has the setuid bit set.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-g</b> file</dt>
+  <dd>true if the file exists and has the setgid bit set.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-k</b> file</dt>
+  <dd>true if the file exists and has the sticky bit set.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-f</b> file</dt>
+  <dd>true if the file exists and is a regular file.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-d</b> file</dt>
+  <dd>true if the file exists and is a directory.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-h</b> file</dt>
+  <dd>true if the file exists and is a symbolic link.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-L</b> file</dt>
+  <dd>true if the file exists and is a symbolic link.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-p</b> file</dt>
+  <dd>true if the file exists and is a named pipe.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-b</b> file</dt>
+  <dd>true if the file exists and is a block device.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-c</b> file</dt>
+  <dd>true if the file exists and is a character device.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-S</b> file</dt>
+  <dd>true if the file exists and is a socket
+      (<b>/opt/heirloom/bin/posix/test</b> and
+      <b>/opt/heirloom/bin/posix2001/test</b> only).</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-e</b> file</dt>
+  <dd>true if the file exists (<b>/opt/heirloom/bin/posix/test</b> and
+      <b>/opt/heirloom/bin/posix2001/test</b> only).</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-s</b> file</dt>
+  <dd>true if the file exists and has a size greater than zero.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-t</b> [fildes]</dt>
+  <dd>true if the open file whose file descriptor number is <i>fildes</i> (1 by
+      default) is associated with a terminal device.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-z</b> s1</dt>
+  <dd>true if the length of string <i>s1</i> is zero.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-n</b> s1</dt>
+  <dd>true if the length of the string <i>s1</i> is nonzero.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt>s1<b> = </b>s2</dt>
+  <dd>true if the strings <i>s1</i> and <i>s2</i> are equal.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt>s1<b> != </b>s2</dt>
+  <dd>true if the strings <i>s1</i> and <i>s2</i> are not equal.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt>s1</dt>
+  <dd>true if <i>s1</i> is not the null string.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt>n1<b> -eq </b>n2</dt>
+  <dd>true if the integers <i>n1</i> and <i>n2</i> are algebraically equal. Any
+      of the comparisons <b>-ne</b>, <b>-gt</b>, <b>-ge</b>, <b>-lt</b>, or
+      <b>-le</b> may be used in place of <b>-eq</b>.</dd>
+</dl>
+<div class="Pp"></div>
+These primaries may be combined with the following operators:
+<dl class="Bl-tag">
+  <dt><b>!</b></dt>
+  <dd>unary negation operator</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-a</b></dt>
+  <dd>binary <i>and</i> operator</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-o</b></dt>
+  <dd>binary <i>or</i> operator</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>( </b>expr<b> )</b></dt>
+  <dd>parentheses for grouping.</dd>
+</dl>
+<div class="Pp"></div>
+<b>-a</b> has higher precedence than <b>-o.</b> Notice that all the operators
+  and flags are separate arguments to <i>test</i>. Notice also that parentheses
+  are meaningful as command separators and must be escaped.</div>
+<table class="foot">
+  <tr>
+    <td class="foot-date">7/2/05</td>
+    <td class="foot-os">Heirloom Toolchest</td>
+  </tr>
+</table>
+</body>
+</html>

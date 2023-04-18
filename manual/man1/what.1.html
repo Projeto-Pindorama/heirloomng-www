@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<!-- This is an automatically generated file.  Do not edit.
+   SPDX-Licence-Identifier: CDDL-1.0
+   Copyright (c) 2002, Sun Microsystems, Inc. All Rights Reserved.
+   Copyright 1989 AT&T
+  
+   Portions Copyright (c) 2007 Gunnar Ritter, Freiburg i. Br., Germany
+  
+   Sccsid @(#)what.1	1.5 (gritter) 2/3/07
+  
+   from OpenSolaris what 1 "30 Sep 2002" "SunOS 5.11" "User Commands"
+ -->
+<head>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="../../assets/mandoc.css" type="text/css" media="all"/>
+  <title>WHAT(1)</title>
+</head>
+<body>
+<table class="head">
+  <tr>
+    <td class="head-ltitle">WHAT(1)</td>
+    <td class="head-vol">User Commands</td>
+    <td class="head-rtitle">WHAT(1)</td>
+  </tr>
+</table>
+<div class="manual-text">
+<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+what - extract SCCS version information from a file
+<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<b>what</b> <i>filename</i>...
+<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+The <i>what</i> utility searches each <i>filename</i> for occurrences of the
+  pattern <b>@(#)</b> that the SCCS <i>get</i> command (see <i>get</i>(1))
+  substitutes for the <b>@(#)</b> ID keyword, and prints what follows up to a
+  <b>&quot;</b>, <b>&gt;</b>, <b>NEWLINE</b>, <b>\</b>, or <b>NULL</b>
+  character. For example, if a C program in file <b>program.c</b> contains
+<div class="Pp"></div>
+<div class="Bd-indent">
+<pre>
+char sccsid[] = &quot;@(#)identification information&quot;;
+</pre>
+</div>
+<div class="Pp"></div>
+and <b>program.c</b> is compiled to yield <b>program.o</b> and <b>a.out</b>, the
+  command:
+<div class="Pp"></div>
+<div class="Bd-indent">
+<pre>
+$  <b>what program.c program.o a.out</b>
+</pre>
+</div>
+<div class="Pp"></div>
+produces:
+<div class="Bd-indent">
+<dl class="Bl-tag">
+  <dt><b>program.c</b>:</dt>
+  <dd>identification information</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>program.o</b>:</dt>
+  <dd>identification information</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>a.out</b>:</dt>
+  <dd>identification information</dd>
+</dl>
+</div>
+<div class="Pp"></div>
+The following option is accepted:
+<dl class="Bl-tag">
+  <dt><b>-s</b></dt>
+  <dd>Stops after the first occurrence of the pattern.</dd>
+</dl>
+<div class="Pp"></div>
+The following exit values are returned:
+<dl class="Bl-tag">
+  <dt><b>0</b> </dt>
+  <dd>Any matches were found.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>1</b> </dt>
+  <dd>No matches found.</dd>
+</dl>
+<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+  ALSO</a></h1>
+get(1), help(1)
+<h1 class="Sh" title="Sh" id="DIAGNOSTICS"><a class="permalink" href="#DIAGNOSTICS">DIAGNOSTICS</a></h1>
+Use the SCCS <i>help</i> command for explanations (see <i>help</i>(1)).
+<h1 class="Sh" title="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
+There is a remote possibility that a spurious occurrence of the ` <b>@(#)</b>'
+  pattern could be found by <i>what</i>.</div>
+<table class="foot">
+  <tr>
+    <td class="foot-date">2/3/07</td>
+    <td class="foot-os">Heirloom Toolchest</td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<!-- This is an automatically generated file.  Do not edit.
+   Copyright (c) 2003 Gunnar Ritter
+  
+   SPDX-Licence-Identifier: Zlib
+   Sccsid @(#)cut.1	1.8 (gritter) 12/6/04
+ -->
+<head>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="../../assets/mandoc.css" type="text/css" media="all"/>
+  <title>CUT(1)</title>
+</head>
+<body>
+<table class="head">
+  <tr>
+    <td class="head-ltitle">CUT(1)</td>
+    <td class="head-vol">User Commands</td>
+    <td class="head-rtitle">CUT(1)</td>
+  </tr>
+</table>
+<div class="manual-text">
+<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+cut - cut out selected fields of each line of a file
+<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<b>cut -b </b><i>list</i> [<b>-n</b>]
+  [<i>file</i>&#x00A0;.&#x00A0;.&#x00A0;.&#x00A0;]
+<div>&#x00A0;</div>
+<b>cut -c </b><i>list</i> [<i>file</i>&#x00A0;.&#x00A0;.&#x00A0;.&#x00A0;]
+<div>&#x00A0;</div>
+<b>cut -f </b><i>list</i> [<b>-d </b><i>char</i>] [<b>-s</b>]
+  [<i>file</i>&#x00A0;.&#x00A0;.&#x00A0;.&#x00A0;]
+<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+The <b>cut</b> utility selects columns of <i>files</i> for printing based either
+  on byte position, character position, or field delimiters.
+<div class="Pp"></div>
+If no <i>file</i> is given, or if <i>file</i> is <b>-</b>, <b>cut</b> reads from
+  standard input.
+<div class="Pp"></div>
+The <i>list</i> consists of numbers separated by commas or blanks that select
+  the corresponding input field, starting at 1. Ranges of fields may be given as
+  in
+<dl class="Bl-tag">
+  <dt><i>m</i><b>-</b><i>n</i></dt>
+  <dd>Selects all fields from <i>m</i> to <i>n</i>.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><i>m</i><b>-</b></dt>
+  <dd>Selects all fields from <i>m</i> to the last field of each input
+    line.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-</b><i>n</i></dt>
+  <dd>Selects all fields from the first field to <i>n</i>.</dd>
+</dl>
+<div class="Pp"></div>
+The <b>cut</b> command accepts the following options:
+<dl class="Bl-tag">
+  <dt><b>-c</b><i> list</i></dt>
+  <dd>Each character of an input line forms a column. All selected characters
+      are printed without intervening separators; all newline characters of the
+      input file are passed through.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-d</b><i> char</i></dt>
+  <dd>Sets the field delimiter character for the <b>-f</b> option to
+      <i>char</i>.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-f</b><i> list</i></dt>
+  <dd>Columns are sequences of zero or more characters separated by a field
+      delimiter character, by default a tabulator (\t). The selected fields are
+      printed, separated by the field delimiter character. Lines that do not
+      contain the field delimiter character are passed through unchanged.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-s</b></dt>
+  <dd>With the <b>-f</b> option, lines that do not contain the field delimiter
+      character are not passed through.</dd>
+</dl>
+<div class="Pp"></div>
+The following options were introduced by POSIX.2:
+<dl class="Bl-tag">
+  <dt><b>-b</b><i> list</i></dt>
+  <dd>Each single byte of an input line forms a column. All selected bytes are
+      printed without intervening separators; all newline characters of the
+      input file are passed through.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-n</b></dt>
+  <dd>Changes the behavior of the <b>-b</b> option such that ranges start and
+      end at character boundaries.</dd>
+</dl>
+<h1 class="Sh" title="Sh" id="ENVIRONMENT_VARIABLES"><a class="permalink" href="#ENVIRONMENT_VARIABLES">ENVIRONMENT
+  VARIABLES</a></h1>
+<dl class="Bl-tag">
+  <dt><b>LANG</b>, <b>LC_ALL</b></dt>
+  <dd>See <i>locale</i>(7).</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>LC_CTYPE</b></dt>
+  <dd>Determines the mapping of bytes to characters for the argument to the
+      <b>-d</b> option and in input files processed with the <b>-bn</b>,
+      <b>-c</b>, and <b>-f</b> options.</dd>
+</dl>
+<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+  ALSO</a></h1>
+paste(1), locale(7)
+<h1 class="Sh" title="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
+Since <i>cut -f</i> cannot be told to recognize both space and tabulator as
+  delimiters, or to take adjacent delimiter characters as single delimiters, it
+  is not generally usable to select fields of white-space separated tables. Use
+  <i>awk</i>(1) for this purpose.</div>
+<table class="foot">
+  <tr>
+    <td class="foot-date">12/6/04</td>
+    <td class="foot-os">Heirloom Toolchest</td>
+  </tr>
+</table>
+</body>
+</html>

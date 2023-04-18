@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<!-- This is an automatically generated file.  Do not edit.
+   Sccsid @(#)who.1	1.8 (gritter) 10/11/03
+   Parts taken from who(1), Unix 7th edition:
+   Copyright(C) Caldera International Inc. 2001-2002. All rights reserved.
+  
+   SPDX-Licence-Identifier: Caldera
+   -->
+<head>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="../../assets/mandoc.css" type="text/css" media="all"/>
+  <title>WHO(1)</title>
+</head>
+<body>
+<table class="head">
+  <tr>
+    <td class="head-ltitle">WHO(1)</td>
+    <td class="head-vol">User Commands</td>
+    <td class="head-rtitle">WHO(1)</td>
+  </tr>
+</table>
+<div class="manual-text">
+<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+who - who is on the system
+<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<b>who</b> [<b>-abdHlmpqRrstTu</b>] [<i>utmp_file</i>]
+<div>&#x00A0;</div>
+<b>who</b> <b>-q</b> [<b>-n</b><i> x</i>] [<i>utmp_file</i>]
+<div>&#x00A0;</div>
+<b>who</b> [<b>am i</b>]
+<div>&#x00A0;</div>
+<b>who</b> [<b>am I</b>]
+<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+The <b>who</b> command, without an argument, lists the login name, terminal
+  name, and login time for each current user.
+<div class="Pp"></div>
+Without an argument, <b>who</b> examines the <b>/var/run/utmp</b> file to obtain
+  its information. If a <i>utmp_file</i> is given, that file is examined.
+  Typically the given file will be <b>/var/log/wtmp</b>, which contains a record
+  of all the logins since it was created. Then <b>who</b> lists logins, logouts
+  and crashes since the creation of the wtmp file. Each login is listed with
+  user name, terminal name (with ` <b>/dev/</b>' suppressed), and date and time.
+<div class="Pp"></div>
+With the two-argument synopsis forms ` <b>who am i</b>' and `<b>who am I</b>',
+  who tells who you are logged in as.
+<div class="Pp"></div>
+The <b>who</b> command accepts the following options:
+<dl class="Bl-tag">
+  <dt><b>-a</b></dt>
+  <dd>Same as <b>-bdlprtTu</b>.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-b</b></dt>
+  <dd>Writes reboot records.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-d</b></dt>
+  <dd>Writes records about dead processes along with their termination and exit
+      values.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-H</b></dt>
+  <dd>Causes column headings to be printed in the first line.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-l</b></dt>
+  <dd>Writes records about lines on which the system is waiting for someone to
+      login.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-m</b></dt>
+  <dd>Outputs only records about the current terminal, as ` <b>who am I</b>'
+      does.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-n</b><i> number</i></dt>
+  <dd>Sets the number of columns for the <b>-q</b> option.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-p</b></dt>
+  <dd>Lists records about other processes currently active that have been
+      spawned by <b>init</b>.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-q</b></dt>
+  <dd>Quick output format. For each login record, the user name is printed. All
+      other options are ignored.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-R</b></dt>
+  <dd>Adds the host name field to the output.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-r</b></dt>
+  <dd>Writes the current run-level of the <b>init</b> process.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-s</b></dt>
+  <dd>Omits idle time and login process ID (default).</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-t</b></dt>
+  <dd>Writes records concerning system time changes.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-T</b></dt>
+  <dd>Shows write access to the user's terminal (see <i>mesg</i>(1): ` <b>+</b>'
+      if writing is permitted, ` <b>-</b>' if writing is denied, and ` <b>?</b>'
+      if the status cannot be determined. For <b>/opt/heirloom/bin/who</b> and
+      <b>/opt/heirloom/bin/s42/who</b>, <b>-u</b> is implied.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-u</b></dt>
+  <dd>Adds idle time (the time since the last keypress on the terminal) and
+      login process ID to the output. A terminal that has not been accessed for
+      24 hours is considered ` <b>old</b>'; a terminal that has been accessed
+      within the last minute is marked with a dot ` <b>.</b>'.</dd>
+</dl>
+<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+  ALSO</a></h1>
+mesg(1), utmp(5), init(8)</div>
+<table class="foot">
+  <tr>
+    <td class="foot-date">10/11/03</td>
+    <td class="foot-os">Heirloom Toolchest</td>
+  </tr>
+</table>
+</body>
+</html>

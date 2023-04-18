@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<!-- This is an automatically generated file.  Do not edit.
+   Copyright (c) 2003 Gunnar Ritter
+  
+   SPDX-Licence-Identifier: Zlib
+  
+   Sccsid @(#)wc.1	1.19 (gritter) 2/6/05
+ -->
+<head>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="../../assets/mandoc.css" type="text/css" media="all"/>
+  <title>WC(1)</title>
+</head>
+<body>
+<table class="head">
+  <tr>
+    <td class="head-ltitle">WC(1)</td>
+    <td class="head-vol">User Commands</td>
+    <td class="head-rtitle">WC(1)</td>
+  </tr>
+</table>
+<div class="manual-text">
+<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+wc - word count
+<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<b>wc</b> [<b>-c</b>|<b>-m</b>] [<b>-lw</b>] [<i>file</i> ...]
+<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+Wc determines the number of lines, words and characters contained in each
+  <i>file</i> and writes the count in that order to standard output, separated
+  by spaces and followed by the filename. If no <i>file</i> argument is given,
+  standard input is used and no filename is printed. If more than one input file
+  was processed successfully, a grand total for all files is printed in the line
+  of output.
+<div class="Pp"></div>
+The <b>wc</b> command accepts the following options; if any of them is present,
+  output is restricted to the specified fields:
+<dl class="Bl-tag">
+  <dt><b>-c</b></dt>
+  <dd>Print the number of bytes.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-l</b></dt>
+  <dd>Print the number of lines (i.&#x00A0;e. newline characters).</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-m</b></dt>
+  <dd>Print the number of characters instead of the number of bytes. The number
+      of characters equals the number of bytes in singlebyte locales. In
+      multibyte locales, this is the count of byte sequences forming a valid
+      character. This option was introduced by POSIX.2.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-w</b></dt>
+  <dd>Print the number of words. With <b>/opt/heirloom/bin/wc</b> and
+      <b>/opt/heirloom/bin/s42/wc</b>, a word is a string of characters that
+      contains at least one graphical character and is delimited by blank or
+      newline characters. With <b>/opt/heirloom/bin/posix/wc</b> and
+      <b>/opt/heirloom/bin/posix2001/wc</b>, a word is a nonempty string of
+      characters that is delimited by white space.</dd>
+</dl>
+<h1 class="Sh" title="Sh" id="ENVIRONMENT_VARIABLES"><a class="permalink" href="#ENVIRONMENT_VARIABLES">ENVIRONMENT
+  VARIABLES</a></h1>
+<dl class="Bl-tag">
+  <dt><b>LANG, LC_ALL</b></dt>
+  <dd>See <i>locale</i>(7).</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>LC_CTYPE</b></dt>
+  <dd>Determines the byte sequences that form a character for the <b>-m</b>
+      option and for the interpretation of white space, graphical characters and
+      newlines.</dd>
+</dl>
+<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+  ALSO</a></h1>
+cksum(1), locale(7)</div>
+<table class="foot">
+  <tr>
+    <td class="foot-date">2/6/05</td>
+    <td class="foot-os">Heirloom Toolchest</td>
+  </tr>
+</table>
+</body>
+</html>

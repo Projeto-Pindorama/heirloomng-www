@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<!-- This is an automatically generated file.  Do not edit.
+   Copyright (c) 2003 Gunnar Ritter
+  
+   SPDX-Licence-Identifier: Zlib
+  
+   Sccsid @(#)fold.1	1.4 (gritter) 12/6/04
+ -->
+<head>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="../../assets/mandoc.css" type="text/css" media="all"/>
+  <title>FOLD(1)</title>
+</head>
+<body>
+<table class="head">
+  <tr>
+    <td class="head-ltitle">FOLD(1)</td>
+    <td class="head-vol">User Commands</td>
+    <td class="head-rtitle">FOLD(1)</td>
+  </tr>
+</table>
+<div class="manual-text">
+<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+fold - fold long lines
+<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<b>fold</b> [<b>-b</b>] [<b>-s</b>] [<b>-w&#x00A0;</b><i>width</i> |
+  <b>-</b><i>width</i>] [ <i>file&#x00A0;...</i>]
+<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<i>Fold</i> reads its input <i>files</i>, or of standard input if no <i>file</i>
+  argument is present, and folds lines that exceed 80 columns (i.e. it inserts
+  newline characters). It interprets backspace, tabulator, and carriage return
+  characters in input.
+<div class="Pp"></div>
+The following options are accepted by <i>fold</i>:
+<dl class="Bl-tag">
+  <dt><b>-b</b></dt>
+  <dd>Use bytes instead of columns. All characters except for the newline
+      character are counted according to the space consumed in bytes. This
+      option has been introduced by POSIX.2.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-s</b></dt>
+  <dd>Try to preserve words, if possible. If a blank character appears in an
+      input line before it exceeds the width limit, the line is prematurely
+      folded after this character. This option has been introduced by
+    POSIX.2.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-w<i> width</i></b></dt>
+  <dd>Set the maximum output line length (in columns or bytes) to <i>width</i>
+      instead of the default 80.</dd>
+</dl>
+<h1 class="Sh" title="Sh" id="ENVIRONMENT_VARIABLES"><a class="permalink" href="#ENVIRONMENT_VARIABLES">ENVIRONMENT
+  VARIABLES</a></h1>
+<dl class="Bl-tag">
+  <dt><b>LANG</b>, <b>LC_ALL</b></dt>
+  <dd>See <i>locale</i>(7).</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>LC_CTYPE</b></dt>
+  <dd>Determines the mapping of bytes to characters and the set of blank
+      characters. Multibyte characters are not split by <i>fold</i>; the line is
+      folded before the character that would cause it to exceed the maximum
+      width.</dd>
+</dl>
+<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+  ALSO</a></h1>
+fmt(1), pr(1)</div>
+<table class="foot">
+  <tr>
+    <td class="foot-date">12/6/04</td>
+    <td class="foot-os">Heirloom Toolchest</td>
+  </tr>
+</table>
+</body>
+</html>

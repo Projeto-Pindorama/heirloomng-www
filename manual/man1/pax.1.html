@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html>
+<!-- This is an automatically generated file.  Do not edit.
+   t
+   Copyright (c) 2004 Gunnar Ritter
+  
+   SPDX-Licence-Identifier: Zlib
+   Sccsid @(#)pax.1	1.37 (gritter) 9/5/05
+ -->
+<head>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="../../assets/mandoc.css" type="text/css" media="all"/>
+  <title>PAX(1)</title>
+</head>
+<body>
+<table class="head">
+  <tr>
+    <td class="head-ltitle">PAX(1)</td>
+    <td class="head-vol">User Commands</td>
+    <td class="head-rtitle">PAX(1)</td>
+  </tr>
+</table>
+<div class="manual-text">
+<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+pax - portable archive interchange
+<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<div class="Pp"></div>
+<div class="HP"><b>pax</b> [<b>-cdnvK</b>] [<b>-b&#x00A0;</b><i>size</i>] [
+  <b>-f&#x00A0;</b> <i>file</i>] [<b>-s&#x00A0;</b><i>replstr</i>] [
+  <b>-x&#x00A0;</b> <i>hdr</i>] [<i>patterns</i>]</div>
+<div class="Pp"></div>
+<div class="HP"><b>pax</b> <b>-r</b>[<b>cdiknuvK</b>]
+  [<b>-b&#x00A0;</b><i>size</i>] [ <b>-f&#x00A0;</b><i>file</i>] [
+  <b>-o&#x00A0;</b> <i>options</i>] [ <b>-p&#x00A0;</b><i>priv</i>]
+  [<b>-s&#x00A0;</b> <i>replstr</i>] [ <b>-x&#x00A0;</b><i>hdr</i>]
+  [<i>patterns</i>]</div>
+<div class="Pp"></div>
+<div class="HP"><b>pax</b> <b>-w</b>[<b>adiHtuvLX</b>]
+  [<b>-b&#x00A0;</b><i>size</i>] [ <b>-f&#x00A0;</b><i>file</i>] [
+  <b>-o&#x00A0;</b> <i>options</i>] [ <b>-s&#x00A0;</b><i>replstr</i>] [
+  <b>-x&#x00A0;</b> <i>hdr</i>] [<i>files</i>]</div>
+<div class="Pp"></div>
+<div class="HP"><b>pax</b> <b>-rw</b>[<b>diHklntuvLX</b>] [
+  <b>-p&#x00A0;</b><i>priv</i>] [ <b>-s&#x00A0;</b><i>replstr</i>] [
+  <i>files</i>] <i>directory</i>
+<div>&#x00A0;</div>
+</div>
+<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<i>Pax</i> creates and extracts file archives and copies files.
+<div class="Pp"></div>
+If neither the <i>-r</i> or <i>-w</i> options are given, <i>pax</i> works in
+  <i>list</i> mode and prints the contents of the archive.
+<div class="Pp"></div>
+With the <b>-r</b> option, <i>pax</i> works in `<i>read</i>' mode and extracts
+  files from a file archive. By default, the archive is read from standard
+  input. Optional arguments are interpreted as <i>patterns</i> and restrict the
+  set of extracted files to those matching any of the <i>patterns</i>. The
+  syntax is identical to that described in <i>glob</i>(7), except that the slash
+  character `<b>/</b>' is matched by meta-character constructs with `<b>*</b>',
+  `<b>?</b>' and `<b>[</b>'. Care must be taken to quote meta-characters
+  appropriately from the shell. If a pattern matches the prefix name of a
+  directory in the archive, all files below that directory are also extracted.
+  File permissions are set to those in the archive; if the caller is the
+  super-user, ownerships are restored as well. options are specified. Archives
+  compressed with <i>bzip2</i>(1), <i>compress</i>(1), <i>gzip</i>(1), or
+  <i>rpm</i>(1) are transparently decompressed on input.
+<div class="Pp"></div>
+With <b>-w</b>, <i>pax</i> works in `<i>write</i>' mode, creates archives and
+  writes them to standard output per default. A list of filenames to be included
+  in the archive is read from standard input; if the name of a directory
+  appears, all its members and the directory itself are recursively included in
+  the archive. The <i>find</i>(1) utility is useful to generate a list of files
+  (see also its <i>-cpio</i> and <i>-ncpio</i> operators). When producing a
+  filename list for <i>pax</i>, find should always be invoked with <i>-depth</i>
+  since this makes it possible to extract write-protected directories for users
+  other than the super-user. If <i>files</i> are given on the command line, they
+  are included in the archive in the same manner as described above and standard
+  input is not read.
+<div class="Pp"></div>
+The <b>-rw</b> options selects `<i>copy</i>' mode; a list of <i>files</i> is
+  read from standard input or taken from the command line as described for
+  <i>-w</i>; files are copied to the specified <i>directory</i>, preserving
+  attributes as described for <i>-r</i>. Special files are re-created in the
+  target hierarchy, and hard links between copied files are preserved.
+<div class="Pp"></div>
+When a premature end-of-file is detected with <i>-r</i> and <i>-w</i> and the
+  archive is a block or character special file, the user is prompted for new
+  media.
+<div class="Pp"></div>
+The following options alter the behavior of <i>pax</i>:
+<dl class="Bl-tag">
+  <dt><b>-a</b></dt>
+  <dd>Append files to the archive. The archive must be seekable, such as a
+      regular file or a block device, or a tape device capable of writing
+      between filemarks.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-b</b><i> size</i>[<b>w</b>|<b>b</b>|<b>k</b>|<b>m</b>]</dt>
+  <dd>Blocks input and output archives at <i>size</i> byte records. The optional
+      suffix multiplies <i>size</i> by 2 for <b>w</b>, 512 for <b>b</b>, 1024
+      for <b>k</b>, and 1048576 for <b>m</b>.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-c</b></dt>
+  <dd>Reverses the sense of patterns such that a file that does not match any of
+      the patterns is selected.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-d</b></dt>
+  <dd>Causes <i>pax</i> to ignore files below directories. In read mode,
+      patterns matching directories cause only the directory itself to
+      extracted, files below will be ignored unless another pattern applies to
+      them. In write mode, arguments or standard input lines referring to
+      directories do not cause files below the respective directory to be
+      archived.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-f</b><i>&#x00A0;file</i></dt>
+  <dd>Selects a <i>file</i> that is read with the <i>-r</i> option instead of
+      standard input or written with the <i>-w</i> option instead of standard
+      output.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-H</b></dt>
+  <dd>Follow symbolic links given on the command line when reading files with
+      <i>-w</i> or <i>-rw</i>, but do not follow symbolic links encountered
+      during directory traversal.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-i</b></dt>
+  <dd>Rename files interactively. Before a file is extracted from the archive,
+      its file name is printed on standard error and the user is prompted to
+      specify a substitute file name. If the line read from the terminal is
+      empty, the file is skipped; if the line consists of a single dot, the name
+      is retained; otherwise, the line forms the new file name.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-k</b></dt>
+  <dd>Causes existing files not to be overwritten.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-K</b></dt>
+  <dd>Try to continue operation on read errors and invalid headers. If an
+      archive contains another archive, files from either archive may be
+    chosen.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-l</b></dt>
+  <dd>Link files instead of copying them with <i>-rw</i> if possible.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-L</b></dt>
+  <dd>Follow symbolic links when reading files with <i>-w</i> or <i>-rw</i>.
+      <b>/usr/posix2001/bin/pax</b> terminates immediately when it detects a
+      symbolic link loop with this option.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-n</b></dt>
+  <dd>If any <i>pattern</i> arguments are present, each pattern can match
+      exactly one archive member; further members that could match the
+      particular pattern are ignored. Without <i>pattern</i> arguments, only the
+      first occurence of a file that occurs more than once in the archive is
+      selected, the following are ignored.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-o&#x00A0;</b><i>option</i><b>,</b>[<i>option</i><b>,</b>...]</dt>
+  <dd>Specifies options as described for <i>-x pax</i>.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-p&#x00A0;</b><i>string</i></dt>
+  <dd>Specifies which file modes are to be preserved or ignored. <i>string</i>
+      may contain one or more of</dd>
+</dl>
+<div class="Bd-indent">
+<dl class="Bl-tag">
+  <dt><b>a</b></dt>
+  <dd>Inhibits preservation of file access times.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>e</b></dt>
+  <dd>Causes preservation of every possible mode, ownership and time.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>m</b></dt>
+  <dd>Inhibits preservation of file modification times.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>o</b></dt>
+  <dd>Causes preservation of owner and group IDs.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>p</b></dt>
+  <dd>Causes preservation of file mode bits regardless of the umask (see
+      <i>umask</i>(2)).</dd>
+</dl>
+</div>
+<dl class="Bl-tag">
+  <dt></dt>
+  <dd>If file ownership is preserved, <i>pax</i> tries to set the group
+      ownerships to those specified in the archive or the original hierarchy,
+      respectively, regardless of the privilegues of the invoking user.
+      <b>/opt/heirloom/bin/pax</b>, <b>/opt/heirloom/bin/s42/pax</b>, and
+      <b>/opt/heirloom/bin/posix/pax</b> try to set the user ownerships only if
+      invoked by the super-user; if invoked by regular users,
+      <b>/opt/heirloom/bin/posix2001/pax</b> will produce an error for any file
+      that is not owned by the invoking user.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-s&#x00A0;/</b><i>regular
+    expression</i><b>/</b><i>replacement</i><b>/</b>[ <b>gp</b>]</dt>
+  <dd>Modifies file names in a manner similar to that described in <i>ed</i>(1).
+      The <i>p</i> flag causes each modified file name to printed. Any character
+      can be used as delimiter instead of `<i>/</i>'. If a file name is empty
+      after the replacement is done, the file is ignored.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-t</b></dt>
+  <dd>Resets the access times of files that were included in the archive with
+      <i>-r</i>.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-u</b></dt>
+  <dd>In read mode, <i>pax</i> will not overwrite existing target files that
+      were modified more recently than the file in the archive when this option
+      is given. In write mode, <i>pax</i> will read the archive first. It will
+      then only append those files to the archive that are not already included
+      or were more recently modified.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-v</b></dt>
+  <dd>Prints the file names of archived or extracted files with <i>-r</i> and
+      <i>-w</i> and a verbose output format if neither of them is given.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-x</b><i> header</i></dt>
+  <dd>Specifies the archive header format to be one of:
+    <div class="Pp"></div>
+    <br/>
+    <table class="tbl">
+      <tr>
+        <td><b>newc</b></td>
+        <td>SVR4 ASCII cpio format;&#x00A0;</td>
+      </tr>
+      <tr>
+        <td><b>crc</b></td>
+        <td>SVR4 ASCII cpio format with checksum;&#x00A0;</td>
+      </tr>
+      <tr>
+        <td><b>sco</b></td>
+        <td>SCO UnixWare 7.1 ASCII cpio format;</td>
+      </tr>
+      <tr>
+        <td><b>scocrc</b></td>
+        <td>SCO UnixWare 7.1 ASCII cpio format with checksum;</td>
+      </tr>
+      <tr>
+        <td><b>odc</b></td>
+        <td>traditional ASCII cpio format, as standardized in IEEE Std. 1003.1,
+          1996;</td>
+      </tr>
+      <tr>
+        <td><b>cpio</b></td>
+        <td>same as <i>odc</i>;</td>
+      </tr>
+      <tr>
+        <td><b>bin</b></td>
+        <td>binary cpio format;</td>
+      </tr>
+      <tr>
+        <td><b>bbs</b></td>
+        <td>byte-swapped binary cpio format;</td>
+      </tr>
+      <tr>
+        <td><b>sgi</b></td>
+        <td>SGI IRIX extended binary cpio format;</td>
+      </tr>
+      <tr>
+        <td><b>cray</b></td>
+        <td>Cray UNICOS 9 cpio format;</td>
+      </tr>
+      <tr>
+        <td><b>cray5</b></td>
+        <td>Cray UNICOS 5 cpio format;</td>
+      </tr>
+      <tr>
+        <td><b>dec</b></td>
+        <td>Digital UNIX extended cpio format;</td>
+      </tr>
+      <tr>
+        <td><b>tar</b></td>
+        <td>tar format;</td>
+      </tr>
+      <tr>
+        <td><b>otar</b></td>
+        <td>old tar format;</td>
+      </tr>
+      <tr>
+        <td><b>ustar</b></td>
+        <td>IEEE Std. 1003.1, 1996 tar format;</td>
+      </tr>
+      <tr>
+        <td><b>pax</b>[<b>:</b><i>option</i><b>,</b>[<i>option</i><b>,</b>...]]</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>IEEE Std. 1003.1, 2001 pax format. Format-specific <i>options</i>
+          are: +2n <b>linkdata</b> For a regular file which has multiple hard
+          links, the file data is stored once for each link in the archive,
+          instead of being stored for the first entry only. This option must be
+          used with care since many implementations are unable to read the
+          resulting archive. <b>times</b> Causes the times of last access and
+          last modification of each archived file to be stored in an extended
+          <i>pax</i> header. This in particular allows the time of last access
+          to be restored when the archive is read. -2n</td>
+      </tr>
+    </table>
+    <table class="tbl">
+      <tr>
+        <td><b>sun</b></td>
+        <td>Sun Solaris 7 extended tar format;</td>
+      </tr>
+      <tr>
+        <td><b>bar</b></td>
+        <td>SunOS 4 bar format;</td>
+      </tr>
+      <tr>
+        <td><b>gnu</b></td>
+        <td>GNU tar format;</td>
+      </tr>
+      <tr>
+        <td><b>zip</b>[<b>:</b><i>cc</i>]</td>
+        <td>zip format with optional compression method. If <i>cc</i> is one of
+          <b>en</b> (normal, default), <b>ex</b> (extra), <b>ef</b> (fast), or
+          <b>es</b> (super fast), the standard <i>deflate</i> compression is
+          used. <b>e0</b> selects no compression, and <b>bz2</b> selects
+          <i>bzip2</i> compression.</td>
+      </tr>
+    </table>
+    <br/>
+    <div class="Pp"></div>
+    This option is ignored with <i>-r</i> unless the <i>-K</i> option is also
+      present. The default for <i>-w</i> is traditional ASCII cpio <i>(odc)</i>
+      format.</dd>
+</dl>
+<div class="Pp"></div>
+Characteristics of archive formats are as follows:
+<div class="Pp"></div>
+<table class="tbl">
+  <tr>
+    <td></td>
+    <td>maximum user/group id</td>
+    <td>maximum file size</td>
+    <td>maximum pathname length</td>
+    <td>bits in dev_t (major/minor)</td>
+  </tr>
+  <tr>
+    <td>-x&#x00A0;bin</td>
+    <td>65535</td>
+    <td>2 GB&#x00A0;</td>
+    <td>256</td>
+    <td>&#x00A0;16</td>
+  </tr>
+  <tr>
+    <td>-x&#x00A0;sgi</td>
+    <td>65535</td>
+    <td>9 EB&#x00A0;</td>
+    <td>256</td>
+    <td>&#x00A0;14/18</td>
+  </tr>
+  <tr>
+    <td>-x&#x00A0;odc</td>
+    <td>262143</td>
+    <td>8 GB&#x00A0;</td>
+    <td>256</td>
+    <td>&#x00A0;18</td>
+  </tr>
+  <tr>
+    <td>-x&#x00A0;dec</td>
+    <td>262143</td>
+    <td>8 GB&#x00A0;</td>
+    <td>256</td>
+    <td>&#x00A0;24/24</td>
+  </tr>
+  <tr>
+    <td>-x&#x00A0;newc, -x&#x00A0;crc</td>
+    <td>4.3e9</td>
+    <td>4 GB&#x00A0;</td>
+    <td>1024</td>
+    <td>&#x00A0;32/32</td>
+  </tr>
+  <tr>
+    <td>-x&#x00A0;sco, -x&#x00A0;scocrc</td>
+    <td>4.3e9</td>
+    <td>9 EB&#x00A0;</td>
+    <td>1024</td>
+    <td>&#x00A0;32/32</td>
+  </tr>
+  <tr>
+    <td>-x&#x00A0;cray, -x&#x00A0;cray5</td>
+    <td>1.8e19</td>
+    <td>9 EB&#x00A0;</td>
+    <td>65535</td>
+    <td>&#x00A0;64</td>
+  </tr>
+  <tr>
+    <td>-x&#x00A0;otar</td>
+    <td>2097151</td>
+    <td>8 GB&#x00A0;</td>
+    <td>99</td>
+    <td>&#x00A0;n/a</td>
+  </tr>
+  <tr>
+    <td>-x&#x00A0;tar, -x&#x00A0;ustar</td>
+    <td>2097151</td>
+    <td>8 GB&#x00A0;</td>
+    <td>256 (99)</td>
+    <td>&#x00A0;21/21</td>
+  </tr>
+  <tr>
+    <td>-x&#x00A0;pax</td>
+    <td>1.8e19</td>
+    <td>9 EB&#x00A0;</td>
+    <td>65535</td>
+    <td>&#x00A0;21/21</td>
+  </tr>
+  <tr>
+    <td>-x&#x00A0;sun</td>
+    <td>1.8e19</td>
+    <td>9 EB&#x00A0;</td>
+    <td>65535</td>
+    <td>&#x00A0;63/63</td>
+  </tr>
+  <tr>
+    <td>-x&#x00A0;gnu</td>
+    <td>1.8e19</td>
+    <td>9 EB&#x00A0;</td>
+    <td>65535</td>
+    <td>&#x00A0;63/63</td>
+  </tr>
+  <tr>
+    <td>-x&#x00A0;bar</td>
+    <td>2097151</td>
+    <td>8 GB&#x00A0;</td>
+    <td>427</td>
+    <td>&#x00A0;21</td>
+  </tr>
+  <tr>
+    <td>-x&#x00A0;zip</td>
+    <td>4.3e9</td>
+    <td>9 EB&#x00A0;</td>
+    <td>60000</td>
+    <td>&#x00A0;32</td>
+  </tr>
+</table>
+<div class="Pp"></div>
+<div class="Pp"></div>
+The byte order of <b>binary</b> cpio archives depends on the machine on which
+  the archive is created. Unlike some other implementations, <i>pax</i> fully
+  supports archives of either byte order. <i>-x&#x00A0;bbs</i> can be used to
+  create an archive with the byte order opposed to that of the current machine.
+<div class="Pp"></div>
+The <b>sgi</b> format extends the binary format to handle larger files and more
+  device bits. If an archive does not contain any entries that actually need the
+  extensions, it is identical to a binary archive. <i>-x&#x00A0;sgi</i> archives
+  are always created in MSB order.
+<div class="Pp"></div>
+The <b>odc</b> format was introduced with System&#x00A0;III and standardized
+  with IEEE Std. 1003.1. All known <i>cpio</i> and <i>pax</i> implementations
+  since around 1980 can read this format.
+<div class="Pp"></div>
+The <b>dec</b> format extends the <i>odc</i> format to support more device bits.
+  Archives in this format are generally incompatible with <i>odc</i> archives
+  and need special implementation support to be read.
+<div class="Pp"></div>
+The <b>-x&#x00A0;newc</b> format was introduced with System&#x00A0;V
+  Release&#x00A0;4. Except for the file size, it imposes no practical
+  limitations on files archived. The original SVR4 implementation stores the
+  contents of hard linked files only once and with the last archived link. This
+  <i>pax</i> ensures compatibility with SVR4. With archives created by
+  implementations that employ other methods for storing hard linked files, each
+  file is extracted as a single link, and some of these files may be empty.
+  Implementations that expect methods other than the original SVR4 one may
+  extract no data for hard linked files at all.
+<div class="Pp"></div>
+The <b>crc</b> format is essentially the same as the <i>-x&#x00A0;newc</i>
+  format but adds a simple checksum (not a CRC, despite its name) for the data
+  of regular files. The checksum requires the implementation to read each file
+  twice, which can considerably increase running time and system overhead. As
+  not all implementations claiming to support this format handle the checksum
+  correctly, it is of limited use.
+<div class="Pp"></div>
+The <b>sco</b> and <b>scocrc</b> formats are variants of the
+  <i>-x&#x00A0;newc</i> and <i>-x&#x00A0;crc</i> formats, respectively, with
+  extensions to support larger files. The extensions result in a different
+  archive format only if files larger than slightly below 2&#x00A0;GB occur.
+<div class="Pp"></div>
+The <b>cray</b> format extends all header fields to 64 bits. It thus imposes no
+  practical limitations of any kind on archived files, but requires special
+  implementation support to be read. Although it is originally a binary format,
+  the byte order is always MSB as on Cray machines. The <b>cray5</b> format is
+  an older variant that was used with UNICOS 5 and earlier.
+<div class="Pp"></div>
+The <b>otar</b> format was introduced with the Unix 7th Edition <i>tar</i>
+  utility. Archives in this format can be read on all Unix systems since about
+  1980. It can only hold regular files (and, on more recent systems, symbolic
+  links). For file names that contain characters with the most significant bit
+  set (non-ASCII characters), implementations differ in the interpretation of
+  the header checksum.
+<div class="Pp"></div>
+The <b>ustar</b> format was introduced with IEEE Std. 1003.1. It extends the old
+  <i>tar</i> format with support for directories, device files, and longer file
+  names. Pathnames of single-linked files can consist of up to 256 characters,
+  dependent on the position of slashes. Files with multiple links can only be
+  archived if the first link encountered is no longer than 100 characters. Due
+  to implementation errors, file names longer than 99 characters can not
+  considered to be generally portable. Another addition of the <i>ustar</i>
+  format are fields for the symbolic user and group IDs. These fields are
+  created by <i>pax</i>, but ignored when reading such archives.
+<div class="Pp"></div>
+With <b>-x tar</b>, a variant of the <i>ustar</i> format is selected which
+  stores file type bits in the mode field to work around common implementation
+  problems. These bits are ignored by <i>pax</i> when reading archives.
+<div class="Pp"></div>
+The <b>pax</b> format is an extension to the <i>ustar</i> format. If attributes
+  cannot be archived with <i>ustar</i>, an extended header is written. Unless
+  the size of an entry is greater than 8&#x00A0;GB, a <i>pax</i> archive should
+  be readable by any implementation capable of reading <i>ustar</i> archives,
+  although files may be extracted under wrong names and extended headers may be
+  extracted as separate files. If a file name contains non-UTF-8 characters, it
+  may not be archived or extracted correctly because of a problem of the
+  <i>pax</i> format specification.
+<div class="Pp"></div>
+The <b>sun</b> format extends the <i>ustar</i> format similar as the <i>pax</i>
+  format does. The extended headers in <i>sun</i> format archives are not
+  understood by implementations that support only the <i>pax</i> format and
+  vice-versa. The <i>sun</i> format has also problems with non-UTF-8 characters
+  in file names.
+<div class="Pp"></div>
+The <b>GNU</b> <i>tar</i> format is mostly compatible with the other <i>tar</i>
+  formats, unless an archive entry actually uses its extended features. There
+  are no practical limitations on files archived with this format. The
+  implementation of <i>pax</i> is limited to expanded numerical fields and long
+  file names; in particular, there is no support for sparse files or incremental
+  backups. If <i>pax</i> creates a multi-volume <i>GNU</i> archive, it just
+  splits a single-volume archive in multiple parts, as with the other formats;
+  <i>GNU</i> multi-volume archives are not supported.
+<div class="Pp"></div>
+The <b>bar</b> format is similar to the <i>tar</i> format, but can store longer
+  file names. It requires special implementation support to be read.
+<div class="Pp"></div>
+The <b>zip</b> format can be read in many non-Unix environments. There are
+  several restrictions on archives intended for data exchange: only regular
+  files should be stored; file times, permissions and ownerships might be
+  ignored by other implementations; there should be no more than 65536 files in
+  the archive; the total archive size should not exceed 2 GB; only
+  <i>deflate</i> compression should be used. Otherwise, <i>pax</i> stores all
+  information available with other archive formats in extended <i>zip</i> file
+  headers, so if archive portability is of no concern, the <i>zip</i>
+  implementation in <i>pax</i> can archive complete Unix file hierarchies.
+  <i>Pax</i> supports the <i>zip64</i> format extension for large files; it
+  automatically writes <i>zip64</i> entries if necessary. <i>Pax</i> can extract
+  all known <i>zip</i> format compression codes. It does not support <i>zip</i>
+  encryption. Multi-volume <i>zip</i> archives are created as splitted
+  single-volume archives, as with the other formats written by <i>pax</i>;
+  generic multi-volume <i>zip</i> archives are not supported.
+<h1 class="Sh" title="Sh" id="EXAMPLES"><a class="permalink" href="#EXAMPLES">EXAMPLES</a></h1>
+Extract all files named <i>Makefile</i> or <i>makefile</i> from the archive
+  stored on <i>/dev/rmt/c0s0</i>, overwriting recent files:
+<div class="Bd-indent">
+<div class="Pp"></div>
+pax -r -f /dev/rmt/c0s0 &#x00B4;[Mm]akefile&#x00B4;
+  &#x00B4;*/[Mm]akefile&#x00B4;</div>
+<div class="Pp"></div>
+List the files contained in a software distribution archive:
+<div class="Bd-indent">
+<div class="Pp"></div>
+pax -v -f distribution.tar.gz</div>
+<div class="Pp"></div>
+Write a <i>gzip</i>(1) compressed <i>ustar</i> archive containing all files
+  below the directory <i>project</i> to the file <i>project.tar.gz</i>,
+  excluding all directories named <i>CVS</i> or <i>SCCS</i> and their contents:
+<div class="Bd-indent">
+<div class="Pp"></div>
+find project -depth -print | egrep -v &#x00B4;/(CVS|SCCS)(/|$)&#x00B4; |
+<div>&#x00A0;</div>
+<br/>
+ pax -wd -x ustar | gzip -c &gt; project.tar.gz</div>
+<div class="Pp"></div>
+Copy the directory <i>work</i> and its contents to the directory
+  <i>savedfiles</i>, preserving all file attributes:
+<div class="Bd-indent">
+<div class="Pp"></div>
+pax -rw -pe work savedfiles</div>
+<div class="Pp"></div>
+Self-extracting zip archives are not automatically recognized, but can normally
+  be read using the <i>-K</i> option, as with
+<div class="Bd-indent">
+<div class="Pp"></div>
+pax -rK -x zip -f archive.exe
+<div class="Pp"></div>
+</div>
+<h1 class="Sh" title="Sh" id="ENVIRONMENT_VARIABLES"><a class="permalink" href="#ENVIRONMENT_VARIABLES">ENVIRONMENT
+  VARIABLES</a></h1>
+<dl class="Bl-tag">
+  <dt><b>LANG</b>, <b>LC_ALL</b></dt>
+  <dd>See <i>locale</i>(7).</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>LC_CTYPE</b></dt>
+  <dd>Selects the mapping of bytes to characters used for matching patterns and
+      regular expressions.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>LC_TIME</b></dt>
+  <dd>Sets the month names printed in list mode.</dd>
+</dl>
+<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+  ALSO</a></h1>
+cpio(1), find(1), tar(1)
+<h1 class="Sh" title="Sh" id="DIAGNOSTICS"><a class="permalink" href="#DIAGNOSTICS">DIAGNOSTICS</a></h1>
+<i>Pax</i> exits with
+<div class="Pp"></div>
+<table class="tbl">
+  <tr>
+    <td>0</td>
+    <td>after successful operation;</td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>on usage errors;</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>when operation was continued after minor errors;</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>on fatal error conditions.</td>
+  </tr>
+</table>
+<h1 class="Sh" title="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
+Device and inode numbers are used for hard link recognition with the various
+  cpio formats. Since the header space cannot hold large numbers present in
+  current file systems, devices and inode numbers are set on a per-archive
+  basis. This enables hard link recognition with all cpio formats, but the link
+  connection to files appended with <i>-a</i> is not preserved.
+<div class="Pp"></div>
+If a numeric user or group id does not fit within the size of the header field
+  in the selected format, files are stored with the user id (or group id,
+  respectively) set to 60001.
+<div class="Pp"></div>
+Use of the <i>-a</i> option with a <i>zip</i> format archive may cause data loss
+  if the archive was not previously created by <i>cpio</i> or <i>pax</i> itself.
+<div class="Pp"></div>
+If the file names passed to <i>pax -w</i> begin with a slash character, absolute
+  path names are stored in the archive and will be extracted to these path names
+  later regardless of the current working directory. This is normally not
+  advisable, and relative path names should be passed to <i>pax</i> only. The
+  <i>-s</i> option can be used to substitute relative for absolute path names
+  and vice-versa.
+<div class="Pp"></div>
+<i>Pax</i> does not currently accept the <b>-o delete</b>, <b>-o
+  exthdr.name</b>, <b>-o globexthdr.name</b>, <b>-o invalid</b>, <b>-o
+  listopt</b>, and <b>-o keyword</b> options from POSIX.1-2001.</div>
+<table class="foot">
+  <tr>
+    <td class="foot-date">9/5/05</td>
+    <td class="foot-os">Heirloom Toolchest</td>
+  </tr>
+</table>
+</body>
+</html>

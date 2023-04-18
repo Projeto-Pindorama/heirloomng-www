@@ -1,0 +1,58 @@
+/* Based on mandoc template */
+
+h1.Sh {
+	font-size: 20px;
+}
+
+td.head-rtitle, td.foot-os {
+	text-align: right;
+}
+
+td.head-vol {
+	text-align: center;
+}
+
+div.manual-text {
+	margin: auto;
+	padding-right: 0.5em;
+	padding-left: 0.5em;
+	max-width: 60em; 
+}
+
+div.Pp {
+	margin: 1ex 0ex;
+}
+
+div.Nd, div.Bf, div.Op { 
+	display: inline;
+}
+
+span.Pa, span.Ad {
+	font-style: italic;
+}
+
+span.Ms {
+	font-weight: bold;
+}
+
+dl.Bl-diag > dt {
+	font-weight: bold;
+}
+
+code.Nm, code.Fl, code.Cm, code.Ic, code.In, code.Fd, code.Fn, code.Cd {
+	font-weight: bold;
+	font-family: "Courier Prime", inherit;
+}
+
+table.head, table.foot {
+	width: 100%;
+}
+
+table.head {
+	border-bottom: 1px solid black;
+}
+
+table.foot {
+	margin-top: 20px;
+	border-top: 1px solid black;
+}

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<!-- This is an automatically generated file.  Do not edit.
+   Sccsid @(#)hd.1	1.8 (gritter) 12/5/04
+ -->
+<head>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="../../assets/mandoc.css" type="text/css" media="all"/>
+  <title>HD(1XNX)</title>
+</head>
+<body>
+<table class="head">
+  <tr>
+    <td class="head-ltitle">HD(1XNX)</td>
+    <td class="head-vol">XENIX System Compatibility</td>
+    <td class="head-rtitle">HD(1XNX)</td>
+  </tr>
+</table>
+<div class="manual-text">
+<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+hd - (XENIX) display files in hexadecimal format
+<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<b>hd</b> [ <b>-acbwlAxdov</b>] [ <b>-t</b>] [ <b>-s</b><i>&#x00A0;offset</i>] [
+  <b>-n</b><i>&#x00A0;count</i>] [ <i>files</i>]
+<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+The <i>hd</i> command displays the contents of the given <i>files</i> (or of
+  standard input if no such argument is present) in hexadecimal, decimal or
+  octal format, 16 bytes per line. It optionally displays printable ASCII
+  characters in the rightmost column. The file address is printed in the
+  leftmost column.
+<div class="Pp"></div>
+Output format selection is done with options; each format selection option
+  consists (optionally) of a format selector and a base selector.
+<div class="Pp"></div>
+The format selectors are as follows; if no format selector is present, the base
+  selector is applied to all available format selectors:
+<dl class="Bl-tag">
+  <dt><b>-b</b></dt>
+  <dd>Separates the input in bytes; each byte is printed as a numerical
+    value.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-c</b></dt>
+  <dd>Separates the input in bytes; each byte that is also a printable character
+      is printed as such, certain characters are printed as C language escapes,
+      others as a numerical value.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-w</b></dt>
+  <dd>Separates the input in 16-bit words; each word is printed as a numerical
+      value.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-l</b></dt>
+  <dd>Separates the input in 32-bit long words; each word is printed as a
+      numerical value.</dd>
+</dl>
+<div class="Pp"></div>
+The following base selectors are accepted; if the base selector is omitted, all
+  base selectors are applied to the chosen format selectors:
+<dl class="Bl-tag">
+  <dt><b>-o</b></dt>
+  <dd>Selects octal output.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-d</b></dt>
+  <dd>Selects unsigned decimal output.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-x</b></dt>
+  <dd>Selects hexadecimal output.</dd>
+</dl>
+<div class="Pp"></div>
+The format of the addresses at the left can also be selected by using the
+<dl class="Bl-tag">
+  <dt><b>-a</b></dt>
+  <dd>option followed by one of the base selectors; only one base selector is
+      applied. The default address base is hexadecimal.</dd>
+</dl>
+<div class="Pp"></div>
+The following options also affect the output format:
+<dl class="Bl-tag">
+  <dt><b>-A</b></dt>
+  <dd>Causes bytes that are printable characters to be displayed as such at the
+      right; nonprintable bytes are printed as `.'.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-t</b></dt>
+  <dd>Text file format; overrides all other format options except <i>-a</i>.
+      Each line of the input is preceded by its address; printable characters
+      are displayed as such, except for `\', `^', and '~', which are prefixed by
+      a `\' character. ASCII control characters are prefixed by `^'. Bytes with
+      the highest bit set that do not form a printable character are indicated
+      by '~', followed by the corresponding ASCII character as above.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-v</b></dt>
+  <dd>Unless <i>-t</i> is used, a set of immediately following indentical
+      16-byte sets is abbreviated by printing `*' for the second and further
+      ones. This option inhibits this behavior and causes all lines to be
+      displayed. This option is an extension.</dd>
+</dl>
+<div class="Pp"></div>
+If no output selection is present, the default is <i>-bxA</i>.
+<div class="Pp"></div>
+The following options affect the handling of input files:
+<dl class="Bl-tag">
+  <dt><b>-s</b><i>&#x00A0;offset</i></dt>
+  <dd>Selects a starting offset within each file. <i>Offset</i> is interpreted
+      as a decimal value unless prefixed by <b>0</b>, which causes
+      interpretation as an octal value, or <b>0x</b>, which causes
+      interpretation as a hexadecimal value. The suffixes <b>w</b>, <b>l</b>,
+      <b>b</b>, and <b>k</b> cause multiplication by 2 (`words'), 4 (`long
+      words'), 512 (`blocks'), or 1024 (`kilobytes'), respectively. Value and
+      suffix may be separated by a `*' character to suppress interpretation of
+      `b' as a hexadecimal digit.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-n</b><i>&#x00A0;count</i></dt>
+  <dd>Causes only <i>count</i> characters of the file to be displayed;
+      <i>count</i> is handled as the <i>offset</i> for <i>-s</i> described
+      above.</dd>
+</dl>
+<h1 class="Sh" title="Sh" id="ENVIRONMENT_VARIABLES"><a class="permalink" href="#ENVIRONMENT_VARIABLES">ENVIRONMENT
+  VARIABLES</a></h1>
+<dl class="Bl-tag">
+  <dt><b>LANG</b>, <b>LC_ALL</b></dt>
+  <dd>See <i>locale</i>(7).</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>LC_CTYPE</b></dt>
+  <dd>Selects the set of printable single-byte characters for the <i>-A</i> and
+      <i>-c</i> options and the set of printable characters for the <i>-t</i>
+      option.</dd>
+</dl>
+<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+  ALSO</a></h1>
+od(1)</div>
+<table class="foot">
+  <tr>
+    <td class="foot-date">12/5/04</td>
+    <td class="foot-os">Heirloom Toolchest</td>
+  </tr>
+</table>
+</body>
+</html>

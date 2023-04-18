@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<!-- This is an automatically generated file.  Do not edit.
+   Sccsid @(#)cmp.1	1.5 (gritter) 12/5/04
+   Parts taken from cmp(1), Unix 32V:
+   Copyright(C) Caldera International Inc. 2001-2002. All rights reserved.
+  
+   SPDX-Licence-Identifier: Caldera
+   -->
+<head>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="../../assets/mandoc.css" type="text/css" media="all"/>
+  <title>CMP(1)</title>
+</head>
+<body>
+<table class="head">
+  <tr>
+    <td class="head-ltitle">CMP(1)</td>
+    <td class="head-vol">User Commands</td>
+    <td class="head-rtitle">CMP(1)</td>
+  </tr>
+</table>
+<div class="manual-text">
+<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+cmp - compare two files
+<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<b>cmp</b> [<b>-l</b>] [<b>-s</b>] [<b>-w</b>] <i>file1 file2</i> [<i>skip1</i>
+  [ <i>skip2</i>]]
+<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+The two files are compared. (If a file is `-', the standard input is used.)
+  Under default options, <i>cmp</i> makes no comment if the files are the same;
+  if they differ, it announces the byte and line number at which the difference
+  occurred. If one file is an initial subsequence of the other, that fact is
+  noted. If <i>skip1</i> or <i>skip2</i> are given, the indicated number of
+  bytes is read from each file before the comparison starts. The <i>skip</i>
+  values may be either decimal or, if beginning with `0', octal.
+<div class="Pp"></div>
+Options:
+<dl class="Bl-tag">
+  <dt><b>-l</b></dt>
+  <dd>Print the byte number (decimal) and the differing bytes (octal) for each
+      difference.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-s</b></dt>
+  <dd>Print nothing for differing files; return codes only.</dd>
+</dl>
+<div class="Pp"></div>
+The following option is an extension:
+<dl class="Bl-tag">
+  <dt><b>-w</b></dt>
+  <dd>For each difference, the surrounding 8-byte unit, measured from the
+      beginning of the file, is printed for both files as a 64-bit MSB integer
+      in octal, and as a byte string, with non-ASCII and control characters
+      replaced by an underscore.</dd>
+</dl>
+<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+  ALSO</a></h1>
+diff(1), comm(1)
+<h1 class="Sh" title="Sh" id="DIAGNOSTICS"><a class="permalink" href="#DIAGNOSTICS">DIAGNOSTICS</a></h1>
+Exit code 0 is returned for identical files, 1 for different files, 2 for an
+  inaccessible or missing argument.</div>
+<table class="foot">
+  <tr>
+    <td class="foot-date">12/5/04</td>
+    <td class="foot-os">Heirloom Toolchest</td>
+  </tr>
+</table>
+</body>
+</html>

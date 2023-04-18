@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html>
+<!-- This is an automatically generated file.  Do not edit.
+   t
+   Copyright (c) 2003 Gunnar Ritter
+  
+   SPDX-Licence-Identifier: Zlib
+   Sccsid @(#)date.1	1.16 (gritter) 1/24/05
+ -->
+<head>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="../../assets/mandoc.css" type="text/css" media="all"/>
+  <title>DATE(1)</title>
+</head>
+<body>
+<table class="head">
+  <tr>
+    <td class="head-ltitle">DATE(1)</td>
+    <td class="head-vol">User Commands</td>
+    <td class="head-rtitle">DATE(1)</td>
+  </tr>
+</table>
+<div class="manual-text">
+<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+date - print or set the date
+<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<b>date</b> [<b>-u</b>] [<b>+</b><i>format</i>]
+<div>&#x00A0;</div>
+<b>date</b> [<b>-u</b>] [<b>-b</b>] <i>HHMM</i> |
+  <i>mmddHHMM</i>[[<i>cc</i>]<i>yy</i>]
+<div>&#x00A0;</div>
+<b>date</b> <b>-a</b> [<b>-</b>]<i>sss.fff</i>
+<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<b>Date</b> displays the current date if invoked without arguments or with a
+  <b>+</b><i>format</i> argument.
+<div class="Pp"></div>
+If the first argument does not start with <b>+</b>, <b>date</b> sets the system
+  time to the given value, which may consist of
+<div class="Pp"></div>
+<div class="Bd-indent">
+<table class="tbl">
+  <tr>
+    <td>mm</td>
+    <td>month of year (01&#x2013;12)</td>
+  </tr>
+  <tr>
+    <td>dd</td>
+    <td>day of month (01&#x2013;31)</td>
+  </tr>
+  <tr>
+    <td>HH</td>
+    <td>hour (00&#x2013;23)</td>
+  </tr>
+  <tr>
+    <td>MM</td>
+    <td>minute (00&#x2013;59)</td>
+  </tr>
+  <tr>
+    <td>cc</td>
+    <td>first two digits of year</td>
+  </tr>
+  <tr>
+    <td>yy</td>
+    <td>second two digits of year</td>
+  </tr>
+</table>
+</div>
+<div class="Pp"></div>
+The following options alter the behavior of <b>date</b>:
+<dl class="Bl-tag">
+  <dt><b>-a</b> [<i>-</i>]<i>sss.fff</i></dt>
+  <dd>Adjust the system clock by <i>sss</i> seconds and <i>fff</i> milliseconds,
+      speeding up or, with <i>-,</i> slowing down.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-u</b></dt>
+  <dd>Use <small>UTC</small> values for printing and setting the date.</dd>
+</dl>
+<div class="Pp"></div>
+The following option is an extension:
+<dl class="Bl-tag">
+  <dt><b>-b</b></dt>
+  <dd>Causes <i>date</i> not to alter the `wtmp' file for the system time
+      change.</dd>
+</dl>
+<div class="Pp"></div>
+An argument starting with <b>+</b> specifies a format string to print the
+  current date. A percent character <b>%</b> introduces a field descriptor with
+  one or two following characters which is replaced by a part of the current
+  date, as shown in the table below. Other characters are printed literally. A
+  newline character is printed at the end of the output.
+<dl class="Bl-tag">
+  <dt>Field descriptors:</dt>
+  <dd>
+    <table class="tbl">
+      <tr>
+        <td>a</td>
+        <td>locale-specific abbreviated weekday name (System&#x00A0;III)</td>
+      </tr>
+      <tr>
+        <td>.</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>A</td>
+        <td>locale-specific full weekday name (SVID3, POSIX.2)</td>
+      </tr>
+      <tr>
+        <td>b</td>
+        <td>locale-specific abbreviated month name (SVID3, POSIX.2)</td>
+      </tr>
+      <tr>
+        <td>B</td>
+        <td>locale-specific full month name (SVID3, POSIX.2)</td>
+      </tr>
+      <tr>
+        <td>c</td>
+        <td>locale-specific date and time (SVID3, POSIX.2)</td>
+      </tr>
+      <tr>
+        <td>C</td>
+        <td>century &#x2013; 19 or 20 (POSIX.2)
+          (<b>/opt/heirloom/bin/s42/date</b>, <b>/usr/5bin/posix/date</b>,
+          <b>/usr/5bin/posix2001/date</b>) default output format (
+          <b>/opt/heirloom/bin/date</b>)</td>
+      </tr>
+      <tr>
+        <td>d</td>
+        <td>day of month &#x2013; 01 to 31 (System&#x00A0;III)</td>
+      </tr>
+      <tr>
+        <td>D</td>
+        <td>date as mm/dd/yy (System&#x00A0;III)</td>
+      </tr>
+      <tr>
+        <td>e</td>
+        <td>day of month &#x2013; 1 to 31 (SVID3, POSIX.2)</td>
+      </tr>
+      <tr>
+        <td>F</td>
+        <td>date as yyyy-mm-dd</td>
+      </tr>
+      <tr>
+        <td>g</td>
+        <td>week-based year within century &#x2013; 00 to 99</td>
+      </tr>
+      <tr>
+        <td>G</td>
+        <td>week-based year including century &#x2013; 0000 to 9999</td>
+      </tr>
+      <tr>
+        <td>h</td>
+        <td>same as %b (System&#x00A0;III)</td>
+      </tr>
+      <tr>
+        <td>H</td>
+        <td>hour &#x2013; 00 to 23 (System&#x00A0;III)</td>
+      </tr>
+      <tr>
+        <td>I</td>
+        <td>hour &#x2013; 01 to 12 (SVID3, POSIX.2)</td>
+      </tr>
+      <tr>
+        <td>j</td>
+        <td>day of year &#x2013; 001 to 366 (System&#x00A0;III)</td>
+      </tr>
+      <tr>
+        <td>m</td>
+        <td>month of year &#x2013; 01 to 12 (System&#x00A0;III)</td>
+      </tr>
+      <tr>
+        <td>M</td>
+        <td>minute &#x2013; 00 to 59 (System&#x00A0;III)</td>
+      </tr>
+      <tr>
+        <td>n</td>
+        <td>newline character (System&#x00A0;III)</td>
+      </tr>
+      <tr>
+        <td>N</td>
+        <td>default output format</td>
+      </tr>
+      <tr>
+        <td>p</td>
+        <td>locale-specific AM/PM string (SVID3, POSIX.2)</td>
+      </tr>
+      <tr>
+        <td>r</td>
+        <td>locale-specific time using AM/PM notation (System&#x00A0;III)</td>
+      </tr>
+      <tr>
+        <td>R</td>
+        <td>same as %H:%M (SVID3)</td>
+      </tr>
+      <tr>
+        <td>S</td>
+        <td>second &#x2013; 00 to 61 (System&#x00A0;III)</td>
+      </tr>
+      <tr>
+        <td>t</td>
+        <td>tab character (System&#x00A0;III)</td>
+      </tr>
+      <tr>
+        <td>T</td>
+        <td>time as HH:MM:SS (System&#x00A0;III)</td>
+      </tr>
+      <tr>
+        <td>u</td>
+        <td>weekday &#x2013; 1 (Monday) to 7 (POSIX.2)</td>
+      </tr>
+      <tr>
+        <td>U</td>
+        <td>week of year (Sunday as first day of week) &#x2013; 00 to 53 (SVID3,
+          POSIX.2)</td>
+      </tr>
+      <tr>
+        <td>V</td>
+        <td>week of year (Monday as first day of week) &#x2013; 01 to 53
+          (POSIX.2)</td>
+      </tr>
+      <tr>
+        <td>w</td>
+        <td>weekday &#x2013; 0 (Sunday) to 6 (System&#x00A0;III)</td>
+      </tr>
+      <tr>
+        <td>W</td>
+        <td>week of year (Monday as first day of week) &#x2013; 00 to 53 (SVID3,
+          POSIX.2)</td>
+      </tr>
+      <tr>
+        <td>x</td>
+        <td>locale-specific date (POSIX.2)</td>
+      </tr>
+      <tr>
+        <td>X</td>
+        <td>locale-specific time (SVID3, POSIX.2)</td>
+      </tr>
+      <tr>
+        <td>y</td>
+        <td>last two digits of year &#x2013; 00 to 99 (System&#x00A0;III)</td>
+      </tr>
+      <tr>
+        <td>Y</td>
+        <td>four-digit year &#x2013; 1970 to 2037 (SVID3, POSIX.2)</td>
+      </tr>
+      <tr>
+        <td>z</td>
+        <td>numeric timezone</td>
+      </tr>
+      <tr>
+        <td>Z</td>
+        <td>timezone name (SVID3, POSIX.2)</td>
+      </tr>
+      <tr>
+        <td>%</td>
+        <td>percent sign (System&#x00A0;III)</td>
+      </tr>
+      <tr>
+        <td>Ec</td>
+        <td>alternative date and time (POSIX.2)</td>
+      </tr>
+      <tr>
+        <td>EC</td>
+        <td>alternative base year (period) (POSIX.2)</td>
+      </tr>
+      <tr>
+        <td>Ex</td>
+        <td>alternative date (POSIX.2)</td>
+      </tr>
+      <tr>
+        <td>EX</td>
+        <td>alternative time (SUSv2)</td>
+      </tr>
+      <tr>
+        <td>Ey</td>
+        <td>offset from %EC in years (POSIX.2)</td>
+      </tr>
+      <tr>
+        <td>EY</td>
+        <td>full alternative year (POSIX.2)</td>
+      </tr>
+      <tr>
+        <td>Od</td>
+        <td>day of month filled with leading zero using alternative numerals
+          (POSIX.2)</td>
+      </tr>
+      <tr>
+        <td>Oe</td>
+        <td>day of month filled with leading space using alternative numerals
+          (POSIX.2)</td>
+      </tr>
+      <tr>
+        <td>OH</td>
+        <td>24-hour clok using alternative numerals (POSIX.2)</td>
+      </tr>
+      <tr>
+        <td>OI</td>
+        <td>12-hour clock using alternative numerals (POSIX.2)</td>
+      </tr>
+      <tr>
+        <td>Om</td>
+        <td>month of year using alternative numerals (POSIX.2)</td>
+      </tr>
+      <tr>
+        <td>OM</td>
+        <td>minute using alternative numerals (POSIX.2)</td>
+      </tr>
+      <tr>
+        <td>OS</td>
+        <td>second using alternative numerals (POSIX.2)</td>
+      </tr>
+      <tr>
+        <td>Ou</td>
+        <td>weekday (Monday = 1) using alternative numerals (POSIX.2)</td>
+      </tr>
+      <tr>
+        <td>OU</td>
+        <td>week of year (cf. %U) using alternative numerals (POSIX.2)</td>
+      </tr>
+      <tr>
+        <td>OV</td>
+        <td>week of year (cf. %V) using alternative numerals (POSIX.2)</td>
+      </tr>
+      <tr>
+        <td>Ow</td>
+        <td>weekday (Sunday = 0) using alternative numerals (POSIX.2)</td>
+      </tr>
+      <tr>
+        <td>OW</td>
+        <td>week of year (cf. %W) using alternative numerals (POSIX.2)</td>
+      </tr>
+      <tr>
+        <td>Oy</td>
+        <td>year (offset from %C) using alternative numerals (POSIX.2)</td>
+      </tr>
+    </table>
+  </dd>
+</dl>
+<dl class="Bl-tag">
+  <dt>Compatibility references:</dt>
+  <dd>
+    <table class="tbl">
+      <tr>
+        <td>.</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>System III</td>
+        <td>AT&amp;T System III manual page
+          date(1).&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;</td>
+      </tr>
+      <tr>
+        <td>SVID3</td>
+        <td>AT&amp;T System V Interface Definition, Third Edition, Volume II,
+          1992, date(BU_CMD). Includes all field descriptors present in System
+          III.</td>
+      </tr>
+      <tr>
+        <td>POSIX.2</td>
+        <td>ISO/IEC 9945-2:1993(E), 4.15.4.1&#x2013;4.15.4.2, pp.
+          241&#x2013;242. Includes all field descriptors present in System
+          III.</td>
+      </tr>
+      <tr>
+        <td>SUSv2</td>
+        <td>The Open Group, Single UNIX Specification, Version 2, &#x00A9; 1997,
+          date(XCU). Includes all field descriptors present in POSIX.2.</td>
+      </tr>
+    </table>
+  </dd>
+</dl>
+<div class="Pp"></div>
+When no arguments are given, the format defaults to
+<div class="Bd-indent">
+<div class="Pp"></div>
+%a %b %e %H:%M:%S %Z %Y
+<div class="Pp"></div>
+</div>
+in the C or POSIX locale, resulting in an output like
+<div class="Bd-indent">
+<div class="Pp"></div>
+Wed Feb 26 17:48:54 CET 2003
+<div class="Pp"></div>
+</div>
+<h1 class="Sh" title="Sh" id="ENVIRONMENT_VARIABLES"><a class="permalink" href="#ENVIRONMENT_VARIABLES">ENVIRONMENT
+  VARIABLES</a></h1>
+<dl class="Bl-tag">
+  <dt><b>LANG, LC_ALL</b></dt>
+  <dd>See <i>locale</i>(7).</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>LC_TIME</b></dt>
+  <dd>Alters the strings printed when format arguments are given.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>TZ</b></dt>
+  <dd>Timezone; if unset, the system default is used.</dd>
+</dl>
+<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+  ALSO</a></h1>
+adjtime(2), stime(2), strftime(3), locale(7)
+<h1 class="Sh" title="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
+After setting the date, the <i>hwclock</i>(8) utility is called to adjust the
+  hardware clock on Linux systems.</div>
+<table class="foot">
+  <tr>
+    <td class="foot-date">1/24/05</td>
+    <td class="foot-os">Heirloom Toolchest</td>
+  </tr>
+</table>
+</body>
+</html>

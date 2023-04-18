@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+<!-- This is an automatically generated file.  Do not edit.
+   Sccsid @(#)sed.1	1.19 (gritter) 1/24/05
+   Derived from sed(1), Unix 7th edition:
+   Copyright(C) Caldera International Inc. 2001-2002. All rights reserved.
+  
+   SPDX-Licence-Identifier: Caldera
+   -->
+<head>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="../../assets/mandoc.css" type="text/css" media="all"/>
+  <title>SED(1)</title>
+</head>
+<body>
+<table class="head">
+  <tr>
+    <td class="head-ltitle">SED(1)</td>
+    <td class="head-vol">User Commands</td>
+    <td class="head-rtitle">SED(1)</td>
+  </tr>
+</table>
+<div class="manual-text">
+<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+sed - stream editor
+<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<b>sed</b> [<b>-n</b>] [<b>-e</b><i>&#x00A0;script</i>]
+  [<b>-f</b><i>&#x00A0;sfile</i>] [ <i>file</i>&#x00A0;.&#x00A0;.&#x00A0;.]
+<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<i>Sed</i> copies the named <i>files</i> (standard input default) to the
+  standard output, edited according to a script of commands. The <b>-f</b>
+  option causes the script to be taken from file <i>sfile</i>; these options
+  accumulate. If there is just one <b>-e</b> option and no <b>-f</b>'s, the flag
+  <b>-e</b> may be omitted. The <b>-n</b> option suppresses the default output.
+<div class="Pp"></div>
+A script consists of editing commands, one per line, of the following form:
+<dl class="Bl-tag">
+  <dt></dt>
+  <dd>[address [, address] ] function [arguments]</dd>
+</dl>
+<div class="Pp"></div>
+In normal operation <i>sed</i> cyclically copies a line of input into a
+  <i>pattern space</i> (unless there is something left after a `D' command),
+  applies in sequence all commands whose <i>addresses</i> select that pattern
+  space, and at the end of the script copies the pattern space to the standard
+  output (except under <b>-n</b>) and deletes the pattern space.
+<div class="Pp"></div>
+An <i>address</i> is either a decimal number that counts input lines
+  cumulatively across files, a `$' that addresses the last line of input, or a
+  context address, `/regular expression/', in the style of <i>ed</i>(1) modified
+  thus:
+<dl class="Bl-tag">
+  <dt></dt>
+  <dd>The escape sequence `\n' matches a newline embedded in the pattern
+    space.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt></dt>
+  <dd>A command line with no addresses selects every pattern space.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt></dt>
+  <dd>A command line with one address selects each pattern space that matches
+      the address.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt></dt>
+  <dd>A command line with two addresses selects the inclusive range from the
+      first pattern space that matches the first address through the next
+      pattern space that matches the second. (If the second address is a number
+      less than or equal to the line number first selected, only one line is
+      selected.) Thereafter the process is repeated, looking again for the first
+      address.</dd>
+</dl>
+<div class="Pp"></div>
+Editing commands can be applied only to non-selected pattern spaces by use of
+  the negation function `!' (below).
+<div class="Pp"></div>
+Regular expressions are simple regular expressions with
+  <b>/opt/heirloom/bin/sed</b>, and basic regular expressions with
+  <b>/opt/heirloom/bin/posix/sed</b>, <b>/opt/heirloom/bin/posix2001/sed</b>,
+  and <b>/opt/heirloom/bin/s42/sed</b>.
+<div class="Pp"></div>
+In the following list of functions the maximum number of permissible addresses
+  for each function is indicated in parentheses.
+<div class="Pp"></div>
+An argument denoted <i>text</i> consists of one or more lines, all but the last
+  of which end with `\' to hide the newline. Backslashes in text are treated
+  like backslashes in the replacement string of an `s' command.
+<div class="Pp"></div>
+An argument denoted <i>rfile</i> or <i>wfile</i> must terminate the command
+  line. <b>/opt/heirloom/bin/sed</b> and <b>/opt/heirloom/bin/s42/sed</b>
+  require that it is preceded by exactly one blank. Each <i>wfile</i> is created
+  before processing begins.
+<dl class="Bl-tag">
+  <dt>(1)<b>a\</b></dt>
+  <dd>
+    <div>&#x00A0;</div>
+  </dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><i>text</i></dt>
+  <dd>Append. Place <i>text</i> on the output before reading the next input
+      line.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt>(2)<b>b </b><i>label</i></dt>
+  <dd>Branch to the `:' command bearing the <i>label</i>. If <i>label</i> is
+      empty, branch to the end of the script.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt>(2)<b>c\</b></dt>
+  <dd>
+    <div>&#x00A0;</div>
+  </dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><i>text</i></dt>
+  <dd>Change. Delete the pattern space. With 0 or 1 address or at the end of a
+      2-address range, place <i>text</i> on the output. Start the next
+    cycle.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt>(2)<b>d</b></dt>
+  <dd>Delete the pattern space. Start the next cycle.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt>(2)<b>D</b></dt>
+  <dd>Delete the initial segment of the pattern space through the first newline.
+      Start the next cycle.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt>(2)<b>g</b></dt>
+  <dd>Replace the contents of the pattern space by the contents of the hold
+      space.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt>(2)<b>G</b></dt>
+  <dd>Append the contents of the hold space to the pattern space.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt>(2)<b>h</b></dt>
+  <dd>Replace the contents of the hold space by the contents of the pattern
+      space.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt>(2)<b>H</b></dt>
+  <dd>Append the contents of the pattern space to the hold space.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt>(1)<b>i\</b></dt>
+  <dd>
+    <div>&#x00A0;</div>
+  </dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><i>text</i></dt>
+  <dd>Insert. Place <i>text</i> on the standard output.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt>(2)<b>l</b></dt>
+  <dd>List the pattern space on the standard output in an unambiguous form.
+      Non-printing ASCII characters are spelled in two- or three-digit ASCII,
+      and long lines are folded.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt>(2)<b>n</b></dt>
+  <dd>Copy the pattern space to the standard output. Replace the pattern space
+      with the next line of input.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt>(2)<b>N</b></dt>
+  <dd>Append the next line of input to the pattern space with an embedded
+      newline. (The current line number changes.)</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt>(2)<b>p</b></dt>
+  <dd>Print. Copy the pattern space to the standard output.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt>(2)<b>P</b></dt>
+  <dd>Copy the initial segment of the pattern space through the first newline to
+      the standard output.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt>(1)<b>q</b></dt>
+  <dd>Quit. Branch to the end of the script. Do not start a new cycle.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt>(2)<b>r </b><i>rfile</i></dt>
+  <dd>Read the contents of <i>rfile</i>. Place them on the output before reading
+      the next input line.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt>(2)<b>s/</b><i>regular&#x00A0;expression</i><b>/</b><i>replacement</i><b>/</b><i>flags</i></dt>
+  <dd>Substitute the <i>replacement</i> string for instances of the <i>regular
+      expression</i> in the pattern space. Any character may be used instead of
+      `/'. For a fuller description see <i>ed</i>(1). <i>Flags</i> is zero or
+      more of</dd>
+</dl>
+<div class="Bd-indent">
+<dl class="Bl-tag">
+  <dt><b>g</b></dt>
+  <dd>Global. Substitute for all nonoverlapping instances of the <i>regular
+      expression</i> rather than just the first one.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><i>n</i></dt>
+  <dd><i>n</i>=1&#x2013;512. Substitute the <i>n</i>th occurrence of the
+      <i>regular expression</i> only.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>p</b></dt>
+  <dd>Print the pattern space if a replacement was made.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>w </b><i>wfile</i><b></b></dt>
+  <dd>Write. Append the pattern space to <i>wfile</i> if a replacement was
+    made.</dd>
+</dl>
+</div>
+<dl class="Bl-tag">
+  <dt>(2)<b>t </b><i>label</i></dt>
+  <dd>Test. Branch to the `:' command bearing the <i>label</i> if any
+      substitutions have been made since the most recent reading of an input
+      line or execution of a `t'. If <i>label</i> is empty, branch to the end of
+      the script.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt>(2)<b>w </b><i>wfile</i></dt>
+  <dd>Write. Append the pattern space to <i>wfile</i>.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt>(2)<b>x</b></dt>
+  <dd>Exchange the contents of the pattern and hold spaces.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt>(2)<b>y/</b><i>string1</i><b>/</b><i>string2</i><b>/</b></dt>
+  <dd>Transform. Replace all occurrences of characters in <i>string1</i> with
+      the corresponding character in <i>string2.</i> The lengths of
+      <i>string1</i> and <i>string2</i> must be equal.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt>(2)<b>! </b><i>function</i><b></b></dt>
+  <dd>Don't. Apply the <i>function</i> (or group, if <i>function</i> is `{')
+      only to lines <i>not</i> selected by the address(es).</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt>(0)<b>: </b><i>label</i></dt>
+  <dd>This command does nothing; it bears a <i>label</i> for `b' and `t'
+      commands to branch to.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt>(1)<b>=</b></dt>
+  <dd>Place the current line number on the standard output as a line.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt>(2)<b>{</b></dt>
+  <dd>Execute the following commands through a matching `}' only when the
+      pattern space is selected.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt>(0)</dt>
+  <dd>An empty command is ignored.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt>(0)<b>#</b></dt>
+  <dd>Ignore the entire line, except when the first two characters in the script
+      are <b>#n</b>, which has the same effect as the <i>-n</i> command line
+      option.</dd>
+</dl>
+<h1 class="Sh" title="Sh" id="ENVIRONMENT_VARIABLES"><a class="permalink" href="#ENVIRONMENT_VARIABLES">ENVIRONMENT
+  VARIABLES</a></h1>
+<dl class="Bl-tag">
+  <dt><b>LANG</b>, <b>LC_ALL</b></dt>
+  <dd>See <i>locale</i>(7).</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>LC_COLLATE</b></dt>
+  <dd>Affects the collation order for range expressions, equivalence classes,
+      and collation symbols in basic regular expressions.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>LC_CTYPE</b></dt>
+  <dd>Determines the mapping of bytes to characters in both simple and basic
+      regular expressions, for the <b>l</b> and <b>y</b> commands, and the
+      availability and composition of character classes in basic regular
+      expressions.</dd>
+</dl>
+<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+  ALSO</a></h1>
+ed(1), grep(1), awk(1), locale(7)</div>
+<table class="foot">
+  <tr>
+    <td class="foot-date">1/24/05</td>
+    <td class="foot-os">Heirloom Toolchest</td>
+  </tr>
+</table>
+</body>
+</html>

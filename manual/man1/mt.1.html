@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<!-- This is an automatically generated file.  Do not edit.
+   Sccsid @(#)mt.1	1.6 (gritter) 1/15/04
+ -->
+<head>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="../../assets/mandoc.css" type="text/css" media="all"/>
+  <title>MT(1)</title>
+</head>
+<body>
+<table class="head">
+  <tr>
+    <td class="head-ltitle">MT(1)</td>
+    <td class="head-vol">User Commands</td>
+    <td class="head-rtitle">MT(1)</td>
+  </tr>
+</table>
+<div class="manual-text">
+<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+mt - magnetic tape utility
+<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<b>mt</b> [<b>-v</b>] [<b>-f&#x00A0;</b><i>device</i>] <i>command</i>
+  [<i>count</i>]
+<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+The <i>mt</i> command performs certain control operations on tape devices. If no
+  <i>device</i> is specified with the <b>-f</b> option and the <i>TAPE</i>
+  environment is not set, the device /dev/rmt/c0s0n is used.
+<div class="Pp"></div>
+The <i>command</i> argument may be one of:
+<dl class="Bl-tag">
+  <dt><b>erase</b></dt>
+  <dd>Erase the entire tape.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>rewind</b></dt>
+  <dd>Rewind the tape.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>retension</b>, <b>ret</b></dt>
+  <dd>Rewind the tape, then wind it to the end of reel, and rewind it
+    again.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>wfm</b>, <b>eof</b>, <b>weof</b></dt>
+  <dd>Write a file mark at the current position.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>sfm</b>, <b>fsf</b></dt>
+  <dd>Seek past the next file mark.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>bsf</b></dt>
+  <dd>Seek back over the previous file mark.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>fsr</b></dt>
+  <dd>Seek forward to next record.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>bsf</b></dt>
+  <dd>Seek backward to previous record.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>enddata</b>, <b>append</b>, <b>feom</b></dt>
+  <dd>Seek past the end of written data.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>offline</b>, <b>rewoffl</b></dt>
+  <dd>Rewind the tape and place the tape unit offline.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>status</b></dt>
+  <dd>Report the status of the tape device.</dd>
+</dl>
+<div class="Pp"></div>
+The optional <i>count</i> argument specifies the number of blocks or records to
+  seek, marks to be written, etc.
+<div class="Pp"></div>
+The <b>-v</b> option causes <i>mt</i> to report the status of the tape device.
+<h1 class="Sh" title="Sh" id="ENVIRONMENT_VARIABLES"><a class="permalink" href="#ENVIRONMENT_VARIABLES">ENVIRONMENT
+  VARIABLES</a></h1>
+<dl class="Bl-tag">
+  <dt>TAPE</dt>
+  <dd>Used as tape device if no device argument is given on the command
+    line.</dd>
+</dl>
+</div>
+<table class="foot">
+  <tr>
+    <td class="foot-date">1/15/04</td>
+    <td class="foot-os">Heirloom Toolchest</td>
+  </tr>
+</table>
+</body>
+</html>

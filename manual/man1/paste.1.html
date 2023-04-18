@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<!-- This is an automatically generated file.  Do not edit.
+   t
+   Copyright (c) 2003 Gunnar Ritter
+  
+   SPDX-Licence-Identifier: Zlib
+  
+   Sccsid @(#)paste.1	1.5 (gritter) 4/17/03
+ -->
+<head>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="../../assets/mandoc.css" type="text/css" media="all"/>
+  <title>PASTE(1)</title>
+</head>
+<body>
+<table class="head">
+  <tr>
+    <td class="head-ltitle">PASTE(1)</td>
+    <td class="head-vol">User Commands</td>
+    <td class="head-rtitle">PASTE(1)</td>
+  </tr>
+</table>
+<div class="manual-text">
+<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+paste - merge same lines of several files or subsequent lines of one file
+<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<b>paste</b><i> file1 file2</i> .&#x00A0;.&#x00A0;.
+<div>&#x00A0;</div>
+<b>paste</b><b> -d</b><i>list</i><i> file1 file2</i> .&#x00A0;.&#x00A0;.
+<div>&#x00A0;</div>
+<b>paste</b><b> -s</b> [<b>-d</b><i>list</i>] <i>file1 file2</i>
+  .&#x00A0;.&#x00A0;.
+<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+The <b>paste</b> command, as shown in the first two synopsis forms, will combine
+  each set of corresponding lines of the given <i>files</i> to one single line,
+  separated by delimiters, a tabulator (\t) character by default. If a file
+  contains fewer lines than others, nothing is printed between the delimiters.
+<div class="Pp"></div>
+In the third synopsis form, <b>paste</b> serially combines all lines of each
+  <i>file</i> to one single line, separated by delimiters. One line per file
+  results.
+<div class="Pp"></div>
+If a <i>file</i> is ` <b>-</b>', standard input is read.
+<div class="Pp"></div>
+The <b>paste</b> command accepts the following options:
+<dl class="Bl-tag">
+  <dt><b>-d</b><i> list</i></dt>
+  <dd>Sets the delimiter characters. Each single character in <i>list</i> is
+      used in the given order to separate fields (former lines of input). If
+      <i>list</i> is exhausted, or a new set of corresponding lines begins, or
+      (with the -s option) a new file is printed, the sequence is repeated
+      starting at the first character. The following character sequences in
+      <i>list</i> are special:</dd>
+</dl>
+<div class="Bd-indent">
+<div class="Pp"></div>
+<table class="tbl">
+  <tr>
+    <td>\n</td>
+    <td>Newline character.</td>
+  </tr>
+  <tr>
+    <td>\t</td>
+    <td>Tabulator character.</td>
+  </tr>
+  <tr>
+    <td>\\</td>
+    <td>Backslash character.</td>
+  </tr>
+  <tr>
+    <td>\0</td>
+    <td>No delimiter at all.</td>
+  </tr>
+</table>
+<div class="Pp"></div>
+</div>
+<dl class="Bl-tag">
+  <dt><b>-s</b></dt>
+  <dd>Selects the third synopsis form (serial paste).</dd>
+</dl>
+<h1 class="Sh" title="Sh" id="ENVIRONMENT_VARIABLES"><a class="permalink" href="#ENVIRONMENT_VARIABLES">ENVIRONMENT
+  VARIABLES</a></h1>
+<dl class="Bl-tag">
+  <dt><b>LANG</b>, <b>LC_ALL</b></dt>
+  <dd>See <i>locale</i>(7).</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>LC_CTYPE</b></dt>
+  <dd>Determines the mapping of bytes to characters for the argument of the
+      <b>-d</b> option.</dd>
+</dl>
+<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+  ALSO</a></h1>
+cut(1), locale(7)</div>
+<table class="foot">
+  <tr>
+    <td class="foot-date">4/17/03</td>
+    <td class="foot-os">Heirloom Toolchest</td>
+  </tr>
+</table>
+</body>
+</html>

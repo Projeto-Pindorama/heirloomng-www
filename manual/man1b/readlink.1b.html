@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<!-- This is an automatically generated file.  Do not edit.
+   Copyright (c) 2023 Luiz Ant\[u00F4]nio Rangel
+  
+   SPDX-Licence-Identifier: Zlib
+   -->
+<head>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="../../assets/mandoc.css" type="text/css" media="all"/>
+  <title>READLINK(1B)</title>
+</head>
+<body>
+<table class="head">
+  <tr>
+    <td class="head-ltitle">READLINK(1B)</td>
+    <td class="head-vol">BSD System Compatibility</td>
+    <td class="head-rtitle">READLINK(1B)</td>
+  </tr>
+</table>
+<div class="manual-text">
+<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+readlink - (BSD) displays the target of a symbolic link
+<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<b>readlink</b> [<b>-fn</b>] <i>file</i>
+<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<b>The readlink</b> utility, when called with the path of a symbolic link as its
+  argument, displays the real path/target of it at the standard output.
+<div class="Pp"></div>
+<div class="Pp"></div>
+It accepts the following options:
+<dl class="Bl-tag">
+  <dt><b>-f</b></dt>
+  <dd>Follows the symbolic link until it reaches the original target,
+      recursively.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-n</b></dt>
+  <dd>Does not print a newline character at the end of the output string.</dd>
+</dl>
+<div class="Pp"></div>
+If <b>readlink</b> is invoked without the <b>-f</b> option and with other
+  argument than the path of a symbolic link, it will exit with a non-zero exit
+  code without anything being printed.
+<h1 class="Sh" title="Sh" id="EXAMPLES"><a class="permalink" href="#EXAMPLES">EXAMPLES</a></h1>
+The readlink utility may be used at shell scripts for displaying/modifying the
+  real file behind a symbolic link. For instance, it can be used to find the
+  real program behind a process on the <b>/proc</b> directory.
+<dl class="Bl-tag">
+  <dt></dt>
+  <dd><b>readlink -f /proc/$$/exe</b></dd>
+</dl>
+<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+  ALSO</a></h1>
+ln(1), ls(1), file(1), readlink(2), realpath(3)
+<h1 class="Sh" title="Sh" id="HISTORY"><a class="permalink" href="#HISTORY">HISTORY</a></h1>
+The <b>readlink</b> utility first appeared in OpenBSD 2.1, NetBSD 1.6 and
+  FreeBSD 4.10.</div>
+<table class="foot">
+  <tr>
+    <td class="foot-date">02/23/23</td>
+    <td class="foot-os">Heirloom Toolchest</td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<!-- This is an automatically generated file.  Do not edit.
+   Copyright (c) 2003 Gunnar Ritter
+  
+   SPDX-Licence-Identifier: Zlib
+  
+   Sccsid @(#)news.1	1.4 (gritter) 4/17/03
+ -->
+<head>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="../../assets/mandoc.css" type="text/css" media="all"/>
+  <title>NEWS(1)</title>
+</head>
+<body>
+<table class="head">
+  <tr>
+    <td class="head-ltitle">NEWS(1)</td>
+    <td class="head-vol">User Commands</td>
+    <td class="head-rtitle">NEWS(1)</td>
+  </tr>
+</table>
+<div class="manual-text">
+<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+news - print news items
+<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<b>news</b> [<b>-a</b>] [<b>-n</b>] [<b>-s</b>] [<i>items</i>]
+<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+The <b>news</b> command prints files from the systems news directory that have
+  been added or modified since its previous invocation, preceded by a header,
+  starting with the most recent file.
+<div class="Pp"></div>
+It accepts the following options:
+<dl class="Bl-tag">
+  <dt><b>-a</b></dt>
+  <dd>Print all files in the system news directory. The recorded time of the
+      previous invocation is not changed.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-n</b></dt>
+  <dd>Print only the names of added or modified files. The recorded time of the
+      previous invocation is not changed.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-s</b></dt>
+  <dd>Print only the count of added or modified files. The recorded time of the
+      previous invocation is not changed.</dd>
+</dl>
+<h1 class="Sh" title="Sh" id="ENVIRONMENT_VARIABLES"><a class="permalink" href="#ENVIRONMENT_VARIABLES">ENVIRONMENT
+  VARIABLES</a></h1>
+<dl class="Bl-tag">
+  <dt><b>HOME</b></dt>
+  <dd>User's home directory.</dd>
+</dl>
+<h1 class="Sh" title="Sh" id="FILES"><a class="permalink" href="#FILES">FILES</a></h1>
+<dl class="Bl-tag">
+  <dt><b>$HOME/.news_time</b></dt>
+  <dd>The time of the previous invocation is recorded as the modification time
+      of this file.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>/var/news</b></dt>
+  <dd>System news directory.</dd>
+</dl>
+</div>
+<table class="foot">
+  <tr>
+    <td class="foot-date">4/17/03</td>
+    <td class="foot-os">Heirloom Toolchest</td>
+  </tr>
+</table>
+</body>
+</html>

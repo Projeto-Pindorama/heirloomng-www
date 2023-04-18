@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<!-- This is an automatically generated file.  Do not edit.
+   Copyright (c) 2003 Gunnar Ritter
+  
+   SPDX-Licence-Identifier: Zlib
+   Sccsid @(#)df.1	1.32 (gritter) 12/9/04
+ -->
+<head>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="../../assets/mandoc.css" type="text/css" media="all"/>
+  <title>DF(1)</title>
+</head>
+<body>
+<table class="head">
+  <tr>
+    <td class="head-ltitle">DF(1)</td>
+    <td class="head-vol">User Commands</td>
+    <td class="head-rtitle">DF(1)</td>
+  </tr>
+</table>
+<div class="manual-text">
+<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+df, dfspace - disk free
+<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<div class="Pp"></div>
+<div class="HP"><b>df</b> [<b>-F</b><i>&#x00A0;fstype</i>]
+  [<b>-M</b><i>&#x00A0;mtab</i>] [ <b>-o</b><i>&#x00A0;fsoptions</i>]
+  [<b>-befghiklnPtv</b>] [ <i>file</i>&#x00A0;...]</div>
+<div class="Pp"></div>
+<b>dfspace</b> [<b>-F</b><i>&#x00A0;fstype</i>] [<i>file</i> ...]
+<div>&#x00A0;</div>
+<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+Df prints file system statistics. A file system is selected by a file it
+  contains, or by its device file, as specified by the <i>file</i> argument. If
+  no <i>file</i> argument is given, statistics are printed for all mounted file
+  systems. The basic size unit is a <i>block</i> consisting of 512 bytes.
+<div class="Pp"></div>
+<b>dfspace</b> prints available and total disk space in megabyte units.
+<div class="Pp"></div>
+The <b>df</b> command accepts the following options:
+<dl class="Bl-tag">
+  <dt><b>-b</b></dt>
+  <dd>Print only the number of kilobytes free.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-be</b></dt>
+  <dd>Print counts of free kilobytes and available files.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-e</b></dt>
+  <dd>Print only the number of available files.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-f</b></dt>
+  <dd>Omit the number of available files in traditional output format.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-F</b><i>&#x00A0;fstype</i></dt>
+  <dd>Restrict output to filesystems of type <i>fstype.</i></dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-g</b></dt>
+  <dd>Print the entire <i>statvfs</i>(2) structure. Overrides the -b, -e, -k,
+      -n, -P, and -t options.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-k</b></dt>
+  <dd>If given alone, the allocation is printed in kbytes, and a different
+      output format is used. If combined with the -P option, the size unit is
+      changed from blocks to kbytes. Overrides the -b, -e, -f, -n, -t, and -v
+      options.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-l</b></dt>
+  <dd>Omit statistics about non-local file systems. Currently, file systems with
+      types of <b>nfs</b> and <b>smbfs</b> are considered to be non-local.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-n</b></dt>
+  <dd>Print the file system mount point and file system type only.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-o</b><i>&#x00A0;fsoptions</i></dt>
+  <dd>Specifiy file-system specific options. There are none so this option will
+      always cause an error message.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-t</b></dt>
+  <dd>Use the traditional output format as it is the default, but include total
+      allocated-space figures in the output. Overrides the -b, -e and -n
+      options.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-v</b></dt>
+  <dd>Select verbose output format, that is, mount point, device; total, used,
+      and free block counts; and usage in percent.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-V</b></dt>
+  <dd>Print command lines for each file system only.</dd>
+</dl>
+<div class="Pp"></div>
+The following option has been introduced by POSIX.2:
+<dl class="Bl-tag">
+  <dt><b>-P</b></dt>
+  <dd>Select the portable <small>(POSIX)</small> output format.</dd>
+</dl>
+<div class="Pp"></div>
+The following options are extensions:
+<dl class="Bl-tag">
+  <dt><b>-h</b></dt>
+  <dd>Prints the sizes in human-readable powers of 1024, i.e. `K' for kilobyte,
+      `M' for megabyte, `G' for gigabyte, `T' for terabyte, `P' for petabyte,
+      and `E' for exabyte.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-i</b></dt>
+  <dd>Print i-node statistics.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-M</b><i>&#x00A0;mtab</i></dt>
+  <dd>Use the specified <i>mtab</i> file to get a list of mounted
+    filesystems.</dd>
+</dl>
+<h1 class="Sh" title="Sh" id="FILES"><a class="permalink" href="#FILES">FILES</a></h1>
+<dl class="Bl-tag">
+  <dt><b>/etc/mtab</b></dt>
+  <dd>default mount table</dd>
+</dl>
+<h1 class="Sh" title="Sh" id="ENVIRONMENT_VARIABLES"><a class="permalink" href="#ENVIRONMENT_VARIABLES">ENVIRONMENT
+  VARIABLES</a></h1>
+<dl class="Bl-tag">
+  <dt><b>SYSV3</b></dt>
+  <dd>If this variable is set, the output text `files' is changed to
+    `i-nodes'.</dd>
+</dl>
+<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+  ALSO</a></h1>
+find(1), statvfs(2), mtab(5), mount(8)
+<h1 class="Sh" title="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
+This <i>df</i> implementation cannot handle unmounted file systems.
+<div class="Pp"></div>
+Some advanced file system designs allocate i-nodes dynamically. <i>Df</i> then
+  tries to estimate free and total counts of available files. This is currently
+  done for the <i>reiserfs</i> file system.</div>
+<table class="foot">
+  <tr>
+    <td class="foot-date">12/9/04</td>
+    <td class="foot-os">Heirloom Toolchest</td>
+  </tr>
+</table>
+</body>
+</html>

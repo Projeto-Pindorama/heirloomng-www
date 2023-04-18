@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html>
+<!-- This is an automatically generated file.  Do not edit.
+   t
+   Sccsid @(#)find.1	1.44 (gritter) 8/14/05
+   Parts taken from find(1), Unix 7th edition:
+   Copyright(C) Caldera International Inc. 2001-2002. All rights reserved.
+  
+   SPDX-Licence-Identifier: Caldera
+   -->
+<head>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="../../assets/mandoc.css" type="text/css" media="all"/>
+  <title>FIND(1)</title>
+</head>
+<body>
+<table class="head">
+  <tr>
+    <td class="head-ltitle">FIND(1)</td>
+    <td class="head-vol">User Commands</td>
+    <td class="head-rtitle">FIND(1)</td>
+  </tr>
+</table>
+<div class="manual-text">
+<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+find - find files
+<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<b>find</b> <i>pathname-list expression</i>
+<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<i>Find</i> recursively descends the directory hierarchy for each pathname in
+  the <i>pathname-list</i> (i.e., one or more pathnames) seeking files that
+  match a boolean <i>expression</i> written in the primaries given below. In the
+  descriptions, the argument <i>n</i> is used as a decimal integer where
+  <i>+n</i> means more than <i>n,</i> <i>-n</i> means less than <i>n</i> and
+  <i>n</i> means exactly <i>n</i>.
+<dl class="Bl-tag">
+  <dt><b>-name</b> filename</dt>
+  <dd>True if the <i>filename</i> argument matches the current file name. Normal
+      Shell argument syntax as described in <i>glob</i>(7) may be used if
+      escaped (watch out for `[', `?' and `*'). The internationalization
+      constructs `[[:class:]]', `[[=e=]]', and `[[.cs.]]' are understood with
+      <b>/opt/heirloom/bin/s42/find</b>, <b>/opt/heirloom/bin/posix/find</b>,
+      and <b>/opt/heirloom/bin/posix2001/find</b>, but not with
+      <b>/opt/heirloom/bin/find</b>.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-perm</b> mode</dt>
+  <dd>True if the file permission flags exactly match the octal number or
+      symbolic <i>mode</i> (see <i>chmod</i>(1)). If <i>mode</i> is prefixed by
+      a minus sign, the flags are compared: <i>(flags&amp;mode)==mode</i>.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-type</b> c</dt>
+  <dd>True if the type of the file is <i>c,</i> where <i>c</i> is
+    <div class="Pp"></div>
+    <table class="tbl">
+      <tr>
+        <td>b</td>
+        <td>block special file;</td>
+      </tr>
+      <tr>
+        <td>c</td>
+        <td>character special file;</td>
+      </tr>
+      <tr>
+        <td>d</td>
+        <td>directory;</td>
+      </tr>
+      <tr>
+        <td>D</td>
+        <td>Solaris door;</td>
+      </tr>
+      <tr>
+        <td>f</td>
+        <td>plain file;</td>
+      </tr>
+      <tr>
+        <td>l</td>
+        <td>symbolic link;</td>
+      </tr>
+      <tr>
+        <td>n</td>
+        <td>HP-UX network special file;</td>
+      </tr>
+      <tr>
+        <td>p</td>
+        <td>named pipe;</td>
+      </tr>
+      <tr>
+        <td>s</td>
+        <td>socket.</td>
+      </tr>
+    </table>
+  </dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-follow</b></dt>
+  <dd>Always true; causes find to follow symbolic links. The ` <b>-type</b> l'
+      condition never occurs in this case.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-links</b> n</dt>
+  <dd>True if the file has <i>n</i> links.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-user</b> uname</dt>
+  <dd>True if the file belongs to the user <i>uname</i> (login name or numeric
+      user ID).</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-group</b> gname</dt>
+  <dd>True if the file belongs to group <i>gname</i> (group name or numeric
+      group ID).</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-size</b> n[<b>c</b>]</dt>
+  <dd>True if the file is <i>n</i> blocks long (512 bytes per block), or, with
+      <b>c</b>, <i>n</i> bytes long.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-inum</b> n</dt>
+  <dd>True if the file has inode number <i>n.</i></dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-atime</b> n</dt>
+  <dd>True if the file has been accessed in <i>n</i> days.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-mtime</b> n</dt>
+  <dd>True if the file has been modified in <i>n</i> days.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-ctime</b> n</dt>
+  <dd>True if the file inode has been changed in <i>n</i> days.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-exec</b> command ... <b>;</b></dt>
+  <dd>True if the executed command returns a zero value as exit status. The end
+      of the command must be punctuated by an (escaped) semicolon. A command
+      argument `{}' is replaced by the current pathname.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-exec</b> command ... <b>{} +</b></dt>
+  <dd>Always true. The <b>{}</b> argument is replaced by a set of aggregated
+      pathnames. Each pathname is passed to the command as a single argument.
+      Every time a limit of arguments is reached by the pathnames found so far,
+      the command is executed, and aggregating starts using a new set beginning
+      with the next pathname. If any invocation of command returns a non-zero
+      exit status, find will return a non-zero exit status when its processing
+      is done.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-ok</b> command ... <b>;</b></dt>
+  <dd>Like <b>-exec</b> except that the generated command is written on the
+      standard output, then the standard input is read and the command executed
+      only upon response <b>y</b>.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-print</b></dt>
+  <dd>Always true; causes the current pathname to be printed. If no expression
+      is given, <b>-print</b> is used per default (as a change introduced by
+      POSIX.2).</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-newer</b> file</dt>
+  <dd>True if the current file has been modified more recently than the argument
+      <i>file.</i></dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-anewer</b> file</dt>
+  <dd>True if the current file has been accessed more recently than the argument
+      <i>file</i> was modified. This primary is an extension.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-cnewer</b> file</dt>
+  <dd>True if a status change has occurred on the current file more recently
+      than the argument <i>file</i> was modified. This primary is an
+    extension.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-depth</b></dt>
+  <dd>Always true; causes the contents of each directory to be examined before
+      the directory itselves.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-fstype</b> type</dt>
+  <dd>True if the current file resides on a file system of the given type.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-local</b></dt>
+  <dd>True if the file is on a local file system. Are file system types except
+      for <i>nfs</i> and <i>smbfs</i> are currently considered local.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-mount</b></dt>
+  <dd>Always true; restricts the search to directories that have the same device
+      id as the currently examined path operand.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-xdev</b></dt>
+  <dd>The same as <b>-mount</b>. This primary has been introduced by POSIX.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-nouser</b></dt>
+  <dd>True if the file is owned by a user that has no login name.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-nogroup</b></dt>
+  <dd>True if the file is owned by a group that lacks a group name.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-prune</b></dt>
+  <dd>Always true. Causes the search for the current path to be stopped once the
+      primary is evaluated. When combined with <b>-depth</b>, <b>-prune</b> has
+      no effect.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-cpio</b> device</dt>
+  <dd>Always true. Writes the file on the named device in binary cpio format
+      (5120-byte records). Implies <b>-depth</b>.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-ncpio</b> device</dt>
+  <dd>Always true. Writes the file on the named device in SVR4 ASCII cpio format
+      (5120-byte records). Implies <b>-depth</b>.</dd>
+</dl>
+<div class="Pp"></div>
+The primaries may be combined using the following operators (in order of
+  decreasing precedence):
+<dl class="Bl-tag">
+  <dt>1)</dt>
+  <dd>A parenthesized group of primaries and operators (parentheses are special
+      to the Shell and must be escaped).</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt>2)</dt>
+  <dd>The negation of a primary (`!' is the unary <i>not</i> operator).</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt>3)</dt>
+  <dd>Concatenation of primaries (the <i>and</i> operation is implied by the
+      juxtaposition of two primaries or by an explicit <b>-a</b> operator).</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt>4)</dt>
+  <dd>Alternation of primaries (`<b>-o</b>' is the <i>or</i> operator).</dd>
+</dl>
+<div class="Pp"></div>
+Options have been introduced by POSIX.1-2001 in addition to the expression
+  operators. They must preceed the <i>pathname-list</i> one the command line and
+  have no effect on boolean expression processing.
+<dl class="Bl-tag">
+  <dt><b>-H</b></dt>
+  <dd>Follow symbolic links given on the command line, but do not follow
+      symbolic links encountered during directory traversal.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-L</b></dt>
+  <dd>Follow all symbolic links found, like the <i>-follow</i> primary.</dd>
+</dl>
+<div class="Pp"></div>
+With the <i>-follow</i> primary or the <i>-L</i> option, hierarchy loops caused
+  by symbolic links are detected, but only
+  <b>/opt/heirloom/bin/posix2001/find</b> prints an error message. The offending
+  link is not followed, and operation continues with the next directory entry
+  found.
+<h1 class="Sh" title="Sh" id="EXAMPLES"><a class="permalink" href="#EXAMPLES">EXAMPLES</a></h1>
+To remove all files named `a.out' or `*.o' that have not been accessed for a
+  week:
+<dl class="Bl-tag">
+  <dt>
+  <div class="Pp"></div>
+  </dt>
+  <dd>find / \( -name a.out -o -name &#x00B4;*.o&#x00B4; \) -atime +7 -exec rm
+      {} \;</dd>
+</dl>
+<div class="Pp"></div>
+The rm command is executed once for each file. The form
+<dl class="Bl-tag">
+  <dt>
+  <div class="Pp"></div>
+  </dt>
+  <dd>find / \( -name a.out -o -name &#x00B4;*.o&#x00B4; \) -atime +7 -exec rm
+      {} +</dd>
+</dl>
+<div class="Pp"></div>
+is faster since the rm command is executed with a set of pathnames.
+<div class="Pp"></div>
+To find all files below the directory `documents' that contain the regular
+  expression `string':
+<dl class="Bl-tag">
+  <dt>
+  <div class="Pp"></div>
+  </dt>
+  <dd>find documents -type f -exec grep string {} +</dd>
+</dl>
+<div class="Pp"></div>
+To find all files in the directory `home', not descending into its
+  subdirectories:
+<dl class="Bl-tag">
+  <dt>
+  <div class="Pp"></div>
+  </dt>
+  <dd>find home ! -name home -prune</dd>
+</dl>
+<div class="Pp"></div>
+To check whether the file `diary' has been updated within the last two days; the
+  name of the file is printed if true, and is not printed otherwise:
+<dl class="Bl-tag">
+  <dt>
+  <div class="Pp"></div>
+  </dt>
+  <dd>find diary -prune -mtime -2</dd>
+</dl>
+<h1 class="Sh" title="Sh" id="FILES"><a class="permalink" href="#FILES">FILES</a></h1>
+/etc/passwd
+<div>&#x00A0;</div>
+/etc/group
+<h1 class="Sh" title="Sh" id="ENVIRONMENT_VARIABLES"><a class="permalink" href="#ENVIRONMENT_VARIABLES">ENVIRONMENT
+  VARIABLES</a></h1>
+<dl class="Bl-tag">
+  <dt><b>LANG</b>, <b>LC_ALL</b></dt>
+  <dd>See <i>locale</i>(7).</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>LC_COLLATE</b></dt>
+  <dd>Affects the collation order for range expressions, equivalence classes,
+      and collation symbols in patterns with <b>/opt/heirloom/bin/s42/find</b>,
+      <b>/opt/heirloom/bin/posix/find</b>, and
+      <b>/opt/heirloom/bin/posix2001/find</b>.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>LC_CTYPE</b></dt>
+  <dd>Determines the mapping of bytes to characters and character class
+      expressions in patterns.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>SYSV3</b></dt>
+  <dd>Causes the text of some diagnostic messages to be changed; causes
+      <i>-ncpio</i> to create traditional ASCII cpio format archives.</dd>
+</dl>
+<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+  ALSO</a></h1>
+chmod(1), cpio(1), pax(1), sh(1), xargs(1), stat(2), glob(7), locale(7)
+<h1 class="Sh" title="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
+Undesired effects can result if file names printed by <i>find</i> contain
+  newline characters, as shown by the following command sequence:
+<div class="Bd-indent">
+<div class="Pp"></div>
+<pre>
+$ mkdir -p &#x00B4;dummy
+&gt; /etc&#x00B4;
+$ touch &#x00B4;dummy
+&gt; /etc/passwd&#x00B4;
+$ find . -print
+.
+./dummy
+<div class="Pp"></div>
+./dummy
+/etc
+./dummy
+/etc/passwd
+$&#x00A0;
+</pre>
+<div class="Pp"></div>
+</div>
+Shell scripts or utilities unaware of this problem will operate on
+  <i>/etc/passwd</i> (or other arbitrary file names) when reading such output; a
+  malicious user might create such files to read or overwrite privileged
+  information. To circumvent this problem, one of the following proposals should
+  be taken unless the file hierarchy traversed by the <i>find</i> command is
+  definitively known not to contain such file names:
+<dl class="Bl-tag">
+  <dt>&#x2013;</dt>
+  <dd>If the output is read by the <i>xargs</i> utility to gain faster execution
+      by aggregating command arguments as in
+    <br/>
+    <div class="Pp"></div>
+    find . -print | xargs <i>command</i>
+    <div class="Pp"></div>
+    <br/>
+    a safe and equally fast substitute is the
+    <br/>
+    <div class="Pp"></div>
+    find . -exec <i>command</i> {} +
+    <div class="Pp"></div>
+    <br/>
+    operand of <i>find</i>; it is not portably accepted by <i>find</i>
+      implementations, though.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt>&#x2013;</dt>
+  <dd>A universal solution for submitting file names to the <i>xargs</i> utility
+      is given in the <i>NOTES</i> section of <i>xargs</i>(1).</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt>&#x2013;</dt>
+  <dd>The method employed by this script can be generalized as follows: If the
+      script or utility reading the output of <i>find</i> provides the necessary
+      parsing capabilities, special path prefixes can be given to the
+      <i>find</i> command, such as
+    <br/>
+    <div class="Pp"></div>
+    find /.//. -print
+    <div class="Pp"></div>
+    <br/>
+    for absolute path names or
+    <br/>
+    <div class="Pp"></div>
+    find .//. -print
+    <div class="Pp"></div>
+    <br/>
+    for relative path names. Since adjacent slash characters never appear in
+      relative file names found during directory traversal, they can be taken as
+      delimiters; a line starts a new path name only if the delimiter
+    appears.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt>&#x2013;</dt>
+  <dd>The <i>-name</i> operand can be used to exclude all path names that
+      contain newline characters, as in
+    <br/>
+    <div class="Pp"></div>
+    <pre>
+$ find . -name &#x00B4;* 
+&gt; *&#x00B4; -prune -o ! -name &#x00B4;*
+&gt; *&#x00B4; -print
+<div class="Pp"></div>
+    </pre>
+    <br/>
+    Note that certain other implementations of <i>find</i> require a leading
+      period in the pattern to match file names with a leading period; it may be
+      necessary to exclude such patterns as well.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt>&#x2013;</dt>
+  <dd>The <i>-depth</i> operand cannot be combined with the <i>-prune</i>
+      operand used in the previous example. When the directory name must be
+      printed after file names below that directory, as with the <i>cpio</i>
+      command, file names that leave the specified path hierarchy should be
+      filtered out:
+    <br/>
+    <div class="Pp"></div>
+    find . -depth | egrep &#x00B4;^\./&#x00B4; | cpio -oc -O /dev/rmt/c0s0
+    <div class="Pp"></div>
+    <br/>
+    (note the escaped regular expression meta-character).</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt>&#x2013;</dt>
+  <dd>The <i>-cpio</i> and <i>-ncpio</i> operands will automatically exclude
+      file names that contain newline characters with this <i>find</i>
+      implementation.</dd>
+</dl>
+<div class="Pp"></div>
+The <i>-print0</i> operand supported by some other implementations is considered
+  a very limited work-around since it does not allow the output to be processed
+  by utilities unaware of NUL characters; it has therefore not been included
+  here.</div>
+<table class="foot">
+  <tr>
+    <td class="foot-date">8/14/05</td>
+    <td class="foot-os">Heirloom Toolchest</td>
+  </tr>
+</table>
+</body>
+</html>

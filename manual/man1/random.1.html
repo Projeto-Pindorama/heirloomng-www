@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<!-- This is an automatically generated file.  Do not edit.
+   Sccsid @(#)random.1	1.1 (gritter) 11/3/03
+ -->
+<head>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="../../assets/mandoc.css" type="text/css" media="all"/>
+  <title>RANDOM(1XNX)</title>
+</head>
+<body>
+<table class="head">
+  <tr>
+    <td class="head-ltitle">RANDOM(1XNX)</td>
+    <td class="head-vol">XENIX System Compatibility</td>
+    <td class="head-rtitle">RANDOM(1XNX)</td>
+  </tr>
+</table>
+<div class="manual-text">
+<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+random - (XENIX) generate a random number
+<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<b>random</b> [<b>-s</b>] [<i>scale</i>]
+<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<i>Random</i> computes a random value. The result is printed on standard output
+  and is also returned as exit status. The <b>-s</b> option inhibits printing of
+  the result. When a <i>scale</i> is given, computed values lie between 0 and
+  <i>scale</i>. The maximum <i>scale</i> value is 255, the default is 1.
+<h1 class="Sh" title="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
+Since the current time in seconds is used as seed for computation, calling
+  <i>random</i> more than once within the same second produces the same result
+  for each call.</div>
+<table class="foot">
+  <tr>
+    <td class="foot-date">11/3/03</td>
+    <td class="foot-os">Heirloom Toolchest</td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<!-- This is an automatically generated file.  Do not edit.
+   Sccsid @(#)copy.1	1.8 (gritter) 12/8/04
+ -->
+<head>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="../../assets/mandoc.css" type="text/css" media="all"/>
+  <title>COPY(1XNX)</title>
+</head>
+<body>
+<table class="head">
+  <tr>
+    <td class="head-ltitle">COPY(1XNX)</td>
+    <td class="head-vol">XENIX System Compatibility</td>
+    <td class="head-rtitle">COPY(1XNX)</td>
+  </tr>
+</table>
+<div class="manual-text">
+<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+copy - (XENIX) copy groups of files
+<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<b>copy</b> [ <b>-a</b>[<b>d</b>]] [ <b>-nlsmorvh</b>]
+  <i>source</i>&#x00A0;.&#x00A0;.&#x00A0;.&#x00A0;[ <i>destination</i>]
+<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+The <i>copy</i> command creates a copy of each <i>source</i> file in
+  <i>destination</i>. If no <i>destination</i> argument is present, the current
+  directory is used. If more than one <i>source</i> argument is given,
+  <i>destination</i> must be an existing directory; otherwise, if
+  <i>destination</i> does not exist, it is created. For a directory given as
+  <i>source</i>, its contents are copied to <i>destination</i>, but
+  subdirectories are normally ignored (see the <i>-r</i> option below). Special
+  files are copied as such.
+<div class="Pp"></div>
+If a destination file exists, its content will be overwritten, but it will
+  retain its permissions and ownership. Otherwise, files are created with the
+  owner and group set to those of the invoking user and with the permissions of
+  the source file (minus umask, see <i>umask</i>(2)).
+<div class="Pp"></div>
+The <i>copy</i> command accepts the following options, which may be given at any
+  position regarding the file operands:
+<dl class="Bl-tag">
+  <dt><b>-a</b></dt>
+  <dd>Asks for confirmation for each file before a copy is attempted, and for
+      each directory before it is examined.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-ad</b></dt>
+  <dd>Asks for confirmation for each directory before it is examined. Implies
+      the <i>-r</i> option.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-h</b></dt>
+  <dd>By default, symbolic links are followed. This option causes symbolic links
+      encountered during traversal to be copied (symbolic links given as
+      arguments will still be followed). This option is an extension.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-l</b></dt>
+  <dd>If possible, files are hard linked instead of being copied. This does not
+      apply to directories or special files.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-m</b></dt>
+  <dd>Sets access and modification times of copied files to those of source
+      files instead of current time.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-n</b></dt>
+  <dd>Create new files only: If a destination file exists, it is not
+      overwritten.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-o</b></dt>
+  <dd>Sets the owner and group of each destination file to those of the source
+      file instead of those of the invoking user.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-r</b></dt>
+  <dd>Recusively copies subdirectories of the source arguments encountered.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-s</b></dt>
+  <dd>Similar to <i>-l</i>, but uses soft links. This option is an
+    extension.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-v</b></dt>
+  <dd>Prints the name of each file or directory before it is copied or
+    examined.</dd>
+</dl>
+<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+  ALSO</a></h1>
+cp(1), cpio(1)
+<h1 class="Sh" title="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
+Files copied will lose all hard link connection.
+<div class="Pp"></div>
+In contrast to <i>cp</i>(1), if a directory is copied to an existing destination
+  directory, its contents will be written directly into that directory, without
+  a subdirectory being created. For example, if the directory <i>source</i>
+  contains the files <i>file1</i> and <i>file2</i>, the command
+<div class="Bd-indent">
+<div class="Pp"></div>
+copy source dest
+<div class="Pp"></div>
+</div>
+will create files <i>dest/file1</i> and <i>dest/file2</i>, while the command
+<div class="Bd-indent">
+<div class="Pp"></div>
+cp -r source dest
+<div class="Pp"></div>
+</div>
+will create <i>dest/source/file1</i> and <i>dest/source/file2</i>. Thus if a
+  single directory is named and no explicit destination is given, copies of the
+  files below that directory will be created in the current directory.</div>
+<table class="foot">
+  <tr>
+    <td class="foot-date">12/8/04</td>
+    <td class="foot-os">Heirloom Toolchest</td>
+  </tr>
+</table>
+</body>
+</html>

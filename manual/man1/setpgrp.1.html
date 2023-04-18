@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<!-- This is an automatically generated file.  Do not edit.
+   Copyright (c) 2003 Gunnar Ritter
+  
+   SPDX-Licence-Identifier: Zlib
+  
+   Sccsid @(#)setpgrp.1	1.3 (gritter) 4/17/03
+ -->
+<head>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="../../assets/mandoc.css" type="text/css" media="all"/>
+  <title>SETPGRP(1)</title>
+</head>
+<body>
+<table class="head">
+  <tr>
+    <td class="head-ltitle">SETPGRP(1)</td>
+    <td class="head-vol">User Commands</td>
+    <td class="head-rtitle">SETPGRP(1)</td>
+  </tr>
+</table>
+<div class="manual-text">
+<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+setpgrp - set process group ID and session ID
+<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<b>setpgrp</b><i> command</i> [<i>argument</i>&#x00A0;...]
+<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+If the <b>setpgrp</b> command is not already a session leader, it will set its
+  process group ID and session ID to its process id and release its controlling
+  terminal. In any case, <i>command</i> will be executed using the given
+  <i>arguments</i>.
+<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+  ALSO</a></h1>
+setpgid(2), setsid(2), execvp(3)</div>
+<table class="foot">
+  <tr>
+    <td class="foot-date">4/17/03</td>
+    <td class="foot-os">Heirloom Toolchest</td>
+  </tr>
+</table>
+</body>
+</html>

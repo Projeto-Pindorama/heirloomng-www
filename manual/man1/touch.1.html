@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<!-- This is an automatically generated file.  Do not edit.
+   Copyright (c) 2003 Gunnar Ritter
+  
+   SPDX-Licence-Identifier: Zlib
+  
+   Sccsid @(#)touch.1	1.18 (gritter) 2/10/05
+ -->
+<head>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="../../assets/mandoc.css" type="text/css" media="all"/>
+  <title>TOUCH(1)</title>
+</head>
+<body>
+<table class="head">
+  <tr>
+    <td class="head-ltitle">TOUCH(1)</td>
+    <td class="head-vol">User Commands</td>
+    <td class="head-rtitle">TOUCH(1)</td>
+  </tr>
+</table>
+<div class="manual-text">
+<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+touch - update file access and modification times
+<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<b>touch</b> [<b>-amc</b>] [<i>MMDDhhmm</i>[<i>YY</i>]] <i>file</i> ...
+<div>&#x00A0;</div>
+<b>touch</b> [<b>-amc</b>] [
+  <b>-r</b><i>&#x00A0;ref_file</i>|<b>-t</b><i>&#x00A0;time</i>] <i>file</i> ...
+<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+The <b>touch</b> utility changes the access and modification times of files. It
+  creates a file if it does not already exist. If none of the arguments specify
+  the time to set, the current time is used.
+<div class="Pp"></div>
+If neither the <b>-r</b> nor the <b>-t</b> option is used to specify a time
+  value and the first non-option argument begins with a digit, and it consists
+  of exactly eight or ten digits with <b>/opt/heirloom/bin/posix/touch</b> and
+  <b>/opt/heirloom/bin/posix2001/touch</b>, the times of the files are set to
+  the given time.
+<div class="Pp"></div>
+The meaning of fields in time specifications is as follows:
+<div class="Bd-indent">
+<div class="Pp"></div>
+<i>CC</i>	The first two digits of the year.
+<div>&#x00A0;</div>
+<i>YY</i>	The second two digits of the year.
+<div>&#x00A0;</div>
+<i>MM</i>	The month of the year (01-12).
+<div>&#x00A0;</div>
+<i>DD</i>	The day of the month (01-31).
+<div>&#x00A0;</div>
+<i>hh</i>	The hour of the day (00-23).
+<div>&#x00A0;</div>
+<i>mm</i>	The minute of the hour (00-59).
+<div>&#x00A0;</div>
+<i>SS</i>	The second of the minute (00-61).</div>
+<div class="Pp"></div>
+Unless <i>YY</i> is present, the current year is used. If <i>YY</i> is given
+  without <i>CC</i>, the century is 19 if <i>YY</i> is in the range of
+  69&#x2013;99, or 20 for <i>YY</i> values of 00&#x2013;68.
+<div class="Pp"></div>
+The following options are accepted:
+<dl class="Bl-tag">
+  <dt><b>-a</b></dt>
+  <dd>Change the access time, but not the modification time unless <b>-m</b> is
+      also present.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-c</b></dt>
+  <dd>If a file does not exist, it is not created. No diagnostic message is
+      printed; for <b>/opt/heirloom/bin/touch</b> and
+      <b>/opt/heirloom/bin/s42/touch</b>, the exit status is incremented. The
+      exit status is not affected for <b>/opt/heirloom/bin/posix/touch</b> and
+      <b>/opt/heirloom/bin/posix2001/touch</b>.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-m</b></dt>
+  <dd>Change the access time, but not the modification time unless <b>-a</b> is
+      also present.</dd>
+</dl>
+<div class="Pp"></div>
+The following options have been introduced by POSIX.2:
+<dl class="Bl-tag">
+  <dt><b>-r</b><i>&#x00A0;ref_file</i></dt>
+  <dd>The corresponding time of the specified file is used instead of the
+      current time.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-t</b><i>&#x00A0;time</i></dt>
+  <dd>Instead of the current time, the <i>time</i> specified as</dd>
+</dl>
+<div class="Bd-indent">
+<dl class="Bl-tag">
+  <dt></dt>
+  <dd>[[<i>CC</i>]<i>YY</i>]<i>MMDDhhmm</i>[.<i>SS</i>]</dd>
+</dl>
+<div class="Pp"></div>
+is used.</div>
+<div class="Pp"></div>
+The exit status is the number of files that were not successfully processed.
+<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+  ALSO</a></h1>
+date(1), utime(2)</div>
+<table class="foot">
+  <tr>
+    <td class="foot-date">2/10/05</td>
+    <td class="foot-os">Heirloom Toolchest</td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<!-- This is an automatically generated file.  Do not edit.
+   Sccsid @(#)bc.1	1.7 (gritter) 10/11/03
+   Derived from bc(1), Unix 7th edition:
+   Copyright(C) Caldera International Inc. 2001-2002. All rights reserved.
+  
+   SPDX-Licence-Identifier: Caldera
+ -->
+<head>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="../../assets/mandoc.css" type="text/css" media="all"/>
+  <title>BC(1)</title>
+</head>
+<body>
+<table class="head">
+  <tr>
+    <td class="head-ltitle">BC(1)</td>
+    <td class="head-vol">User Commands</td>
+    <td class="head-rtitle">BC(1)</td>
+  </tr>
+</table>
+<div class="manual-text">
+<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+bc - arbitrary-precision arithmetic language
+<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<b>bc</b> [<b>-c</b>] [<b>-l</b>] [<i>file</i> ... ]
+<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<i>Bc</i> is an interactive processor for a language which resembles C but
+  provides unlimited precision arithmetic. It takes input from any files given,
+  then reads the standard input. The <b>-l</b> argument stands for the name of
+  an arbitrary precision math library. The syntax for <i>bc</i> programs is as
+  follows; L means letter a-z, E means expression, S means statement.
+<div class="Pp"></div>
+<div class="HP">Comments
+<div>&#x00A0;</div>
+are enclosed in /* and */.</div>
+<div class="Pp"></div>
+<div class="HP">Names
+<div>&#x00A0;</div>
+simple variables: L
+<div>&#x00A0;</div>
+array elements: L [ E ]
+<div>&#x00A0;</div>
+The words `ibase', `obase', and `scale'</div>
+<div class="Pp"></div>
+<div class="HP">Other operands
+<div>&#x00A0;</div>
+arbitrarily long numbers with optional sign and decimal point.
+<div>&#x00A0;</div>
+( E )
+<div>&#x00A0;</div>
+sqrt ( E )
+<div>&#x00A0;</div>
+length ( E )	number of significant decimal digits
+<div>&#x00A0;</div>
+scale ( E )	number of digits right of decimal point
+<div>&#x00A0;</div>
+L ( E , ... , E )</div>
+<div class="Pp"></div>
+<div class="HP">Operators
+<div>&#x00A0;</div>
++ - * / % ^ (% is remainder; ^ is power)
+<div>&#x00A0;</div>
+++ -- (prefix and postfix; apply to names)
+<div>&#x00A0;</div>
+== &lt;= &gt;= != &lt; &gt;
+<div>&#x00A0;</div>
+= =+ =- =* =/ =% =^
+<div>&#x00A0;</div>
+</div>
+<div class="Pp"></div>
+<div class="HP">Statements
+<div>&#x00A0;</div>
+E
+<div>&#x00A0;</div>
+{ S ; ... ; S }
+<div>&#x00A0;</div>
+if ( E ) S
+<div>&#x00A0;</div>
+while ( E ) S
+<div>&#x00A0;</div>
+for ( E ; E ; E ) S
+<div>&#x00A0;</div>
+null statement
+<div>&#x00A0;</div>
+break
+<div>&#x00A0;</div>
+quit</div>
+<div class="Pp"></div>
+<div class="HP">Function definitions
+<div>&#x00A0;</div>
+define L ( L ,..., L ) {
+<div>&#x00A0;</div>
+	auto L, ... , L
+<div>&#x00A0;</div>
+	S; ... S
+<div>&#x00A0;</div>
+	return ( E )
+<div>&#x00A0;</div>
+}</div>
+<div class="Pp"></div>
+<div class="HP">Functions in <b>-l</b> math library
+<div>&#x00A0;</div>
+s(x)	sine
+<div>&#x00A0;</div>
+c(x)	cosine
+<div>&#x00A0;</div>
+e(x)	exponential
+<div>&#x00A0;</div>
+l(x)	log
+<div>&#x00A0;</div>
+a(x)	arctangent
+<div>&#x00A0;</div>
+j(n,x)	Bessel function</div>
+<div class="Pp"></div>
+All function arguments are passed by value.
+<div class="Pp"></div>
+The value of a statement that is an expression is printed unless the main
+  operator is an assignment. Either semicolons or newlines may separate
+  statements. Assignment to <i>scale</i> influences the number of digits to be
+  retained on arithmetic operations in the manner of <i>dc</i>(1). Assignments
+  to <i>ibase</i> or <i>obase</i> set the input and output number radix
+  respectively.
+<div class="Pp"></div>
+The same letter may be used as an array, a function, and a simple variable
+  simultaneously. All variables are global to the program. `Auto' variables are
+  pushed down during function calls. When using arrays as function arguments or
+  defining them as automatic variables empty square brackets must follow the
+  array name.
+<div class="Pp"></div>
+For example
+<div class="Pp"></div>
+<pre>
+scale = 20
+define e(x){
+	auto a, b, c, i, s
+	a = 1
+	b = 1
+	s = 1
+	for(i=1; 1==1; i++){
+		a = a*x
+		b = b*i
+		c = a/b
+		if(c == 0) return(s)
+		s = s+c
+	}
+}
+</pre>
+<div class="Pp"></div>
+<br/>
+defines a function to compute an approximate value of the exponential function
+  and
+<div class="Pp"></div>
+<pre>
+	for(i=1; i&lt;=10; i++) e(i)
+</pre>
+<div class="Pp"></div>
+prints approximate values of the exponential function of the first ten integers.
+<div class="Pp"></div>
+<i>Bc</i> is actually a preprocessor for <i>dc</i>(1), which it invokes
+  automatically, unless the <b>-c</b> (compile only) option is present. In this
+  case the <i>dc</i> input is sent to the standard output instead.
+<h1 class="Sh" title="Sh" id="FILES"><a class="permalink" href="#FILES">FILES</a></h1>
+/opt/heirloom/lib/lib.b	mathematical library
+<div>&#x00A0;</div>
+dc(1)	desk calculator proper
+<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+  ALSO</a></h1>
+dc(1)
+<div>&#x00A0;</div>
+L. L. Cherry and R. Morris, <i>BC - An arbitrary precision desk-calculator
+  language</i>
+<h1 class="Sh" title="Sh" id="BUGS"><a class="permalink" href="#BUGS">BUGS</a></h1>
+No &amp;&amp;, ||, or ! operators.
+<div>&#x00A0;</div>
+<i>For</i> statement must have all three E's.
+<div>&#x00A0;</div>
+<i>Quit</i> is interpreted when read, not when executed.</div>
+<table class="foot">
+  <tr>
+    <td class="foot-date">10/11/03</td>
+    <td class="foot-os">Heirloom Toolchest</td>
+  </tr>
+</table>
+</body>
+</html>

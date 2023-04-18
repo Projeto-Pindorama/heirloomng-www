@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<!-- This is an automatically generated file.  Do not edit.
+   Sccsid @(#)pr.1	1.8 (gritter) 1/24/05
+   Parts taken from pr(1), Unix 32V:
+   Copyright(C) Caldera International Inc. 2001-2002. All rights reserved.
+  
+   SPDX-Licence-Identifier: Caldera
+   -->
+<head>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="../../assets/mandoc.css" type="text/css" media="all"/>
+  <title>PR(1)</title>
+</head>
+<body>
+<table class="head">
+  <tr>
+    <td class="head-ltitle">PR(1)</td>
+    <td class="head-vol">User Commands</td>
+    <td class="head-rtitle">PR(1)</td>
+  </tr>
+</table>
+<div class="manual-text">
+<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+pr - print files
+<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<b>pr</b> [ option ] ... [ file ] ...
+<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<i>Pr</i> produces a printed listing of one or more <i>files.</i> The output is
+  separated into pages headed by a date, the name of the file or a specified
+  header, and the page number. If there are no file arguments, <i>pr</i> prints
+  its standard input.
+<div class="Pp"></div>
+Options apply to all files:
+<dl class="Bl-tag">
+  <dt><b>-</b><i>n</i></dt>
+  <dd>Produce <i>n</i>-column output, with the lines of each file aligned in
+      columns for each output page.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>+</b><i>n</i></dt>
+  <dd>Begin printing with page <i>n.</i></dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-a</b></dt>
+  <dd>For multi-column output, print the lines of each file columnized in rows
+      across the page.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-d</b></dt>
+  <dd>Double-space the output, i.e print two newline characters at the end of
+      each line.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-e</b>[<i>c</i>][<i>n</i>]</dt>
+  <dd>Replace occurrences of tab characters in input with <i>n</i> spaces, or
+      with 8 spaces if <i>n</i> is omitted. If the non-numeric character
+      <i>c</i> is present, it is taken as tab character on input.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-f</b></dt>
+  <dd>Print a single formfeed character instead of the five-newline sequence at
+      the footer of each page.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-F</b></dt>
+  <dd>For <b>/opt/heirloom/bin/pr</b> and <b>/opt/heirloom/bin/s42/pr</b>, fold
+      the lines of input files for single-column output, or stretch excess data
+      across multiple cells of multi-column output. This option is the same as
+      <b>-f</b> with <b>/opt/heirloom/bin/posix/pr</b> and
+      <b>/opt/heirloom/bin/posix2001/pr</b>.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-h</b><i> header</i></dt>
+  <dd>Take the next argument as a page header.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-i</b>[<i>c</i>][<i>n</i>]</dt>
+  <dd>Replace spaces with tab characters in output if they align to the
+      <i>n</i>-th column or a multiple of it. If the non-numeric character
+      <i>c</i> is present, it is taken instead as tab character on output. For
+      <b>/opt/heirloom/bin/posix/pr</b> and
+      <b>/opt/heirloom/bin/posix2001/pr</b>, single space characters preceding a
+      column alignment are not replaced.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-l</b><i>n</i></dt>
+  <dd>Take the length of the page to be <i>n</i> lines instead of the default
+      66.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-m</b></dt>
+  <dd>Print all <i>files</i> simultaneously, each in one column.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-n</b>[<i>c</i>][<i>n</i>]</dt>
+  <dd>Number the output lines, or if multi-column output is produced, the output
+      cells. The width of numbers is set to <i>n</i> (default 5). Numbers are
+      separated from file data by the character <i>c</i>; it defaults to a tab
+      character if this part of the argument is missing.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-o</b><i>n</i></dt>
+  <dd>Precede each output line by <i>n</i> space characters. The width set with
+      <b>-w</b> is not affected.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-p</b></dt>
+  <dd>Ring the terminal bell before producing output for each page and wait for
+      the user to type a newline character. This option has no effect if output
+      is not sent to a terminal.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-r</b></dt>
+  <dd>Do not print an error message if a file cannot be opened.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-s</b><i>c</i></dt>
+  <dd>Separate columns by the single character <i>c</i> instead of by the
+      appropriate amount of white space. A missing <i>c</i> is taken to be a
+      tab.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-t</b></dt>
+  <dd>Do not print the 5-line header or the 5-line trailer normally supplied for
+      each page.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-w</b><i>n</i></dt>
+  <dd>For purposes of multi-column and folded output, take the width of the page
+      to be <i>n</i> characters instead of the default 72.</dd>
+</dl>
+<div class="Pp"></div>
+Inter-terminal messages via <i>write</i>(1) are forbidden during a <i>pr</i>.
+<h1 class="Sh" title="Sh" id="ENVIRONMENT_VARIABLES"><a class="permalink" href="#ENVIRONMENT_VARIABLES">ENVIRONMENT
+  VARIABLES</a></h1>
+<dl class="Bl-tag">
+  <dt><b>LANG</b>, <b>LC_ALL</b></dt>
+  <dd>See <i>locale</i>(7).</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>LC_CTYPE</b></dt>
+  <dd>Determines the mapping of bytes to characters and the width of
+    characters.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>LC_TIME</b></dt>
+  <dd>Affects the format of date strings printed.</dd>
+</dl>
+<h1 class="Sh" title="Sh" id="FILES"><a class="permalink" href="#FILES">FILES</a></h1>
+<dl class="Bl-tag">
+  <dt>/dev/tty?</dt>
+  <dd>to suspend messages and to read user input with the <b>-p</b> option.</dd>
+</dl>
+<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+  ALSO</a></h1>
+cat(1), pg(1)</div>
+<table class="foot">
+  <tr>
+    <td class="foot-date">1/24/05</td>
+    <td class="foot-os">Heirloom Toolchest</td>
+  </tr>
+</table>
+</body>
+</html>

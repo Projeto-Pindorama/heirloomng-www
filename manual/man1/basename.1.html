@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<!-- This is an automatically generated file.  Do not edit.
+   Copyright (c) 2003 Gunnar Ritter
+  
+   SPDX-Licence-Identifier: Zlib
+   Sccsid @(#)basename.1	1.6 (gritter) 1/24/05
+ -->
+<head>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="../../assets/mandoc.css" type="text/css" media="all"/>
+  <title>BASENAME(1)</title>
+</head>
+<body>
+<table class="head">
+  <tr>
+    <td class="head-ltitle">BASENAME(1)</td>
+    <td class="head-vol">User Commands</td>
+    <td class="head-rtitle">BASENAME(1)</td>
+  </tr>
+</table>
+<div class="manual-text">
+<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+basename - return non-directory portion of a pathname
+<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<b>basename</b> <i>string</i> [<i>suffix</i>]
+<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<i>Basename</i> deletes the directory part of the filename-like <i>string</i>
+  and prints the result. If <i>suffix</i> is specified, and <i>suffix</i>
+  matches the last part of the result while characters remain, the matched
+  portion of <i>string</i> is also deleted. <b>/opt/heirloom/bin/basename</b>
+  and <b>/opt/heirloom/bin/s42/basename</b> interpret <i>suffix</i> as a simple
+  regular expression as described in <i>ed</i>(1);
+  <b>/opt/heirloom/bin/posix/basename</b> and
+  <b>/opt/heirloom/bin/posix2001/basename</b> treat it as a fixed string.
+<h1 class="Sh" title="Sh" id="ENVIRONMENT_VARIABLES"><a class="permalink" href="#ENVIRONMENT_VARIABLES">ENVIRONMENT
+  VARIABLES</a></h1>
+<dl class="Bl-tag">
+  <dt><b>LANG</b>, <b>LC_ALL</b></dt>
+  <dd>See <i>locale</i>(7).</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>LC_CTYPE</b></dt>
+  <dd>Determines the mapping of bytes to characters.</dd>
+</dl>
+<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+  ALSO</a></h1>
+dirname(1), ed(1), sh(1), locale(7)</div>
+<table class="foot">
+  <tr>
+    <td class="foot-date">1/24/05</td>
+    <td class="foot-os">Heirloom Toolchest</td>
+  </tr>
+</table>
+</body>
+</html>

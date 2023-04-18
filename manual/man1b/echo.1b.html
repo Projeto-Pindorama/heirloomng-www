@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<!-- This is an automatically generated file.  Do not edit.
+   Sccsid @(#)echo.1b	1.1 (gritter) 7/2/05
+   Derived from echo(1), Unix 7th Edition:
+   Copyright(C) Caldera International Inc. 2001-2002. All rights reserved.
+  
+   SPDX-Licence-Identifier: Caldera
+   -->
+<head>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="../../assets/mandoc.css" type="text/css" media="all"/>
+  <title>ECHO(1B)</title>
+</head>
+<body>
+<table class="head">
+  <tr>
+    <td class="head-ltitle">ECHO(1B)</td>
+    <td class="head-vol">BSD System Compatibility</td>
+    <td class="head-rtitle">ECHO(1B)</td>
+  </tr>
+</table>
+<div class="manual-text">
+<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+echo - (BSD) echo arguments
+<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<b>/opt/heirloom/bin/ucb/echo</b> [<i>argument </i>...]
+<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<i>Echo</i> writes its <i>arguments</i> separated by blanks and terminated by a
+  newline on the standard output.
+<div class="Pp"></div>
+<i>Echo</i> is useful for producing diagnostics in shell programs and for
+  writing constant data on pipes. To send diagnostics to the standard error
+  file, do `echo ... 1&gt;&amp;2'.
+<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+  ALSO</a></h1>
+printf(1)
+<h1 class="Sh" title="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
+It is recommended for portability that <i>printf</i>(1) is used instead of
+  <i>echo</i> if backslashes are to be printed or if the trailing newline is to
+  be omitted.</div>
+<table class="foot">
+  <tr>
+    <td class="foot-date">7/2/05</td>
+    <td class="foot-os">Heirloom Toolchest</td>
+  </tr>
+</table>
+</body>
+</html>

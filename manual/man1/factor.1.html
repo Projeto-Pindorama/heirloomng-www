@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<!-- This is an automatically generated file.  Do not edit.
+   Sccsid @(#)factor.1.in	1.5 (gritter) 8/18/03
+   Parts taken from factor(1), Unix 7th edition:
+   Copyright(C) Caldera International Inc. 2001-2002. All rights reserved.
+  
+   SPDX-Licence-Identifier: Caldera
+   -->
+<head>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="../../assets/mandoc.css" type="text/css" media="all"/>
+  <title>FACTOR(1)</title>
+</head>
+<body>
+<table class="head">
+  <tr>
+    <td class="head-ltitle">FACTOR(1)</td>
+    <td class="head-vol">User Commands</td>
+    <td class="head-rtitle">FACTOR(1)</td>
+  </tr>
+</table>
+<div class="manual-text">
+<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+factor - factor a number
+<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<b>factor</b> [<i>number</i>]
+<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+When <i>factor</i> is invoked without an argument, it waits for a number to be
+  typed in. If you type in a positive number less than 264 (about e) it will
+  factor the number and print its prime factors; each one is printed the proper
+  number of times. Then it waits for another number. It exits if it encounters a
+  zero or any non-numeric character.
+<div class="Pp"></div>
+If <i>factor</i> is invoked with an argument, it factors the number as above and
+  then exits.
+<div class="Pp"></div>
+Maximum time to factor is proportional to sqrt(n) and occurs when <i>n</i> is
+  prime or the square of a prime.
+<h1 class="Sh" title="Sh" id="DIAGNOSTICS"><a class="permalink" href="#DIAGNOSTICS">DIAGNOSTICS</a></h1>
+`Ouch.' for input out of range or for garbage input.</div>
+<table class="foot">
+  <tr>
+    <td class="foot-date">8/18/03</td>
+    <td class="foot-os">Heirloom Toolchest</td>
+  </tr>
+</table>
+</body>
+</html>

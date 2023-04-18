@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<!-- This is an automatically generated file.  Do not edit.
+   Sccsid @(#)mesg.1	1.2 (gritter) 7/17/05
+   Parts taken from mesg(1), Unix 7th edition:
+   Copyright(C) Caldera International Inc. 2001-2002. All rights reserved.
+  
+   SPDX-Licence-Identifier: Caldera
+   -->
+<head>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="../../assets/mandoc.css" type="text/css" media="all"/>
+  <title>MESG(1)</title>
+</head>
+<body>
+<table class="head">
+  <tr>
+    <td class="head-ltitle">MESG(1)</td>
+    <td class="head-vol">User Commands</td>
+    <td class="head-rtitle">MESG(1)</td>
+  </tr>
+</table>
+<div class="manual-text">
+<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+mesg - permit or deny messages
+<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<b>mesg</b> [[<b>-</b>](<b>y</b>|<b>n</b>)]
+<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<i>Mesg</i> with argument <b>n</b> forbids messages via <i>write</i>(1) by
+  revoking non-user write permission on the user's terminal. <i>Mesg</i> with
+  argument <b>y</b> reinstates permission. All by itself, <i>mesg</i> reports
+  the current state without changing it.
+<h1 class="Sh" title="Sh" id="FILES"><a class="permalink" href="#FILES">FILES</a></h1>
+/dev/tty*
+<div>&#x00A0;</div>
+/dev
+<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+  ALSO</a></h1>
+write(1)
+<h1 class="Sh" title="Sh" id="DIAGNOSTICS"><a class="permalink" href="#DIAGNOSTICS">DIAGNOSTICS</a></h1>
+Exit status is 0 if messages are receivable, 1 if not, 2 on error.</div>
+<table class="foot">
+  <tr>
+    <td class="foot-date">7/17/05</td>
+    <td class="foot-os">Heirloom Toolchest</td>
+  </tr>
+</table>
+</body>
+</html>

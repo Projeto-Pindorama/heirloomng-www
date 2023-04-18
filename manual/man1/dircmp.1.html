@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<!-- This is an automatically generated file.  Do not edit.
+   SPDX-Licence-Identifier: CDDL-1.0
+  
+   Copyright (c) 2005 Gunnar Ritter, Freiburg i. Br., Germany.
+  
+   Sccsid @(#)dircmp.1	1.1 (gritter) 6/25/05
+ -->
+<head>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="../../assets/mandoc.css" type="text/css" media="all"/>
+  <title>DIRCMP(1)</title>
+</head>
+<body>
+<table class="head">
+  <tr>
+    <td class="head-ltitle">DIRCMP(1)</td>
+    <td class="head-vol">User Commands</td>
+    <td class="head-rtitle">DIRCMP(1)</td>
+  </tr>
+</table>
+<div class="manual-text">
+<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+dircmp - directory comparison
+<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<b>dircmp</b> [<b>-ds</b>] [<b>-w</b><i> width</i>] <i>directory directory</i>
+<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+The <i>dircmp</i> command creates a list of files which are identical,
+  different, or exist in only one of the two <i>directories</i> given.
+<div class="Pp"></div>
+With the <b>-d</b> option, differing files are compared using <i>diff</i>(1),
+  and its output is included.
+<div class="Pp"></div>
+The <b>-s</b> option suppresses messages about identical files.
+<div class="Pp"></div>
+Output is paginated through <i>pr</i>(1). The <b>-w</b> option specifies a
+  maximum <i>width</i> for the formatted output.
+<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+  ALSO</a></h1>
+diff(1)
+<h1 class="Sh" title="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
+<i>dircmp</i> ignores files whose names contain backslash or newline
+  characters.</div>
+<table class="foot">
+  <tr>
+    <td class="foot-date">6/25/05</td>
+    <td class="foot-os">Heirloom Toolchest</td>
+  </tr>
+</table>
+</body>
+</html>

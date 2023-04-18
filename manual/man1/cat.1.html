@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<!-- This is an automatically generated file.  Do not edit.
+   Sccsid @(#)cat.1	1.12 (gritter) 4/17/05
+   Parts taken from cat(1), Unix 7th edition:
+   Copyright(C) Caldera International Inc. 2001-2002. All rights reserved.
+  
+   SPDX-Licence-Identifier: Caldera
+   -->
+<head>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="../../assets/mandoc.css" type="text/css" media="all"/>
+  <title>CAT(1)</title>
+</head>
+<body>
+<table class="head">
+  <tr>
+    <td class="head-ltitle">CAT(1)</td>
+    <td class="head-vol">User Commands</td>
+    <td class="head-rtitle">CAT(1)</td>
+  </tr>
+</table>
+<div class="manual-text">
+<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+cat - concatenate and print files
+<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<b>cat</b> [<b>-suv</b> [<b>-et</b>]] [<b>-B&#x00A0;</b><i>size</i>]
+  [<i>file</i> ...]
+<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<b>Cat</b> reads each file in sequence and writes it on the standard output.
+  Thus
+<div class="Bd-indent">
+<div class="Pp"></div>
+cat file
+<div class="Pp"></div>
+</div>
+prints the file and
+<div class="Bd-indent">
+<div class="Pp"></div>
+cat file1 file2 &gt;file3
+<div class="Pp"></div>
+</div>
+concatenates the first two files and places the result on the third.
+<div class="Pp"></div>
+If no file is given, or if the argument `-' is encountered, <b>cat</b> reads
+  from the standard input.
+<div class="Pp"></div>
+The <b>cat</b> command accepts the following options:
+<dl class="Bl-tag">
+  <dt><b>-u</b></dt>
+  <dd>Ensures output to be unbuffered.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-s</b></dt>
+  <dd>Causes <b>cat</b> to be silent about files that cannot be opened, read
+      problems and similar error conditions.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-v</b></dt>
+  <dd>With this option given, non-printable characters are detected and printed
+      as ` <b>^</b><i>n</i>' for control characters and ` <b>M-</b><i>n</i>' for
+      characters with the high bit set.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-t</b></dt>
+  <dd>If <b>-v</b> is present, this option causes tab and formfeed characters to
+      be handled as control characters.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-e</b></dt>
+  <dd>If <b>-v</b> is present, this option causes end-of-line to be marked with
+      `$'.</dd>
+</dl>
+<div class="Pp"></div>
+The following option is an extension:
+<dl class="Bl-tag">
+  <dt><b>-B&#x00A0;</b><i>size</i></dt>
+  <dd>Causes input and output to be performed in <i>size</i> byte units.</dd>
+</dl>
+<h1 class="Sh" title="Sh" id="ENVIRONMENT_VARIABLES"><a class="permalink" href="#ENVIRONMENT_VARIABLES">ENVIRONMENT
+  VARIABLES</a></h1>
+<dl class="Bl-tag">
+  <dt><b>LANG</b>, <b>LC_ALL</b></dt>
+  <dd>See <i>locale</i>(7).</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>LC_CTYPE</b></dt>
+  <dd>Determines the mapping of bytes to characters and the set of printable
+      characters for the <b>-v</b> option.</dd>
+</dl>
+<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+  ALSO</a></h1>
+cp(1), pg(1), pr(1), locale(7)
+<h1 class="Sh" title="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
+Beware of `cat a b &gt;a' and `cat a b &gt;b', which destroy input files before
+  reading them.</div>
+<table class="foot">
+  <tr>
+    <td class="foot-date">4/17/05</td>
+    <td class="foot-os">Heirloom Toolchest</td>
+  </tr>
+</table>
+</body>
+</html>

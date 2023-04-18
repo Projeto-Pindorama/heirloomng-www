@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<!-- This is an automatically generated file.  Do not edit.
+   Sccsid @(#)cp.1	1.26 (gritter) 5/3/05
+   Parts taken from cp(1), Unix 7th edition:
+   Copyright(C) Caldera International Inc. 2001-2002. All rights reserved.
+  
+   SPDX-Licence-Identifier: Caldera
+   -->
+<head>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="../../assets/mandoc.css" type="text/css" media="all"/>
+  <title>CP(1)</title>
+</head>
+<body>
+<table class="head">
+  <tr>
+    <td class="head-ltitle">CP(1)</td>
+    <td class="head-vol">User Commands</td>
+    <td class="head-rtitle">CP(1)</td>
+  </tr>
+</table>
+<div class="manual-text">
+<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+cp - copy files
+<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<b>cp</b> [ <b>-adDfiHLpPrRs</b>] [<b>-b&#x00A0;</b><i>size</i>] <i>file1</i>
+  [<i>file2</i> .&#x00A0;.&#x00A0;.&#x00A0;] <i>target</i>
+<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<i>File1</i> is copied onto <i>target</i>. If <i>target</i> is an existing
+  regular file, its content is overwritten. Its mode and owner are preserved;
+  the mode of the source file is used otherwise.
+<div class="Pp"></div>
+If <i>target</i> is a directory, one or more files are copied into the directory
+  with their original file-names.
+<div class="Pp"></div>
+<i>Cp</i> refuses to copy a file onto itself.
+<div class="Pp"></div>
+The <i>cp</i> command accepts the following options:
+<dl class="Bl-tag">
+  <dt><b>-i</b></dt>
+  <dd><i>Cp</i> will ask for confirmation before overwriting an existing target
+      file. For <b>/opt/heirloom/bin/cp</b> and <b>/opt/heirloom/bin/s42/cp</b>,
+      <i>cp</i> will also ask for confirmation before overwriting a directory
+      with the <i>-r</i> or <i>-R</i> option. For <b>/opt/heirloom/bin/cp</b>,
+      this flag will be automatically disabled if standard input is not a
+      terminal.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-p</b></dt>
+  <dd><i>Cp</i> will try to preserve access and modification times, user and
+      group ownerships, and file permission bits. Failing to preserve these
+      modes is always considered an error, but only
+      <b>/opt/heirloom/bin/s42/cp</b>, <b>/opt/heirloom/bin/posix2001/cp</b>,
+      and <b>/opt/heirloom/bin/posix/cp</b> will print an error message.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-r</b></dt>
+  <dd>The source file operands may be directories that will be copied
+      recursively. Symbolic links are followed. The content of all non-directory
+      files encountered is tried to be reproduced in a regular file.</dd>
+</dl>
+<div class="Pp"></div>
+The following options have been added by POSIX.2:
+<dl class="Bl-tag">
+  <dt><b>-f</b></dt>
+  <dd>If overwriting a target file fails, <i>cp</i> will try to unlink that file
+      and proceed.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-R</b></dt>
+  <dd>The source file operands may be directories that will be copied
+      recursively. Special files such as block and character devices, FIFOs, and
+      symbolic links encountered during traversal are recreated in the target
+      hierarchy. If a symbolic link is given as an operand, its target is
+      copied.</dd>
+</dl>
+<div class="Pp"></div>
+The following options have been added by POSIX.1-2001:
+<dl class="Bl-tag">
+  <dt><b>-H</b></dt>
+  <dd>With the <i>-R</i> option, follow symbolic links given as operands, but do
+      not follow symbolic links encountered during traversal of the source
+      hierarchy. This is the default.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-L</b></dt>
+  <dd>With the <i>-R</i> option, follow all symbolic links.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-P</b></dt>
+  <dd>With the <i>-R</i> option, do not follow any symbolic links.</dd>
+</dl>
+<div class="Pp"></div>
+The following options are extensions:
+<dl class="Bl-tag">
+  <dt><b>-a</b></dt>
+  <dd>Perform a recursive copy and, if possible, preserve hard links as well as
+      any attributes. This is the same as the combination of the <i>-Rdp</i>
+      options.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-b&#x00A0;</b><i>size</i></dt>
+  <dd>With this option given, <i>cp</i> performs input and output in units of
+      <i>size</i> bytes. The default size depends on the current input
+    file.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-d</b></dt>
+  <dd>With the <i>-r</i> or <i>-R</i> options, hard links between copied files
+      are usually splitted, i.e. each copied file is assigned to a separate
+      i-node. When this option is given, hard links between copied files are
+      reproduced in the destination hierarchy.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-D</b></dt>
+  <dd>Causes <i>cp</i> to use direct i/o when copying file data. See the
+      description of `O_DIRECT' in <i>open</i>(2) for more information.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-s</b></dt>
+  <dd>With this option, <i>cp</i> prints i/o statistics for each single file of
+      which data was copied.</dd>
+</dl>
+<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+  ALSO</a></h1>
+cat(1), cpio(1), mv(1), pr(1), rm(1)
+<h1 class="Sh" title="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
+Use either
+<div class="Bd-indent">
+<div class="Pp"></div>
+<b>cp</b> <b>--</b> <i>-file</i> <i>target</i>
+<div class="Pp"></div>
+</div>
+or
+<div class="Bd-indent">
+<div class="Pp"></div>
+<b>cp</b> <i>./-file</i> <i>target</i>
+<div class="Pp"></div>
+</div>
+to copy files that begin with a hyphen character.
+<div class="Pp"></div>
+A copy of a symbolic link contains the same pathname as the original. Symbolic
+  links with relative pathnames may thus change or lose their target if copied
+  to a different level in the file hierarchy.</div>
+<table class="foot">
+  <tr>
+    <td class="foot-date">5/3/05</td>
+    <td class="foot-os">Heirloom Toolchest</td>
+  </tr>
+</table>
+</body>
+</html>

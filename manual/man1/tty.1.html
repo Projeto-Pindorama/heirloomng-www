@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<!-- This is an automatically generated file.  Do not edit.
+   Sccsid @(#)tty.1	1.2 (gritter) 5/21/03
+   Parts taken from tty(1), Unix 7th edition:
+   Copyright(C) Caldera International Inc. 2001-2002. All rights reserved.
+  
+   SPDX-Licence-Identifier: Caldera
+   -->
+<head>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="../../assets/mandoc.css" type="text/css" media="all"/>
+  <title>TTY(1)</title>
+</head>
+<body>
+<table class="head">
+  <tr>
+    <td class="head-ltitle">TTY(1)</td>
+    <td class="head-vol">User Commands</td>
+    <td class="head-rtitle">TTY(1)</td>
+  </tr>
+</table>
+<div class="manual-text">
+<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+tty - get terminal name
+<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<b>tty</b> [<b>-l</b>] [<b>-s</b>]
+<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<i>Tty</i> prints the pathname of the user's terminal. If the <b>-s</b> option
+  is present, nothing is printed, and only the exit status is affected. With the
+  <b>-l</b> option, <i>tty</i> prints the line number if standard input is
+  connected to a synchronous line.
+<h1 class="Sh" title="Sh" id="DIAGNOSTICS"><a class="permalink" href="#DIAGNOSTICS">DIAGNOSTICS</a></h1>
+`not a tty' if the standard input file is not a terminal.
+<div class="Pp"></div>
+The exit status is
+<dl class="Bl-tag">
+  <dt>0</dt>
+  <dd>if standard input is a terminal;
+    <div>&#x00A0;</div>
+  </dd>
+</dl>
+<dl class="Bl-tag">
+  <dt>1</dt>
+  <dd>if standard input is not a terminal;
+    <div>&#x00A0;</div>
+  </dd>
+</dl>
+<dl class="Bl-tag">
+  <dt>2</dt>
+  <dd>or greater on error.</dd>
+</dl>
+</div>
+<table class="foot">
+  <tr>
+    <td class="foot-date">5/21/03</td>
+    <td class="foot-os">Heirloom Toolchest</td>
+  </tr>
+</table>
+</body>
+</html>

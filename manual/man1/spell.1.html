@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<!-- This is an automatically generated file.  Do not edit.
+   Sccsid @(#)spell.1	2.2 (gritter) 6/22/05
+   Derived from spell(1), Unix 7th edition:
+   Copyright(C) Caldera International Inc. 2001-2002. All rights reserved.
+  
+   SPDX-Licence-Identifier: Caldera
+   -->
+<head>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="../../assets/mandoc.css" type="text/css" media="all"/>
+  <title>SPELL(1)</title>
+</head>
+<body>
+<table class="head">
+  <tr>
+    <td class="head-ltitle">SPELL(1)</td>
+    <td class="head-vol">User Commands</td>
+    <td class="head-rtitle">SPELL(1)</td>
+  </tr>
+</table>
+<div class="manual-text">
+<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+spell - find spelling errors
+<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<b>spell</b> [<b>-v</b>] [<b>-b</b>] [<b>-x</b>] [<b>-i</b>] [<b>-l</b>] [
+  <b>+</b> <i>local_file</i>] [<i>file</i>&#x00A0;...]
+<div>&#x00A0;</div>
+<b>/opt/heirloom/lib/spell/spellin</b> [<i>list</i>]
+<div>&#x00A0;</div>
+<b>/opt/heirloom/lib/spell/hashcheck</b>
+<div>&#x00A0;</div>
+<b>/opt/heirloom/lib/spell/hashmake</b>
+<div>&#x00A0;</div>
+<b>/opt/heirloom/lib/spell/compress</b>
+<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<i>Spell</i> collects words from the named documents, and looks them up in a
+  spelling list. Words that neither occur among nor are derivable (by applying
+  certain inflections, prefixes or suffixes) from words in the spelling list are
+  printed on the standard output. If no files are named, words are collected
+  from the standard input.
+<div class="Pp"></div>
+<i>Spell</i> ignores most <i>troff,</i> <i>tbl</i> and <i>eqn</i>(1)
+  constructions.
+<div class="Pp"></div>
+Under the <b>-v</b> option, all words not literally in the spelling list are
+  printed, and plausible derivations from spelling list words are indicated.
+<div class="Pp"></div>
+Under the <b>-b</b> option, British spelling is checked. Besides preferring
+  centre, colour, speciality, travelled, etc., this option insists upon
+  <i>-ise</i> in words like <i>standardise,</i> Fowler and the OED to the
+  contrary notwithstanding.
+<div class="Pp"></div>
+Under the <b>-x</b> option, every plausible stem is printed with `=' for each
+  word.
+<div class="Pp"></div>
+The <b>-i</b> option is passed to <i>deroff</i>(1).
+<div class="Pp"></div>
+With the <b>-l</b> option, all chains of included files are followed.
+<div class="Pp"></div>
+If the <b>+</b><i>local_file</i> argument is present, words present in
+  <i>local_file</i> (one word per line) are removed from the output as
+  additional correctly spelled words.
+<div class="Pp"></div>
+The spelling list is based on many sources, and while more haphazard than an
+  ordinary dictionary, is also more effective in respect to proper names and
+  popular technical words. Coverage of the specialized vocabularies of biology,
+  medicine and chemistry is light.
+<div class="Pp"></div>
+Pertinent auxiliary files may be specified by name arguments, indicated below
+  with their default settings. Copies of all output are accumulated in the
+  history file. The stop list filters out misspellings (e.g. thier=thy-y+ier)
+  that would otherwise pass.
+<div class="Pp"></div>
+Four routines help maintain the hash lists used by <i>spell.</i> <i>Hashmake</i>
+  expects a list of words, one per line, from the standard input, and writes the
+  hash value for each word to standard output. <i>Spellin</i> adds the hash
+  values on the standard input to the preexisting <i>list</i> and places a new
+  binary list on the standard output. If no <i>list</i> is specified, the new
+  list is created from scratch. <i>Hashcheck</i> reads a binary list from
+  standard input and prints the hash values contained in it. <i>Compress</i>
+  removes duplicate entries from the history file.
+<h1 class="Sh" title="Sh" id="FILES"><a class="permalink" href="#FILES">FILES</a></h1>
+<dl class="Bl-tag">
+  <dt><b>D_SPELL</b>=<b>/opt/heirloom/lib/spell/hlist</b>[<b>ab</b>]</dt>
+  <dd>hashed spelling lists, American &amp; British</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>S_SPELL</b>=<b>/opt/heirloom/lib/spell/hstop</b></dt>
+  <dd>hashed stop list</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>H_SPELL</b>=<b>/dev/null</b></dt>
+  <dd>history file</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>/opt/heirloom/lib/spell/spellprog</b></dt>
+  <dd></dd>
+</dl>
+<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+  ALSO</a></h1>
+deroff(1), sort(1), tee(1), sed(1)
+<h1 class="Sh" title="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
+The spelling list's coverage is uneven; new installations will probably wish to
+  monitor the output for several months to gather local additions.
+<div class="Pp"></div>
+British spelling was done by an American.</div>
+<table class="foot">
+  <tr>
+    <td class="foot-date">6/22/05</td>
+    <td class="foot-os">Heirloom Toolchest</td>
+  </tr>
+</table>
+</body>
+</html>

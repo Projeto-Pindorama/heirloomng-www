@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+<!-- This is an automatically generated file.  Do not edit.
+   te
+   SPDX-Licence-Identifier: CDDL-1.0
+    Copyright (c) 1996, Sun Microsystems, Inc.  All Rights Reserved
+  
+   Portions Copyright (c) 2007 Gunnar Ritter, Freiburg i. Br., Germany
+  
+   Sccsid @(#)bfs.1	1.5 (gritter) 6/29/07
+  
+   from OpenSolaris bfs 1 "20 May 1996" "SunOS 5.11" "User Commands"
+ -->
+<head>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="../../assets/mandoc.css" type="text/css" media="all"/>
+  <title>BFS(1)</title>
+</head>
+<body>
+<table class="head">
+  <tr>
+    <td class="head-ltitle">BFS(1)</td>
+    <td class="head-vol">User Commands</td>
+    <td class="head-rtitle">BFS(1)</td>
+  </tr>
+</table>
+<div class="manual-text">
+<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+bfs - big file scanner
+<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<b>bfs</b> [<b>-</b>] <i>name</i>
+<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+The <b>bfs</b> command is (almost) like <i>ed</i>(1) except that it is read-only
+  and is better suited to process larger files. <b>bfs</b> is usually more
+  efficient than <i>ed</i>(1) for scanning a file, since the file is not copied
+  to a buffer. It is most useful for identifying sections of a large file where
+  <i>csplit</i>(1) can be used to divide it into more manageable pieces for
+  editing.
+<div class="Pp"></div>
+Normally, the size of the file being scanned is printed, as is the size of any
+  file written with the <b>w</b> (write) command. The optional <b>&#x2212;</b>
+  suppresses printing of sizes. Input is prompted with <b>*</b> if <b>P</b> and
+  a carriage return are typed, as in <i>ed</i>(1). Prompting can be turned off
+  again by inputting another <b>P</b> and carriage return. Note that messages
+  are given in response to errors if prompting is turned on.
+<div class="Pp"></div>
+All address expressions described under <i>ed</i>(1) are supported. In addition,
+  regular expressions may be surrounded with two symbols besides <b>/</b> and
+  <b>?</b>: <b>&gt;</b> indicates downward search without wrap-around, and
+  <b>&lt;</b> indicates upward search without wrap-around. There is a slight
+  difference in mark names; that is, only the letters <b>a</b> through <b>z</b>
+  may be used, and all 26 marks are remembered.
+<div class="Pp"></div>
+The <b>e</b>, <b>g</b>, <b>v</b>, <b>k</b>, <b>p</b>, <b>q</b>, <b>w</b>,
+  <b>=</b>, <b>!</b>, and null commands operate as described under <i>ed</i>(1).
+  Commands such as <b>&#x2212;&#x2212;&#x2212;</b>, <b>+++&#x2212;</b>,
+  <b>+++=</b>, <b>&#x2212;12</b>, and <b>+4p</b> are accepted. Note that
+  <b>1,10p</b> and <b>1,10</b> will both print the first ten lines. The <b>f</b>
+  command only prints the name of the file being scanned; there is no
+  <i>remembered</i> file name. The <b> w</b> command is independent of output
+  diversion, truncation, or crunching (see the <b>xo</b>,<b> xt</b>, and<b>
+  xc</b> commands, below). The following additional commands are available:
+<div class="Bd-indent">
+<dl class="Bl-tag">
+  <dt><b>xf</b><i> file</i></dt>
+  <dd>Further commands are taken from the named <b>file</b>. When an end-of-file
+      is reached, an interrupt signal is received or an error occurs, reading
+      resumes with the file containing the <b>xf</b>. The <b>xf</b> commands may
+      be nested to a depth of 10.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>xn</b></dt>
+  <dd>List the marks currently in use (marks are set by the <b>k</b>
+    command).</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>xo</b><i> [file]</i></dt>
+  <dd>Further output from the <b>p</b> and null commands is diverted to the
+      named <b>file</b>, which, if necessary, is created mode 666 (readable and
+      writable by everyone), unless your <b>umask</b> setting (see
+      <i>umask</i>(1)) dictates otherwise. If <b>file</b> is missing, output is
+      diverted to the standard output. Note that each diversion causes
+      truncation or creation of the file.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>:</b><i> label</i></dt>
+  <dd>This positions a <i>label</i> in a command file. The <i>label</i> is
+      terminated by new-line, and blanks between the <b>:</b> (colon) and the
+      start of the <i>label</i> are ignored. This command may also be used to
+      insert comments into a command file, since labels need not be
+    referenced.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>( </b><b>. </b>, <b>. </b>)<b>xb</b>/<i>regular
+    expression</i>/<i>label</i></dt>
+  <dd>A jump (either upward or downward) is made to <i>label</i> if the command
+      succeeds. It fails under any of the following conditions:</dd>
+</dl>
+<div class="Bd-indent">1. Either address is not between <b>1</b> and <b>$</b>.
+<div>&#x00A0;</div>
+2. The second address is less than the first.
+<div>&#x00A0;</div>
+3. The regular expression does not match at least one line in the specified
+  range, including the first and last lines.</div>
+<div class="Bd-indent">
+<div class="Pp"></div>
+On success, <b>.</b> (dot) is set to the line matched and a jump is made to
+  <i>label</i>. This command is the only one that does not issue an error
+  message on bad addresses, so it may be used to test whether addresses are bad
+  before other commands are executed. Note that the command, <b>xb/^/ label</b>,
+  is an unconditional jump.
+<div class="Pp"></div>
+The <b>xb</b> command is allowed only if it is read from someplace other than a
+  terminal. If it is read from a pipe, only a downward jump is possible.</div>
+<dl class="Bl-tag">
+  <dt><b>xt</b><i> number</i></dt>
+  <dd>Output from the <b>p</b> and null commands is truncated to, at most,
+      <i>number</i> characters. The initial number is <b>255</b>.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>xv</b>[<i>digit</i>][<i>spaces</i>][<i>value</i>]</dt>
+  <dd>The variable name is the specified <i>digit</i> following the <b>xv</b>.
+      The commands <b>xv5100</b> or <b>xv5 100</b> both assign the value
+      <b>100</b> to the variable <b>5</b>. The command <b>xv61,100p</b> assigns
+      the value <b>1,100p</b> to the variable <b>6</b>. To reference a variable,
+      put a <b>%</b> in front of the variable name. For example, using the above
+      assignments for variables <b>5</b> and <b>6</b>:
+    <div class="Pp"></div>
+    <br/>
+    <pre>
+1,%5p
+1,%5
+%6
+    </pre>
+    <br/>
+    <div class="Pp"></div>
+    will all print the first 100 lines.
+    <div class="Pp"></div>
+    <b>g/%5/p</b>
+    <div class="Pp"></div>
+    would globally search for the characters <b>100</b> and print each line
+      containing a match. To escape the special meaning of <b>%</b>, a <b>\</b>
+      must precede it.
+    <div class="Pp"></div>
+     <b>g/&quot;.*\%</b>[cds]<b>/p</b>
+    <div class="Pp"></div>
+    could be used to match and list %c, %d, or %s formats (for example,
+      &quot;printf&quot;-like statements) of characters, decimal integers, or
+      strings. Another feature of the <b>xv</b> command is that the first line
+      of output from a <b>UNIX</b> system command can be stored into a variable.
+      The only requirement is that the first character of <i>value</i> be an
+      <b>!</b>. For example:
+    <div class="Pp"></div>
+    <br/>
+    <pre>
+<b>.w junk</b>
+<b>xv5!cat junk</b>
+<b>!rm junk</b>
+<b>!echo &quot;%5&quot;</b>
+<b>xv6!expr %6 + 1</b>
+    </pre>
+    <br/>
+    <div class="Pp"></div>
+    would put the current line into variable <b>35</b>, print it, and increment
+      the variable <b>36</b> by one. To escape the special meaning of <b>!</b>
+      as the first character of <i>value</i>, precede it with a <b>\</b>.
+    <div class="Pp"></div>
+     <b>xv7\!date</b>
+    <div class="Pp"></div>
+    stores the value <b>!date</b> into variable <b>7</b>.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>xbz</b><i> label</i></dt>
+  <dd>
+    <div>&#x00A0;</div>
+  </dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>xbn</b><i> label</i></dt>
+  <dd>These two commands will test the last saved <i>return code</i> from the
+      execution of a <b>UNIX</b> system command (<b>!</b><b>command</b>) or
+      nonzero value, respectively, to the specified label. The two examples
+      below both search for the next five lines containing the string
+      <b>size</b>:
+    <div class="Pp"></div>
+    <br/>
+    <pre>
+<b>xv55</b>
+<b>: l</b>
+<b>/size/</b>
+<b>xv5!expr %5 &#x2212; 1</b>
+<b>!if 0%5 != 0 exit 2</b>
+<b>xbn l</b>
+    </pre>
+    <br/>
+    <div class="Pp"></div>
+    <br/>
+    <pre>
+<b>xv45</b>
+<b>: l</b>
+<b>/size/</b>
+<b>xv4!expr %4 &#x2212; 1</b>
+<b>!if 0%4 = 0 exit 2</b>
+<b>xbz l</b>
+    </pre>
+    <br/>
+  </dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>xc</b> [<b>switch</b>]</dt>
+  <dd>If <b>switch</b> is <b>1</b>, output from the <b>p</b> and null commands
+      is crunched; if <b>switch</b> is <b>0</b>, it is not. Without an argument,
+      <b>xc</b> reverses <b>switch</b>. Initially, <b>switch</b> is set for no
+      crunching. Crunched output has strings of tabs and blanks reduced to one
+      blank and blank lines suppressed.</dd>
+</dl>
+</div>
+<h1 class="Sh" title="Sh" id="ENVIRONMENT_VARIABLES"><a class="permalink" href="#ENVIRONMENT_VARIABLES">ENVIRONMENT
+  VARIABLES</a></h1>
+<dl class="Bl-tag">
+  <dt><b>LANG</b>, <b>LC_ALL</b></dt>
+  <dd>See <i>locale</i>(7).</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>LC_CTYPE</b></dt>
+  <dd>Determines the mapping of bytes to characters in regular expressions and
+      with the <i>xt</i> command.</dd>
+</dl>
+<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+  ALSO</a></h1>
+<i>csplit</i>(1), <i>ed</i>(1), <i>umask</i>(1)
+<h1 class="Sh" title="Sh" id="DIAGNOSTICS"><a class="permalink" href="#DIAGNOSTICS">DIAGNOSTICS</a></h1>
+Message is <b>?</b> for errors in commands, if prompting is turned off.
+  Self-explanatory error messages are displayed when prompting is on.</div>
+<table class="foot">
+  <tr>
+    <td class="foot-date">6/29/07</td>
+    <td class="foot-os">Heirloom Toolchest</td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<!-- This is an automatically generated file.  Do not edit.
+   Copyright (c) 2003 Gunnar Ritter
+  
+   SPDX-Licence-Identifier: Zlib
+  
+   Sccsid @(#)whodo.1	1.12 (gritter) 10/19/03
+ -->
+<head>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="../../assets/mandoc.css" type="text/css" media="all"/>
+  <title>WHODO(1)</title>
+</head>
+<body>
+<table class="head">
+  <tr>
+    <td class="head-ltitle">WHODO(1)</td>
+    <td class="head-vol">User Commands</td>
+    <td class="head-rtitle">WHODO(1)</td>
+  </tr>
+</table>
+<div class="manual-text">
+<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+whodo - who is doing what
+<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<b>whodo</b> [ <b>-h</b> ] [ <b>-l</b> ] [ user ]
+<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+Whodo shows a list of active logins, each followed by a list of associated
+  processes. If a <i>user</i> name is given, the list is restricted to this
+  user.
+<div class="Pp"></div>
+The <b>whodo</b> command accepts the following options:
+<dl class="Bl-tag">
+  <dt><b>-h</b></dt>
+  <dd>Omit the heading.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-l</b></dt>
+  <dd>Selects long output format. The following information is shown for each
+      terminal: the user's name, the terminal line, the time of the day the user
+      logged in, the idle time (the time since the last access to the terminal)
+      in minutes, the time used by all processes that ran since login in
+      seconds, the time used by the processes currently running on this terminal
+      in seconds, and the command line of the currently active process.</dd>
+</dl>
+<h1 class="Sh" title="Sh" id="ENVIRONMENT_VARIABLES"><a class="permalink" href="#ENVIRONMENT_VARIABLES">ENVIRONMENT
+  VARIABLES</a></h1>
+<dl class="Bl-tag">
+  <dt><b>LANG</b>, <b>LC_ALL</b></dt>
+  <dd>See <i>locale</i>(7).</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>LC_CTYPE</b></dt>
+  <dd>Determines the set of printable characters when printing command
+    lines.</dd>
+</dl>
+<h1 class="Sh" title="Sh" id="FILES"><a class="permalink" href="#FILES">FILES</a></h1>
+<dl class="Bl-tag">
+  <dt><b>/proc</b></dt>
+  <dd>list of processes</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>/var/run/utmp</b></dt>
+  <dd>list of active logins</dd>
+</dl>
+<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+  ALSO</a></h1>
+ps(1), who(1), proc(5), utmp(5)</div>
+<table class="foot">
+  <tr>
+    <td class="foot-date">10/19/03</td>
+    <td class="foot-os">Heirloom Toolchest</td>
+  </tr>
+</table>
+</body>
+</html>

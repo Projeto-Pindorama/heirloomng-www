@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<!-- This is an automatically generated file.  Do not edit.
+   Sccsid @(#)tail.1	1.9 (gritter) 12/6/04
+   Parts taken from tail(1), Unix 7th edition:
+   Copyright(C) Caldera International Inc. 2001-2002. All rights reserved.
+  
+   SPDX-Licence-Identifier: Caldera
+   -->
+<head>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="../../assets/mandoc.css" type="text/css" media="all"/>
+  <title>TAIL(1)</title>
+</head>
+<body>
+<table class="head">
+  <tr>
+    <td class="head-ltitle">TAIL(1)</td>
+    <td class="head-vol">User Commands</td>
+    <td class="head-rtitle">TAIL(1)</td>
+  </tr>
+</table>
+<div class="manual-text">
+<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+tail - deliver the last part of a file
+<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<b>tail</b> [<b>+</b>/<b>-</b>[<i>number</i>][<b>lbc</b>][<b>f</b>]]
+  [<i>file</i>]
+<div>&#x00A0;</div>
+<b>tail</b> [<b>+</b>/<b>-</b>[<i>number</i>][<b>l</b>][<b>r</b>]] [<i>file</i>]
+<div>&#x00A0;</div>
+<b>tail</b> [<b>-f</b>] [<b>-c</b><i> number</i>|<b>-n</b><i> number</i>]
+  [<i>file</i>]
+<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+The <b>tail</b> command copies the named <i>file</i> to the standard output
+  beginning at a designated place. If no <i>file</i> is named, the standard
+  input is used.
+<div class="Pp"></div>
+Copying begins at distance <b>+</b><i>number</i> from the beginning, or
+  <b>-</b><i>number</i> from the end of the input. <i>Number</i> is counted in
+  units of lines, blocks or characters (i.e. bytes), according to the appended
+  option <b>l</b>, <b>b</b> or <b>c</b>. When no units are specified, counting
+  is by lines; the default <i>number</i> is 10.
+<div class="Pp"></div>
+If the <b>f</b> (``follow'') option is present, <b>tail</b> will not terminate
+  at end-of-file, but check for further data to write every second.
+<div class="Pp"></div>
+With the <b>r</b> option, the order of lines printed is reversed. If no
+  <i>number</i> is specified, the entire file is printed. <i>Number</i> is
+  always taken as count of lines from the end of input.
+<div class="Pp"></div>
+The <b>tail</b> command also accepts the following options that were introduced
+  by POSIX.2, in the form shown in the third synopsis line:
+<dl class="Bl-tag">
+  <dt><b>-c</b> [<b>+</b>|<b>-</b>]<i>number</i></dt>
+  <dd>Copying will start at <i>number</i> bytes; if the option argument starts
+      with a ` <b>+</b>', from the begin of the file, with ` <b>-</b>' or no
+      sign from its end.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-f</b></dt>
+  <dd>Follow file changes, as described above.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-n</b> [<b>+</b>|<b>-</b>]<i>number</i></dt>
+  <dd>Copying will start at <i>number</i> lines. The meaning of the sign is the
+      same as for the <b>-c</b> option.</dd>
+</dl>
+<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+  ALSO</a></h1>
+dd(1), head(1)
+<h1 class="Sh" title="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
+Tails relative to the end of the file are treasured up in a buffer, and thus are
+  limited in length. Various kinds of anomalous behaviour may happen with
+  character special files.</div>
+<table class="foot">
+  <tr>
+    <td class="foot-date">12/6/04</td>
+    <td class="foot-os">Heirloom Toolchest</td>
+  </tr>
+</table>
+</body>
+</html>

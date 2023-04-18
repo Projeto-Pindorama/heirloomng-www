@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<!-- This is an automatically generated file.  Do not edit.
+   Copyright (c) 2003 Gunnar Ritter
+  
+   SPDX-Licence-Identifier: Zlib
+  
+   Sccsid @(#)id.1	1.10 (gritter) 1/24/05
+ -->
+<head>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="../../assets/mandoc.css" type="text/css" media="all"/>
+  <title>ID(1)</title>
+</head>
+<body>
+<table class="head">
+  <tr>
+    <td class="head-ltitle">ID(1)</td>
+    <td class="head-vol">User Commands</td>
+    <td class="head-rtitle">ID(1)</td>
+  </tr>
+</table>
+<div class="manual-text">
+<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+id - print user and group IDs and names
+<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<b>/opt/heirloom/bin/id</b>
+<div>&#x00A0;</div>
+<b>/opt/heirloom/bin/id</b> <b>-a</b>
+<div class="Pp"></div>
+<b>/opt/heirloom/bin/posix/id</b> [<i>user</i>]
+<div>&#x00A0;</div>
+<b>/opt/heirloom/bin/posix/id</b> <b>-a</b> [<i>user</i>]
+<div>&#x00A0;</div>
+<b>/opt/heirloom/bin/posix/id</b> <b>-G</b> [<b>-n</b>] [<i>user</i>]
+<div>&#x00A0;</div>
+<b>/opt/heirloom/bin/posix/id</b> <b>-g</b> [<b>-nr</b>] [<i>user</i>]
+<div>&#x00A0;</div>
+<b>/opt/heirloom/bin/posix/id</b> <b>-u</b> [<b>-nr</b>] [<i>user</i>]
+<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+The <i>id</i> command outputs the numerical and symbolic user and group IDs of
+  the invoking user or, if the <i>user</i> argument is given for
+  <b>/opt/heirloom/bin/posix/id</b>, for the named <i>user.</i> If an effective
+  ID does not match the corresponding real ID, both are printed.
+<div class="Pp"></div>
+The <b>/opt/heirloom/bin/posix/id</b> adds supplementary group memberships to
+  the output by default.
+<div class="Pp"></div>
+<b>/opt/heirloom/bin/s42/id</b> and <b>/opt/heirloom/bin/posix2001/id</b> are
+  identical to <b>/opt/heirloom/bin/posix/id</b>.
+<div class="Pp"></div>
+The following options are accepted:
+<h2 class="Ss" title="Ss" id="/opt/heirloom/bin/id"><a class="permalink" href="#/opt/heirloom/bin/id">/opt/heirloom/bin/id</a></h2>
+<dl class="Bl-tag">
+  <dt><b>-a</b></dt>
+  <dd>Adds supplementary group memberships to the output.</dd>
+</dl>
+<h2 class="Ss" title="Ss" id="/opt/heirloom/bin/posix/id"><a class="permalink" href="#/opt/heirloom/bin/posix/id">/opt/heirloom/bin/posix/id</a></h2>
+<dl class="Bl-tag">
+  <dt><b>-a</b></dt>
+  <dd>Adds the primary group to the list of supplementary groups.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-G</b></dt>
+  <dd>Writes real, effective and supplementary group ID numbers only.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-g</b></dt>
+  <dd>Writes the effective group ID number only.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-n</b></dt>
+  <dd>Modifies the output of the <b>-G</b>, <b>-g</b>, and <b>-u</b> options to
+      print symbolic instead of numeric IDs.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-r</b></dt>
+  <dd>Causes real instead of effective IDs to be printed.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-u</b></dt>
+  <dd>Writes the effective user ID number only.</dd>
+</dl>
+<h1 class="Sh" title="Sh" id="FILES"><a class="permalink" href="#FILES">FILES</a></h1>
+<dl class="Bl-tag">
+  <dt><b>/etc/passwd</b></dt>
+  <dd></dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>/etc/group</b></dt>
+  <dd></dd>
+</dl>
+<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+  ALSO</a></h1>
+groups(1), logins(1), getuid(2), geteuid(2), getgroups(2), group(5), passwd(5)
+<h1 class="Sh" title="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
+Use of <i>id</i> with any options or arguments is unportable. For portable
+  programs, use <i>sed</i>(1) to cut the appropriate portions off the default
+  output of <i>id</i> (using the invariable `uid=' and `gid=' strings as
+  orientation) and <i>groups</i>(1) or <i>logins</i>(1) if you need more
+  information than available by this method.</div>
+<table class="foot">
+  <tr>
+    <td class="foot-date">1/24/05</td>
+    <td class="foot-os">Heirloom Toolchest</td>
+  </tr>
+</table>
+</body>
+</html>

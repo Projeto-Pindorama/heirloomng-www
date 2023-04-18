@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<!-- This is an automatically generated file.  Do not edit.
+   Sccsid @(#)tape.1	1.4 (gritter) 2/29/04
+ -->
+<head>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="../../assets/mandoc.css" type="text/css" media="all"/>
+  <title>TAPE(1)</title>
+</head>
+<body>
+<table class="head">
+  <tr>
+    <td class="head-ltitle">TAPE(1)</td>
+    <td class="head-vol">User Commands</td>
+    <td class="head-rtitle">TAPE(1)</td>
+  </tr>
+</table>
+<div class="manual-text">
+<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+tape - magnetic tape maintenance
+<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<b>tape</b> [<b>-</b><i>tape</i>] [<b>-a</b><i> arg</i>] <i>command</i>
+  [<i>device</i>]
+<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+The <i>tape</i> command performs control operations on tape devices. If no
+  <i>device</i> is given on the command line, the file /etc/default/tape is
+  scanned for a line beginning with `device='; the remainder of the lines
+  specifies the default device.
+<div class="Pp"></div>
+The <i>command</i> argument may be one of:
+<dl class="Bl-tag">
+  <dt><b>status</b></dt>
+  <dd>Print status information about the drive.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>reten</b></dt>
+  <dd>Retension the tape.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>erase</b></dt>
+  <dd>Erase the tape.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>reset</b></dt>
+  <dd>Reset tape drive.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>rewind</b></dt>
+  <dd>Rewind tape.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>rfm</b></dt>
+  <dd>Skip to the next file.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>eod</b></dt>
+  <dd>Seek to the end of written data.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>wfm</b></dt>
+  <dd>Write a filemark at the current position.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>load</b></dt>
+  <dd>Load the tape device.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>unload</b></dt>
+  <dd>Unload the tape device.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>setblk</b></dt>
+  <dd>Set the block size (in bytes) for the tape device.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>setcomp</b></dt>
+  <dd>Set tape compression. A value of 0 means no compression, all other values
+      mean compression</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>setdensity</b></dt>
+  <dd>Set tape density (in hexadecimal). Some density codes are: 0 = default
+      (autodetect); 4 = QIC-11; 5 = QIC-24; F = QIC-120, 10 = QIC-150; 11 =
+      QIC-320; 14 = EXB-8200; 15 = EXB-8500; 15 = QIC-1000; 22 = QIC-2GB; 8C =
+      EXB-8500c; 90 = EXB-8200c.</dd>
+</dl>
+<div class="Pp"></div>
+The <b>-a</b> option gives a count for the <i>rfm</i>, <i>wfm</i>,
+  <i>setblk</i>, <i>setcomp</i>, and <i>setdensity</i> commands.
+<div class="Pp"></div>
+The [ <b>-</b><i>tape</i>] option is currently ignored.</div>
+<table class="foot">
+  <tr>
+    <td class="foot-date">2/29/04</td>
+    <td class="foot-os">Heirloom Toolchest</td>
+  </tr>
+</table>
+</body>
+</html>

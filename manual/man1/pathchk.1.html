@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<!-- This is an automatically generated file.  Do not edit.
+   Copyright (c) 2005 Gunnar Ritter
+  
+   SPDX-Licence-Identifier: Zlib
+  
+   Sccsid @(#)pathchk.1	1.1 (gritter) 7/17/05
+ -->
+<head>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="../../assets/mandoc.css" type="text/css" media="all"/>
+  <title>PATHCHK(1)</title>
+</head>
+<body>
+<table class="head">
+  <tr>
+    <td class="head-ltitle">PATHCHK(1)</td>
+    <td class="head-vol">User Commands</td>
+    <td class="head-rtitle">PATHCHK(1)</td>
+  </tr>
+</table>
+<div class="manual-text">
+<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+pathchk - check pathnames
+<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<b>pathchk</b> [<b>-p</b>] <i>name</i> ...
+<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+The <i>pathchk</i> command verifies the validity or portability of path names.
+  For each <i>name</i> given, it is checked that each of the intermediate
+  directories is searchable or could be created, that none of its components is
+  longer than NAME_MAX, and that the whole <i>name</i> is not longer than
+  PATH_MAX.
+<div class="Pp"></div>
+With the <b>-p</b> option, the checks are performed using _POSIX_NAME_MAX and
+  _POSIX_PATH_MAX, and each character of a component of <i>name</i> must be in
+  the portable character set (i.e. alphanumerics, dot `.', underscore `_', and
+  minus sign `-'). The check for local searchability is omitted.
+<div class="Pp"></div>
+If any violation of these rules is detected, <i>pathchk</i> prints an error
+  message and exits with failure.</div>
+<table class="foot">
+  <tr>
+    <td class="foot-date">7/17/05</td>
+    <td class="foot-os">Heirloom Toolchest</td>
+  </tr>
+</table>
+</body>
+</html>

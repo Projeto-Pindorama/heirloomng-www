@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<!-- This is an automatically generated file.  Do not edit.
+   Sccsid @(#)od.1	1.10 (gritter) 2/6/05
+   Parts taken from od(1), Unix 7th edition:
+   Copyright(C) Caldera International Inc. 2001-2002. All rights reserved.
+  
+   SPDX-Licence-Identifier: Caldera
+   -->
+<head>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="../../assets/mandoc.css" type="text/css" media="all"/>
+  <title>OD(1)</title>
+</head>
+<body>
+<table class="head">
+  <tr>
+    <td class="head-ltitle">OD(1)</td>
+    <td class="head-vol">User Commands</td>
+    <td class="head-rtitle">OD(1)</td>
+  </tr>
+</table>
+<div class="manual-text">
+<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+od - octal dump
+<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<div class="Pp"></div>
+<div class="HP"><b>od</b> [<b>-bcCdDfFoOsSvxX</b>] [<i>file</i>] [[
+  <b>+</b>]<i>offset</i>[ <b>.</b>][<b>b</b>]]</div>
+<div class="Pp"></div>
+<div class="HP"><b>od</b> [<b>-v</b>] [<b>-A&#x00A0;</b><i>address_base</i>]
+  [<b>-j&#x00A0;</b><i>skip</i>] [ <b>-N&#x00A0;</b><i>count</i>]
+  [<b>-t&#x00A0;</b> <i>type_string</i>] ... [<i>file</i> ...]
+<div>&#x00A0;</div>
+</div>
+<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<i>Od</i> dumps <i>file</i> in one or more formats as selected by the option
+  arguments. If no format specification is present, <b>-o</b> is default. The
+  meanings of the option arguments are:
+<dl class="Bl-tag">
+  <dt><b>-b</b></dt>
+  <dd>Interpret bytes in octal.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-c</b></dt>
+  <dd>Interpret characters. Certain non-graphic characters appear as C escapes:
+      null=\0, backspace=\b, formfeed=\f, newline=\n, return=\r, tab=\t; others
+      appear as 3-digit octal numbers. For a multibyte character, the graphical
+      representation is printed for its first byte, remaining bytes are marked
+      <b>**</b>.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-d</b></dt>
+  <dd>Interpret unsigned two-byte words in decimal.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-D</b></dt>
+  <dd>Interpret unsigned four-byte words in decimal.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-f</b></dt>
+  <dd>Interpret floating point format as single precision.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-F</b></dt>
+  <dd>Interpret floating point format as double precision.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-o</b></dt>
+  <dd>Interpret two-byte words in octal.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-O</b></dt>
+  <dd>Interpret four-byte words in octal.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-s</b></dt>
+  <dd>Interpret signed two-byte words in decimal.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-S</b></dt>
+  <dd>Interpret signed four-byte words in decimal.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-v</b></dt>
+  <dd>Print identical groups of output lines that immediately follow each other
+      instead of abbreviating all but the first one by printing a single
+      <b>*</b> character.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-x</b></dt>
+  <dd>Interpret two-byte words in hexadecimal.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-X</b></dt>
+  <dd>Interpret four-byte words in hexadecimal.</dd>
+</dl>
+<div class="Pp"></div>
+The following option is supported as an extension:
+<dl class="Bl-tag">
+  <dt><b>-C</b></dt>
+  <dd>Prints the input data interpreted as characters as another column right
+      next to the regular output. Non-printable characters are replaced by
+      periods.</dd>
+</dl>
+<div class="Pp"></div>
+The <i>file</i> argument specifies which file is to be dumped. If no file
+  argument is specified, the standard input is used. If more than one file
+  argument is specified, the concatenation of all files without an intervening
+  separator is dumped.
+<div class="Pp"></div>
+The offset argument specifies the offset in the file where dumping is to
+  commence. This argument is normally interpreted as octal bytes. If ` <b>.</b>'
+  is appended, the offset is interpreted in decimal. If ` <b>b</b>' is appended,
+  the offset is interpreted in blocks of 512 bytes. If the file argument is
+  omitted, the offset argument must be preceded by `<b>+</b>' with
+  <b>/opt/heirloom/bin/posix/od</b>.
+<div class="Pp"></div>
+The following options have been introduced by POSIX.2. If any of these options
+  is present, an offset-like argument is always interpreted as the name of a
+  file to be dumped.
+<dl class="Bl-tag">
+  <dt><b>-A </b><i>address_base</i></dt>
+  <dd>Sets the format of the file offset printed in the first column. Valid
+      values for <i>address_base</i> are:</dd>
+</dl>
+<div class="Bd-indent">
+<dl class="Bl-tag">
+  <dt><b>d</b></dt>
+  <dd>Print offset as decimal.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>n</b></dt>
+  <dd>Print no offset column.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>o</b></dt>
+  <dd>Print offset as octal (default).</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>x</b></dt>
+  <dd>Print offset as hexadecimal.</dd>
+</dl>
+</div>
+<dl class="Bl-tag">
+  <dt><b>-j </b><i>skip</i></dt>
+  <dd>Skip <i>skip</i> bytes of input, where <i>skip</i> may be either a decimal
+      number, an octal number preceded by <b>0</b>, or a hexadecimal number
+      preceded by <b>0x</b> or <b>0X</b>. If the last character of <i>skip</i>
+      is <b>b</b> (if not a hexadecimal number), <b>k</b>, or <b>m</b>, the
+      value is multiplied by 512, 1024, or 1048576, respectively.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-N </b><i>count</i></dt>
+  <dd>Terminate processing after <i>count</i> bytes of input, where <i>count</i>
+      may be either a decimal number, an octal number preceded by <b>0</b>, or a
+      hexadecimal number preceded by <b>0x</b> or <b>0X</b>.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-t </b><i>type_string</i></dt>
+  <dd>Set output format. <i>type_string</i> may consist of one or more
+      specifications as follows:</dd>
+</dl>
+<div class="Bd-indent">
+<dl class="Bl-tag">
+  <dt><b>a</b></dt>
+  <dd>Print characters, ignoring the most significant bit. ASCII control
+      characters are printed as their names, other nonprintable characters are
+      printed as octal bytes.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>c</b></dt>
+  <dd>Print characters. Non-printable characters are either printed as escape
+      sequences `\0', `\a', `\b', `\f', `\n', `\r', `\t', `\v' or as octal
+      bytes. For a multibyte character, the graphical representation is printed
+      for its first byte, remaining bytes are marked <b>**</b>.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>d</b>[<b>1</b>|<b>2</b>|<b>4</b>|<b>8</b>|<b>C</b>|<b>S</b>|<b>I</b>|<b>L</b>]</dt>
+  <dd>Print signed decimal words, with the word length indicated by the second
+      character ( <b>1</b> one byte per word, <b>2</b> two bytes per word,
+      <b>4</b> four bytes per word, <b>8</b> eight bytes per word, <b>C</b> the
+      size of the C language `char' data type, <b>S</b> the size of the C
+      language `short' data type, <b>I</b> the size of the C language `int' data
+      type, and <b>L</b> the size of the C language `long' data type). The
+      default is the machine word length.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>f</b>[<b>4</b>|<b>8</b>|<b>F</b>|<b>D</b>|<b>L</b>]</dt>
+  <dd>Print floating point format, with the precision indicated by the second
+      character ( <b>4</b> and <b>F</b> single precision, <b>8</b>, <b>D</b>,
+      and <b>L</b> double precision). The default is double precision.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>o</b>[<b>1</b>|<b>2</b>|<b>4</b>|<b>8</b>|<b>C</b>|<b>S</b>|<b>I</b>|<b>L</b>]</dt>
+  <dd>Print octal words, with the word length indicated by the second character
+      as described for <b>d</b> above.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>u</b>[<b>1</b>|<b>2</b>|<b>4</b>|<b>8</b>|<b>C</b>|<b>S</b>|<b>I</b>|<b>L</b>]</dt>
+  <dd>Print unsigned decimal words, with the word length indicated by the second
+      character as described for <b>d</b> above.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>x</b>[<b>1</b>|<b>2</b>|<b>4</b>|<b>8</b>|<b>C</b>|<b>S</b>|<b>I</b>|<b>L</b>]</dt>
+  <dd>Print hexadecimal words, with the word length indicated by the second
+      character as described for <b>d</b> above.</dd>
+</dl>
+</div>
+<div class="Pp"></div>
+Unless the <b>-N</b> option is given, dumping continues until end-of-file.
+<h1 class="Sh" title="Sh" id="ENVIRONMENT_VARIABLES"><a class="permalink" href="#ENVIRONMENT_VARIABLES">ENVIRONMENT
+  VARIABLES</a></h1>
+<dl class="Bl-tag">
+  <dt><b>LANG</b>, <b>LC_ALL</b></dt>
+  <dd>See <i>locale</i>(7).</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>LC_CTYPE</b></dt>
+  <dd>Determines the mapping of bytes to characters for the <b>-c</b> and
+      <b>-tc</b> options.</dd>
+</dl>
+</div>
+<table class="foot">
+  <tr>
+    <td class="foot-date">2/6/05</td>
+    <td class="foot-os">Heirloom Toolchest</td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<!-- This is an automatically generated file.  Do not edit.
+   Sccsid @(#)tapecntl.1	1.6 (gritter) 12/9/04
+ -->
+<head>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="../../assets/mandoc.css" type="text/css" media="all"/>
+  <title>TAPECNTL(1)</title>
+</head>
+<body>
+<table class="head">
+  <tr>
+    <td class="head-ltitle">TAPECNTL(1)</td>
+    <td class="head-vol">User Commands</td>
+    <td class="head-rtitle">TAPECNTL(1)</td>
+  </tr>
+</table>
+<div class="manual-text">
+<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+tapecntl - tape control for tape devices
+<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<b>tapecntl</b> [ <b>-etrwaluv</b>] [ <b>-c&#x00A0;</b><i>arg</i>] [
+  <b>-p&#x00A0;</b> <i>arg</i>] [ <b>-d&#x00A0;</b><i>density_in_decimal</i>] [
+  <b>-f&#x00A0;</b><i>arg</i>] [ <i>device</i>]
+<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+The <i>tapecntl</i> command performs certain control operations on tape devices.
+  If neither a <i>device</i> argument is present nor the <i>TAPE</i> environment
+  variable is set, the device /dev/rmt/c0s0n is used.
+<div class="Pp"></div>
+The following options are accepted:
+<dl class="Bl-tag">
+  <dt><b>-e</b></dt>
+  <dd>Erase the entire tape.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-t</b></dt>
+  <dd>Retension the tape, i.e. rewind the tape, wind the tape to end of reel and
+      rewind it.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-r</b></dt>
+  <dd>Reset the tape device.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-w</b></dt>
+  <dd>Rewind the tape.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-p&#x00A0;</b><i>position</i></dt>
+  <dd>Position the tape at the data after the named file mark. The
+      <i>position</i> argument is interpreted relative to the current tape
+      position.</dd>
+</dl>
+<div class="Pp"></div>
+The following options are extensions:
+<dl class="Bl-tag">
+  <dt><b>-a</b></dt>
+  <dd>Position the tape at end of data.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-l</b></dt>
+  <dd>Load the tape.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-u</b></dt>
+  <dd>Unload the tape.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-d&#x00A0;</b><i>density_in_decimal</i></dt>
+  <dd>Set the SCSI tape density. Some density codes are: 0 = default
+      (autodetect); 4 = QIC-11; 5 = QIC-24; 15 = QIC-120; 16 = QIC-150; 17 =
+      QIC-320; 20 = EXB-8200; 21 = EXB-8500; 21 = QIC-1000; 34 = QIC-2GB; 140 =
+      EXB-8500c; 144 = EXB-8200c.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-c&#x00A0;</b><i>arg</i></dt>
+  <dd>Enable compression (if <i>arg</i> is different from <b>0</b>) or disable
+      it (if <i>arg</i> equals <b>0</b>).</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-f&#x00A0;</b><i>arg</i></dt>
+  <dd>Set the tape block size to <i>arg</i> bytes.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-v</b></dt>
+  <dd>Set variable tape block size.</dd>
+</dl>
+<h1 class="Sh" title="Sh" id="ENVIRONMENT_VARIABLES"><a class="permalink" href="#ENVIRONMENT_VARIABLES">ENVIRONMENT
+  VARIABLES</a></h1>
+<dl class="Bl-tag">
+  <dt>TAPE</dt>
+  <dd>Used as tape device if no <i>device</i> argument is given on the command
+      line.</dd>
+</dl>
+</div>
+<table class="foot">
+  <tr>
+    <td class="foot-date">12/9/04</td>
+    <td class="foot-os">Heirloom Toolchest</td>
+  </tr>
+</table>
+</body>
+</html>

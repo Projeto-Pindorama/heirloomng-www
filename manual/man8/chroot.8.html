@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<!-- This is an automatically generated file.  Do not edit.
+   chroot.8 (takusuman) 7/2/22
+   Derived from the chroot(8) present in Solaris 2.5, but rewritten from
+   scratch.
+   Copyright (C) 2021-2022 Pindorama. All rights reserved.
+   Copyright (C) 2022 Molly A. McCollum (hex7c).
+  
+   SPDX-Licence-Identifier: Zlib
+ -->
+<head>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="../../assets/mandoc.css" type="text/css" media="all"/>
+  <title>CHMOD(8)</title>
+</head>
+<body>
+<table class="head">
+  <tr>
+    <td class="head-ltitle">CHMOD(8)</td>
+    <td class="head-vol">User Commands</td>
+    <td class="head-rtitle">CHMOD(8)</td>
+  </tr>
+</table>
+<div class="manual-text">
+<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+chroot - run a command with a different system root
+<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<b>chroot</b> <i>NEWROOT</i> [<i>COMMAND</i>]
+<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<b>chroot(8)</b> runs the system call <b>chroot(2)</b> to run <i>COMMAND</i>
+  with the root (/) set to <i>NEWROOT</i>.
+<dl class="Bl-tag">
+  <dt><b>NEWROOT</b></dt>
+  <dd>The directory to switch the command's system root to.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>COMMAND</b></dt>
+  <dd>The command to execute, relative to <i>NEWROOT</i>.</dd>
+</dl>
+<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+  ALSO</a></h1>
+cd(1), chroot(2)</div>
+<table class="foot">
+  <tr>
+    <td class="foot-date">12/16/22</td>
+    <td class="foot-os">Heirloom Toolchest</td>
+  </tr>
+</table>
+</body>
+</html>

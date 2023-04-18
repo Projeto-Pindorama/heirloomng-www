@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<!-- This is an automatically generated file.  Do not edit.
+   Copyright (c) 2003 Gunnar Ritter
+  
+   SPDX-Licence-Identifier: Zlib
+  
+   Sccsid @(#)unexpand.1	1.3 (gritter) 12/6/04
+ -->
+<head>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="../../assets/mandoc.css" type="text/css" media="all"/>
+  <title>UNEXPAND(1)</title>
+</head>
+<body>
+<table class="head">
+  <tr>
+    <td class="head-ltitle">UNEXPAND(1)</td>
+    <td class="head-vol">User Commands</td>
+    <td class="head-rtitle">UNEXPAND(1)</td>
+  </tr>
+</table>
+<div class="manual-text">
+<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+unexpand - convert spaces to tabs
+<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<b>unexpand</b> [<b>-a</b>] [ <b>-t&#x00A0;</b><i>tablist</i> |
+  <b>-</b><i>tablist</i>] [ <i>file</i>&#x00A0;...]
+<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+The <i>unexpand</i> utility converts multiple space characters found at the
+  beginning of each line of its input <i>files</i> (or of standard input if no
+  <i>file</i> argument is present) to tabulators if appropriate and writes the
+  result to standard output. The input is ordered in columns according to the
+  width of characters; a backspace character causes the column to be
+  decremented. By default, a tabulator stop is assumed at every eight positions.
+<div class="Pp"></div>
+The following options alter the behavior of <i>unexpand</i>:
+<dl class="Bl-tag">
+  <dt><b>-a</b></dt>
+  <dd>Causes conversion also to apply to sequences of two or more spaces found
+      after the first character on each line other than a space.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b><b>-t&#x00A0;</b><i>tablist</i></b></dt>
+  <dd>Specify the positions of tabulator stops. If <i>tablist</i> is a single
+      number, a tabulator stop is assumed at every <i>tablist positions.</i> If
+      <i>tablist</i> is a list of numbers in strictly ascending order separated
+      by commas or blanks, a tabulator stop is assumed at each numbered
+      position. For column positions beyond the last tabulator stop, each
+      tabulator character is converted to a single space character. Implies
+      <i>-a</i>. This option was introduced by POSIX.2.</dd>
+</dl>
+<h1 class="Sh" title="Sh" id="ENVIRONMENT_VARIABLES"><a class="permalink" href="#ENVIRONMENT_VARIABLES">ENVIRONMENT
+  VARIABLES</a></h1>
+<dl class="Bl-tag">
+  <dt><b>LANG</b>, <b>LC_ALL</b></dt>
+  <dd>See <i>locale</i>(7).</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>LC_CTYPE</b></dt>
+  <dd>Specifies the mapping of bytes to characters and the width of
+    characters.</dd>
+</dl>
+<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+  ALSO</a></h1>
+expand(1), tabs(1)</div>
+<table class="foot">
+  <tr>
+    <td class="foot-date">12/6/04</td>
+    <td class="foot-os">Heirloom Toolchest</td>
+  </tr>
+</table>
+</body>
+</html>

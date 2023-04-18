@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<!-- This is an automatically generated file.  Do not edit.
+   Sccsid @(#)catman.8	1.4 (gritter) 1/11/03
+ -->
+<head>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="../../assets/mandoc.css" type="text/css" media="all"/>
+  <title>CATMAN(8)</title>
+</head>
+<body>
+<table class="head">
+  <tr>
+    <td class="head-ltitle">CATMAN(8)</td>
+    <td class="head-vol">Maintenance Commands</td>
+    <td class="head-rtitle">CATMAN(8)</td>
+  </tr>
+</table>
+<div class="manual-text">
+<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+catman - create the formatted files for the reference manual
+<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<b>catman</b> [<b>-M</b><i>&#x00A0;path</i>]
+  [<b>-T</b><i>&#x00A0;macro-package</i>] [ <b>-pnw</b>] [<i>sections</i>]
+<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+The <b>catman</b> command generates plain text versions of <i>nroff</i>(1)
+  manual pages and a <b>windex</b> database for the <i>apropos</i>(1) and
+  <i>whatis</i>(1) commands.
+<div class="Pp"></div>
+The <b>catman</b> command accepts the following options:
+<dl class="Bl-tag">
+  <dt><b>-p</b></dt>
+  <dd>Prints the steps to be done instead of actually executing them.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-n</b></dt>
+  <dd>Inhibits the creation of <b>windex</b> databases.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-w</b></dt>
+  <dd>Only the <b>windex</b> database is created, no preformatting is done.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-M</b><i>&#x00A0;path</i></dt>
+  <dd>Specifies a colon-separated list of manual directories. Usually, this is
+      determined by the same method used in <i>man</i>(1).</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-T</b><i>&#x00A0;macro-package</i></dt>
+  <dd>Specifies the nroff macro package to be used instead of the default.</dd>
+</dl>
+<h1 class="Sh" title="Sh" id="FILES"><a class="permalink" href="#FILES">FILES</a></h1>
+<dl class="Bl-tag">
+  <dt><b>/etc/default/man</b></dt>
+  <dd>Configuration, as described in <i>man</i>(1).</dd>
+</dl>
+<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+  ALSO</a></h1>
+apropos(1), nroff(1), man(1), whatis(1), man(7)</div>
+<table class="foot">
+  <tr>
+    <td class="foot-date">1/11/03</td>
+    <td class="foot-os">Heirloom Toolchest</td>
+  </tr>
+</table>
+</body>
+</html>

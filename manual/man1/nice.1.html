@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<!-- This is an automatically generated file.  Do not edit.
+   Sccsid @(#)nice.1	1.7 (gritter) 12/6/04
+   Parts taken from nice(1), Unix 7th edition:
+   Copyright(C) Caldera International Inc. 2001-2002. All rights reserved.
+  
+   SPDX-Licence-Identifier: Caldera
+   -->
+<head>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="../../assets/mandoc.css" type="text/css" media="all"/>
+  <title>NICE(1)</title>
+</head>
+<body>
+<table class="head">
+  <tr>
+    <td class="head-ltitle">NICE(1)</td>
+    <td class="head-vol">User Commands</td>
+    <td class="head-rtitle">NICE(1)</td>
+  </tr>
+</table>
+<div class="manual-text">
+<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+nice - run a command at low priority
+<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<b>nice</b> [<b>-n</b><i> number</i>] <i>utility</i> [<i>argument</i> ...]
+<div class="Pp"></div>
+<b>nice</b> [<b>-</b><i>number</i>] <i>utility</i> [<i>argument</i> ...]
+<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+The <b>nice</b> command executes <i>utility</i> with low scheduling priority. If
+  the <i>number</i> argument is present, the priority is incremented (higher
+  numbers mean lower priority) by that amount up to a limit of 19. The default
+  number is 10.
+<div class="Pp"></div>
+An user with appropriate privileges may run commands with priority higher than
+  normal by using a negative priority, e.&#x00A0;g. ` <i>--10</i>'.
+<div class="Pp"></div>
+The <i>-n&#x00A0;number</i> syntax was introduced by POSIX.2.
+<h1 class="Sh" title="Sh" id="ENVIRONMENT_VARIABLES"><a class="permalink" href="#ENVIRONMENT_VARIABLES">ENVIRONMENT
+  VARIABLES</a></h1>
+<dl class="Bl-tag">
+  <dt><b>PATH</b></dt>
+  <dd>Used to locate <i>utility</i>.</dd>
+</dl>
+<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+  ALSO</a></h1>
+priocntl(1), sh(1), nice(2), execvp(3)</div>
+<table class="foot">
+  <tr>
+    <td class="foot-date">12/6/04</td>
+    <td class="foot-os">Heirloom Toolchest</td>
+  </tr>
+</table>
+</body>
+</html>

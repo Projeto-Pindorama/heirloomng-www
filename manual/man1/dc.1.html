@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<!-- This is an automatically generated file.  Do not edit.
+   Sccsid @(#)dc.1	1.5 (gritter) 1/11/03
+   Derived from dc(1), Unix 7th edition:
+   Copyright(C) Caldera International Inc. 2001-2002. All rights reserved.
+  
+   SPDX-Licence-Identifier: Caldera
+ -->
+<head>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="../../assets/mandoc.css" type="text/css" media="all"/>
+  <title>DC(1)</title>
+</head>
+<body>
+<table class="head">
+  <tr>
+    <td class="head-ltitle">DC(1)</td>
+    <td class="head-vol">User Commands</td>
+    <td class="head-rtitle">DC(1)</td>
+  </tr>
+</table>
+<div class="manual-text">
+<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+dc - desk calculator
+<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<b>dc</b> [<i>file</i>]
+<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<i>Dc</i> is an arbitrary precision arithmetic package. Ordinarily it operates
+  on decimal integers, but one may specify an input base, output base, and a
+  number of fractional digits to be maintained. The overall structure of
+  <i>dc</i> is a stacking (reverse Polish) calculator. If an argument is given,
+  input is taken from that file until its end, then from the standard input. The
+  following constructions are recognized:
+<div class="Pp"></div>
+<div class="HP">number
+<div>&#x00A0;</div>
+The value of the number is pushed on the stack. A number is an unbroken string
+  of the digits 0-9. It may be preceded by an underscore _ to input a negative
+  number. Numbers may contain decimal points.</div>
+<div class="Pp"></div>
+<div class="HP">+ - / * % ^
+<div>&#x00A0;</div>
+The top two values on the stack are added (+), subtracted (-), multiplied (*),
+  divided (/), remaindered (%), or exponentiated (^). The two entries are popped
+  off the stack; the result is pushed on the stack in their place. Any
+  fractional part of an exponent is ignored.</div>
+<dl class="Bl-tag">
+  <dt><b>s</b><i>x</i></dt>
+  <dd>The top of the stack is popped and stored into a register named <i>x,</i>
+      where <i>x</i> may be any character. If the <b>s</b> is capitalized,
+      <i>x</i> is treated as a stack and the value is pushed on it.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>l</b><i>x</i></dt>
+  <dd>The value in register <i>x</i> is pushed on the stack. The register
+      <i>x</i> is not altered. All registers start with zero value. If the
+      <b>l</b> is capitalized, register <i>x</i> is treated as a stack and its
+      top value is popped onto the main stack.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>d</b></dt>
+  <dd>The top value on the stack is duplicated.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>p</b></dt>
+  <dd>The top value on the stack is printed. The top value remains unchanged.
+      <b>P</b> interprets the top of the stack as an ascii string, removes it,
+      and prints it.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>f</b></dt>
+  <dd>All values on the stack and in registers are printed.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>q</b></dt>
+  <dd>exits the program. If executing a string, the recursion level is popped by
+      two. If <b>q</b> is capitalized, the top value on the stack is popped and
+      the string execution level is popped by that value.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>x</b></dt>
+  <dd>treats the top element of the stack as a character string and executes it
+      as a string of dc commands.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>X</b></dt>
+  <dd>replaces the number on the top of the stack with its scale factor.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>[ ... ]</b></dt>
+  <dd>puts the bracketed ascii string onto the top of the stack.</dd>
+</dl>
+<div class="Pp"></div>
+<div class="HP"><i>&lt;x &gt;x =x</i>
+<div>&#x00A0;</div>
+The top two elements of the stack are popped and compared. Register <i>x</i> is
+  executed if they obey the stated relation.</div>
+<dl class="Bl-tag">
+  <dt><b>v</b></dt>
+  <dd>replaces the top element on the stack by its square root. Any existing
+      fractional part of the argument is taken into account, but otherwise the
+      scale factor is ignored.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>!</b></dt>
+  <dd>interprets the rest of the line as a UNIX command.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>c</b></dt>
+  <dd>All values on the stack are popped.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>i</b></dt>
+  <dd>The top value on the stack is popped and used as the number radix for
+      further input. <b>I</b> pushes the input base on the top of the
+    stack.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>o</b></dt>
+  <dd>The top value on the stack is popped and used as the number radix for
+      further output.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>O</b></dt>
+  <dd>pushes the output base on the top of the stack.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>k</b></dt>
+  <dd>the top of the stack is popped, and that value is used as a non-negative
+      scale factor: the appropriate number of places are printed on output, and
+      maintained during multiplication, division, and exponentiation. The
+      interaction of scale factor, input base, and output base will be
+      reasonable if all are changed together.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>z</b></dt>
+  <dd>The stack level is pushed onto the stack.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>Z</b></dt>
+  <dd>replaces the number on the top of the stack with its length.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>?</b></dt>
+  <dd>A line of input is taken from the input source (usually the terminal) and
+      executed.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>; :</b></dt>
+  <dd>are used by <i>bc</i> for array operations.</dd>
+</dl>
+<div class="Pp"></div>
+An example which prints the first ten values of n! is
+<div class="Pp"></div>
+<pre>
+<br/>
+[la1+dsa*pla10&gt;y]sy
+<div>&#x00A0;</div>
+0sa1
+<div>&#x00A0;</div>
+lyx
+</pre>
+<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+  ALSO</a></h1>
+bc(1), which is a preprocessor for <i>dc</i> providing infix notation and a
+  C-like syntax which implements functions and reasonable control structures for
+  programs.
+<h1 class="Sh" title="Sh" id="DIAGNOSTICS"><a class="permalink" href="#DIAGNOSTICS">DIAGNOSTICS</a></h1>
+`x is unimplemented' where x is an octal number.
+<div>&#x00A0;</div>
+`stack empty' for not enough elements on the stack to do what was asked.
+<div>&#x00A0;</div>
+`Out of space' when the free list is exhausted (too many digits).
+<div>&#x00A0;</div>
+`Out of headers' for too many numbers being kept around.
+<div>&#x00A0;</div>
+`Out of pushdown' for too many items on the stack.
+<div>&#x00A0;</div>
+`Nesting Depth' for too many levels of nested execution.</div>
+<table class="foot">
+  <tr>
+    <td class="foot-date">1/11/03</td>
+    <td class="foot-os">Heirloom Toolchest</td>
+  </tr>
+</table>
+</body>
+</html>

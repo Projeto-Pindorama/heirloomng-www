@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<!-- This is an automatically generated file.  Do not edit.
+   Copyright (c) 2003 Gunnar Ritter
+  
+   SPDX-Licence-Identifier: Zlib
+  
+   Sccsid @(#)uname.1	1.5 (gritter) 10/8/03
+ -->
+<head>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="../../assets/mandoc.css" type="text/css" media="all"/>
+  <title>UNAME(1)</title>
+</head>
+<body>
+<table class="head">
+  <tr>
+    <td class="head-ltitle">UNAME(1)</td>
+    <td class="head-vol">User Commands</td>
+    <td class="head-rtitle">UNAME(1)</td>
+  </tr>
+</table>
+<div class="manual-text">
+<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+uname - get system name
+<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<b>uname</b> [<b>-amnprsv</b>]
+<div class="Pp"></div>
+<b>uname</b> [<b>-S</b><i> system_name</i>]
+<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+The <b>uname</b> command prints the name of the system implementation, or,
+  depending on its options, one of the following:
+<dl class="Bl-tag">
+  <dt><b>-a</b></dt>
+  <dd>All available information.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-m</b></dt>
+  <dd>The name of the hardware type.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-n</b></dt>
+  <dd>The node name of this computer.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-p</b></dt>
+  <dd>Processor type.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-r</b></dt>
+  <dd>Release level of the system implementation.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-s</b></dt>
+  <dd>Name of the system implementation.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-v</b></dt>
+  <dd>Version level of the system implementation.</dd>
+</dl>
+<div class="Pp"></div>
+If <b>-S</b><i>&#x00A0;system_name</i> is specified, the node name is changed to
+  <i>system_name</i>. This requires appropriate privilege.
+<h1 class="Sh" title="Sh" id="ENVIRONMENT_VARIABLES"><a class="permalink" href="#ENVIRONMENT_VARIABLES">ENVIRONMENT
+  VARIABLES</a></h1>
+<dl class="Bl-tag">
+  <dt><b>SYSV3</b></dt>
+  <dd>If set to the empty string, the output of <i>-s</i> is the same as that of
+      <i>-n</i>, and the output of <i>-r</i>, <i>-v</i>, and <i>-m</i> is set to
+      the fixed values `3.2', `2', and `i386', respectively. Otherwise, it is
+      interpreted as the six fields</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt></dt>
+  <dd><i>os</i><b>,</b><i>sysname</i><b>,</b><i>nodename</i><b>,</b><i>release</i><b>,</b><i>version</i><b>,</b><i>machine</i></dd>
+</dl>
+<dl class="Bl-tag">
+  <dt></dt>
+  <dd>where <i>os</i> is ignored, and the other fields specify the output for
+      <i>-s</i>, <i>-n</i>, <i>-r</i>, <i>-v</i>, and <i>-m</i>. If fewer than
+      six fields are given, remaining parts of the output are not changed. This
+      variable also causes the output of <i>-p</i> not to be printed with
+      <i>-a</i>.</dd>
+</dl>
+<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+  ALSO</a></h1>
+uname(2), sethostname(2)</div>
+<table class="foot">
+  <tr>
+    <td class="foot-date">10/8/03</td>
+    <td class="foot-os">Heirloom Toolchest</td>
+  </tr>
+</table>
+</body>
+</html>

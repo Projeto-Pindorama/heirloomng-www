@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html>
+<!-- This is an automatically generated file.  Do not edit.
+   t
+   Sccsid @(#)stty.1b	1.3 (gritter) 7/15/04
+   Parts taken from stty(1), Unix 7th edition:
+   Copyright(C) Caldera International Inc. 2001-2002. All rights reserved.
+  
+   SPDX-Licence-Identifier: Caldera
+   -->
+<head>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="../../assets/mandoc.css" type="text/css" media="all"/>
+  <title>STTY(1B)</title>
+</head>
+<body>
+<table class="head">
+  <tr>
+    <td class="head-ltitle">STTY(1B)</td>
+    <td class="head-vol">BSD System Compatibility</td>
+    <td class="head-rtitle">STTY(1B)</td>
+  </tr>
+</table>
+<div class="manual-text">
+<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+stty - (BSD) set the options for a terminal
+<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<b>/opt/heirloom/bin/ucb/stty</b> [<b>-a</b>] [<b>-g</b>] [<b>-h</b>]
+  [<i>options</i>]
+<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<i>Stty</i> sets certain I/O options on the current terminal. With no argument,
+  it reports the current settings of selected options; the <b>-a</b> flag causes
+  it to report all options. With the <b>-g</b> flag, <i>stty</i> prints all
+  settings in a form that can be passed to it again to restore the current
+  settings. The <b>-h</b> flag prints a table of all control characters in
+  addition to the output given with <i>-a</i>.
+<div class="Pp"></div>
+Special option values recognized only if given as single argument are:
+<dl class="Bl-tag">
+  <dt><b>all</b></dt>
+  <dd>Print the normal output followed by a control character table.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>everything</b></dt>
+  <dd>Same as <i>-h</i>.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>speed</b></dt>
+  <dd>Print the speed rate.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>size</b></dt>
+  <dd>Print the rows and columns of the terminal.</dd>
+</dl>
+<div class="Pp"></div>
+If either <b>-g</b>, <b>speed</b> or <b>size</b> are given, <i>stty</i> uses
+  /dev/tty to get the terminal settings, otherwise, the standard output is used.
+<div class="Pp"></div>
+The option strings are selected from the following set; where an option is shown
+  prefixed by `[-]', it can be negated as described in the text.
+<div class="Pp"></div>
+Control modes:
+<table class="tbl">
+  <tr>
+    <td>[<b>-</b>]<b>parenb</b></td>
+    <td>enable (disable) parity bits</td>
+  </tr>
+  <tr>
+    <td>[<b>-</b>]<b>parodd</b></td>
+    <td>select odd (even) parity</td>
+  </tr>
+  <tr>
+    <td><b>cs5 cs6 cs7 cs8</b></td>
+    <td>set character size</td>
+  </tr>
+  <tr>
+    <td>[<b>-</b>]<b>cstopb</b></td>
+    <td>use two (one) stop bits per
+      character&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;</td>
+  </tr>
+  <tr>
+    <td>[<b>-</b>]<b>clocal</b></td>
+    <td>line has (no) modem control</td>
+  </tr>
+  <tr>
+    <td>[<b>-</b>]<b>hupcl</b></td>
+    <td>hang up (do not hang up) dataphone on last close</td>
+  </tr>
+  <tr>
+    <td>[<b>-</b>]<b>hup</b></td>
+    <td>same as <i>hupcl</i></td>
+  </tr>
+  <tr>
+    <td><b>0</b></td>
+    <td>hang up phone line immediately</td>
+  </tr>
+  <tr>
+    <td>2n <b>50 75 110 134 150 200 300 600 1200 1800 2400 4800 9600 19200 38400
+      exta extb</b> 0</td>
+    <td>Set terminal baud rate to the number given, if possible (not all
+      terminals support all rates).</td>
+  </tr>
+</table>
+<div class="Pp"></div>
+Input modes:
+<table class="tbl">
+  <tr>
+    <td>[<b>-</b>]<b>ignbrk</b></td>
+    <td>ignore (respect) break
+      character&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;</td>
+  </tr>
+  <tr>
+    <td>[<b>-</b>]<b>brkint</b></td>
+    <td>(do not) send interrupt on break</td>
+  </tr>
+  <tr>
+    <td>[<b>-</b>]<b>ignpar</b></td>
+    <td>(do not) ignore parity errors</td>
+  </tr>
+  <tr>
+    <td>[<b>-</b>]<b>parmrk</b></td>
+    <td>(do not) mark parity errors</td>
+  </tr>
+  <tr>
+    <td>[<b>-</b>]<b>inpck</b></td>
+    <td>enable (disable) parity checking</td>
+  </tr>
+  <tr>
+    <td>[<b>-</b>]<b>istrip</b></td>
+    <td>(do not) strip characters to 7 bits</td>
+  </tr>
+  <tr>
+    <td>[<b>-</b>]<b>inlcr</b></td>
+    <td>(do not) map NL to CR</td>
+  </tr>
+  <tr>
+    <td>[<b>-</b>]<b>igncr</b></td>
+    <td>(do not) ignore CR</td>
+  </tr>
+  <tr>
+    <td>[<b>-</b>]<b>icrnl</b></td>
+    <td>(do not) map CR to NL</td>
+  </tr>
+  <tr>
+    <td>[<b>-</b>]<b>iuclc</b></td>
+    <td>(do not) map upper to lower case</td>
+  </tr>
+  <tr>
+    <td>[<b>-</b>]<b>ixon</b></td>
+    <td>enable start/stop control</td>
+  </tr>
+  <tr>
+    <td>[<b>-</b>]<b>ixany</b></td>
+    <td>any character (DC1 only) restarts output</td>
+  </tr>
+  <tr>
+    <td>[<b>-</b>]<b>decctlq</b></td>
+    <td>same as -ixany</td>
+  </tr>
+  <tr>
+    <td>[<b>-</b>]<b>ixoff</b></td>
+    <td>(do not) send start/stop characters when the input queue is nearly
+      full</td>
+  </tr>
+  <tr>
+    <td>[<b>-</b>]<b>tandem</b></td>
+    <td>same as ixoff</td>
+  </tr>
+  <tr>
+    <td>[<b>-</b>]<b>imaxbel</b></td>
+    <td>(do not) ring the bell when running out of input buffers</td>
+  </tr>
+  <tr>
+    <td>[<b>-</b>]<b>iutf8</b></td>
+    <td>(do not) handle input as UTF-8</td>
+  </tr>
+</table>
+<div class="Pp"></div>
+Output modes:
+<table class="tbl">
+  <tr>
+    <td>[<b>-</b>]<b>opost</b></td>
+    <td>enable (disable) output
+      processing&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;</td>
+  </tr>
+  <tr>
+    <td>[<b>-</b>]<b>olcuc</b></td>
+    <td>(do not) map upper to lower case</td>
+  </tr>
+  <tr>
+    <td>[<b>-</b>]<b>onlcr</b></td>
+    <td>(do not) map NL to CR</td>
+  </tr>
+  <tr>
+    <td>[<b>-</b>]<b>onocr</b></td>
+    <td>(do not) ignore CR</td>
+  </tr>
+  <tr>
+    <td>[<b>-</b>]<b>onlret</b></td>
+    <td>NL is (not) return</td>
+  </tr>
+  <tr>
+    <td>[<b>-</b>]<b>ofill</b></td>
+    <td>(do not) use fill characters</td>
+  </tr>
+  <tr>
+    <td>[<b>-</b>]<b>ofdel</b></td>
+    <td>fill character is DEL (NUL)</td>
+  </tr>
+  <tr>
+    <td><b>cr0 cr1 cr2 cr3</b></td>
+    <td>select style of delay for carriage return (see <i>termio</i>(3))</td>
+  </tr>
+  <tr>
+    <td><b>nl0 nl1 nl2 nl3</b></td>
+    <td>select style of delay for linefeed </td>
+  </tr>
+  <tr>
+    <td>2n <b>tab0 tab1 tab2 tab3</b> 0</td>
+    <td>select style of delay for tab </td>
+  </tr>
+</table>
+<table class="tbl">
+  <tr>
+    <td><b>ff0 ff1</b></td>
+    <td>select style of delay for form feed </td>
+  </tr>
+  <tr>
+    <td><b>bs0 bs1</b></td>
+    <td>select style of delay for backspace</td>
+  </tr>
+  <tr>
+    <td><b>vt0 bt1</b></td>
+    <td>select style of delay for vertical tab</td>
+  </tr>
+</table>
+<div class="Pp"></div>
+Local modes:
+<table class="tbl">
+  <tr>
+    <td>[<b>-</b>]<b>isig</b></td>
+    <td>enable (disable) intr, quit, and susp processing</td>
+  </tr>
+  <tr>
+    <td>[<b>-</b>]<b>icanon</b></td>
+    <td>enable (disable) erase and kill processing&#x00A0;</td>
+  </tr>
+  <tr>
+    <td>[<b>-</b>]<b>cbreak</b></td>
+    <td>same as -icanon</td>
+  </tr>
+  <tr>
+    <td>[<b>-</b>]<b>xcase</b></td>
+    <td>(no) canonical case presentation</td>
+  </tr>
+  <tr>
+    <td>[<b>-</b>]<b>echo</b></td>
+    <td>(do not) echo every character typed</td>
+  </tr>
+  <tr>
+    <td>[<b>-</b>]<b>echoe</b></td>
+    <td>(do not) echo erase character as `^H ^H'</td>
+  </tr>
+  <tr>
+    <td>[<b>-</b>]<b>crterase</b></td>
+    <td>same as echoe</td>
+  </tr>
+  <tr>
+    <td>[<b>-</b>]<b>echok</b></td>
+    <td>(do not) echo NL after kill character</td>
+  </tr>
+  <tr>
+    <td>[<b>-</b>]<b>lfkc</b></td>
+    <td>same as echok</td>
+  </tr>
+  <tr>
+    <td>[<b>-</b>]<b>echonl</b></td>
+    <td>(do not) echo NL regardless of <i>echo</i></td>
+  </tr>
+  <tr>
+    <td>[<b>-</b>]<b>noflsh</b></td>
+    <td>(do not) flush after intr, quit, and susp</td>
+  </tr>
+  <tr>
+    <td>[<b>-</b>]<b>tostop</b></td>
+    <td>send SIGTTOU for background output</td>
+  </tr>
+  <tr>
+    <td>[<b>-</b>]<b>echoctl</b></td>
+    <td>(no) visual representation of control characters</td>
+  </tr>
+  <tr>
+    <td>[<b>-</b>]<b>ctlecho</b></td>
+    <td>same as echoctl</td>
+  </tr>
+  <tr>
+    <td>[<b>-</b>]<b>echoprt</b></td>
+    <td>(do not) echo erased characters</td>
+  </tr>
+  <tr>
+    <td>[<b>-</b>]<b>prterase</b></td>
+    <td>same as echoprt</td>
+  </tr>
+  <tr>
+    <td>[<b>-</b>]<b>echoke</b></td>
+    <td>(do not) print `^H ^H' sequences at line erase</td>
+  </tr>
+  <tr>
+    <td>[<b>-</b>]<b>crtkill</b></td>
+    <td><b>same as echoke</b></td>
+  </tr>
+  <tr>
+    <td><b>[</b><b>-</b>]<b>flusho</b></td>
+    <td>output is (not) flushed</td>
+  </tr>
+  <tr>
+    <td>[<b>-</b>]<b>pendin</b></td>
+    <td>(do not) retype pending input</td>
+  </tr>
+  <tr>
+    <td>[<b>-</b>]<b>iexten</b></td>
+    <td>enable (disable) extended control characters</td>
+  </tr>
+</table>
+<div class="Pp"></div>
+Control characters:
+<table class="tbl">
+  <tr>
+    <td><b>intr </b><i>c</i><b></b></td>
+    <td>set intr character to <i>c</i>.</td>
+  </tr>
+  <tr>
+    <td><b>quit </b><i>c</i><b></b></td>
+    <td>set quit character to <i>c</i>.</td>
+  </tr>
+  <tr>
+    <td><b>erase </b><i>c</i><b></b></td>
+    <td>set erase character to <i>c</i>.</td>
+  </tr>
+  <tr>
+    <td><b>kill </b><i>c</i><b></b></td>
+    <td>set kill character to <i>c</i>.</td>
+  </tr>
+  <tr>
+    <td><b>eof </b><i>c</i><b></b></td>
+    <td>set eof character to <i>c</i>.</td>
+  </tr>
+  <tr>
+    <td><b>eol </b><i>c</i><b></b></td>
+    <td>set eol character to <i>c</i>.</td>
+  </tr>
+  <tr>
+    <td><b>eol2 </b><i>c</i><b></b></td>
+    <td>set eol2 character to <i>c</i>.</td>
+  </tr>
+  <tr>
+    <td><b>swtch </b><i>c</i><b></b></td>
+    <td>set swtch character to <i>c</i>.</td>
+  </tr>
+  <tr>
+    <td><b>start </b><i>c</i><b></b></td>
+    <td>set start character to <i>c</i>.</td>
+  </tr>
+  <tr>
+    <td><b>stop </b><i>c</i><b></b></td>
+    <td>set stop character to <i>c</i>.</td>
+  </tr>
+  <tr>
+    <td><b>susp </b><i>c</i><b></b></td>
+    <td>set susp character to <i>c</i>.</td>
+  </tr>
+  <tr>
+    <td><b>dsusp </b><i>c</i><b></b></td>
+    <td>set dsusp character to <i>c</i>.</td>
+  </tr>
+  <tr>
+    <td><b>rprnt </b><i>c</i><b></b></td>
+    <td>set rprnt character to <i>c</i>.</td>
+  </tr>
+  <tr>
+    <td><b>flush </b><i>c</i><b></b></td>
+    <td>set flush character to <i>c</i>.</td>
+  </tr>
+  <tr>
+    <td><b>werase </b><i>c</i><b></b></td>
+    <td>set werase character to <i>c</i>.</td>
+  </tr>
+  <tr>
+    <td><b>lnext </b><i>c</i><b></b></td>
+    <td>set lnext character to <i>c</i>.</td>
+  </tr>
+</table>
+<div class="Pp"></div>
+A control character may be either given as a literal character, or as `
+  <b>^</b><i>c</i>' for ASCII control characters CTRL-<i>c</i>; the special
+  values ` <b>^-</b>' and `<b>undef</b>' disable the control function. Multibyte
+  characters cannot be used as control characters; trying to do so will result
+  in the control character set to the first byte of the multibyte character
+  sequence, which has the undesired effect of applying the control function to
+  more characters than the one supplied.
+<div class="Pp"></div>
+Combination modes et cetera:
+<table class="tbl">
+  <tr>
+    <td>[<b>-</b>]<b>raw</b></td>
+    <td>(no) raw mode input (i.e. no erase, kill, interrupt, quit, EOT; parity
+      bit passed back)</td>
+  </tr>
+  <tr>
+    <td><b>cooked</b></td>
+    <td>same as
+      <i>-raw</i>&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;</td>
+  </tr>
+  <tr>
+    <td><b>sane</b></td>
+    <td>reset all values to defaults</td>
+  </tr>
+  <tr>
+    <td>[<b>-</b>]<b>cbreak</b></td>
+    <td>make each character available to <i>read</i>(2) as received; no erase
+      and kill (make characters available to <i>read</i> only when newline is
+      received)</td>
+  </tr>
+  <tr>
+    <td>[<b>-</b>]<b>oddp</b></td>
+    <td>allow (disallow) odd parity</td>
+  </tr>
+  <tr>
+    <td>[<b>-</b>]<b>evenp</b></td>
+    <td>allow (disallow) even parity</td>
+  </tr>
+  <tr>
+    <td>[<b>-</b>]<b>nl</b></td>
+    <td>accept only new-line to end lines (allow carriage return for new-line,
+      and output CR-LF for carriage return or new-line)</td>
+  </tr>
+  <tr>
+    <td>[<b>-</b>]<b>lcase</b></td>
+    <td>(do not) map upper case to lower case</td>
+  </tr>
+  <tr>
+    <td>[<b>-</b>]<b>LCASE</b></td>
+    <td>same as <i>lcase</i></td>
+  </tr>
+  <tr>
+    <td>[<b>-</b>]<b>tabs</b></td>
+    <td>(do not) replace tabs by spaces when printing</td>
+  </tr>
+  <tr>
+    <td><b>nul-fill</b></td>
+    <td>use NUL to fill output</td>
+  </tr>
+  <tr>
+    <td><b>del-fill</b></td>
+    <td>use DEL to fill output</td>
+  </tr>
+  <tr>
+    <td>[<b>-</b>]<b>fill</b></td>
+    <td>select NUL-filled output (disable output filling)</td>
+  </tr>
+  <tr>
+    <td><b>ek</b></td>
+    <td>reset erase and kill characters back to normal ^H and ^U</td>
+  </tr>
+  <tr>
+    <td>[<b>-</b>]<b>litout</b></td>
+    <td>Unset (set) parenb, istrip, opost, and cs8 (cs7).</td>
+  </tr>
+  <tr>
+    <td>[<b>-</b>]<b>pass8</b></td>
+    <td>Unset (set) parenb, istrip, and cs8 (cs7).</td>
+  </tr>
+  <tr>
+    <td><b>crt</b></td>
+    <td>Set echoe and echoctl. If the speed is equal to or higher than 1200
+      baud, also set echoke.</td>
+  </tr>
+  <tr>
+    <td><b>dec</b></td>
+    <td>set all modes suitable for Digital Equipment Corporation terminals.</td>
+  </tr>
+  <tr>
+    <td><b>tty33</b></td>
+    <td>set all modes suitable for the Teletype Corporation Model 33
+      terminal.</td>
+  </tr>
+  <tr>
+    <td><b>tty37</b></td>
+    <td>set all modes suitable for the Teletype Corporation Model 37
+      terminal.</td>
+  </tr>
+  <tr>
+    <td><b>vt05</b></td>
+    <td>set all modes suitable for Digital Equipment Corp. VT05 terminal</td>
+  </tr>
+  <tr>
+    <td><b>tn300</b></td>
+    <td>set all modes suitable for a General Electric TermiNet 300</td>
+  </tr>
+  <tr>
+    <td><b>ti700</b></td>
+    <td>set all modes suitable for Texas Instruments 700 series terminal</td>
+  </tr>
+  <tr>
+    <td><b>tek</b></td>
+    <td>set all modes suitable for Tektronix 4014 terminal</td>
+  </tr>
+  <tr>
+    <td><b>min</b></td>
+    <td>minimal number of bytes for non-canonical input</td>
+  </tr>
+  <tr>
+    <td><b>time</b></td>
+    <td>timeout for non-canonical input</td>
+  </tr>
+  <tr>
+    <td><b>rows</b></td>
+    <td>set the height of the terminal in character cell units</td>
+  </tr>
+  <tr>
+    <td><b>columns</b></td>
+    <td>set the width of the terminal in character cell units</td>
+  </tr>
+  <tr>
+    <td><b>cols</b></td>
+    <td>same as columns</td>
+  </tr>
+  <tr>
+    <td><b>ypixels</b></td>
+    <td>set the height of the terminal in pixels</td>
+  </tr>
+  <tr>
+    <td><b>xpixels</b></td>
+    <td>set the width of the terminal in pixels</td>
+  </tr>
+</table>
+<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+  ALSO</a></h1>
+termios(3), tabs(1)
+<h1 class="Sh" title="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
+Not all settings are available on all platforms.</div>
+<table class="foot">
+  <tr>
+    <td class="foot-date">7/15/04</td>
+    <td class="foot-os">Heirloom Toolchest</td>
+  </tr>
+</table>
+</body>
+</html>

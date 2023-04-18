@@ -1,0 +1,79 @@
+/* Courier Prime from Google Fonts API */
+@font-face {
+    font-family: 'Courier Prime';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://fonts.gstatic.com/s/courierprime/v7/u-450q2lgwslOqpF_6gQ8kELawFpWg.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+    U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* "New Generation" title */
+#new {
+    font-family: serif;
+    font-weight: lighter;
+}
+
+#generation {
+    color: #F3D04B;
+}
+
+/* List of contributors */
+#contributors-list {
+    border-color: black;
+}
+
+/* Site structure */
+
+#side-bar {
+	float: left;
+	width: 20%;
+    margin-top: 3%;
+    margin-right: 2%;
+    outline-width: 0.1em;
+    outline-style: solid;
+    outline-color: black;
+    outline-offset: 0.2em;
+}
+
+#main {
+	float: right;
+	width: 75%;
+    margin-right: 3%;
+}
+
+#footer {
+    float: bottom;
+/*	left: 0;
+	bottom: 0;
+	width: 100%;
+	background-color: #FFFFEA;
+	color: black;
+	border-top: 1px solid black;
+	text-align: right; */
+}
+
+
+html, body {
+	font-family: Arial;
+}
+
+td, th {
+	border-width: 1px;
+    border-style: solid;
+    border-color: black;
+	overflow: hidden;
+	padding: 10px 5px;
+	word-break: normal;
+}
+
+
+tt, pre, code {
+    font-family: "Courier Prime";
+}
+
+pre {
+    font-size: 10pt;
+    line-height: 14pt;
+}

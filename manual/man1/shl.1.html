@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<!-- This is an automatically generated file.  Do not edit.
+   Sccsid @(#)shl.1	1.4 (gritter) 10/8/03
+ -->
+<head>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="../../assets/mandoc.css" type="text/css" media="all"/>
+  <title>SHL(1)</title>
+</head>
+<body>
+<table class="head">
+  <tr>
+    <td class="head-ltitle">SHL(1)</td>
+    <td class="head-vol">User Commands</td>
+    <td class="head-rtitle">SHL(1)</td>
+  </tr>
+</table>
+<div class="manual-text">
+<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+shl - shell layer manager
+<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<b>shl</b>
+<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<b>shl</b> provides a method to handle multiple shells in parallel on a single
+  terminal. Each shell is put in its own session and has its own controlling
+  pseudo-terminal. At a time, one shell layer can receive input, but output is
+  multiplexed from all layers. When the <small>SWTCH</small> key (assigned to
+  <b>^Z</b> at startup if unset) is pressed, <b>shl</b> takes control over the
+  terminal and allows the user to manage layers. The prompt <b>&gt;&gt;&gt;</b>
+  is used by <b>shl</b> when commands may be entered.
+<h2 class="Ss" title="Ss" id="Definitions"><a class="permalink" href="#Definitions">Definitions</a></h2>
+Commands and arguments are separated by spaces or tabs and terminated by a
+  new-line. A layer name consists of printable characters other than space, tab,
+  or new-line. Only the first eight characters are significant.
+<h2 class="Ss" title="Ss" id="Commands"><a class="permalink" href="#Commands">Commands</a></h2>
+The following commands may be entered at the <b>shl</b> prompt; any unique
+  prefix is accepted.
+<dl class="Bl-tag">
+  <dt><b>create</b> [-[<i>name</i>] | <i>name</i> [<i>command</i>]]</dt>
+  <dd>Create a new layer that has the specified <i>name.</i> If <i>name</i> is
+      omitted, it is taken from an internal counter and formed as
+      (<i>digit</i>). A name may later be referenced with or without these
+      braces. If <i>name</i> begins with -, a login shell is started, that is,
+      the first argument to the shell begins with -, too. An optional
+      <i>command</i> can be executed instead of the shell. The shell prompt
+      variable <small>PS1</small> is set to the name of the layer followed by a
+      space character.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>name</b> [<i>oldname</i>] <i>newname</i></dt>
+  <dd>Rename the layer <i>oldname</i> or the current layer to
+    <i>newname.</i></dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>!</b> [<i>command</i>]</dt>
+  <dd>Execute <i>command</i> or the default shell in a subshell on the same
+      terminal device as <b>shl</b> operates on. Switching between layers is not
+      possible until the command terminates.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>block</b> <i>name</i> [<i>name ...</i>]</dt>
+  <dd>Block output of the given layers when they are not current layers.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>delete</b> <i>name</i> [<i>name ...</i>]</dt>
+  <dd>Delete the given layers, that is, send a <small>SIGHUP</small> to each
+      process group.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>help</b> (or <b>?</b>)</dt>
+  <dd>Print the syntax of all <b>shl</b> commands.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>layers</b> [-l] [<i>name ...</i>]</dt>
+  <dd>For each given layer, or for all layers, print the layer name and its
+      process group. If the <b>-l</b> option is present, a <b>ps</b>(1)-like
+      output format is used.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>resume</b> [<i>name</i>]</dt>
+  <dd>Resume the specified layer, or the last current layer.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>toggle</b></dt>
+  <dd>Resume the previous current layer to that of the current layer.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>unblock</b> <i>name</i> [<i>name ...</i>]</dt>
+  <dd>Unblock output of the given layers.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>quit</b></dt>
+  <dd>Quit <b>shl</b> and send a <small>SIGHUP</small> signal to all remaining
+      layers.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><i>name</i></dt>
+  <dd>Resume the specified layer. Any unique name prefix is accepted.</dd>
+</dl>
+<h1 class="Sh" title="Sh" id="ENVIRONMENT_VARIABLES"><a class="permalink" href="#ENVIRONMENT_VARIABLES">ENVIRONMENT
+  VARIABLES</a></h1>
+<dl class="Bl-tag">
+  <dt><b>SHELL</b></dt>
+  <dd>Default shell program.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>SYSV3</b></dt>
+  <dd>Causes the text of some messages to be changed.</dd>
+</dl>
+<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+  ALSO</a></h1>
+ps(1), sh(1), stty(1), termio(7I)
+<h1 class="Sh" title="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
+This <b>shl</b> implementation uses regular pseudo terminals and thus works
+  slightly different than the original System V one.
+<div class="Pp"></div>
+The <b>block</b> command will not suspend a layer from execution immediately.
+  The layer will continue to run until the pseudo terminal's buffer is filled.
+  This can lead to lots of output once the layer is resumed or unblocked.
+<div class="Pp"></div>
+The <b>loblk</b> setting of <b>stty</b>(1) is not honored.
+<div class="Pp"></div>
+While pseudo-terminal settings are an attribute of a specific layer, terminal
+  states set by escape sequences are not and can cause unpredictable results
+  when layers are switched. It might be better to stop or quit screen-handling
+  programs on some output devices.</div>
+<table class="foot">
+  <tr>
+    <td class="foot-date">10/8/03</td>
+    <td class="foot-os">Heirloom Toolchest</td>
+  </tr>
+</table>
+</body>
+</html>

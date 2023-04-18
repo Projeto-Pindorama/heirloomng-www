@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<!-- This is an automatically generated file.  Do not edit.
+   Copyright (c) 2003 Gunnar Ritter
+  
+   SPDX-Licence-Identifier: Zlib
+   Sccsid @(#)basename.1b	1.4 (gritter) 9/22/03
+ -->
+<head>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="../../assets/mandoc.css" type="text/css" media="all"/>
+  <title>BASENAME(1B)</title>
+</head>
+<body>
+<table class="head">
+  <tr>
+    <td class="head-ltitle">BASENAME(1B)</td>
+    <td class="head-vol">BSD System Compatibility</td>
+    <td class="head-rtitle">BASENAME(1B)</td>
+  </tr>
+</table>
+<div class="manual-text">
+<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+basename - (BSD) return non-directory portion of a pathname
+<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<b>/opt/heirloom/bin/ucb/basename</b> <i>string</i> [<i>suffix</i>]
+<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<i>Basename</i> deletes the directory part of the filename-like <i>string</i>
+  and prints the result. If <i>suffix</i> is specified, and <i>suffix</i>
+  matches the last part of the result, the matched portion of the fixed string
+  <i>string</i> is also deleted.
+<h1 class="Sh" title="Sh" id="ENVIRONMENT_VARIABLES"><a class="permalink" href="#ENVIRONMENT_VARIABLES">ENVIRONMENT
+  VARIABLES</a></h1>
+<dl class="Bl-tag">
+  <dt><b>LANG</b>, <b>LC_ALL</b></dt>
+  <dd>See <i>locale</i>(7).</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>LC_CTYPE</b></dt>
+  <dd>Determines the mapping of bytes to characters.</dd>
+</dl>
+<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+  ALSO</a></h1>
+dirname(1), grep(1), sh(1), locale(7)</div>
+<table class="foot">
+  <tr>
+    <td class="foot-date">9/22/03</td>
+    <td class="foot-os">Heirloom Toolchest</td>
+  </tr>
+</table>
+</body>
+</html>

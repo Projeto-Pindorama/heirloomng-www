@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<!-- This is an automatically generated file.  Do not edit.
+   Sccsid @(#)tr.1	1.21 (gritter) 8/6/05
+   Parts taken from tr(1), Unix 7th edition:
+   Copyright(C) Caldera International Inc. 2001-2002. All rights reserved.
+  
+   SPDX-Licence-Identifier: Caldera
+   -->
+<head>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="../../assets/mandoc.css" type="text/css" media="all"/>
+  <title>TR(1)</title>
+</head>
+<body>
+<table class="head">
+  <tr>
+    <td class="head-ltitle">TR(1)</td>
+    <td class="head-vol">User Commands</td>
+    <td class="head-rtitle">TR(1)</td>
+  </tr>
+</table>
+<div class="manual-text">
+<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+tr - translate characters
+<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<b>tr</b> [<b>-cCds</b>] [<i>string1</i> [<i>string2</i>]]
+<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<i>Tr</i> copies the standard input to the standard output with substitution or
+  deletion of selected characters. Input characters found in <i>string1</i> are
+  mapped into the corresponding characters of <i>string2</i>. When
+  <i>string2</i> is shorter than <i>string1</i>, no mapping occurs beyond its
+  last character. Any combination of the options <b>-cds</b> may be used:
+<dl class="Bl-tag">
+  <dt><b>-c</b></dt>
+  <dd>complements the set of characters in <i>string1</i> with respect to the
+      universe of characters whose byte codes are 01 through 0377 octal, or with
+      a multibyte character set, whose wide character codes start at 1.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-d</b></dt>
+  <dd>deletes all input characters in <i>string1.</i></dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-s</b></dt>
+  <dd>squeezes all strings of repeated output characters that are in
+      <i>string2</i> to single characters.</dd>
+</dl>
+<div class="Pp"></div>
+The following option has been introduced by POSIX.1-2001:
+<dl class="Bl-tag">
+  <dt><b>-C</b></dt>
+  <dd>complements the set of characters in <i>string1</i> like <i>-c</i>, but
+      orders ranges according to the collation sequence.</dd>
+</dl>
+<div class="Pp"></div>
+In either string the following character sequences are treated specially:
+<dl class="Bl-tag">
+  <dt><b>\</b><i>octal</i></dt>
+  <dd>The character `\' followed by 1, 2 or 3 octal digits stands for the
+      character whose byte code is given by those digits. Multibyte characters
+      can be specified as a sequence of octal bytes.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>\</b><i>char</i></dt>
+  <dd>The escape sequences `\a' (bell), `\b' (backspace), `\f' (form feed), `\n'
+      (newline), `\r' (carriage return), `\t' (horizontal tabulator), and `\v'
+      (vertical tabulator) are supported. A `\' followed by any other character
+      (other than an octal digit) stands for that character.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>[</b><i>a</i><b>-</b><i>z</i><b>]</b></dt>
+  <dd>(/usr/5bin/tr, /opt/heirloom/bin/s42/tr) means a range of characters from
+      <i>a</i> to <i>z</i> in increasing byte order, or with a multibyte
+      character set, in increasing wide character order. With the <i>-C</i>
+      option, characters are ordered according to the collation sequence.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><i>a</i><b>-</b><i>z</i></dt>
+  <dd>(/usr/5bin/posix/tr, /opt/heirloom/bin/posix2001/tr) means a range of
+      characters from <i>a</i> to <i>z</i> in increasing byte order, or with a
+      multibyte character set, in increasing wide character order. With the
+      <i>-C</i> option, characters are ordered according to the collation
+      sequence.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>[:</b><i>class</i><b>:]</b></dt>
+  <dd>means all characters that belong to character class <i>class</i> in the
+      current LC_CTYPE locale in increasing byte order, or with a multibyte
+      character set, in increasing wide character order. With the <i>-C</i>
+      option, characters are ordered according to the collation sequence. If
+      both <b>[:upper:]</b> and <b>[:lower:]</b> appear at the same position in
+      either string, upper-case characters are mapped to lower-case characters
+      (and vice versa).</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>[=</b><i>c</i><b>=]</b></dt>
+  <dd>where <i>c</i> is a collating symbol in the current LC_COLLATE locale,
+      means all characters that belong to the same equivalence class as
+      <i>c</i>, i.&#x00A0;e. have the same collating weight as <i>c</i>.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>[</b><i>a</i><b>*</b><i>n</i><b>]</b></dt>
+  <dd>means <i>n</i> repetitions of the character <i>a</i>, with <i>n</i> as an
+      octal number if it starts with `0' and as a decimal number otherwise. If
+      <i>n</i> is omitted or zero, it is taken to be huge (useful for padding
+      <i>string2</i> to the length of <i>string1</i>).</dd>
+</dl>
+<h1 class="Sh" title="Sh" id="ENVIRONMENT_VARIABLES"><a class="permalink" href="#ENVIRONMENT_VARIABLES">ENVIRONMENT
+  VARIABLES</a></h1>
+<dl class="Bl-tag">
+  <dt><b>LANG</b>, <b>LC_ALL</b></dt>
+  <dd>See <i>locale</i>(7).</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>LC_COLLATE</b></dt>
+  <dd>Affects the composition of equivalence classes.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>LC_CTYPE</b></dt>
+  <dd>Determines the mapping of bytes to characters in translation strings and
+      input files, and the availability and composition of character
+    classes.</dd>
+</dl>
+<h1 class="Sh" title="Sh" id="EXAMPLES"><a class="permalink" href="#EXAMPLES">EXAMPLES</a></h1>
+The following examples create a list of all the words in `file1' one per line in
+  `file2', where a word is taken to be a maximal string of alphabetics. The
+  strings are quoted to protect `\' and '[' from the Shell. 012 is the ASCII
+  code for newline.
+<dl class="Bl-tag">
+  <dt></dt>
+  <dd>/opt/heirloom/bin/tr -cs &#x00B4;[A-Z][a-z]&#x00B4;
+      &#x00B4;[\012*]&#x00B4; &lt;file1 &gt;file2</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt></dt>
+  <dd>/opt/heirloom/bin/s42/tr -cs &#x00B4;[A-Z][a-z]&#x00B4;
+      &#x00B4;[\012*]&#x00B4; &lt;file1 &gt;file2</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt></dt>
+  <dd>/opt/heirloom/bin/posix/tr -cs A-Za-z &#x00B4;[\012*]&#x00B4; &lt;file1
+      &gt;file2</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt></dt>
+  <dd>/opt/heirloom/bin/posix2001/tr -cs A-Za-z &#x00B4;[\012*]&#x00B4;
+      &lt;file1 &gt;file2</dd>
+</dl>
+<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+  ALSO</a></h1>
+ed(1), ascii(7), locale(7)
+<h1 class="Sh" title="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
+/usr/5bin/tr and /opt/heirloom/bin/s42/tr do not handle ASCII NUL in
+  <i>string1</i> or <i>string2</i>; they always delete NUL from input.
+<div class="Pp"></div>
+The LC_COLLATE variable is not respected; equivalence classes consist of exactly
+  one character, and the <i>-c</i> and <i>-C</i> options produce identical
+  results.
+<div class="Pp"></div>
+Portable programs must prefix the `<b>[</b>' and `<b>-</b>' characters with a
+  backslash and cannot use them otherwise, unless a `
+  <b>[</b><i>a</i><b>-</b><i>z</i><b>]</b>' sequence appears at exactly the same
+  position in both operand strings. The ` <b>\</b><i>octal</i>' construct cannot
+  be used portably preceding or following the ` <b>-</b>' range metacharacter;
+  the ` <b>\</b><i>char</i>' escapes for control characters are not present in
+  old implementations, use octal escapes instead.</div>
+<table class="foot">
+  <tr>
+    <td class="foot-date">8/6/05</td>
+    <td class="foot-os">Heirloom Toolchest</td>
+  </tr>
+</table>
+</body>
+</html>

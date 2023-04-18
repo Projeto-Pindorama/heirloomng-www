@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<!-- This is an automatically generated file.  Do not edit.
+   t
+   Copyright (c) 2003 Gunnar Ritter
+  
+   SPDX-Licence-Identifier: Zlib
+  
+   Sccsid @(#)nl.1	1.10 (gritter) 8/14/05
+ -->
+<head>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="../../assets/mandoc.css" type="text/css" media="all"/>
+  <title>NL(1)</title>
+</head>
+<body>
+<table class="head">
+  <tr>
+    <td class="head-ltitle">NL(1)</td>
+    <td class="head-vol">User Commands</td>
+    <td class="head-rtitle">NL(1)</td>
+  </tr>
+</table>
+<div class="manual-text">
+<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+nl - line numbering filter
+<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<div class="HP"><b>nl</b> [ <b>-h</b><i>type</i>] [ <b>-b</b><i>type</i>] [
+  <b>-f</b> <i>type</i>] [ <b>-v</b><i>start#</i>] [ <b>-i</b><i>incr</i>] [
+  <b>-p</b>] [ <b>-l</b><i>num</i>] [ <b>-w</b><i>width</i>] [
+  <b>-n</b><i>format</i>] [ <b>-d</b><i>delim</i>] [ <i>file</i>]
+<div>&#x00A0;</div>
+</div>
+<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+The <b>nl</b> command prints a <i>file</i>, or, when no <i>file</i> argument is
+  given, standard input, preceding lines with line numbers on the left.
+<div class="Pp"></div>
+Lines with special content are taken as page delimiters. Three parts of pages
+  are distinguished: header, body and footer. Each part is started when a line
+  consisting only of the following characters appears in input:
+<div class="Bd-indent">
+<div class="Pp"></div>
+<table class="tbl">
+  <tr>
+    <td>Line contents</td>
+    <td>Start of</td>
+  </tr>
+  <tr>
+    <td>\:\:\:</td>
+    <td>header</td>
+  </tr>
+  <tr>
+    <td>\:\:</td>
+    <td>body</td>
+  </tr>
+  <tr>
+    <td>\:</td>
+    <td>footer</td>
+  </tr>
+</table>
+<div class="Pp"></div>
+</div>
+Line numbers are reset each time a header begins. The start of the file is
+  considered a body part until a line marking another part appears.
+<div class="Pp"></div>
+The following options alter the behavior of <b>nl</b>:
+<dl class="Bl-tag">
+  <dt><b>-b</b><i>type</i></dt>
+  <dd>Specifies which lines in a body part are numbered, where <i>type</i> is
+      one of the following:</dd>
+</dl>
+<div class="Bd-indent">
+<dl class="Bl-tag">
+  <dt><b>a</b></dt>
+  <dd>Number all lines, unless otherwise specified by the <b>-l</b> option.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>t</b></dt>
+  <dd>Number all non-empty lines.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>n</b></dt>
+  <dd>Number no lines.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>p</b><i>string</i></dt>
+  <dd>Number all lines that match the regular expression <i>string</i>. Regular
+      expressions are as in <i>ed</i>(1); <b>/opt/heirloom/bin/nl</b> uses
+      simple regular expressions, <b>/opt/heirloom/bin/posix/nl</b>,
+      <b>/opt/heirloom/bin/posix2001/nl</b>, and <b>/opt/heirloom/bin/s42/nl</b>
+      use basic regular expressions.</dd>
+</dl>
+</div>
+<dl class="Bl-tag">
+  <dt></dt>
+  <dd>The default is <b>t</b>.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-d</b><i>delim</i></dt>
+  <dd>Change the special characters that delimit parts of a page to the two
+      characters in <i>delim</i>. If <i>delim</i> consists of only one
+      character, the second character remains the default, ` <b>:</b>'.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-f</b><i>type</i></dt>
+  <dd>Specifies which lines in a footer part are numbered, where <i>type</i> has
+      the format described for <b>-b</b>. The default is <b>n</b>.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-h</b><i>type</i></dt>
+  <dd>Specifies which lines in a header part are numbered, where <i>type</i> has
+      the format described for <b>-b</b>. The default is <b>n</b>.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-i</b><i>incr</i></dt>
+  <dd>Line numbers are increased by <i>incr</i>, which defaults to 1.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-l</b><i>num</i></dt>
+  <dd>For the <b>-ba</b>, <b>-fa</b>, and <b>-ha</b> options, specifies which
+      line of adjacent blank lines is printed. The default is 1 (print all blank
+      lines).</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-n</b><i>format</i></dt>
+  <dd>Sets the format of line numbers, where <i>format</i> is one of:</dd>
+</dl>
+<div class="Bd-indent">
+<dl class="Bl-tag">
+  <dt><b>ln</b></dt>
+  <dd>left-justified, preceded by blanks</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>rn</b></dt>
+  <dd>right-justified, preceded by blanks</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>rz</b></dt>
+  <dd>right-justified, preceded by zeros</dd>
+</dl>
+</div>
+<dl class="Bl-tag">
+  <dt></dt>
+  <dd>The default is <b>rn</b>.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-p</b></dt>
+  <dd>Line numbers are not reset at the start of each header when this option is
+      present.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-s</b><i>sep</i></dt>
+  <dd>Sets the string that separates line number and line content in output,
+      default is a tabulator.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-v</b><i>start#</i></dt>
+  <dd>Each page is numbered starting at <i>start#</i>, which defaults to 1.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-w</b><i>width</i></dt>
+  <dd>Sets the width of line numbers. If a number has fewer digits than
+      <i>width</i>, it is padded as described for the <b>-n</b> option; if it
+      has more digits, only the last <i>width</i> digits are printed. The
+      default <i>width</i> is 6.</dd>
+</dl>
+<div class="Pp"></div>
+The <i>file</i> argument can appear between options. For
+  <b>/opt/heirloom/bin/nl</b> and <b>/opt/heirloom/bin/s42/nl</b>, option and
+  option argument must not be separated; if an option is not immediately
+  followed by its argument, the default value is used.
+  <b>/opt/heirloom/bin/posix/nl</b> and <b>/opt/heirloom/bin/posix2001/nl</b>
+  require an option argument and accept it regardless of space between option
+  and argument.
+<h1 class="Sh" title="Sh" id="ENVIRONMENT_VARIABLES"><a class="permalink" href="#ENVIRONMENT_VARIABLES">ENVIRONMENT
+  VARIABLES</a></h1>
+<dl class="Bl-tag">
+  <dt><b>LANG</b>, <b>LC_ALL</b></dt>
+  <dd>See <i>locale</i>(7).</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>LC_COLLATE</b></dt>
+  <dd>Affects the collation order for range expressions, equivalence classes,
+      and collation symbols in basic regular expressions.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>LC_CTYPE</b></dt>
+  <dd>Determines the mapping of bytes to characters.</dd>
+</dl>
+<h1 class="Sh" title="Sh" id="EXAMPLES"><a class="permalink" href="#EXAMPLES">EXAMPLES</a></h1>
+To number all lines in a file, effectively disabling header and footer
+  recognition since no line can contain a second newline character and thus the
+  condition is never met:
+<div class="Bd-indent">
+<div class="Pp"></div>
+<pre>
+nl -ba -d&#x00B4;
+&#x00B4; file
+</pre>
+<div class="Pp"></div>
+</div>
+Note that there is no white space other than the newline character between
+  &#x00B4; &#x00B4;.
+<div class="Pp"></div>
+To number all lines that are not empty and contain at least one non-blank
+  character:
+<div class="Bd-indent">
+<div class="Pp"></div>
+<pre>
+nl -bp&#x00B4;[^      ]&#x00B4; file
+</pre>
+<div class="Pp"></div>
+</div>
+The characters between [ ] are: a circumflex, a space, and a tabulator.
+<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+  ALSO</a></h1>
+ed(1), pr(1), locale(7)
+<h1 class="Sh" title="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
+Since the default width causes line numbers to be truncated if they consist of
+  more than six digits, the <b>-w</b> option should be used to increase this
+  value if higher numbers are to be expected.</div>
+<table class="foot">
+  <tr>
+    <td class="foot-date">8/14/05</td>
+    <td class="foot-os">Heirloom Toolchest</td>
+  </tr>
+</table>
+</body>
+</html>

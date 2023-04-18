@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<!-- This is an automatically generated file.  Do not edit.
+   Copyright (c) 2003 Gunnar Ritter
+  
+   SPDX-Licence-Identifier: Zlib
+  
+   Sccsid @(#)csplit.1	1.9 (gritter) 8/14/05
+ -->
+<head>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="../../assets/mandoc.css" type="text/css" media="all"/>
+  <title>CSPLIT(1)</title>
+</head>
+<body>
+<table class="head">
+  <tr>
+    <td class="head-ltitle">CSPLIT(1)</td>
+    <td class="head-vol">User Commands</td>
+    <td class="head-rtitle">CSPLIT(1)</td>
+  </tr>
+</table>
+<div class="manual-text">
+<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+csplit - context split
+<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<b>csplit</b> [<b>-s</b>] [<b>-k</b>] [<b>-f</b><i>&#x00A0;prefix</i>] [
+  <b>-n</b> <i>&#x00A0;digits</i>] <i>file args</i>&#x00A0;...
+<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<i>Csplit</i> reads <i>file</i> and writes it in pieces as specified by the
+  further operands <i>args</i>. The destination file names have the form
+  <b>xx</b> <i>00</i>, <b>xx</b><i>01, and so on by default.</i>
+<div class="Pp"></div>
+The <i>args</i> operands can have one of the following forms:
+<dl class="Bl-tag">
+  <dt><b>/</b><i>rexp</i><b>/</b>[[<b>+</b>|<b>-</b>]<i>offset</i>]</dt>
+  <dd>Write text between the current line and the next line matching the regular
+      expression <i>rexp</i> to an output file piece. If <i>offset</i> is also
+      specified, writing ends <i>offset</i> lines below the matching line for
+      positive values, or above the matching line for negative ones. The text
+      section written to the next file piece starts at the matching line with
+      <i>offset</i>applied<i>;</i> thus repeated matches with negative offsets
+      will repeatedly write the same text part. With
+      <b>/opt/heirloom/bin/csplit</b>, <i>rexp</i> is treated as a simple
+      regular expression, whereas <b>/opt/heirloom/bin/s42/csplit</b>,
+      <b>/opt/heirloom/bin/posix/csplit</b>, and
+      <b>/opt/heirloom/bin/posix2001/csplit</b> treat it as a basic regular
+      expression (see <i>ed</i>(1). Backslash escapes a literal `<b>/</b>' in
+      the expression.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>%</b><i>rexp</i><b>%</b>[[<b>+</b>|<b>-</b>]<i>offset</i>]</dt>
+  <dd>Also match <i>rexp</i> as described above, but skip the text between the
+      current line and the matching one (plus <i>offset</i>) instead of writing
+      it. Backslash escapes `<b>%</b>'.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><i>number</i></dt>
+  <dd>Create a piece of the file for the text between the current line and line
+      <i>number</i>. Line numbering starts at 1.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>{</b><i>repetition</i><b>}</b></dt>
+  <dd>Apply the previous argument additionally <i>repetition</i> times if it
+      searches for a regular expression. If it specifies a line number, include
+      the text between the current line and the current line plus the line count
+      given in the argument, and repeat this process <i>repetition</i>
+    times.</dd>
+</dl>
+<div class="Pp"></div>
+The following options can be used with <i>csplit</i>:
+<dl class="Bl-tag">
+  <dt><b>-f</b><i>&#x00A0;prefix</i></dt>
+  <dd>Use the given <i>prefix</i> as the first part of the file names created
+      (instead of <b>xx</b>).</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-n</b><i>&#x00A0;digits</i></dt>
+  <dd>Use <i>digits</i> positions for the second part of the file names created,
+      instead of the default 2. This allows for the creation of more than 100
+      file pieces. This option was introduced by POSIX.2.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-k</b></dt>
+  <dd>When <i>csplit</i> detects an error (as an argument that does not
+      correspond to a part of the input file) or it is interrupted from the
+      terminal, output files already created will be deleted. Specifying this
+      option causes <i>csplit</i> to keep these files.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-s</b></dt>
+  <dd>The number of bytes written to each file piece is normally written to
+      standard output; this option inhibits these statistics.</dd>
+</dl>
+<h1 class="Sh" title="Sh" id="EXAMPLES"><a class="permalink" href="#EXAMPLES">EXAMPLES</a></h1>
+Create individual files <i>section00</i>, <i>section01</i> ... for each section
+  of a <i>troff -ms</i> document:
+<div class="Bd-indent">
+<div class="Pp"></div>
+csplit -k -f section doc.ms &#x00B4;/^.[NS]H/&#x00B4; {100}</div>
+<h1 class="Sh" title="Sh" id="ENVIRONMENT_VARIABLES"><a class="permalink" href="#ENVIRONMENT_VARIABLES">ENVIRONMENT
+  VARIABLES</a></h1>
+<dl class="Bl-tag">
+  <dt><b>LANG</b>, <b>LC_ALL</b></dt>
+  <dd>See <i>locale</i>(7).</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>LC_COLLATE</b></dt>
+  <dd>Affects the collation order for range expressions, equivalence classes,
+      and collation symbols in basic regular expressions.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>LC_CTYPE</b></dt>
+  <dd>Determines the mapping of bytes to characters, the set of word boundary
+      characters and the composition of character classes in basic regular
+      expressions.</dd>
+</dl>
+<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+  ALSO</a></h1>
+ed(1), split(1)</div>
+<table class="foot">
+  <tr>
+    <td class="foot-date">8/14/05</td>
+    <td class="foot-os">Heirloom Toolchest</td>
+  </tr>
+</table>
+</body>
+</html>

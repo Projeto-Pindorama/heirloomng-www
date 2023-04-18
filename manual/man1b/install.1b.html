@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<!-- This is an automatically generated file.  Do not edit.
+   Copyright (c) 2003 Gunnar Ritter
+  
+   SPDX-Licence-Identifier: Zlib
+   Sccsid @(#)install.1b	1.3 (gritter) 4/17/03
+ -->
+<head>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="../../assets/mandoc.css" type="text/css" media="all"/>
+  <title>INSTALL(1B)</title>
+</head>
+<body>
+<table class="head">
+  <tr>
+    <td class="head-ltitle">INSTALL(1B)</td>
+    <td class="head-vol">BSD System Compatibility</td>
+    <td class="head-rtitle">INSTALL(1B)</td>
+  </tr>
+</table>
+<div class="manual-text">
+<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+install - (BSD) install files
+<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<div class="HP"><b>/opt/heirloom/bin/ucb/install</b> [<b>-cs</b>]
+  [<b>-g</b><i>&#x00A0;group</i>] [ <b>-m</b><i>&#x00A0;mode</i>] [
+  <b>-o</b><i>&#x00A0;owner</i>] <i>file1 file2</i></div>
+<div class="Pp"></div>
+<div class="HP"><b>/opt/heirloom/bin/ucb/install</b> [<b>-cs</b>]
+  [<b>-g</b><i>&#x00A0;group</i>] [ <b>-m</b><i>&#x00A0;mode</i>] [
+  <b>-o</b><i>&#x00A0;owner</i>]
+  <i>file</i>&#x00A0;.&#x00A0;.&#x00A0;.&#x00A0;<i>directory</i></div>
+<div class="Pp"></div>
+<div class="HP"><b>/opt/heirloom/bin/ucb/install</b> <b>-d</b>
+  [<b>-g</b><i>&#x00A0;group</i>] [ <b>-m</b><i>&#x00A0;mode</i>] [
+  <b>-o</b><i>&#x00A0;owner</i>] <i>directory</i>
+<div>&#x00A0;</div>
+</div>
+<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+The <i>install</i> command copies one regular file to a destination file or one
+  or more regular files into a destination directory. It is commonly used within
+  Makefiles to install newly created software components.
+<div class="Pp"></div>
+If the <b>-d</b> option is present, <i>install</i> creates the named
+  <i>directory</i>, also creating non-existent parent directories. It is not an
+  error if the directory already exists. The <b>-g</b>, <b>-m</b>, and <b>-o</b>
+  options apply to the last pathname component only; attributes are set whether
+  the directory is newly created or not. Parent directories are always created
+  using a default mode of 777 minus umask and default ownerships.
+<div class="Pp"></div>
+The following options are also accepted:
+<dl class="Bl-tag">
+  <dt><b>-c</b></dt>
+  <dd>This option is ignored and exists for compatibility only. Ancient versions
+      of this command removed the source file unless this option was
+    present.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-s</b></dt>
+  <dd>Strip the target files (i.e. execute the <i>strip</i>(1) command on
+    them).</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-g</b><i> group</i></dt>
+  <dd>Use the given <i>group</i> ownership for target files. By default, the
+      group of the invoking user is used.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-m</b><i> mode</i></dt>
+  <dd>Set the access permissions of target files to octal <i>mode</i>. By
+      default, mode 755 is used.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-o</b><i> owner</i></dt>
+  <dd>Specifies the <i>owner</i> of target files. By default, target files are
+      owned by the invoking user.</dd>
+</dl>
+<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+  ALSO</a></h1>
+cp(1), chgrp(1), chmod(1), chown(1), make(1), mkdir(1), strip(1)</div>
+<table class="foot">
+  <tr>
+    <td class="foot-date">4/17/03</td>
+    <td class="foot-os">Heirloom Toolchest</td>
+  </tr>
+</table>
+</body>
+</html>

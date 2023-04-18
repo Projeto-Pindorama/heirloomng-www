@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<!-- This is an automatically generated file.  Do not edit.
+   Copyright (c) 2005 Gunnar Ritter
+  
+   SPDX-Licence-Identifier: Zlib
+  
+   Sccsid @(#)printf.1	1.2 (gritter) 7/17/05
+ -->
+<head>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="../../assets/mandoc.css" type="text/css" media="all"/>
+  <title>PRINTF(1)</title>
+</head>
+<body>
+<table class="head">
+  <tr>
+    <td class="head-ltitle">PRINTF(1)</td>
+    <td class="head-vol">User Commands</td>
+    <td class="head-rtitle">PRINTF(1)</td>
+  </tr>
+</table>
+<div class="manual-text">
+<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+printf - print a text string
+<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<b>printf</b> <i>format</i> [<i>argument</i> ...]
+<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+The <i>printf</i> command writes a string to standard output with a controlled
+  <i>format</i>. It is essentially a utility variant of the `C' language
+  function <i>printf</i>(3).
+<div class="Pp"></div>
+Most characters in the <i>format</i> string are simply copied. The only
+  exceptions are the backslash `\' and percent `%' characters.
+<div class="Pp"></div>
+The backslash `\' character in the <i>format</i> string serves as an escape for
+  the following character. The sequences `\a' (alert), `\b' (backspace), `\f'
+  (formfeed), `\n' (newline), `\r' (carriage return), `\t' (tabulator), and `\v'
+  (vertical tabulator) cause the corresponding control characters to be printed.
+  The sequence `\ <i>nnn</i>', where <i>nnn</i> is a one-, two-, or three-digit
+  octal number, cause the character (byte) with the corresponding number to be
+  printed. `\\' prints the backslash character itself.
+<div class="Pp"></div>
+The percent `%' character in the <i>format</i> string introduces a conversion
+  specification consisting of up to five parts, of which the first four are
+  optional:
+<dl class="Bl-tag">
+  <dt><i>position</i></dt>
+  <dd>A positive decimal integer followed by a dollar `$' character that
+      specifies the <i>argument</i> to be used instead of the next unused one
+      for the following conversions.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><i>flags</i></dt>
+  <dd>Zero or more of</dd>
+</dl>
+<div class="Bd-indent">
+<dl class="Bl-tag">
+  <dt><b>-</b></dt>
+  <dd>left-justify the field</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>+</b></dt>
+  <dd>always include a sign when printing a number</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt>&lt;space&gt;</dt>
+  <dd>prefix the result by a space if there is no sign</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>#</b></dt>
+  <dd>alternate format</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>0</b></dt>
+  <dd>pad numbers with leading zeros</dd>
+</dl>
+</div>
+<dl class="Bl-tag">
+  <dt><i>field width</i></dt>
+  <dd>A decimal number giving the minimum width of the output printed. The
+      output is padded if necessary, as controlled by the flags described above.
+      By default, no padding is performed. If the field width is `*', it is
+      taken from the next unused <i>argument</i>.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><i>precision</i></dt>
+  <dd>A dot `.', followed by a decimal number giving the minimum digits written
+      for integer numeric conversions, the minumum digits after the radix
+      character for floating-point numeric conversions, or maximum bytes written
+      for string conversions. If the precisision is `.*', it is taken from the
+      next unused <i>argument</i>.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><i>specifier</i></dt>
+  <dd>A character controlling the type of the conversion performed:</dd>
+</dl>
+<div class="Bd-indent">
+<dl class="Bl-tag">
+  <dt><b>s</b></dt>
+  <dd>The next unused <i>argument</i> is written as a plain string.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>b</b></dt>
+  <dd>The next unused <i>argument</i> is written as a string containing escape
+      sequences similar to those of <i>echo</i>(1). The backslash sequences
+      described above are supported, except that the octal number must be
+      prefixed by a zero as in `\0 <i>nnn</i>'. A `\c' sequence causes
+      <i>printf</i> to exit immediately when it is encountered.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>c</b></dt>
+  <dd>The first character (byte) of the next unused <i>argument</i> is written.
+      Any following characters in this argument are ignored.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>d</b>, i</dt>
+  <dd>The next unused <i>argument</i> is written as a signed decimal
+    number.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>o</b></dt>
+  <dd>The next unused <i>argument</i> is written as an octal number. With the
+      `#' flag, it is prefixed by `0'.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>u</b></dt>
+  <dd>The next unused <i>argument</i> is written as an unsigned decimal
+    number.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>x</b></dt>
+  <dd>The next unused <i>argument</i> is written as a hexadecimal number, using
+      lowercase characters. With the `#' flag, it is prefixed by `0x'.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>X</b></dt>
+  <dd>The next unused <i>argument</i> is written as a hexadecimal number, using
+      uppercase characters. With the `#' flag, it is prefixed by `0X'.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>f</b></dt>
+  <dd>The next unused <i>argument</i> is written as a floating-point number in
+      the style `[-] <i>nnn.nnn</i>'.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>e</b></dt>
+  <dd>The next unused <i>argument</i> is written as a floating-point number in
+      the style `[-] <i>n.nnn</i>e[+|-]<i>nn'.</i></dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>E</b></dt>
+  <dd>The next unused <i>argument</i> is written as a floating-point number in
+      the style `[-] <i>n.nnn</i>E[+|-]<i>nn'.</i></dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>g</b></dt>
+  <dd>The next unused <i>argument</i> is written as a floating-point number like
+      an integer if there is no fractional part, as described for `f' if the
+      exponent is small, or as described for `g' if the exponent is large.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>G</b></dt>
+  <dd>The next unused <i>argument</i> is written as a floating-point number like
+      an integer if there is no fractional part, as described for `f' if the
+      exponent is small, or as described for `G' if the exponent is large.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>%</b></dt>
+  <dd>A percent character is printed. No <i>argument</i> is consumed.</dd>
+</dl>
+</div>
+<div class="Pp"></div>
+If the argument for the numeric specifiers starts with a single- or double quote
+  (`' <i>c</i>' or `&quot;<i>c</i>'), the numeric value of the following
+  character (byte sequence) in the current character encoding is used.
+<div class="Pp"></div>
+If the <i>format</i> string consumes at least an <i>argument</i>, no format
+  specification contains a <i>position</i> part, but there are still unused
+  <i>arguments</i> after the entire format string has been evaluated once, it is
+  evaluated repeatedly until all arguments are consumed. Missing
+  <i>arguments</i> default to the empty string for string conversions, and to
+  zero if a numeric value is expected.
+<h1 class="Sh" title="Sh" id="ENVIRONMENT_VARIABLES"><a class="permalink" href="#ENVIRONMENT_VARIABLES">ENVIRONMENT
+  VARIABLES</a></h1>
+<dl class="Bl-tag">
+  <dt><b>LANG</b>, <b>LC_ALL</b></dt>
+  <dd>See <i>locale</i>(7).</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>LC_CTYPE</b></dt>
+  <dd>Determines the mapping of bytes to characters for `' <i>c</i>' and
+      `&quot;<i>c</i>'.</dd>
+</dl>
+<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+  ALSO</a></h1>
+echo(1), printf(3)</div>
+<table class="foot">
+  <tr>
+    <td class="foot-date">7/17/05</td>
+    <td class="foot-os">Heirloom Toolchest</td>
+  </tr>
+</table>
+</body>
+</html>

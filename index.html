@@ -1,0 +1,128 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Heirloom New Generation</title>
+    <meta charset="UTF-8">
+	<link	type="text/css"
+		rel="stylesheet"
+		href="./assets/style.css">
+	<script type="text/javascript"
+		src="./assets/scripts/fetch_gh_api.js">
+	</script>
+	
+</head>
+<body onload="getLatestTag(); getContributors();">
+
+	<div id='side-bar'>
+        <li><a href="#what">What is it?</a></li>
+        <li><a href="#differences">Differences from the old Heirloom Toolchest</a></li>
+        <li><a href="#source-code">Download the source code</a></li>
+        <li><a href="./manual">Documentation</a></li>
+		<li><a href="#users">Users</a></li>
+        <li><a href="#chip-in">Chip in!</a></li>
+        <li><a href="#contributors">Contributors</a></li>
+        <li><a href="#licence">Licence</a></li>
+    </div>
+
+	<div id=main>
+        <h1>Heirloom Toolchest<br>
+        <span id="new">NEW</span>
+        <span id="generation">GENERATION</span></h1>
+		<h2 id="what">What is it?</h2>
+        <p>Heirloom NG is a collection of standard UNIX® utilities that is
+        intended to provide maximum compatibility with traditional UNIX® while
+        incorporating additional features necessary today.<br/>
+        It's mostly written from scratch, along with some tools that were
+        released under open source licences by <a
+        href="http://www.lemis.com/grog/UNIX/"> Caldera International Inc.</a>
+        and <a
+        href="https://web.archive.org/web/20091212202000/http://hub.opensolaris.org/bin/view/Main/">
+        Sun Microsystems</a>.<br/>
+        It <b>provides many UNIX® utilities</b>, with some having variants for
+        compatibility with various specifications &mdash; to be specific,
+        SVID3/SVR4, SVID4/SVR4.2MP, POSIX.2-1992/SUSV2, POSIX.1-2001/SUSV3,
+        and BSD (a.k.a. SVR4's <tt>/usr/ucb</tt>).</p>
+        <h2 id="differences">What are the differences from the last release of
+        Heirloom Toolchest?</h2>
+        <p>The last release of the original Heirloom Toolchest project was made
+        in July 15th of 2007. Since then, many things have changed, such as
+        UNIX®-compatible systems ABIs having dropped legacy functions and data
+        structures that were inherited from workarounds/bad practices present
+        in older systems.<br/>Although trying to maintain compatibility with
+        environments that the pre-fork releases already supported, <b>Heirloom
+        NG also ported the code to work with newer systems and standard C
+        libraries</b>.<br/>
+        Another change was the finality: while the old Heirloom Toolchest was
+        aimed just to "caters to people who like to operate their computers
+        using a traditional Unix command line interface", <b>Heirloom NG arose
+        from the need of a complete alternative to existent toolsets</b>, along
+        with the idea of also having a traditional and stone-cold environment,
+        so <b>new tools, such as <a href="./manual/man8/chroot.8.html">
+        <tt>chroot</tt>(8)</a> and <a href="./manual/man1/readlink.1.html">
+        <tt>readlink</tt>(1)</a> were implemented</b>.<br/>
+        In sum, Heirloom NG is the original Heirloom Toolchest, but
+        <b>maintained and enhanced</b> with the idea of supplying a full
+        UNIX®-compatible toolset.</p>
+        <h2 id="source-code">Download the source code</h2>
+        <p>The lastest release is <span id="latest-tag"></span>.<br/> 
+        You can use the command below retrieve a release copy from one of
+        <a href="http://pindorama.dob.jp">Pindorama</a> project servers:
+<pre>
+    $ curl -SO# http://pindorama.dob.jp/pub/heirloom-ng/YYMMDD.tar.gz
+</pre>
+        <p>Or, if you prefer, you can also retrieve a copy both from the
+        current development tree or a release directly from the git
+        repository:</p>
+<pre>
+    $ git clone -b [YYMMDD|master] https://github.com/Projeto-Pindorama/heirloom-ng.git
+</pre>   
+        <p>Just want to read the code? <a
+        href="https://github.com/Projeto-Pindorama/heirloom-ng">Browse the git
+        repository</a> at Microsoft GitHub.</p>
+        <h2 id="users">Users</h2>
+        <p>This is a list of projects currently and/or planning to utilize
+        Heirloom NG as an alternative or the as the default UNIX®-compatible
+        tool set.<p>
+        <li><a href="http://copacabana.pindorama.dob.jp">
+        Copacabana Linux®</a>: Uses Heirloom NG per default;</li>
+        <li><a href="https://github.com/dslm4515/CMLFS">Clang Musl-LFS</a>
+        already has a placeholder for instructions regarding building
+        Heirloom NG as an alternative to other toolsets;</li>
+        <li><a href="https://github.com/ryanwoodsmall/crosware">crosware</a>,
+        which is a set of tools and "recipes" for building software on ChromeOS,
+        includes Heirloom NG in the list of "recipes to consider".</li>
+        <h2 id="chip-in">Chip in!</h2>
+        <p>We can't make this happen all alone. There are many ways <u>you</u>
+        can chip in. Testing for compatibility or bugs? Implementing the latest
+        POSIX standard at the default variants of commands? Implementing lacking
+        commands? There you go.<br/>
+        Read more about the details at <a
+        href="https://github.com/Projeto-Pindorama/heirloom-ng#chip-in">the
+        "README"</a>.</p>
+        <h2 id="contributors">Contributors</h2>
+		<span id="contributor-list"></span>
+        <h2 id="licence">Licence</h2>
+        <p>The vast majority of the files &mdash; 199 of the 508 (39%),
+        including manual pages and source code written in different languages
+        &mdash; are licenced under the <a
+        href="https://github.com/Projeto-Pindorama/heirloom-ng/blob/master/LICENCE">
+        ZLib licence</a>, which is also the default and required licence for new
+        contributions.<br/>Other licences include <a
+        href="https://github.com/Projeto-Pindorama/heirloom-ng/blob/master/DOCUMENTATION.old/LICENCE/LICENSE#L50-L80">
+        Caldera</a> (138 files, 27%), <a
+        href="https://github.com/Projeto-Pindorama/heirloom-ng/blob/master/DOCUMENTATION.old/LICENCE/LICENSE#L97-L126">
+        BSD 4-Clause</a> (35 files, 6%), <a
+        href="https://github.com/Projeto-Pindorama/heirloom-ng/blob/master/DOCUMENTATION.old/LICENCE/OPENSOLARIS.LICENSE"
+        >CDDL-1.0</a> (109 files, 21%) and
+        <a
+        href="https://github.com/Projeto-Pindorama/heirloom-ng/blob/master/DOCUMENTATION.old/LICENCE/COPYING.LGPL">
+        LGPL v2.1</a>/<a
+        href="https://github.com/Projeto-Pindorama/heirloom-ng/blob/master/DOCUMENTATION.old/LICENCE/COPYING"
+        >GPL v2.0</a> (27 files, 5%).<br/>
+        
+        If you need to know about which files use which licences, you can easily
+        check for the "<tt>SPDX-Licence-Identifier</tt>" header on each of the
+        files.</p>
+	</div>
+</body>
+</html>

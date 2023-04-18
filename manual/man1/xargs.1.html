@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<!-- This is an automatically generated file.  Do not edit.
+   Copyright (c) 2003 Gunnar Ritter
+  
+   SPDX-Licence-Identifier: Zlib
+  
+   Sccsid @(#)xargs.1	1.8 (gritter) 8/14/05
+ -->
+<head>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="../../assets/mandoc.css" type="text/css" media="all"/>
+  <title>XARGS(1)</title>
+</head>
+<body>
+<table class="head">
+  <tr>
+    <td class="head-ltitle">XARGS(1)</td>
+    <td class="head-vol">User Commands</td>
+    <td class="head-rtitle">XARGS(1)</td>
+  </tr>
+</table>
+<div class="manual-text">
+<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+xargs - construct argument list(s) and execute command
+<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<b>xargs</b> [<i>flags</i>] [<i>command</i>&#x00A0;[<i>initial-arguments</i>]]
+<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<i>Xargs</i> executes <i>command</i> using the given <i>initial arguments</i>
+  followed by arguments read from standard input. By default, <i>command</i> is
+  invoked as many times as necessary using the maximum number of arguments
+  possible for each invocation. If no <i>command is given,</i> <i>echo</i> is
+  used.
+<div class="Pp"></div>
+Data read from standard input is split into a list of arguments, using blanks
+  and newline characters as delimiters. Special characters are: backslash
+  (<b>\</b>), which causes any following character to be interpreted literally,
+  and single (&#x00B4;) and double (&quot;) quotes, which cause following
+  characters except newline to be taken literally until the quote character
+  appears again.
+<div class="Pp"></div>
+The following option flags are accepted:
+<dl class="Bl-tag">
+  <dt><b>-e</b>[<i>eofstr</i>]</dt>
+  <dd>Sets the logical end-of-file delimiter to <i>eofstr</i>; data is read from
+      standard input until an argument equal to <i>eofstr</i> is encountered. If
+      <i>eofstr</i> is omitted, no logical end-of-file delimiter is used and
+      data is read from standard input until the physical end-of-file is
+      reached. The default logical end-of-file delimiter is a single underscore
+      character (<b>_</b>).</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-i</b>[<i>replstr</i>]</dt>
+  <dd>Changes the operation of <i>xargs</i> such that each line read from
+      standard input replaces occurrences of <i>replstr</i> within the
+      <i>initial-arguments</i>. If <i>replstr</i> is omitted, <b>{}</b> is
+      default. Any member of <i>initial-arguments</i> can each contain any
+      number of occurrences of <i>replstr</i>. The <i>command</i> is executed
+      once for each line until physical end-of-file is reached or a line
+      consisting exactly of the logical end-of-file delimiter is read. Empty
+      lines and leading blank characters are ignored, other blank characters are
+      kept regardless of quotes.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-l</b>[<i>number</i>]</dt>
+  <dd>Invokes command for each <i>number</i> of lines; 1 is default if no
+      <i>number</i> is specified. Empty lines are ignored; if a line ends with
+      an unquoted blank character, it is not counted.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-n</b><i>&#x00A0;number</i></dt>
+  <dd>Executes command for each <i>number</i> of arguments read from standard
+      input, or with fewer arguments if the maximum argument length is exceeded
+      or fewer than <i>number</i> arguments remain.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-p</b></dt>
+  <dd>Each resulting command is written to standard error along with its
+      arguments before it is executed and the user is asked whether it should be
+      executed. If the response is affirmative, the command is executed;
+      otherwise, the execution of this command instance is skipped.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-s</b><i>&#x00A0;size</i></dt>
+  <dd>Sets the maximum length of generated command lines to <i>size</i>.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-t</b></dt>
+  <dd>Trace mode; each resulting command is written to standard error along with
+      its arguments before it is executed.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-x</b></dt>
+  <dd>If execution cannot be done within the limits specified by the <b>-n</b>,
+      <b>-L</b>, or <b>-s</b> flags, <i>xargs</i> will terminate.</dd>
+</dl>
+<div class="Pp"></div>
+The following options have been introduced by X/Open:
+<dl class="Bl-tag">
+  <dt><b>-E</b><i>&#x00A0;eofstr</i></dt>
+  <dd>Same as <b>-e</b><i>eofstr</i>.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-L</b><i>&#x00A0;number</i></dt>
+  <dd>Same as <b>-l</b><i>number</i>.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-I</b><i>&#x00A0;replstr</i></dt>
+  <dd>Same as <b>-i</b><i>replstr</i>.</dd>
+</dl>
+<div class="Pp"></div>
+When any instance of <i>command</i> exits with a status of -1 or is terminated
+  by a signal, <i>xargs</i> terminates.
+<h1 class="Sh" title="Sh" id="ENVIRONMENT_VARIABLES"><a class="permalink" href="#ENVIRONMENT_VARIABLES">ENVIRONMENT
+  VARIABLES</a></h1>
+<dl class="Bl-tag">
+  <dt><b>LANG</b>, <b>LC_ALL</b></dt>
+  <dd>See <i>locale</i>(7).</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>LC_CTYPE</b></dt>
+  <dd>Determines the mapping of bytes to characters and the set of blank
+      characters.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>PATH</b></dt>
+  <dd>Used to locate <i>command</i>.</dd>
+</dl>
+<h1 class="Sh" title="Sh" id="FILES"><a class="permalink" href="#FILES">FILES</a></h1>
+/dev/tty Used with the <b>-p</b> option.
+<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+  ALSO</a></h1>
+find(1), sh(1), locale(7)
+<h1 class="Sh" title="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
+When <i>xargs</i> is used to read data generated by the <i>find</i> or <i>ls</i>
+  commands and any of the characters special to <i>xargs</i> appear in file
+  names, <i>command</i> will be invoked with a wrong set of file names. To avert
+  this, <i>find</i> is given a special pathname consisting of two slashes that
+  marks the beginning of a file name, and each character is preceded with a
+  backslash:
+<div class="Bd-indent">
+<pre>
+<div class="Pp"></div>
+find .//. -print | sed &#x00B4;s/./\\&amp;/g&#x00B4; | awk &#x00B4;{
+        if (NR &gt; 1) {
+                printf(&quot;%s&quot;, line)
+                if ($0 !~ /\\\/\\\//)
+                        printf(&quot;\\&quot;)
+                printf(&quot;\n&quot;)
+        }
+        line = $0
+}
+END {
+        print(line)
+}&#x00B4; | xargs  <i>command</i>
+</pre>
+<div class="Pp"></div>
+</div>
+Note that the `<i>-exec command {} +</i>' operand of <i>find</i> provides a
+  method to achieve similar results as with <i>xargs</i> for simple cases.</div>
+<table class="foot">
+  <tr>
+    <td class="foot-date">8/14/05</td>
+    <td class="foot-os">Heirloom Toolchest</td>
+  </tr>
+</table>
+</body>
+</html>

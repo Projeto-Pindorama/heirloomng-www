@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<!-- This is an automatically generated file.  Do not edit.
+   t
+   Copyright (c) 2003 Gunnar Ritter
+  
+   SPDX-Licence-Identifier: Zlib
+  
+   Sccsid @(#)sdiff.1	1.1 (gritter) 4/30/03
+ -->
+<head>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="../../assets/mandoc.css" type="text/css" media="all"/>
+  <title>SDIFF(1)</title>
+</head>
+<body>
+<table class="head">
+  <tr>
+    <td class="head-ltitle">SDIFF(1)</td>
+    <td class="head-vol">User Commands</td>
+    <td class="head-rtitle">SDIFF(1)</td>
+  </tr>
+</table>
+<div class="manual-text">
+<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+sdiff - print file differences side-by-side
+<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<b>sdiff</b> [<b>-ls</b>] [<b>-o</b><i>&#x00A0;name</i>]
+  [<b>-w</b><i>&#x00A0;width</i>] <i>file1 file2</i>
+<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<i>sdiff</i> presents the lines of <i>file1</i> and <i>file2</i> side-by-side in
+  two columns. Lines that are equal in both files are separated by blanks; lines
+  that differ are separated by one of the following characters:
+<div class="Pp"></div>
+<div class="Bd-indent">
+<table class="tbl">
+  <tr>
+    <td>&lt;</td>
+    <td>the line is in file1 only</td>
+  </tr>
+  <tr>
+    <td>|</td>
+    <td>the line differs in file1 and file2</td>
+  </tr>
+  <tr>
+    <td>&gt;</td>
+    <td>the line is in file2 only.</td>
+  </tr>
+</table>
+</div>
+<div class="Pp"></div>
+This might look as
+<div class="Pp"></div>
+<div class="Bd-indent">
+<pre>
+only in file1        &lt;  
+in both files           in both files
+this line            |  is different
+                     &gt;  only in file2
+also in both files      also in both files
+</pre>
+</div>
+<div class="Pp"></div>
+The behavior of <i>sdiff</i> can be influenced with the following options:
+<dl class="Bl-tag">
+  <dt><b>-l</b></dt>
+  <dd>Print the first column only for lines equal in both files.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-s</b></dt>
+  <dd>Omit equal lines in output.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-w</b><i> width</i></dt>
+  <dd>Set the width of output (both lines and separators added) to <i>width</i>;
+      the default is 130. Long lines are truncated to fit within this
+    space.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-o</b><i> name</i></dt>
+  <dd>Generate a merged version of both input files in the file <i>name</i> in
+      addition to normal output. Lines that are equal are written to
+      <i>name</i>; for each set of different lines, the prompt `%' is printed
+      and the user may then choose the action by typing one of the following
+      commands:
+    <div class="Pp"></div>
+  </dd>
+</dl>
+<div class="Bd-indent">
+<table class="tbl">
+  <tr>
+    <td>l</td>
+    <td>Write the lines of the left (first) file to <i>name</i>.</td>
+  </tr>
+  <tr>
+    <td>r</td>
+    <td>Write the lines of the right (second) file to name.</td>
+  </tr>
+  <tr>
+    <td>s</td>
+    <td>Do not print equal lines to standard output.</td>
+  </tr>
+  <tr>
+    <td>v</td>
+    <td>Turn printing of equal lines on.</td>
+  </tr>
+  <tr>
+    <td>e&#x00A0;l</td>
+    <td>Invoke the editor on the lines of the left file and append the result to
+      <i>name</i>.</td>
+  </tr>
+  <tr>
+    <td>e&#x00A0;r</td>
+    <td>Invoke the editor on the lines of the right file.</td>
+  </tr>
+  <tr>
+    <td>e&#x00A0;b</td>
+    <td>Concatenate the lines of both files and invoke the editor on the
+      result.</td>
+  </tr>
+  <tr>
+    <td>e</td>
+    <td>Invoke the editor with an empty file.</td>
+  </tr>
+  <tr>
+    <td>q</td>
+    <td>Quit <i>sdiff</i> and do not write further lines to <i>name</i>.</td>
+  </tr>
+</table>
+</div>
+<h1 class="Sh" title="Sh" id="ENVIRONMENT_VARIABLES"><a class="permalink" href="#ENVIRONMENT_VARIABLES">ENVIRONMENT
+  VARIABLES</a></h1>
+<dl class="Bl-tag">
+  <dt><b>LANG</b>, <b>LC_ALL</b></dt>
+  <dd>See <i>locale</i>(7).</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>LC_CTYPE</b></dt>
+  <dd>Determines the mapping of bytes to characters and the width of
+    characters.</dd>
+</dl>
+<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+  ALSO</a></h1>
+diff(1), ed(1)</div>
+<table class="foot">
+  <tr>
+    <td class="foot-date">4/30/03</td>
+    <td class="foot-os">Heirloom Toolchest</td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html>
+<!-- This is an automatically generated file.  Do not edit.
+   t
+   Sccsid @(#)ls.1	1.33 (gritter) 2/24/05
+   Parts taken from ls(1), Unix 7th edition:
+   Copyright(C) Caldera International Inc. 2001-2002. All rights reserved.
+  
+   SPDX-Licence-Identifier: Caldera
+ -->
+<head>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="../../assets/mandoc.css" type="text/css" media="all"/>
+  <title>LS(1)</title>
+</head>
+<body>
+<table class="head">
+  <tr>
+    <td class="head-ltitle">LS(1)</td>
+    <td class="head-vol">User Commands</td>
+    <td class="head-rtitle">LS(1)</td>
+  </tr>
+</table>
+<div class="manual-text">
+<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+ls, lc - list contents of directory
+<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<b>ls</b> [ <b>-abcCdfFgHilLmnopqrRstux1hSUX</b>] [ <i>file</i> ...]
+<div>&#x00A0;</div>
+<b>lc</b> [ <b>-abcCdfFgHilLmnopqrRstux1hSUX</b>] [ <i>file</i> ...]
+<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+For each directory argument, <i>ls</i> lists the contents of the directory; for
+  each file argument, <i>ls</i> repeats its name and any other information
+  requested. The output is sorted alphabetically by default. When no argument is
+  given, the current directory is listed. When several arguments are given, the
+  arguments are first sorted appropriately, but file arguments appear before
+  directories and their contents. There are several options:
+<dl class="Bl-tag">
+  <dt><b>-a</b></dt>
+  <dd>List all entries; usually files that begin with a `<b>.</b>' are
+      suppressed.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-b</b></dt>
+  <dd>Non-printable characters are printed as octal numbers `
+      <b>\</b><i>ddd</i>'.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-c</b></dt>
+  <dd>Use time of last modification to inode (mode, etc.) instead of last
+      modification to file for sorting (<b>-t</b>) or printing (<b>-l</b>).</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-C</b></dt>
+  <dd>Output is printed in multiple columns, sorted down the columns. This
+      format is selected by default if standard output refers to a terminal, or
+      if the command is invoked as <b>lc</b>.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-d</b></dt>
+  <dd>If argument is a directory, list only its name, not its contents (mostly
+      used with <b>-l</b> to get status on directory).</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-f</b></dt>
+  <dd>Force each argument to be interpreted as a directory and list the name
+      found in each slot. This option turns off <b>-l, -t, -s,</b> and
+      <b>-r,</b> and turns on <b>-a;</b> the order is the order in which entries
+      appear in the directory.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-F</b></dt>
+  <dd>Indicates the file type as a letter appended to each pathname:</dd>
+</dl>
+<div class="Bd-indent">
+<div class="Pp"></div>
+<table class="tbl">
+  <tr>
+    <td>/</td>
+    <td>directory</td>
+  </tr>
+  <tr>
+    <td>*</td>
+    <td>executable file</td>
+  </tr>
+  <tr>
+    <td>@</td>
+    <td>symbolic link</td>
+  </tr>
+  <tr>
+    <td>|</td>
+    <td>named pipe</td>
+  </tr>
+  <tr>
+    <td>=</td>
+    <td>socket</td>
+  </tr>
+  <tr>
+    <td>&gt;</td>
+    <td>Solaris door</td>
+  </tr>
+</table>
+</div>
+<dl class="Bl-tag">
+  <dt></dt>
+  <dd>Symbolic links specified as arguments are not followed with this option in
+      <b>/opt/heirloom/bin/posix2001/ls</b> unless the <i>-H</i> or <i>-L</i>
+      option is also present.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-g</b></dt>
+  <dd>Give group ID, but omit owner ID in long listing (see <b>-l</b>).</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-i</b></dt>
+  <dd>Print i-number in first column of the report for each file listed.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-l</b></dt>
+  <dd>List in long format, giving mode, number of links, owner, group, size in
+      bytes, and time of last modification for each file. (See below.) If the
+      file is a special file the size field will instead contain the major and
+      minor device numbers. Symbolic links specified as arguments are not
+      followed with this option unless the <i>-H</i> or <i>-L</i> option is also
+      present.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-L</b></dt>
+  <dd>Follow symbolic links in arguments, and, with the <i>-R</i> option,
+      symbolic links encountered during directory traversal.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-m</b></dt>
+  <dd>Files are listed across the page, separated by commas.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-n</b></dt>
+  <dd>Long format listing as described for <b>-l</b>, but prints numeric owner
+      and group ID instead of names. May be combined with <b>-g</b> or <b>-o</b>
+      to omit either ID.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-o</b></dt>
+  <dd>Give owner ID, but omit group ID in long listing (see <b>-l</b>).</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-p</b></dt>
+  <dd>Print a slash `<b>/</b>' after each directory name.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-q</b></dt>
+  <dd>Non-printable characters are printed as question marks `<b>?</b>'. This is
+      the default if standard output refers to a terminal.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-r</b></dt>
+  <dd>Reverse the order of sort to get reverse alphabetic or oldest first as
+      appropriate.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-R</b></dt>
+  <dd>Lists subdirectories recursively.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-s</b></dt>
+  <dd>Give size in blocks, including indirect blocks, for each entry.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-t</b></dt>
+  <dd>Sort by time modified (latest first) instead of by name, as is
+    normal.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-u</b></dt>
+  <dd>Use time of last access instead of last modification for sorting
+      (<b>-t</b>) or printing (<b>-l</b>).</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-x</b></dt>
+  <dd>Prints filenames in multiple columns sorted across the page.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-1</b></dt>
+  <dd>Print one filename per output line. This is the default if standard output
+      does not refer to a terminal.</dd>
+</dl>
+<div class="Pp"></div>
+The following option was introduced with POSIX.1-2001:
+<dl class="Bl-tag">
+  <dt><b>-H</b></dt>
+  <dd>Follow symbolic links given as arguments.</dd>
+</dl>
+<div class="Pp"></div>
+The following options are available as extensions:
+<dl class="Bl-tag">
+  <dt><b>-h</b></dt>
+  <dd>Print file sizes in human-readable powers of 1024, i.e. `K' for kilobyte,
+      `M' for megabyte, `G' for gigabyte, `T' for terabyte, `P' for petabyte,
+      and `E' for exabyte.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-S</b></dt>
+  <dd>Sort by file size.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-U</b></dt>
+  <dd>Do not sort at all.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-X</b></dt>
+  <dd>Sort by file name extension, i.e. by the component of the file name
+      following the last dot.</dd>
+</dl>
+<div class="Pp"></div>
+The mode printed under the <b>-l</b>, <b>-g</b>, and <b>-o</b> options contains
+  10 characters which are interpreted as follows: the first character is
+<div class="Pp"></div>
+<table class="tbl">
+  <tr>
+    <td>d</td>
+    <td>if the entry is a directory;</td>
+  </tr>
+  <tr>
+    <td>b</td>
+    <td>if the entry is a block-type special file;</td>
+  </tr>
+  <tr>
+    <td>c</td>
+    <td>if the entry is a character-type special file;</td>
+  </tr>
+  <tr>
+    <td>p</td>
+    <td>if the entry is a named pipe;</td>
+  </tr>
+  <tr>
+    <td>l</td>
+    <td>if the entry is a symbolic link;</td>
+  </tr>
+  <tr>
+    <td>S</td>
+    <td>if the entry is a socket;</td>
+  </tr>
+  <tr>
+    <td>s</td>
+    <td>if the entry is a XENIX semaphore;</td>
+  </tr>
+  <tr>
+    <td>m</td>
+    <td>if the entry is a XENIX shared data (memory) file;</td>
+  </tr>
+  <tr>
+    <td>D</td>
+    <td>if the entry is a Solaris door;</td>
+  </tr>
+  <tr>
+    <td>n</td>
+    <td>if the entry is a HP-UX network special file;</td>
+  </tr>
+  <tr>
+    <td>-</td>
+    <td>if the entry is a plain file.</td>
+  </tr>
+</table>
+<div class="Pp"></div>
+The next 9 characters are interpreted as three sets of three bits each. The
+  first set refers to owner permissions; the next to permissions to others in
+  the same user-group; and the last to all others. Within each set the three
+  characters indicate permission respectively to read, to write, or to execute
+  the file as a program. For a directory, `execute' permission is interpreted to
+  mean permission to search the directory for a specified file. The permissions
+  are indicated as follows:
+<div class="Pp"></div>
+<table class="tbl">
+  <tr>
+    <td>r</td>
+    <td>if the file is readable;</td>
+  </tr>
+  <tr>
+    <td>w</td>
+    <td>if the file is writable;</td>
+  </tr>
+  <tr>
+    <td>x</td>
+    <td>if the file is executable;</td>
+  </tr>
+  <tr>
+    <td>-</td>
+    <td>if the indicated permission is not granted.</td>
+  </tr>
+</table>
+<div class="Pp"></div>
+The group-execute permission character is given as
+<div class="Pp"></div>
+<table class="tbl">
+  <tr>
+    <td>s</td>
+    <td>if the file has set-group-ID mode;</td>
+  </tr>
+  <tr>
+    <td>l</td>
+    <td>if mandatory locking is enabled for the file (with <b>/usr/5bin/ls</b>
+      and <b>/opt/heirloom/bin/s42/ls</b>);</td>
+  </tr>
+  <tr>
+    <td>L</td>
+    <td>if mandatory locking is enabled for the file (with
+      <b>/usr/5bin/posix/ls</b> and <b>/opt/heirloom/bin/posix2001/ls</b>).</td>
+  </tr>
+</table>
+<div class="Pp"></div>
+Likewise the user-execute permission character is given as
+<div class="Pp"></div>
+<table class="tbl">
+  <tr>
+    <td>s</td>
+    <td>if the file has set-user-ID mode;</td>
+  </tr>
+  <tr>
+    <td>S</td>
+    <td>if the set-user-ID bit is set on the file but it is not executable.</td>
+  </tr>
+</table>
+<div class="Pp"></div>
+The last character of the mode (normally `x' or `-') is
+<div class="Pp"></div>
+<table class="tbl">
+  <tr>
+    <td>t</td>
+    <td>if the sticky bit of the mode is on;</td>
+  </tr>
+  <tr>
+    <td>T</td>
+    <td>if the sticky bit is on but the file is not executable.</td>
+  </tr>
+</table>
+<div class="Pp"></div>
+See <i>chmod</i>(1) for the meaning of this mode.
+<div class="Pp"></div>
+When the sizes of the files in a directory are listed, a total count of blocks,
+  including indirect blocks is printed.
+<div class="Pp"></div>
+If <i>ls</i> writes its output to a terminal that supports colors or boldface,
+  file names printed are colorized according to their types:
+<div class="Pp"></div>
+<table class="tbl">
+  <tr>
+    <td>blue/bold</td>
+    <td>if the file is a directory;</td>
+  </tr>
+  <tr>
+    <td>yellow/bold</td>
+    <td>if the file is a special file;</td>
+  </tr>
+  <tr>
+    <td>yellow</td>
+    <td>if the file is a named pipe;</td>
+  </tr>
+  <tr>
+    <td>cyan</td>
+    <td>if the file is a symbolic link;</td>
+  </tr>
+  <tr>
+    <td>magenta/bold</td>
+    <td>if the file is a socket or a Solaris door;</td>
+  </tr>
+  <tr>
+    <td>magenta</td>
+    <td>if the file is a XENIX special file or a HP-UX network special
+      file;</td>
+  </tr>
+  <tr>
+    <td>green/bold</td>
+    <td>if the file is executable.</td>
+  </tr>
+</table>
+<div class="Pp"></div>
+For <i>lc</i>, colors are enabled even if the output is not written to a
+  terminal. This is mainly useful if the output is filtered through a pager
+  which handles colors, such as <i>pg</i>(1).
+<h1 class="Sh" title="Sh" id="FILES"><a class="permalink" href="#FILES">FILES</a></h1>
+<dl class="Bl-tag">
+  <dt><b>/etc/passwd</b></dt>
+  <dd>to get user IDs.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>/etc/group</b></dt>
+  <dd>to get group IDs.</dd>
+</dl>
+<h1 class="Sh" title="Sh" id="ENVIRONMENT_VARIABLES"><a class="permalink" href="#ENVIRONMENT_VARIABLES">ENVIRONMENT
+  VARIABLES</a></h1>
+<dl class="Bl-tag">
+  <dt><b>COLUMNS</b></dt>
+  <dd>Overrides the auto-detected terminal width.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>LANG</b>, <b>LC_ALL</b></dt>
+  <dd>See <i>locale</i>(7).</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>LC_COLLATE</b></dt>
+  <dd>Affects the order of printed items when sorting by name.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>LC_CTYPE</b></dt>
+  <dd>Determines whether a character is printable.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>LC_TIME</b></dt>
+  <dd>Sets the format of time strings printed with the <b>-g</b>, <b>-l</b>, and
+      <b>-o</b> options.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>SYSV3</b></dt>
+  <dd>Changes the default output format for a terminal from <b>-C</b> to
+      <b>-1</b> if the command is invoked as <i>ls</i>.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>TERM</b></dt>
+  <dd>Used to determine the terminal type.</dd>
+</dl>
+<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+  ALSO</a></h1>
+chmod(1), locale(7)</div>
+<table class="foot">
+  <tr>
+    <td class="foot-date">2/24/05</td>
+    <td class="foot-os">Heirloom Toolchest</td>
+  </tr>
+</table>
+</body>
+</html>

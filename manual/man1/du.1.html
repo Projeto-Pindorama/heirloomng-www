@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<!-- This is an automatically generated file.  Do not edit.
+   Sccsid @(#)du.1	1.26 (gritter) 1/24/05
+   Parts taken from du(1), Unix 32V:
+   Copyright(C) Caldera International Inc. 2001-2002. All rights reserved.
+  
+   SPDX-Licence-Identifier: Caldera
+   -->
+<head>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="../../assets/mandoc.css" type="text/css" media="all"/>
+  <title>DU(1)</title>
+</head>
+<body>
+<table class="head">
+  <tr>
+    <td class="head-ltitle">DU(1)</td>
+    <td class="head-vol">User Commands</td>
+    <td class="head-rtitle">DU(1)</td>
+  </tr>
+</table>
+<div class="manual-text">
+<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+du - summarize disk usage
+<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<b>du</b> [<b>-arshHkLxo</b>] [<i>name</i> ...]
+<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<i>Du</i> gives the number of blocks (512 bytes) contained in all files and
+  (recursively) directories within each specified directory or file <i>name</i>.
+  If <i>name</i> is missing, ` <b>.</b>' is used.
+<div class="Pp"></div>
+The following options are supported:
+<dl class="Bl-tag">
+  <dt><b>-a</b></dt>
+  <dd>This option causes an entry to be generated for each file. Absence of
+      either causes an entry to be generated for each directory only.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-r</b></dt>
+  <dd>Show error messages. This is the default with
+      <b>/opt/heirloom/bin/posix/du</b> and
+      <b>/opt/heirloom/bin/posix2001/du</b>.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-s</b></dt>
+  <dd>This option causes only the grand total to be given. Overrides the -a
+      option.</dd>
+</dl>
+<div class="Pp"></div>
+The following options have been introduced by POSIX.2:
+<dl class="Bl-tag">
+  <dt><b>-k</b></dt>
+  <dd>Print statistics in units of 1024 bytes, rounded up to the next unit.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-x</b></dt>
+  <dd>Do not cross device boundaries when descending a directory hierarchy.</dd>
+</dl>
+<div class="Pp"></div>
+The following options have been introduced by POSIX.1-2001:
+<dl class="Bl-tag">
+  <dt><b>-H</b></dt>
+  <dd>Follow symbolic links given on the command line and count the size of the
+      files they refer to, but do not follow symbolic links found during
+      directory traversal and count the sizes of these symbolic links
+      themselves.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-L</b></dt>
+  <dd>Always follow symbolic links and count the sizes of the files they refer
+      to.</dd>
+</dl>
+<div class="Pp"></div>
+The following options are extensions:
+<dl class="Bl-tag">
+  <dt><b>-h</b></dt>
+  <dd>Print statistics in human-readable powers of 1024, i.e. `K' for kilobyte,
+      `M' for megabyte, `G' for gigabyte, `T' for terabyte, `P' for petabyte,
+      and `E' for exabyte.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>-o</b></dt>
+  <dd>Do not add sizes of subdirectories to parent directories.</dd>
+</dl>
+<div class="Pp"></div>
+A file which has two links to it is only counted once.
+<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+  ALSO</a></h1>
+df(1)
+<h1 class="Sh" title="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
+Non-directories given as arguments (not under <b>-a</b> or <b>-s</b> options)
+  are not listed with <b>/opt/heirloom/bin/du</b> and
+  <b>/opt/heirloom/bin/s42/du</b>.
+<div class="Pp"></div>
+Files with holes may produce incorrect results.</div>
+<table class="foot">
+  <tr>
+    <td class="foot-date">1/24/05</td>
+    <td class="foot-os">Heirloom Toolchest</td>
+  </tr>
+</table>
+</body>
+</html>
