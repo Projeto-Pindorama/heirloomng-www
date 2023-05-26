@@ -10,7 +10,7 @@
    -->
 <head>
   <meta charset="utf-8"/>
-  <link rel="stylesheet" href="../../assets/mandoc.css" type="text/css" media="all"/>
+  <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
   <title>GREP(1)</title>
 </head>
 <body>
@@ -25,22 +25,22 @@
 <h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
 grep - search a file for a pattern
 <h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
-<div class="HP"><b>/opt/heirloom/bin/grep</b> [<b>-bchilnrRsvwz</b>]
-  <i>pattern</i> [ <i>file</i>&#x00A0;...]</div>
+<div class="HP"><b>/usr/5bin/grep</b> [<b>-bchilnrRsvwz</b>] <i>pattern</i>
+  [<i>file</i>&#x00A0;...]</div>
 <div class="Pp"></div>
-<div class="HP"><b>/opt/heirloom/bin/posix/grep</b> [<b>-E</b>|<b>-F</b>]
-  <b>-e</b> <i>&#x00A0;pattern_list</i>&#x00A0;... [
+<div class="HP"><b>/usr/5bin/posix/grep</b> [<b>-E</b>|<b>-F</b>]
+  <b>-e</b><i>&#x00A0;pattern_list</i>&#x00A0;... [
   <b>-f</b><i>&#x00A0;pattern_file</i>] [ <b>-c</b>|<b>-l</b>|<b>-q</b>] [
   <b>-bhinrRsvwxz</b>] [ <i>file</i>&#x00A0;...]</div>
 <div class="Pp"></div>
-<div class="HP"><b>/opt/heirloom/bin/posix/grep</b> [<b>-E</b>|<b>-F</b>]
-  <b>-f</b> <i>&#x00A0;pattern_file</i> [
+<div class="HP"><b>/usr/5bin/posix/grep</b> [<b>-E</b>|<b>-F</b>]
+  <b>-f</b><i>&#x00A0;pattern_file</i> [
   <b>-e</b><i>&#x00A0;pattern_list</i>&#x00A0;...] [
   <b>-c</b>|<b>-l</b>|<b>-q</b>] [ <b>-bhinrRsvwxz</b>]
   [<i>file</i>&#x00A0;...]</div>
 <div class="Pp"></div>
-<div class="HP"><b>/opt/heirloom/bin/posix/grep</b> [<b>-E</b>|<b>-F</b>] [
-  <b>-c</b>| <b>-l</b>|<b>-q</b>] [<b>-bhinrRsvwxz</b>] <i>pattern_list</i>
+<div class="HP"><b>/usr/5bin/posix/grep</b> [<b>-E</b>|<b>-F</b>] [
+  <b>-c</b>|<b>-l</b>|<b>-q</b>] [<b>-bhinrRsvwxz</b>] <i>pattern_list</i>
   [<i>file</i>&#x00A0;...]
 <div>&#x00A0;</div>
 </div>
@@ -49,18 +49,18 @@ The <b>grep</b> command searches the lines of the specified files (or of
   standard input) for occurrences of the regular expression <i>pattern.</i> The
   default behavior is to print each matching line to standard output.
 <div class="Pp"></div>
-The <b>/opt/heirloom/bin/grep</b> command accepts one pattern that is treated as
-  a simple regular expression; it uses a compact nondeterministic algorithm.
+The <b>/usr/5bin/grep</b> command accepts one pattern that is treated as a
+  simple regular expression; it uses a compact nondeterministic algorithm.
 <div class="Pp"></div>
-The <b>/opt/heirloom/bin/posix/grep</b> command uses basic regular expressions
-  by default and accepts a newline-separated list of patterns as described for
-  the <b>-e</b> option below. It uses a deterministic algorithm with moderate
-  space requirements for most expressions; backreferences, word delimiters, and
+The <b>/usr/5bin/posix/grep</b> command uses basic regular expressions by
+  default and accepts a newline-separated list of patterns as described for the
+  <b>-e</b> option below. It uses a deterministic algorithm with moderate space
+  requirements for most expressions; backreferences, word delimiters, and
   multi-character collating elements cause a nondeterministic algorithm to be
   used.
 <div class="Pp"></div>
-<b>/opt/heirloom/bin/s42/grep</b> and <b>/opt/heirloom/bin/posix2001/grep</b>
-  are identical to <b>/opt/heirloom/bin/posix/grep</b>.
+<b>/usr/5bin/s42/grep</b> and <b>/usr/5bin/posix2001/grep</b> are identical to
+  <b>/usr/5bin/posix/grep</b>.
 <div class="Pp"></div>
 See the description of <i>ed</i>(1) for the specifications of simple and basic
   regular expressions.
@@ -69,8 +69,8 @@ Care should be taken when using the characters $ * [ ^ | ? &#x00B4; &quot; ( )
   and \ in the expression as they are also meaningful to the Shell. It is safest
   to enclose the entire expression argument in single quotes &#x00B4; &#x00B4;.
 <div class="Pp"></div>
-Both <b>/opt/heirloom/bin/grep</b> and <b>/opt/heirloom/bin/posix/grep</b>
-  accept the following options:
+Both <b>/usr/5bin/grep</b> and <b>/usr/5bin/posix/grep</b> accept the following
+  options:
 <dl class="Bl-tag">
   <dt><b>-b</b></dt>
   <dd>Each line is preceded by the block number on which it was found. This is
@@ -110,7 +110,7 @@ Both <b>/opt/heirloom/bin/grep</b> and <b>/opt/heirloom/bin/posix/grep</b>
   <dd>All lines but those matching are printed.</dd>
 </dl>
 <div class="Pp"></div>
-The following options are supported by <b>/opt/heirloom/bin/posix/grep</b> only:
+The following options are supported by <b>/usr/5bin/posix/grep</b> only:
 <dl class="Bl-tag">
   <dt><b>-e&#x00A0;</b><i>pattern_list</i></dt>
   <dd>Specifies one or more patterns, separated by newline characters. A line is
@@ -193,23 +193,23 @@ Exit status is 0 if any matches are found, 1 if none, 2 for syntax errors or
   inaccessible files.
 <h1 class="Sh" title="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
 If a line contains a <small>NUL</small> character, only matches up to this
-  character are found (unless <b>/opt/heirloom/bin/posix/grep</b> is used with
-  the <i>-F</i> option). The entire matching line will be printed.
+  character are found (unless <b>/usr/5bin/posix/grep</b> is used with the
+  <i>-F</i> option). The entire matching line will be printed.
 <div class="Pp"></div>
 The LC_COLLATE variable has currently no effect. Ranges in bracket expressions
   are ordered as byte values in single-byte locales and as wide character values
   in multibyte locales; equivalence classes match the given character only, and
   multi-character collating elements are not available.
 <div class="Pp"></div>
-The options supported by <b>/opt/heirloom/bin/posix/grep</b> that are not
-  accepted by <b>/opt/heirloom/bin/grep</b> can easily be replaced by portable
-  constructs: Use <i>egrep</i> instead of <b>-E</b>, <i>fgrep</i> instead of
-  <b>-F</b>. Use <i>egrep</i> if you need the <b>-e</b> or <b>-f</b> option, use
-  only one of them and that only once; if necessary, use text processing tools
-  to generate a single expression list before. Redirect standard output to
-  <i>/dev/null</i> for <b>-q</b> (the possible speedup with <i>-q</i> is never
-  worth human time spent with porting scripts), and use the `<i>^</i>' and
-  `<i>$</i>' meta-characters instead of <b>-x</b>.</div>
+The options supported by <b>/usr/5bin/posix/grep</b> that are not accepted by
+  <b>/usr/5bin/grep</b> can easily be replaced by portable constructs: Use
+  <i>egrep</i> instead of <b>-E</b>, <i>fgrep</i> instead of <b>-F</b>. Use
+  <i>egrep</i> if you need the <b>-e</b> or <b>-f</b> option, use only one of
+  them and that only once; if necessary, use text processing tools to generate a
+  single expression list before. Redirect standard output to <i>/dev/null</i>
+  for <b>-q</b> (the possible speedup with <i>-q</i> is never worth human time
+  spent with porting scripts), and use the `<i>^</i>' and `<i>$</i>'
+  meta-characters instead of <b>-x</b>.</div>
 <table class="foot">
   <tr>
     <td class="foot-date">8/14/05</td>

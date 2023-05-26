@@ -10,7 +10,7 @@
    -->
 <head>
   <meta charset="utf-8"/>
-  <link rel="stylesheet" href="../../assets/mandoc.css" type="text/css" media="all"/>
+  <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
   <title>FIND(1)</title>
 </head>
 <body>
@@ -39,9 +39,8 @@ find - find files
       Shell argument syntax as described in <i>glob</i>(7) may be used if
       escaped (watch out for `[', `?' and `*'). The internationalization
       constructs `[[:class:]]', `[[=e=]]', and `[[.cs.]]' are understood with
-      <b>/opt/heirloom/bin/s42/find</b>, <b>/opt/heirloom/bin/posix/find</b>,
-      and <b>/opt/heirloom/bin/posix2001/find</b>, but not with
-      <b>/opt/heirloom/bin/find</b>.</dd>
+      <b>/usr/5bin/s42/find</b>, <b>/usr/5bin/posix/find</b>, and
+      <b>/usr/5bin/posix2001/find</b>, but not with <b>/usr/5bin/find</b>.</dd>
 </dl>
 <dl class="Bl-tag">
   <dt><b>-perm</b> mode</dt>
@@ -260,10 +259,9 @@ Options have been introduced by POSIX.1-2001 in addition to the expression
 </dl>
 <div class="Pp"></div>
 With the <i>-follow</i> primary or the <i>-L</i> option, hierarchy loops caused
-  by symbolic links are detected, but only
-  <b>/opt/heirloom/bin/posix2001/find</b> prints an error message. The offending
-  link is not followed, and operation continues with the next directory entry
-  found.
+  by symbolic links are detected, but only <b>/usr/5bin/posix2001/find</b>
+  prints an error message. The offending link is not followed, and operation
+  continues with the next directory entry found.
 <h1 class="Sh" title="Sh" id="EXAMPLES"><a class="permalink" href="#EXAMPLES">EXAMPLES</a></h1>
 To remove all files named `a.out' or `*.o' that have not been accessed for a
   week:
@@ -325,9 +323,8 @@ To check whether the file `diary' has been updated within the last two days; the
 <dl class="Bl-tag">
   <dt><b>LC_COLLATE</b></dt>
   <dd>Affects the collation order for range expressions, equivalence classes,
-      and collation symbols in patterns with <b>/opt/heirloom/bin/s42/find</b>,
-      <b>/opt/heirloom/bin/posix/find</b>, and
-      <b>/opt/heirloom/bin/posix2001/find</b>.</dd>
+      and collation symbols in patterns with <b>/usr/5bin/s42/find</b>,
+      <b>/usr/5bin/posix/find</b>, and <b>/usr/5bin/posix2001/find</b>.</dd>
 </dl>
 <dl class="Bl-tag">
   <dt><b>LC_CTYPE</b></dt>

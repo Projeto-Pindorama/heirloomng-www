@@ -9,7 +9,7 @@
    -->
 <head>
   <meta charset="utf-8"/>
-  <link rel="stylesheet" href="../../assets/mandoc.css" type="text/css" media="all"/>
+  <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
   <title>FILE(1)</title>
 </head>
 <body>
@@ -38,7 +38,7 @@ file - determine file type
 <div class="Pp"></div>
 File formats identified by a magic number (that is a defined value at a defined
   place of the file) are detected using the definitions in a magic file
-  (<b>/opt/heirloom/lib/magic</b> by default).
+  (<b>/usr/5lib/magic</b> by default).
 <div class="Pp"></div>
 The <i>file</i> command accepts the following options:
 <dl class="Bl-tag">
@@ -58,8 +58,7 @@ The <i>file</i> command accepts the following options:
 </dl>
 <dl class="Bl-tag">
   <dt><b>-m</b><i>&#x00A0;mfile</i></dt>
-  <dd>Use <i>mfile</i> instead of <b>/opt/heirloom/lib/magic</b> as the magic
-      file.</dd>
+  <dd>Use <i>mfile</i> instead of <b>/usr/5lib/magic</b> as the magic file.</dd>
 </dl>
 <dl class="Bl-tag">
   <dt><b>-z</b></dt>
@@ -69,7 +68,7 @@ The <i>file</i> command accepts the following options:
       option is an extension.</dd>
 </dl>
 <h1 class="Sh" title="Sh" id="FILES"><a class="permalink" href="#FILES">FILES</a></h1>
-/opt/heirloom/lib/magic
+/usr/5lib/magic
 <h1 class="Sh" title="Sh" id="ENVIRONMENT_VARIABLES"><a class="permalink" href="#ENVIRONMENT_VARIABLES">ENVIRONMENT
   VARIABLES</a></h1>
 <dl class="Bl-tag">

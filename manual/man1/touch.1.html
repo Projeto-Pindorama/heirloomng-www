@@ -9,7 +9,7 @@
  -->
 <head>
   <meta charset="utf-8"/>
-  <link rel="stylesheet" href="../../assets/mandoc.css" type="text/css" media="all"/>
+  <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
   <title>TOUCH(1)</title>
 </head>
 <body>
@@ -35,9 +35,9 @@ The <b>touch</b> utility changes the access and modification times of files. It
 <div class="Pp"></div>
 If neither the <b>-r</b> nor the <b>-t</b> option is used to specify a time
   value and the first non-option argument begins with a digit, and it consists
-  of exactly eight or ten digits with <b>/opt/heirloom/bin/posix/touch</b> and
-  <b>/opt/heirloom/bin/posix2001/touch</b>, the times of the files are set to
-  the given time.
+  of exactly eight or ten digits with <b>/usr/5bin/posix/touch</b> and
+  <b>/usr/5bin/posix2001/touch</b>, the times of the files are set to the given
+  time.
 <div class="Pp"></div>
 The meaning of fields in time specifications is as follows:
 <div class="Bd-indent">
@@ -69,10 +69,9 @@ The following options are accepted:
 <dl class="Bl-tag">
   <dt><b>-c</b></dt>
   <dd>If a file does not exist, it is not created. No diagnostic message is
-      printed; for <b>/opt/heirloom/bin/touch</b> and
-      <b>/opt/heirloom/bin/s42/touch</b>, the exit status is incremented. The
-      exit status is not affected for <b>/opt/heirloom/bin/posix/touch</b> and
-      <b>/opt/heirloom/bin/posix2001/touch</b>.</dd>
+      printed; for <b>/usr/5bin/touch</b> and <b>/usr/5bin/s42/touch</b>, the
+      exit status is incremented. The exit status is not affected for
+      <b>/usr/5bin/posix/touch</b> and <b>/usr/5bin/posix2001/touch</b>.</dd>
 </dl>
 <dl class="Bl-tag">
   <dt><b>-m</b></dt>

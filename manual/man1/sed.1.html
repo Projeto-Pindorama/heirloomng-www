@@ -9,7 +9,7 @@
    -->
 <head>
   <meta charset="utf-8"/>
-  <link rel="stylesheet" href="../../assets/mandoc.css" type="text/css" media="all"/>
+  <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
   <title>SED(1)</title>
 </head>
 <body>
@@ -76,10 +76,9 @@ An <i>address</i> is either a decimal number that counts input lines
 Editing commands can be applied only to non-selected pattern spaces by use of
   the negation function `!' (below).
 <div class="Pp"></div>
-Regular expressions are simple regular expressions with
-  <b>/opt/heirloom/bin/sed</b>, and basic regular expressions with
-  <b>/opt/heirloom/bin/posix/sed</b>, <b>/opt/heirloom/bin/posix2001/sed</b>,
-  and <b>/opt/heirloom/bin/s42/sed</b>.
+Regular expressions are simple regular expressions with <b>/usr/5bin/sed</b>,
+  and basic regular expressions with <b>/usr/5bin/posix/sed</b>,
+  <b>/usr/5bin/posix2001/sed</b>, and <b>/usr/5bin/s42/sed</b>.
 <div class="Pp"></div>
 In the following list of functions the maximum number of permissible addresses
   for each function is indicated in parentheses.
@@ -89,9 +88,9 @@ An argument denoted <i>text</i> consists of one or more lines, all but the last
   like backslashes in the replacement string of an `s' command.
 <div class="Pp"></div>
 An argument denoted <i>rfile</i> or <i>wfile</i> must terminate the command
-  line. <b>/opt/heirloom/bin/sed</b> and <b>/opt/heirloom/bin/s42/sed</b>
-  require that it is preceded by exactly one blank. Each <i>wfile</i> is created
-  before processing begins.
+  line. <b>/usr/5bin/sed</b> and <b>/usr/5bin/s42/sed</b> require that it is
+  preceded by exactly one blank. Each <i>wfile</i> is created before processing
+  begins.
 <dl class="Bl-tag">
   <dt>(1)<b>a\</b></dt>
   <dd>

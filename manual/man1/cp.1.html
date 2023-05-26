@@ -9,7 +9,7 @@
    -->
 <head>
   <meta charset="utf-8"/>
-  <link rel="stylesheet" href="../../assets/mandoc.css" type="text/css" media="all"/>
+  <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
   <title>CP(1)</title>
 </head>
 <body>
@@ -40,19 +40,18 @@ The <i>cp</i> command accepts the following options:
 <dl class="Bl-tag">
   <dt><b>-i</b></dt>
   <dd><i>Cp</i> will ask for confirmation before overwriting an existing target
-      file. For <b>/opt/heirloom/bin/cp</b> and <b>/opt/heirloom/bin/s42/cp</b>,
-      <i>cp</i> will also ask for confirmation before overwriting a directory
-      with the <i>-r</i> or <i>-R</i> option. For <b>/opt/heirloom/bin/cp</b>,
-      this flag will be automatically disabled if standard input is not a
-      terminal.</dd>
+      file. For <b>/usr/5bin/cp</b> and <b>/usr/5bin/s42/cp</b>, <i>cp</i> will
+      also ask for confirmation before overwriting a directory with the
+      <i>-r</i> or <i>-R</i> option. For <b>/usr/5bin/cp</b>, this flag will be
+      automatically disabled if standard input is not a terminal.</dd>
 </dl>
 <dl class="Bl-tag">
   <dt><b>-p</b></dt>
   <dd><i>Cp</i> will try to preserve access and modification times, user and
       group ownerships, and file permission bits. Failing to preserve these
-      modes is always considered an error, but only
-      <b>/opt/heirloom/bin/s42/cp</b>, <b>/opt/heirloom/bin/posix2001/cp</b>,
-      and <b>/opt/heirloom/bin/posix/cp</b> will print an error message.</dd>
+      modes is always considered an error, but only <b>/usr/5bin/s42/cp</b>,
+      <b>/usr/5bin/posix2001/cp</b>, and <b>/usr/5bin/posix/cp</b> will print an
+      error message.</dd>
 </dl>
 <dl class="Bl-tag">
   <dt><b>-r</b></dt>

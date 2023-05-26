@@ -9,7 +9,7 @@
  -->
 <head>
   <meta charset="utf-8"/>
-  <link rel="stylesheet" href="../../assets/mandoc.css" type="text/css" media="all"/>
+  <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
   <title>PAX(1)</title>
 </head>
 <body>
@@ -199,11 +199,11 @@ The following options alter the behavior of <i>pax</i>:
   <dd>If file ownership is preserved, <i>pax</i> tries to set the group
       ownerships to those specified in the archive or the original hierarchy,
       respectively, regardless of the privilegues of the invoking user.
-      <b>/opt/heirloom/bin/pax</b>, <b>/opt/heirloom/bin/s42/pax</b>, and
-      <b>/opt/heirloom/bin/posix/pax</b> try to set the user ownerships only if
-      invoked by the super-user; if invoked by regular users,
-      <b>/opt/heirloom/bin/posix2001/pax</b> will produce an error for any file
-      that is not owned by the invoking user.</dd>
+      <b>/usr/5bin/pax</b>, <b>/usr/5bin/s42/pax</b>, and
+      <b>/usr/5bin/posix/pax</b> try to set the user ownerships only if invoked
+      by the super-user; if invoked by regular users,
+      <b>/usr/5bin/posix2001/pax</b> will produce an error for any file that is
+      not owned by the invoking user.</dd>
 </dl>
 <dl class="Bl-tag">
   <dt><b>-s&#x00A0;/</b><i>regular

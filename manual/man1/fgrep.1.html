@@ -9,7 +9,7 @@
    -->
 <head>
   <meta charset="utf-8"/>
-  <link rel="stylesheet" href="../../assets/mandoc.css" type="text/css" media="all"/>
+  <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
   <title>FGREP(1)</title>
 </head>
 <body>
@@ -24,22 +24,21 @@
 <h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
 fgrep - search a file for a character string
 <h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
-<div class="HP"><b>/opt/heirloom/bin/fgrep</b>
+<div class="HP"><b>/usr/5bin/fgrep</b>
   [<b>-e</b><i>&#x00A0;string_list</i>&#x00A0;...] [
   <b>-f</b><i>&#x00A0;string_file</i>] [ <b>-bchilnrRvxz</b>] [
   <i>string_list</i>] [ <i>file</i>&#x00A0;...]</div>
 <div class="Pp"></div>
-<div class="HP"><b>/opt/heirloom/bin/posix/fgrep</b>
+<div class="HP"><b>/usr/5bin/posix/fgrep</b>
   <b>-e</b><i>&#x00A0;string_list</i>&#x00A0;... [
   <b>-f</b><i>&#x00A0;string_file</i>] [ <b>-c</b>|<b>-l</b>] [
   <b>-bhinrRvxz</b>] [ <i>file</i>&#x00A0;...]</div>
 <div class="Pp"></div>
-<div class="HP"><b>/opt/heirloom/bin/posix/fgrep</b>
-  <b>-f</b><i>&#x00A0;string_file</i> [
-  <b>-e</b><i>&#x00A0;string_list</i>&#x00A0;...] [ <b>-c</b>|<b>-l</b>] [
+<div class="HP"><b>/usr/5bin/posix/fgrep</b> <b>-f</b><i>&#x00A0;string_file</i>
+  [ <b>-e</b><i>&#x00A0;string_list</i>&#x00A0;...] [<b>-c</b>|<b>-l</b>] [
   <b>-bhinrRvxz</b>] [ <i>file</i>&#x00A0;...]</div>
 <div class="Pp"></div>
-<div class="HP"><b>/opt/heirloom/bin/posix/fgrep</b> [<b>-c</b>|<b>-l</b>]
+<div class="HP"><b>/usr/5bin/posix/fgrep</b> [<b>-c</b>|<b>-l</b>]
   [<b>-bhinrRvxz</b>] <i>string_list</i> [<i>file</i>&#x00A0;...]
 <div>&#x00A0;</div>
 </div>
@@ -49,8 +48,8 @@ The <b>fgrep</b> command searches the lines of the specified files (or of
   <i>string_list.</i> The default behavior is to print each matching line to
   standard output.
 <div class="Pp"></div>
-Both <b>/opt/heirloom/bin/fgrep</b> and <b>/opt/heirloom/bin/posix/fgrep</b>
-  accept the following options:
+Both <b>/usr/5bin/fgrep</b> and <b>/usr/5bin/posix/fgrep</b> accept the
+  following options:
 <dl class="Bl-tag">
   <dt><b>-b</b></dt>
   <dd>Each line is preceded by the block number on which it was found. This is
@@ -70,8 +69,8 @@ Both <b>/opt/heirloom/bin/fgrep</b> and <b>/opt/heirloom/bin/posix/fgrep</b>
   <dt><b>-f&#x00A0;</b><i>string_file</i></dt>
   <dd>One or more strings, separated by newline characters, are read from
       <i>string_file.</i> If multiple <b>-e</b> or <b>-f</b> options are
-      supplied to <b>/opt/heirloom/bin/posix/fgrep</b>, all of the pattern lists
-      will be evaluated.</dd>
+      supplied to <b>/usr/5bin/posix/fgrep</b>, all of the pattern lists will be
+      evaluated.</dd>
 </dl>
 <dl class="Bl-tag">
   <dt><b>-h</b></dt>
@@ -123,8 +122,8 @@ The following options are supported as extensions:
       started, and <i>fgrep</i> searches for the pattern in its output.</dd>
 </dl>
 <div class="Pp"></div>
-<b>/opt/heirloom/bin/s42/fgrep</b> and <b>/opt/heirloom/bin/posix2001/fgrep</b>
-  are identical to <b>/opt/heirloom/bin/posix/fgrep</b>.
+<b>/usr/5bin/s42/fgrep</b> and <b>/usr/5bin/posix2001/fgrep</b> are identical to
+  <b>/usr/5bin/posix/fgrep</b>.
 <h1 class="Sh" title="Sh" id="ENVIRONMENT_VARIABLES"><a class="permalink" href="#ENVIRONMENT_VARIABLES">ENVIRONMENT
   VARIABLES</a></h1>
 <dl class="Bl-tag">

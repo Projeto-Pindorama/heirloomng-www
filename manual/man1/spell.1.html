@@ -9,7 +9,7 @@
    -->
 <head>
   <meta charset="utf-8"/>
-  <link rel="stylesheet" href="../../assets/mandoc.css" type="text/css" media="all"/>
+  <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
   <title>SPELL(1)</title>
 </head>
 <body>
@@ -27,13 +27,13 @@ spell - find spelling errors
 <b>spell</b> [<b>-v</b>] [<b>-b</b>] [<b>-x</b>] [<b>-i</b>] [<b>-l</b>] [
   <b>+</b> <i>local_file</i>] [<i>file</i>&#x00A0;...]
 <div>&#x00A0;</div>
-<b>/opt/heirloom/lib/spell/spellin</b> [<i>list</i>]
+<b>/usr/5lib/spell/spellin</b> [<i>list</i>]
 <div>&#x00A0;</div>
-<b>/opt/heirloom/lib/spell/hashcheck</b>
+<b>/usr/5lib/spell/hashcheck</b>
 <div>&#x00A0;</div>
-<b>/opt/heirloom/lib/spell/hashmake</b>
+<b>/usr/5lib/spell/hashmake</b>
 <div>&#x00A0;</div>
-<b>/opt/heirloom/lib/spell/compress</b>
+<b>/usr/5lib/spell/compress</b>
 <h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
 <i>Spell</i> collects words from the named documents, and looks them up in a
   spelling list. Words that neither occur among nor are derivable (by applying
@@ -83,19 +83,19 @@ Four routines help maintain the hash lists used by <i>spell.</i> <i>Hashmake</i>
   removes duplicate entries from the history file.
 <h1 class="Sh" title="Sh" id="FILES"><a class="permalink" href="#FILES">FILES</a></h1>
 <dl class="Bl-tag">
-  <dt><b>D_SPELL</b>=<b>/opt/heirloom/lib/spell/hlist</b>[<b>ab</b>]</dt>
+  <dt><b>D_SPELL</b>=<b>/usr/5lib/spell/hlist</b>[<b>ab</b>]</dt>
   <dd>hashed spelling lists, American &amp; British</dd>
 </dl>
 <dl class="Bl-tag">
-  <dt><b>S_SPELL</b>=<b>/opt/heirloom/lib/spell/hstop</b></dt>
+  <dt><b>S_SPELL</b>=<b>/usr/5lib/spell/hstop</b></dt>
   <dd>hashed stop list</dd>
 </dl>
 <dl class="Bl-tag">
-  <dt><b>H_SPELL</b>=<b>/dev/null</b></dt>
+  <dt><b>H_SPELL</b>=<b>/var/adm/spellhist</b></dt>
   <dd>history file</dd>
 </dl>
 <dl class="Bl-tag">
-  <dt><b>/opt/heirloom/lib/spell/spellprog</b></dt>
+  <dt><b>/usr/5lib/spell/spellprog</b></dt>
   <dd></dd>
 </dl>
 <h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE

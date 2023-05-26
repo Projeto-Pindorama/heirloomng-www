@@ -10,7 +10,7 @@
    -->
 <head>
   <meta charset="utf-8"/>
-  <link rel="stylesheet" href="../../assets/mandoc.css" type="text/css" media="all"/>
+  <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
   <title>ED(1)</title>
 </head>
 <body>
@@ -70,10 +70,9 @@ In general, only one command may appear on a line. Certain commands allow the
   regular expression specifies a set of strings of characters. A member of this
   set of strings is said to be <i>matched</i> by the regular expression. In the
   following specification for regular expressions the word `character' means any
-  character but newline. <b>/opt/heirloom/bin/ed</b> uses simple regular
-  expressions, whereas <b>/opt/heirloom/bin/s42/ed</b>,
-  <b>/opt/heirloom/bin/posix/ed</b>, and <b>/opt/heirloom/bin/posix2001/ed</b>
-  use basic regular expressions.
+  character but newline. <b>/usr/5bin/ed</b> uses simple regular expressions,
+  whereas <b>/usr/5bin/s42/ed</b>, <b>/usr/5bin/posix/ed</b>, and
+  <b>/usr/5bin/posix2001/ed</b> use basic regular expressions.
 <h2 class="Ss" title="Ss" id="Simple_Regular_Expressions"><a class="permalink" href="#Simple_Regular_Expressions">Simple
   Regular Expressions</a></h2>
 <dl class="Bl-tag">
@@ -172,8 +171,8 @@ Basic Regular Expressions add the following features to Simple Regular
   <dd>The special character <b>*</b>, as described in 5., and the interval
       expressions described in 6. can also be applied to subexpressions as
       described in 9. For POSIX.1-2001 utilities such as
-      <b>/opt/heirloom/bin/posix2001/ed</b>, subexpressions do not match the
-      empty string if there is a possible longer match.</dd>
+      <b>/usr/5bin/posix2001/ed</b>, subexpressions do not match the empty
+      string if there is a possible longer match.</dd>
 </dl>
 <dl class="Bl-tag">
   <dt>16.</dt>
@@ -363,8 +362,8 @@ As mentioned, it is generally illegal for more than one command to appear on a
     The change command deletes the addressed lines, then accepts input text
       which replaces these lines. ` <b>.</b>' is left at the last line input; if
       there were none, it is left at the line preceding the deleted lines. For
-      <b>/opt/heirloom/bin/posix2001/ed</b>, a `0' as the first address is
-      identical to `1'.</dd>
+      <b>/usr/5bin/posix2001/ed</b>, a `0' as the first address is identical to
+      `1'.</dd>
 </dl>
 <dl class="Bl-tag">
   <dt>(<i>.</i><b>,</b><i>.</i>)<b>d</b></dt>
@@ -448,8 +447,8 @@ As mentioned, it is generally illegal for more than one command to appear on a
     This command inserts the given text before the addressed line. ` <b>.</b>'
       is left at the last line input, or, if there were none, at the line before
       the addressed line. This command differs from the <i>a</i> command only in
-      the placement of the text. For <b>/opt/heirloom/bin/posix2001/ed</b>, a
-      `0' as the first address is identical to `1'.</dd>
+      the placement of the text. For <b>/usr/5bin/posix2001/ed</b>, a `0' as the
+      first address is identical to `1'.</dd>
 </dl>
 <dl class="Bl-tag">
   <dt>(<i>.</i><b>,</b><i>.+1</i>)<b>j</b></dt>
@@ -465,13 +464,11 @@ As mentioned, it is generally illegal for more than one command to appear on a
 <dl class="Bl-tag">
   <dt>(<i>.</i><b>,</b><i>.</i>)<b>l</b></dt>
   <dd>The list command prints the addressed lines in an unambiguous way:
-      <b>/opt/heirloom/bin/ed</b> prints non-graphic control characters in
-      three-digit octal; <b>/opt/heirloom/bin/s42/ed</b>,
-      <b>/opt/heirloom/bin/posix/ed</b>, and
-      <b>/opt/heirloom/bin/posix2001/ed</b> print control characters as C-style
-      escape sequences or in three-digit octal. Long lines are folded. The
-      <i>l</i> command may be placed on the same line after any non-i/o
-    command.</dd>
+      <b>/usr/5bin/ed</b> prints non-graphic control characters in three-digit
+      octal; <b>/usr/5bin/s42/ed</b>, <b>/usr/5bin/posix/ed</b>, and
+      <b>/usr/5bin/posix2001/ed</b> print control characters as C-style escape
+      sequences or in three-digit octal. Long lines are folded. The <i>l</i>
+      command may be placed on the same line after any non-i/o command.</dd>
 </dl>
 <dl class="Bl-tag">
   <dt>(<i>.</i><b>,</b><i>.</i>)<b>m</b><i>a</i></dt>
@@ -668,7 +665,7 @@ If an interrupt signal is sent, <i>ed</i> prints a `?' and returns to its
 <div class="Pp"></div>
 An input line that consists exactly of the two characters `\.' causes a period
   `.' to be inserted with the <i>a</i>, <i>c</i>, and <i>i</i> commands in
-  <b>/opt/heirloom/bin/ed</b> and <b>/opt/heirloom/bin/s42/ed</b>.
+  <b>/usr/5bin/ed</b> and <b>/usr/5bin/s42/ed</b>.
 <div class="Pp"></div>
 Some size limitations: The maximum number of bytes in the buffer corresponds to
   the address size; on machines with 32-bit addressing, it is 2&#x00A0;G bytes,

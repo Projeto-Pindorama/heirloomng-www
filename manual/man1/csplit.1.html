@@ -9,7 +9,7 @@
  -->
 <head>
   <meta charset="utf-8"/>
-  <link rel="stylesheet" href="../../assets/mandoc.css" type="text/css" media="all"/>
+  <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
   <title>CSPLIT(1)</title>
 </head>
 <body>
@@ -40,13 +40,12 @@ The <i>args</i> operands can have one of the following forms:
       positive values, or above the matching line for negative ones. The text
       section written to the next file piece starts at the matching line with
       <i>offset</i>applied<i>;</i> thus repeated matches with negative offsets
-      will repeatedly write the same text part. With
-      <b>/opt/heirloom/bin/csplit</b>, <i>rexp</i> is treated as a simple
-      regular expression, whereas <b>/opt/heirloom/bin/s42/csplit</b>,
-      <b>/opt/heirloom/bin/posix/csplit</b>, and
-      <b>/opt/heirloom/bin/posix2001/csplit</b> treat it as a basic regular
-      expression (see <i>ed</i>(1). Backslash escapes a literal `<b>/</b>' in
-      the expression.</dd>
+      will repeatedly write the same text part. With <b>/usr/5bin/csplit</b>,
+      <i>rexp</i> is treated as a simple regular expression, whereas
+      <b>/usr/5bin/s42/csplit</b>, <b>/usr/5bin/posix/csplit</b>, and
+      <b>/usr/5bin/posix2001/csplit</b> treat it as a basic regular expression
+      (see <i>ed</i>(1). Backslash escapes a literal `<b>/</b>' in the
+      expression.</dd>
 </dl>
 <dl class="Bl-tag">
   <dt><b>%</b><i>rexp</i><b>%</b>[[<b>+</b>|<b>-</b>]<i>offset</i>]</dt>

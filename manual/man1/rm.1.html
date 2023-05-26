@@ -9,7 +9,7 @@
  -->
 <head>
   <meta charset="utf-8"/>
-  <link rel="stylesheet" href="../../assets/mandoc.css" type="text/css" media="all"/>
+  <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
   <title>RM(1)</title>
 </head>
 <body>
@@ -42,20 +42,18 @@ The <b>rm</b> command accepts the following options:
 <dl class="Bl-tag">
   <dt><b>-f</b></dt>
   <dd>No questions are asked and neither error messages are printed nor the exit
-      status is affected in case of nonexistent files.
-      <b>/opt/heirloom/bin/rm</b> and <b>/opt/heirloom/bin/s42/rm</b> will not
-      print an error message if removal of a file failed. For
-      <b>/opt/heirloom/bin/posix/rm</b> and
-      <b>/opt/heirloom/bin/posix2001/rm</b>, any previous occurrences of the
-      <b>-i</b> option are ignored.</dd>
+      status is affected in case of nonexistent files. <b>/usr/5bin/rm</b> and
+      <b>/usr/5bin/s42/rm</b> will not print an error message if removal of a
+      file failed. For <b>/usr/5bin/posix/rm</b> and
+      <b>/usr/5bin/posix2001/rm</b>, any previous occurrences of the <b>-i</b>
+      option are ignored.</dd>
 </dl>
 <dl class="Bl-tag">
   <dt><b>-i</b></dt>
   <dd>Causes <b>rm</b> to ask for confirmation before deleting any file, and,
       unter <b>-r</b>, whether to examine each directory. For
-      <b>/opt/heirloom/bin/posix/rm</b> and
-      <b>/opt/heirloom/bin/posix2001/rm</b>, any previous occurrences of the
-      <b>-f</b> option are ignored.</dd>
+      <b>/usr/5bin/posix/rm</b> and <b>/usr/5bin/posix2001/rm</b>, any previous
+      occurrences of the <b>-f</b> option are ignored.</dd>
 </dl>
 <dl class="Bl-tag">
   <dt><b>-R</b></dt>
@@ -80,10 +78,10 @@ rmdir(1), unlink(2), rmdir(2)
 It is forbidden to remove the files `.' and `..' merely to avoid the antisocial
   consequences of inadvertently doing something like `rm -r .*'.
 <div class="Pp"></div>
-With <b>/opt/heirloom/bin/rm</b> and <b>/opt/heirloom/bin/s42/rm</b>, a single
-  `-' can be used to indicate the end of the options list, as with `rm - -file'.
-  If `--' is used to terminate the options list, though, a following `-' will be
-  interpreted as a file name, so `rm -- -' will remove the file `-'.</div>
+With <b>/usr/5bin/rm</b> and <b>/usr/5bin/s42/rm</b>, a single `-' can be used
+  to indicate the end of the options list, as with `rm - -file'. If `--' is used
+  to terminate the options list, though, a following `-' will be interpreted as
+  a file name, so `rm -- -' will remove the file `-'.</div>
 <table class="foot">
   <tr>
     <td class="foot-date">1/24/05</td>

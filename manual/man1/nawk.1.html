@@ -28,7 +28,7 @@
  -->
 <head>
   <meta charset="utf-8"/>
-  <link rel="stylesheet" href="../../assets/mandoc.css" type="text/css" media="all"/>
+  <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
   <title>NAWK(1)</title>
 </head>
 <body>
@@ -57,8 +57,8 @@ nawk - pattern scanning and processing language
   pattern. The file name <b>-</b> means the standard input. Any <i>file</i> of
   the form <i>var=value</i> is treated as an assignment, not a filename, and is
   executed at the time it would have been opened if it were a filename
-  (<b>/opt/heirloom/bin/s42/awk</b>, <b>/opt/heirloom/bin/posix/awk</b>, and
-  <b>/opt/heirloom/bin/posix2001/awk</b> only). The option <b>-v</b> followed by
+  (<b>/usr/5bin/s42/awk</b>, <b>/usr/5bin/posix/awk</b>, and
+  <b>/usr/5bin/posix2001/awk</b> only). The option <b>-v</b> followed by
   <i>var=value</i> is an assignment to be done before <i>prog</i> is executed;
   any number of <b>-v</b> options may be present. The <b>-F</b> <i>fs</i> option
   defines the input field separator to be the regular expression <i>fs.</i>
@@ -232,17 +232,16 @@ Parameters are passed by value if scalar and by reference if array name;
 <div class="Pp"></div>
 Patterns are arbitrary Boolean combinations (with <b>! || &amp;&amp;</b>) of
   regular expressions and relational expressions. Regular expressions are full
-  regular expressions with <b>/opt/heirloom/bin/nawk</b> and extended regular
-  expressions with <b>/opt/heirloom/bin/s42/awk</b>,
-  <b>/opt/heirloom/bin/posix/awk</b>, and
-  <b>/opt/heirloom/bin/posix2001/awk</b>; both are as described in
-  <i>egrep</i>(1). Isolated regular expressions in a pattern apply to the entire
-  line. Regular expressions may also occur in relational expressions, using the
-  operators <b>~</b> and <b>!~</b>. <b>/</b><i>re</i><b>/</b> is a constant
-  regular expression; any string (constant or variable) may be used as a regular
+  regular expressions with <b>/usr/5bin/nawk</b> and extended regular
+  expressions with <b>/usr/5bin/s42/awk</b>, <b>/usr/5bin/posix/awk</b>, and
+  <b>/usr/5bin/posix2001/awk</b>; both are as described in <i>egrep</i>(1).
+  Isolated regular expressions in a pattern apply to the entire line. Regular
+  expressions may also occur in relational expressions, using the operators
+  <b>~</b> and <b>!~</b>. <b>/</b><i>re</i><b>/</b> is a constant regular
+  expression; any string (constant or variable) may be used as a regular
   expression, except in the position of an isolated regular expression in a
-  pattern. For <b>/opt/heirloom/bin/posix2001/awk</b>, regular expressions may
-  be part of arithmetic expressions.
+  pattern. For <b>/usr/5bin/posix2001/awk</b>, regular expressions may be part
+  of arithmetic expressions.
 <div class="Pp"></div>
 A pattern may consist of two patterns separated by a comma; in this case, the
   action is performed for all lines from an occurrence of the first pattern
@@ -280,9 +279,9 @@ Variable names with special meanings:
 </dl>
 <dl class="Bl-tag">
   <dt><b>CONVFMT</b></dt>
-  <dd>(<b>/opt/heirloom/bin/s42/awk</b>, <b>/opt/heirloom/bin/posix2001/awk</b>,
-      and <b>/opt/heirloom/bin/posix/awk</b> only) conversion format used when
-      converting numbers (default <b>%.6g</b>)</dd>
+  <dd>(<b>/usr/5bin/s42/awk</b>, <b>/usr/5bin/posix2001/awk</b>, and
+      <b>/usr/5bin/posix/awk</b> only) conversion format used when converting
+      numbers (default <b>%.6g</b>)</dd>
 </dl>
 <dl class="Bl-tag">
   <dt><b>ENVIRON</b></dt>

@@ -10,7 +10,7 @@
    -->
 <head>
   <meta charset="utf-8"/>
-  <link rel="stylesheet" href="../../assets/mandoc.css" type="text/css" media="all"/>
+  <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
   <title>PS(1)</title>
 </head>
 <body>
@@ -34,11 +34,11 @@ ps - process status
 <h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
 <b>Ps</b> prints certain indicia about active processes. If no options are
   specified, all processes on the current terminal are selected;
-  <b>/opt/heirloom/bin/posix/ps</b> and <b>/opt/heirloom/bin/posix2001/ps</b>
-  further restrict this to processes owned by the invoking user. The selection
-  can be changed by adding <i>criteria</i> with the options below; when a
-  process satifies any criterion, it is selected. A <i>criteria</i> string can
-  consist of multiple criteria separated by blanks or commas.
+  <b>/usr/5bin/posix/ps</b> and <b>/usr/5bin/posix2001/ps</b> further restrict
+  this to processes owned by the invoking user. The selection can be changed by
+  adding <i>criteria</i> with the options below; when a process satifies any
+  criterion, it is selected. A <i>criteria</i> string can consist of multiple
+  criteria separated by blanks or commas.
 <div class="Pp"></div>
 By default, <b>ps</b> prints the process id, controlling terminal device,
   cumulative execution time and command of processes.
@@ -52,8 +52,7 @@ The <b>ps</b> command accepts the following options:
 <dl class="Bl-tag">
   <dt><b>-c</b></dt>
   <dd>Adds scheduling class and priority to the output. This is the default with
-      <b>/opt/heirloom/bin/s42/ps</b>. See below for the meaning of
-    columns.</dd>
+      <b>/usr/5bin/s42/ps</b>. See below for the meaning of columns.</dd>
 </dl>
 <dl class="Bl-tag">
   <dt><b>-d</b></dt>
@@ -71,11 +70,10 @@ The <b>ps</b> command accepts the following options:
 </dl>
 <dl class="Bl-tag">
   <dt><b>-g</b><i> pgrplist</i></dt>
-  <dd>For <b>/opt/heirloom/bin/ps</b> and <b>/opt/heirloom/bin/s42/ps</b>, all
-      processes that belong to one of the process groups ids in <i>pgrplist</i>
-      are selected; for <b>/opt/heirloom/bin/posix/ps</b> and
-      <b>/opt/heirloom/bin/posix2001/ps</b>, all processes that belong to one of
-      the session ids in <i>group</i>.</dd>
+  <dd>For <b>/usr/5bin/ps</b> and <b>/usr/5bin/s42/ps</b>, all processes that
+      belong to one of the process groups ids in <i>pgrplist</i> are selected;
+      for <b>/usr/5bin/posix/ps</b> and <b>/usr/5bin/posix2001/ps</b>, all
+      processes that belong to one of the session ids in <i>group</i>.</dd>
 </dl>
 <dl class="Bl-tag">
   <dt><b>-j</b></dt>
@@ -113,10 +111,9 @@ The <b>ps</b> command accepts the following options:
 <dl class="Bl-tag">
   <dt><b>-u</b><i> uidlist</i></dt>
   <dd>Selects all processes with one of the given <i>user ids</i>, which may be
-      symbolic or numeric. The real user id is used with
-      <b>/opt/heirloom/bin/ps</b> and <b>/opt/heirloom/bin/s42/ps</b>, the
-      effective user id with <b>/opt/heirloom/bin/posix/ps</b> and
-      <b>/opt/heirloom/bin/posix2001/ps</b>.</dd>
+      symbolic or numeric. The real user id is used with <b>/usr/5bin/ps</b> and
+      <b>/usr/5bin/s42/ps</b>, the effective user id with
+      <b>/usr/5bin/posix/ps</b> and <b>/usr/5bin/posix2001/ps</b>.</dd>
 </dl>
 <div class="Pp"></div>
 The following options have been introduced by POSIX.2:
@@ -278,9 +275,8 @@ The meaning of columns and column headings for the <b>-c</b>, <b>-f</b>,
   <tr>
     <td>UID</td>
     <td>(f,l)</td>
-    <td>The real user ID of the process owner, or, for
-      <b>/opt/heirloom/bin/posix/ps</b> and
-      <b>/opt/heirloom/bin/posix2001/ps</b>, the effective user ID. With the
+    <td>The real user ID of the process owner, or, for <b>/usr/5bin/posix/ps</b>
+      and <b>/usr/5bin/posix2001/ps</b>, the effective user ID. With the
       <b>-l</b> option, a numeric ID is printed, otherwise the user name.</td>
     <td></td>
     <td></td>
@@ -500,10 +496,10 @@ The meaning of columns and column headings for the <b>-c</b>, <b>-f</b>,
     <td>COMD</td>
     <td>(all)</td>
     <td>The command name; with the <b>-f</b> option, the command line. The
-      heading `CMD' is printed for <b>/opt/heirloom/bin/posix/ps</b> and
-      <b>/opt/heirloom/bin/posix2001/ps</b>; the heading `COMMAND' is printed if
-      the <b>SYSV3</b> environment variable is set and the <i>-l</i> option is
-      not present.</td>
+      heading `CMD' is printed for <b>/usr/5bin/posix/ps</b> and
+      <b>/usr/5bin/posix2001/ps</b>; the heading `COMMAND' is printed if the
+      <b>SYSV3</b> environment variable is set and the <i>-l</i> option is not
+      present.</td>
     <td></td>
     <td></td>
   </tr>

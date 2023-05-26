@@ -9,7 +9,7 @@
    -->
 <head>
   <meta charset="utf-8"/>
-  <link rel="stylesheet" href="../../assets/mandoc.css" type="text/css" media="all"/>
+  <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
   <title>MV(1)</title>
 </head>
 <body>
@@ -31,10 +31,9 @@ mv - move or rename files and directories
   <i>target</i> is an existing regular file, its content is overwritten. Its
   mode and owner are preserved; the mode of the source file is used otherwise.
   If the mode of <i>target</i> forbids writing (and standard input is terminal
-  for <b>/opt/heirloom/bin/mv</b> and <b>/opt/heirloom/bin/s42/mv</b>),
-  <b>mv</b> prints the mode (see <i>chmod</i>(2)) and reads the standard input
-  to obtain a line; if the line begins with y, the move takes place; if not, the
-  file is not moved.
+  for <b>/usr/5bin/mv</b> and <b>/usr/5bin/s42/mv</b>), <b>mv</b> prints the
+  mode (see <i>chmod</i>(2)) and reads the standard input to obtain a line; if
+  the line begins with y, the move takes place; if not, the file is not moved.
 <div class="Pp"></div>
 If <i>target</i> is a directory, one or more files are copied into the directory
   with their original file-names.
@@ -46,16 +45,15 @@ The <b>mv</b> command accepts the following options:
   <dt><b>-f</b></dt>
   <dd><b>Mv</b> will not ask for confirmation even if the modes of the
       <i>target</i> file do not permit writing. Overrides the <b>-i</b> option
-      in <b>/opt/heirloom/bin/posix/mv</b> and
-      <b>/opt/heirloom/bin/posix2001/mv</b>.</dd>
+      in <b>/usr/5bin/posix/mv</b> and <b>/usr/5bin/posix2001/mv</b>.</dd>
 </dl>
 <dl class="Bl-tag">
   <dt><b>-i</b></dt>
   <dd><b>mv</b> will ask for confirmation before overwriting an existing target.
-      For <b>/opt/heirloom/bin/mv</b> and <b>/opt/heirloom/bin/s42/mv</b>, this
-      flag will be automatically disabled if standard input is not a terminal.
-      Overrides the <b>-f</b> option in <b>/opt/heirloom/bin/posix/mv</b> and
-      <b>/opt/heirloom/bin/posix2001/mv</b>.</dd>
+      For <b>/usr/5bin/mv</b> and <b>/usr/5bin/s42/mv</b>, this flag will be
+      automatically disabled if standard input is not a terminal. Overrides the
+      <b>-f</b> option in <b>/usr/5bin/posix/mv</b> and
+      <b>/usr/5bin/posix2001/mv</b>.</dd>
 </dl>
 <div class="Pp"></div>
 The following option is an extension:
@@ -88,10 +86,10 @@ If source and target lie on different file systems, <b>mv</b> must copy the file
   files is lost, but <b>mv</b> will preserve linkage inside the moved tree.
   <b>Mv</b> will try to preserve access and modification times, user and group
   ownerships, and file permission bits. Failing to preserve these modes is not
-  considered an error, only <b>/opt/heirloom/bin/posix/mv</b> and
-  <b>/opt/heirloom/bin/posix2001/mv</b> will print an error message. Special
-  files such as block and character devices, FIFOs, and symbolic links are
-  recreated in the target hierarchy.
+  considered an error, only <b>/usr/5bin/posix/mv</b> and
+  <b>/usr/5bin/posix2001/mv</b> will print an error message. Special files such
+  as block and character devices, FIFOs, and symbolic links are recreated in the
+  target hierarchy.
 <div class="Pp"></div>
 The pathname contained in a symbolic link is not changed when the link is moved.
   Symbolic links with relative pathnames may thus change or lose their target if

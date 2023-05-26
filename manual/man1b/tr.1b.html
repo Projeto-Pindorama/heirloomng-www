@@ -9,7 +9,7 @@
    -->
 <head>
   <meta charset="utf-8"/>
-  <link rel="stylesheet" href="../../assets/mandoc.css" type="text/css" media="all"/>
+  <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
   <title>TR(1B)</title>
 </head>
 <body>
@@ -24,7 +24,7 @@
 <h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
 tr - (BSD) translate characters
 <h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
-<b>/opt/heirloom/bin/ucb/tr</b> [<b>-cCds</b>] [<i>string1</i> [<i>string2</i>]]
+<b>/usr/ucb/tr</b> [<b>-cCds</b>] [<i>string1</i> [<i>string2</i>]]
 <h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
 <i>Tr</i> copies the standard input to the standard output with substitution or
   deletion of selected characters. Input characters found in <i>string1</i> are
@@ -121,8 +121,7 @@ The following examples create a list of all the words in `file1' one per line in
   for newline.
 <dl class="Bl-tag">
   <dt></dt>
-  <dd>/opt/heirloom/bin/ucb/tr -cs A-Za-z &#x00B4;\012&#x00B4; &lt;file1
-      &gt;file2</dd>
+  <dd>/usr/ucb/tr -cs A-Za-z &#x00B4;\012&#x00B4; &lt;file1 &gt;file2</dd>
 </dl>
 <h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
   ALSO</a></h1>

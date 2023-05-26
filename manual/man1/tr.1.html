@@ -9,7 +9,7 @@
    -->
 <head>
   <meta charset="utf-8"/>
-  <link rel="stylesheet" href="../../assets/mandoc.css" type="text/css" media="all"/>
+  <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
   <title>TR(1)</title>
 </head>
 <body>
@@ -70,18 +70,17 @@ In either string the following character sequences are treated specially:
 </dl>
 <dl class="Bl-tag">
   <dt><b>[</b><i>a</i><b>-</b><i>z</i><b>]</b></dt>
-  <dd>(/usr/5bin/tr, /opt/heirloom/bin/s42/tr) means a range of characters from
-      <i>a</i> to <i>z</i> in increasing byte order, or with a multibyte
-      character set, in increasing wide character order. With the <i>-C</i>
-      option, characters are ordered according to the collation sequence.</dd>
+  <dd>(/usr/5bin/tr, /usr/5bin/s42/tr) means a range of characters from <i>a</i>
+      to <i>z</i> in increasing byte order, or with a multibyte character set,
+      in increasing wide character order. With the <i>-C</i> option, characters
+      are ordered according to the collation sequence.</dd>
 </dl>
 <dl class="Bl-tag">
   <dt><i>a</i><b>-</b><i>z</i></dt>
-  <dd>(/usr/5bin/posix/tr, /opt/heirloom/bin/posix2001/tr) means a range of
-      characters from <i>a</i> to <i>z</i> in increasing byte order, or with a
-      multibyte character set, in increasing wide character order. With the
-      <i>-C</i> option, characters are ordered according to the collation
-      sequence.</dd>
+  <dd>(/usr/5bin/posix/tr, /usr/5bin/posix2001/tr) means a range of characters
+      from <i>a</i> to <i>z</i> in increasing byte order, or with a multibyte
+      character set, in increasing wide character order. With the <i>-C</i>
+      option, characters are ordered according to the collation sequence.</dd>
 </dl>
 <dl class="Bl-tag">
   <dt><b>[:</b><i>class</i><b>:]</b></dt>
@@ -129,30 +128,30 @@ The following examples create a list of all the words in `file1' one per line in
   code for newline.
 <dl class="Bl-tag">
   <dt></dt>
-  <dd>/opt/heirloom/bin/tr -cs &#x00B4;[A-Z][a-z]&#x00B4;
-      &#x00B4;[\012*]&#x00B4; &lt;file1 &gt;file2</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt></dt>
-  <dd>/opt/heirloom/bin/s42/tr -cs &#x00B4;[A-Z][a-z]&#x00B4;
-      &#x00B4;[\012*]&#x00B4; &lt;file1 &gt;file2</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt></dt>
-  <dd>/opt/heirloom/bin/posix/tr -cs A-Za-z &#x00B4;[\012*]&#x00B4; &lt;file1
-      &gt;file2</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt></dt>
-  <dd>/opt/heirloom/bin/posix2001/tr -cs A-Za-z &#x00B4;[\012*]&#x00B4;
+  <dd>/usr/5bin/tr -cs &#x00B4;[A-Z][a-z]&#x00B4; &#x00B4;[\012*]&#x00B4;
       &lt;file1 &gt;file2</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt></dt>
+  <dd>/usr/5bin/s42/tr -cs &#x00B4;[A-Z][a-z]&#x00B4; &#x00B4;[\012*]&#x00B4;
+      &lt;file1 &gt;file2</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt></dt>
+  <dd>/usr/5bin/posix/tr -cs A-Za-z &#x00B4;[\012*]&#x00B4; &lt;file1
+    &gt;file2</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt></dt>
+  <dd>/usr/5bin/posix2001/tr -cs A-Za-z &#x00B4;[\012*]&#x00B4; &lt;file1
+      &gt;file2</dd>
 </dl>
 <h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
   ALSO</a></h1>
 ed(1), ascii(7), locale(7)
 <h1 class="Sh" title="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
-/usr/5bin/tr and /opt/heirloom/bin/s42/tr do not handle ASCII NUL in
-  <i>string1</i> or <i>string2</i>; they always delete NUL from input.
+/usr/5bin/tr and /usr/5bin/s42/tr do not handle ASCII NUL in <i>string1</i> or
+  <i>string2</i>; they always delete NUL from input.
 <div class="Pp"></div>
 The LC_COLLATE variable is not respected; equivalence classes consist of exactly
   one character, and the <i>-c</i> and <i>-C</i> options produce identical

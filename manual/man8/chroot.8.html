@@ -11,25 +11,26 @@
  -->
 <head>
   <meta charset="utf-8"/>
-  <link rel="stylesheet" href="../../assets/mandoc.css" type="text/css" media="all"/>
-  <title>CHMOD(8)</title>
+  <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
+  <title>CHROOT(8)</title>
 </head>
 <body>
 <table class="head">
   <tr>
-    <td class="head-ltitle">CHMOD(8)</td>
-    <td class="head-vol">User Commands</td>
-    <td class="head-rtitle">CHMOD(8)</td>
+    <td class="head-ltitle">CHROOT(8)</td>
+    <td class="head-vol">Maintenance Commands</td>
+    <td class="head-rtitle">CHROOT(8)</td>
   </tr>
 </table>
 <div class="manual-text">
 <h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
-chroot - run a command with a different system root
+chroot - change system's root directory and execute a command there
 <h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
-<b>chroot</b> <i>NEWROOT</i> [<i>COMMAND</i>]
+<b>chroot</b> <i>newroot</i> [<i>command</i>]
 <h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
-<b>chroot(8)</b> runs the system call <b>chroot(2)</b> to run <i>COMMAND</i>
-  with the root (/) set to <i>NEWROOT</i>.
+The <b>chroot</b> command calls <b>chroot(2)</b> to change the system's root
+  (<b>/</b>) directory to <i>newroot</i> and <b>exec(3)</b> to execute
+  <i>command</i> &#x2014; and any of its child processes &#x2014; there.
 <dl class="Bl-tag">
   <dt><b>NEWROOT</b></dt>
   <dd>The directory to switch the command's system root to.</dd>
@@ -38,12 +39,33 @@ chroot - run a command with a different system root
   <dt><b>COMMAND</b></dt>
   <dd>The command to execute, relative to <i>NEWROOT</i>.</dd>
 </dl>
+<h1 class="Sh" title="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
+Please, take note that redirecting the output of <i>command</i> to a file will
+  create it relative to the original root, not in the new one.
+<div class="Pp"></div>
+For instance, let's redirect <i>command</i>'s standard output to a file called
+  &quot; <i>x</i>&quot; at the <i>/tmp</i> directory:
+<dl class="Bl-tag">
+  <dt></dt>
+  <dd><b># chroot newroot command &gt;/tmp/x</b></dd>
+</dl>
+<div class="Pp"></div>
+This will create <i>x</i> relative to the original root directory, not in
+  <i>newroot</i>.
+<div class="Pp"></div>
+If you need to redirect the output inside the <i>newroot</i>, you will need to
+  quote the actual <i>command</i> and prefix it with <b>sh(1)</b> followed by
+  the &quot; <i>-c</i>&quot; option, like this:
+<dl class="Bl-tag">
+  <dt></dt>
+  <dd><b># chroot newroot /bin/sh -c 'command &gt;/tmp/x'</b></dd>
+</dl>
 <h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
   ALSO</a></h1>
-cd(1), chroot(2)</div>
+cd(1), chroot(2), exec(3)</div>
 <table class="foot">
   <tr>
-    <td class="foot-date">12/16/22</td>
+    <td class="foot-date">04/29/23</td>
     <td class="foot-os">Heirloom Toolchest</td>
   </tr>
 </table>

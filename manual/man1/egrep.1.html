@@ -10,7 +10,7 @@
    -->
 <head>
   <meta charset="utf-8"/>
-  <link rel="stylesheet" href="../../assets/mandoc.css" type="text/css" media="all"/>
+  <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
   <title>EGREP(1)</title>
 </head>
 <body>
@@ -25,25 +25,24 @@
 <h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
 egrep - search a file for a pattern using full regular expressions
 <h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
-<div class="HP"><b>/opt/heirloom/bin/egrep</b>
+<div class="HP"><b>/usr/5bin/egrep</b>
   [<b>-e</b><i>&#x00A0;pattern_list</i>&#x00A0;...] [
   <b>-f</b><i>&#x00A0;pattern_file</i>] [ <b>-bchilnrRvz</b>] [
   <i>pattern_list</i>] [ <i>file</i>&#x00A0;...]</div>
 <div class="Pp"></div>
-<div class="HP"><b>/opt/heirloom/bin/posix/egrep</b>
+<div class="HP"><b>/usr/5bin/posix/egrep</b>
   <b>-e</b><i>&#x00A0;pattern_list</i>&#x00A0;... [
   <b>-f</b><i>&#x00A0;pattern_file</i>] [ <b>-c</b>|<b>-l</b>|<b>-q</b>] [
   <b>-bhinrRsvxz</b>] [ <i>file</i>&#x00A0;...]</div>
 <div class="Pp"></div>
-<div class="HP"><b>/opt/heirloom/bin/posix/egrep</b>
+<div class="HP"><b>/usr/5bin/posix/egrep</b>
   <b>-f</b><i>&#x00A0;pattern_file</i> [
   <b>-e</b><i>&#x00A0;pattern_list</i>&#x00A0;...] [
   <b>-c</b>|<b>-l</b>|<b>-q</b>] [ <b>-bhinrRsvxz</b>]
   [<i>file</i>&#x00A0;...]</div>
 <div class="Pp"></div>
-<div class="HP"><b>/opt/heirloom/bin/posix/egrep</b>
-  [<b>-c</b>|<b>-l</b>|<b>-q</b>] [ <b>-bhinsrRvxz</b>] <i>pattern_list</i>
-  [<i>file</i>&#x00A0;...]
+<div class="HP"><b>/usr/5bin/posix/egrep</b> [<b>-c</b>|<b>-l</b>|<b>-q</b>]
+  [<b>-bhinsrRvxz</b>] <i>pattern_list</i> [<i>file</i>&#x00A0;...]
 <div>&#x00A0;</div>
 </div>
 <h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
@@ -51,16 +50,16 @@ The <b>egrep</b> command searches the lines of the specified files (or of
   standard input) for occurrences of <i>pattern.</i> The default behavior is to
   print each matching line to standard output.
 <div class="Pp"></div>
-The <b>/opt/heirloom/bin/egrep</b> command accepts full regular expressions; it
-  uses a deterministic algorithm with moderate space requirements.
+The <b>/usr/5bin/egrep</b> command accepts full regular expressions; it uses a
+  deterministic algorithm with moderate space requirements.
 <div class="Pp"></div>
-The <b>/opt/heirloom/bin/posix/egrep</b> command accepts extended regular
-  expressions. It uses a deterministic algorithm with moderate space
-  requirements unless the expression includes multi-character collating
-  elements, which cause the use of a nondeterministic algorithm.
+The <b>/usr/5bin/posix/egrep</b> command accepts extended regular expressions.
+  It uses a deterministic algorithm with moderate space requirements unless the
+  expression includes multi-character collating elements, which cause the use of
+  a nondeterministic algorithm.
 <div class="Pp"></div>
-<b>/opt/heirloom/bin/s42/egrep</b> and <b>/opt/heirloom/bin/posix2001/egrep</b>
-  are identical to <b>/opt/heirloom/bin/posix/egrep</b>.
+<b>/usr/5bin/s42/egrep</b> and <b>/usr/5bin/posix2001/egrep</b> are identical to
+  <b>/usr/5bin/posix/egrep</b>.
 <h2 class="Ss" title="Ss" id="Full_Regular_Expressions"><a class="permalink" href="#Full_Regular_Expressions">Full
   Regular Expressions</a></h2>
 In the following description `character' excludes newline:
@@ -184,8 +183,8 @@ Care should be taken when using the characters $ * [ ^ | ? &#x00B4; &quot; ( )
   and \ in the expression as they are also meaningful to the Shell. It is safest
   to enclose the entire expression argument in single quotes &#x00B4; &#x00B4;.
 <div class="Pp"></div>
-Both <b>/opt/heirloom/bin/egrep</b> and <b>/opt/heirloom/bin/posix/egrep</b>
-  accept the following options:
+Both <b>/usr/5bin/egrep</b> and <b>/usr/5bin/posix/egrep</b> accept the
+  following options:
 <dl class="Bl-tag">
   <dt><b>-b</b></dt>
   <dd>Each line is preceded by the block number on which it was found. This is
@@ -205,8 +204,8 @@ Both <b>/opt/heirloom/bin/egrep</b> and <b>/opt/heirloom/bin/posix/egrep</b>
   <dt><b>-f&#x00A0;</b><i>pattern_file</i></dt>
   <dd>One or more patterns, separated by newline characters, are read from
       <i>pattern_file.</i> If multiple <b>-e</b> or <b>-f</b> options are
-      supplied to <b>/opt/heirloom/bin/posix/egrep</b>, all of the pattern lists
-      will be evaluated.</dd>
+      supplied to <b>/usr/5bin/posix/egrep</b>, all of the pattern lists will be
+      evaluated.</dd>
 </dl>
 <dl class="Bl-tag">
   <dt><b>-h</b></dt>
@@ -233,8 +232,7 @@ Both <b>/opt/heirloom/bin/egrep</b> and <b>/opt/heirloom/bin/posix/egrep</b>
   <dd>All lines but those matching are printed.</dd>
 </dl>
 <div class="Pp"></div>
-The following options are supported by <b>/opt/heirloom/bin/posix/egrep</b>
-  only:
+The following options are supported by <b>/usr/5bin/posix/egrep</b> only:
 <dl class="Bl-tag">
   <dt><b>-q</b></dt>
   <dd>Do not write anything to standard output.</dd>
@@ -295,8 +293,8 @@ Exit status is 0 if any matches are found, 1 if none, 2 for syntax errors or
   inaccessible files.
 <h1 class="Sh" title="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
 If a line contains a <small>NUL</small> character, only matches up to this
-  character are found with <b>/opt/heirloom/bin/posix/egrep</b>. The entire
-  matching line will be printed.
+  character are found with <b>/usr/5bin/posix/egrep</b>. The entire matching
+  line will be printed.
 <div class="Pp"></div>
 The LC_COLLATE variable has currently no effect. Ranges in bracket expressions
   are ordered as byte values in single-byte locales and as wide character values
