@@ -75,11 +75,23 @@
         current development tree or a release directly from the git
         repository:</p>
 <pre>
-    $ git clone -b [YYMMDD|master] https://github.com/Projeto-Pindorama/heirloom-ng.git
+    $ git clone -b [master|YYMMDD] https://github.com/Projeto-Pindorama/heirloom-ng.git
 </pre>   
-        <p>Just want to read the code? <a
+        <p><i>Just want to read the code?</i> <b><a
         href="https://github.com/Projeto-Pindorama/heirloom-ng">Browse the git
-        repository</a> at Microsoft GitHub.</p>
+        repository</a></b> at Microsoft GitHub.</p>
+        <p><i>Got the <a
+        href="https://sourceforge.net/projects/heirloom/files/heirloom/070715/">
+        old tarball</a> from sourceforge.net?</i>
+        <b>No trouble, we've got you covered.</b><br />
+        If, for some reason, you only have access to the old '07 tarball from
+        the original Heirloom Project and want to use Heirloom NG's fixes and
+        features, you can get a giga-patch from the Microsoft GitHub repository
+        and apply it:</p>
+<pre>
+    $ curl -So gigapatch.diff https://github.com/Projeto-Pindorama/heirloom-ng/compare/070715...[master|YYMMDD].diff
+    $ cd heirloom-070715; patch -Np1 < ../gigapatch.diff
+</pre>
         <h2 id="users">Users</h2>
         <p>This is a list of projects currently and/or planning to utilize
         Heirloom NG as an alternative or the as the default UNIX®-compatible
