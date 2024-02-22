@@ -9,6 +9,7 @@
    -->
 <head>
   <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
   <title>MV(1)</title>
 </head>
@@ -21,79 +22,81 @@
   </tr>
 </table>
 <div class="manual-text">
-<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
-mv - move or rename files and directories
-<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
-<b>mv</b> [<b>-f</b>] [<b>-i</b>] [<b>-b&#x00A0;</b><i>size</i>] <i>file1</i>
-  [<i>file2</i> .&#x00A0;.&#x00A0;.&#x00A0;] <i>target</i>
-<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
-<b>Mv</b> moves (changes the name of) <i>file1</i> to <i>target</i>. If
-  <i>target</i> is an existing regular file, its content is overwritten. Its
-  mode and owner are preserved; the mode of the source file is used otherwise.
-  If the mode of <i>target</i> forbids writing (and standard input is terminal
-  for <b>/usr/5bin/mv</b> and <b>/usr/5bin/s42/mv</b>), <b>mv</b> prints the
-  mode (see <i>chmod</i>(2)) and reads the standard input to obtain a line; if
-  the line begins with y, the move takes place; if not, the file is not moved.
-<div class="Pp"></div>
-If <i>target</i> is a directory, one or more files are copied into the directory
-  with their original file-names.
-<div class="Pp"></div>
-<b>Mv</b> refuses to move a file onto itself.
-<div class="Pp"></div>
-The <b>mv</b> command accepts the following options:
+<section class="Sh">
+<h1 class="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+<p class="Pp">mv - move or rename files and directories</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<p class="Pp"><b>mv</b> [<b>-f</b>] [<b>-i</b>] [<b>-b&#x00A0;</b><i>size</i>]
+    <i>file1</i> [<i>file2</i> .&#x00A0;.&#x00A0;.&#x00A0;] <i>target</i></p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<p class="Pp"><b>Mv</b> moves (changes the name of) <i>file1</i> to
+    <i>target</i>. If <i>target</i> is an existing regular file, its content is
+    overwritten. Its mode and owner are preserved; the mode of the source file
+    is used otherwise. If the mode of <i>target</i> forbids writing (and
+    standard input is terminal for <b>/usr/5bin/mv</b> and
+    <b>/usr/5bin/s42/mv</b>), <b>mv</b> prints the mode (see <i>chmod</i>(2))
+    and reads the standard input to obtain a line; if the line begins with y,
+    the move takes place; if not, the file is not moved.</p>
+<p class="Pp">If <i>target</i> is a directory, one or more files are copied into
+    the directory with their original file-names.</p>
+<p class="Pp"><b>Mv</b> refuses to move a file onto itself.</p>
+<p class="Pp">The <b>mv</b> command accepts the following options:</p>
 <dl class="Bl-tag">
-  <dt><b>-f</b></dt>
+  <dt id="f"><a class="permalink" href="#f"><b>-f</b></a></dt>
   <dd><b>Mv</b> will not ask for confirmation even if the modes of the
       <i>target</i> file do not permit writing. Overrides the <b>-i</b> option
       in <b>/usr/5bin/posix/mv</b> and <b>/usr/5bin/posix2001/mv</b>.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-i</b></dt>
+  <dt id="i"><a class="permalink" href="#i"><b>-i</b></a></dt>
   <dd><b>mv</b> will ask for confirmation before overwriting an existing target.
       For <b>/usr/5bin/mv</b> and <b>/usr/5bin/s42/mv</b>, this flag will be
       automatically disabled if standard input is not a terminal. Overrides the
       <b>-f</b> option in <b>/usr/5bin/posix/mv</b> and
       <b>/usr/5bin/posix2001/mv</b>.</dd>
 </dl>
-<div class="Pp"></div>
-The following option is an extension:
+<p class="Pp">The following option is an extension:</p>
 <dl class="Bl-tag">
-  <dt><b>-b&#x00A0;</b><i>size</i></dt>
+  <dt id="b"><a class="permalink" href="#b"><b>-b&#x00A0;</b><i>size</i></a></dt>
   <dd>When a regular file is moved to another file system, its data must be
       copied. This option overrides the automatically determined i/o buffer size
       for such copies; <i>size</i> is given in bytes.</dd>
 </dl>
-<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
   ALSO</a></h1>
-cp(1), cat(1), pr(1), unlink(2)
-<h1 class="Sh" title="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
-Use either
+<p class="Pp">cp(1), cat(1), pr(1), unlink(2)</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
+<p class="Pp">Use either</p>
 <div class="Bd-indent">
-<div class="Pp"></div>
-<b>mv</b> <b>--</b> <i>-file</i> <i>target</i>
-<div class="Pp"></div>
+<p class="Pp"><b>mv</b> <b>--</b> <i>-file</i> <i>target</i></p>
+<p class="Pp"></p>
 </div>
 or
 <div class="Bd-indent">
-<div class="Pp"></div>
-<b>mv</b> <i>./-file</i> <i>target</i>
-<div class="Pp"></div>
+<p class="Pp"><b>mv</b> <i>./-file</i> <i>target</i></p>
+<p class="Pp"></p>
 </div>
 to move files that begin with a hyphen character.
-<div class="Pp"></div>
-If source and target lie on different file systems, <b>mv</b> must copy the file
-  and delete the original. In this case any linking relationship with other
-  files is lost, but <b>mv</b> will preserve linkage inside the moved tree.
-  <b>Mv</b> will try to preserve access and modification times, user and group
-  ownerships, and file permission bits. Failing to preserve these modes is not
-  considered an error, only <b>/usr/5bin/posix/mv</b> and
-  <b>/usr/5bin/posix2001/mv</b> will print an error message. Special files such
-  as block and character devices, FIFOs, and symbolic links are recreated in the
-  target hierarchy.
-<div class="Pp"></div>
-The pathname contained in a symbolic link is not changed when the link is moved.
-  Symbolic links with relative pathnames may thus change or lose their target if
-  moved to a different level in the file hierarchy.</div>
+<p class="Pp">If source and target lie on different file systems, <b>mv</b> must
+    copy the file and delete the original. In this case any linking relationship
+    with other files is lost, but <b>mv</b> will preserve linkage inside the
+    moved tree. <b>Mv</b> will try to preserve access and modification times,
+    user and group ownerships, and file permission bits. Failing to preserve
+    these modes is not considered an error, only <b>/usr/5bin/posix/mv</b> and
+    <b>/usr/5bin/posix2001/mv</b> will print an error message. Special files
+    such as block and character devices, FIFOs, and symbolic links are recreated
+    in the target hierarchy.</p>
+<p class="Pp">The pathname contained in a symbolic link is not changed when the
+    link is moved. Symbolic links with relative pathnames may thus change or
+    lose their target if moved to a different level in the file hierarchy.</p>
+</section>
+</div>
 <table class="foot">
   <tr>
     <td class="foot-date">1/24/05</td>

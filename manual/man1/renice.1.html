@@ -12,6 +12,7 @@
  -->
 <head>
   <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
   <title>RENICE(1)</title>
 </head>
@@ -24,63 +25,61 @@
   </tr>
 </table>
 <div class="manual-text">
-<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
-renice - alter priority of running processes
-<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
-<b>renice</b> <i>priority</i> [[ <b>-p</b>] <i>pids</i>] [[ <b>-g</b>]
-  <i>pgrps</i>] [[ <b>-u</b>] <i>users</i>]
-<div class="Pp"></div>
-<b>renice</b> [<b>-n</b><i> increment</i>] [<b>-g</b>|<b>-p</b>|<b>-u</b>]
-  <i>ID</i>
-<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
-The <b>renice</b> command alters the scheduling priority of one or more running
-  processes. The <i>ID</i> parameters are interpreted as process IDs, process
-  group IDs, or user names. Renicing a process group causes all processes in the
-  process group to have their scheduling priority altered. Renicing a user
-  causes all processes owned by the user to have their scheduling priority
-  altered. By default, the processes to be affected are specified by their
-  process IDs.
-<div class="Pp"></div>
-Users without appropriate privileges may only alter the priority of processes
-  they own, and can only monotonically increase their ``nice value'' within the
-  range 0 to 19. (This prevents overriding administrative fiats.) Users with
-  appropriate privileges may alter the priority of any process and set the
-  priority to any value in the range -20 to 19. Useful priorities are: 19 (the
-  affected processes will run only when nothing else in the system wants to), 0
-  (the ``base'' scheduling priority), anything negative (to make things go very
-  fast).
-<div class="Pp"></div>
-The <b>renice</b> command accepts the following options:
+<section class="Sh">
+<h1 class="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+<p class="Pp">renice - alter priority of running processes</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<p class="Pp"><b>renice</b> <i>priority</i> [[<b>-p</b>] <i>pids</i>]
+    [[<b>-g</b>] <i>pgrps</i>] [[<b>-u</b>] <i>users</i>]</p>
+<p class="Pp"><b>renice</b> [<b>-n</b><i> increment</i>]
+    [<b>-g</b>|<b>-p</b>|<b>-u</b>] <i>ID</i></p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<p class="Pp">The <b>renice</b> command alters the scheduling priority of one or
+    more running processes. The <i>ID</i> parameters are interpreted as process
+    IDs, process group IDs, or user names. Renicing a process group causes all
+    processes in the process group to have their scheduling priority altered.
+    Renicing a user causes all processes owned by the user to have their
+    scheduling priority altered. By default, the processes to be affected are
+    specified by their process IDs.</p>
+<p class="Pp">Users without appropriate privileges may only alter the priority
+    of processes they own, and can only monotonically increase their ``nice
+    value'' within the range 0 to 19. (This prevents overriding administrative
+    fiats.) Users with appropriate privileges may alter the priority of any
+    process and set the priority to any value in the range -20 to 19. Useful
+    priorities are: 19 (the affected processes will run only when nothing else
+    in the system wants to), 0 (the ``base'' scheduling priority), anything
+    negative (to make things go very fast).</p>
+<p class="Pp">The <b>renice</b> command accepts the following options:</p>
 <dl class="Bl-tag">
-  <dt><b>-g</b></dt>
+  <dt id="g"><a class="permalink" href="#g"><b>-g</b></a></dt>
   <dd>The following arguments will be interpreted as process group IDs.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-n</b><i> increment</i></dt>
+  <dt id="n"><a class="permalink" href="#n"><b>-n</b><i> increment</i></a></dt>
   <dd>Specifies the <i>increment</i> to add to the current priority of the
       process with the highest priority (lowest numerical value) of the
       selection. Without this option, 10 is used as increment.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-p</b></dt>
+  <dt id="p"><a class="permalink" href="#p"><b>-p</b></a></dt>
   <dd>The following arguments will be interpreted as process IDs.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-u</b></dt>
+  <dt id="u"><a class="permalink" href="#u"><b>-u</b></a></dt>
   <dd>The following arguments will be interpreted as user names or numerical
       user IDs.</dd>
 </dl>
-<div class="Pp"></div>
-In the first synopsis form, <i>priority</i> specifies the absolute value to set.
-  The default is 10. If more than one of <b>-g</b>, <b>-p</b> or <b>-u</b> are
-  given, each option applies to the following arguments until the next option is
-  detected.
-<div class="Pp"></div>
-In the second synopsis form, which was introduced by POSIX.2, only one of
-  <b>-g</b>, <b>-p</b> or <b>-u</b> may be given.
-<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+<p class="Pp">In the first synopsis form, <i>priority</i> specifies the absolute
+    value to set. The default is 10. If more than one of <b>-g</b>, <b>-p</b> or
+    <b>-u</b> are given, each option applies to the following arguments until
+    the next option is detected.</p>
+<p class="Pp">In the second synopsis form, which was introduced by POSIX.2, only
+    one of <b>-g</b>, <b>-p</b> or <b>-u</b> may be given.</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
   ALSO</a></h1>
-nice(1), priocntl(1), getpriority(2), setpriority(2)</div>
+<p class="Pp">nice(1), priocntl(1), getpriority(2), setpriority(2)</p>
+</section>
+</div>
 <table class="foot">
   <tr>
     <td class="foot-date">12/6/04</td>

@@ -10,6 +10,7 @@
    -->
 <head>
   <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
   <title>DD(1)</title>
 </head>
@@ -22,237 +23,204 @@
   </tr>
 </table>
 <div class="manual-text">
-<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
-dd - convert and copy a file
-<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
-<b>dd</b> [option=value] ...
-<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
-<i>Dd</i> copies the specified input file to the specified output with possible
-  conversions. The standard input and output are used by default. The input and
-  output block size may be specified to take advantage of raw physical I/O.
+<section class="Sh">
+<h1 class="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+<p class="Pp">dd - convert and copy a file</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<p class="Pp"><b>dd</b> [option=value] ...</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<p class="Pp"><i>Dd</i> copies the specified input file to the specified output
+    with possible conversions. The standard input and output are used by
+    default. The input and output block size may be specified to take advantage
+    of raw physical I/O.</p>
 <dl class="Bl-tag">
-  <dt><i>option</i></dt>
+  <dt id="option"><a class="permalink" href="#option"><i>option</i></a></dt>
   <dd><i>values</i>
-    <div>&#x00A0;</div>
+    <br/>
   </dd>
-</dl>
-<dl class="Bl-tag">
-  <dt>if=</dt>
+  <dt id="if="><a class="permalink" href="#if=">if=</a></dt>
   <dd>input file name; standard input is default
-    <div>&#x00A0;</div>
+    <br/>
   </dd>
-</dl>
-<dl class="Bl-tag">
-  <dt>of=</dt>
+  <dt id="of="><a class="permalink" href="#of=">of=</a></dt>
   <dd>output file name; standard output is default
-    <div>&#x00A0;</div>
+    <br/>
   </dd>
-</dl>
-<dl class="Bl-tag">
   <dt>ibs=<i>n</i></dt>
   <dd>input block size <i>n</i> bytes (default 512)
-    <div>&#x00A0;</div>
+    <br/>
   </dd>
-</dl>
-<dl class="Bl-tag">
   <dt>obs=<i>n</i></dt>
   <dd>output block size (default 512)
-    <div>&#x00A0;</div>
+    <br/>
   </dd>
-</dl>
-<dl class="Bl-tag">
   <dt>bs=<i>n</i></dt>
   <dd>set both input and output block size, superseding <i>ibs</i> and
       <i>obs;</i> also, if no conversion is specified, it is particularly
       efficient since no copy need be done
-    <div>&#x00A0;</div>
+    <br/>
   </dd>
-</dl>
-<dl class="Bl-tag">
   <dt>cbs=<i>n</i></dt>
   <dd>conversion buffer size
-    <div>&#x00A0;</div>
+    <br/>
   </dd>
-</dl>
-<dl class="Bl-tag">
   <dt>skip=<i>n</i></dt>
   <dd>skip <i>n</i> input records before starting copy
-    <div>&#x00A0;</div>
+    <br/>
   </dd>
-</dl>
-<dl class="Bl-tag">
   <dt>iseek=<i>n</i></dt>
   <dd>seek <i>n</i> input records before starting copy
-    <div>&#x00A0;</div>
+    <br/>
   </dd>
-</dl>
-<dl class="Bl-tag">
   <dt>files=<i>n</i></dt>
   <dd>copy <i>n</i> files from (tape) input
-    <div>&#x00A0;</div>
+    <br/>
   </dd>
-</dl>
-<dl class="Bl-tag">
   <dt>seek=<i>n</i></dt>
   <dd>seek <i>n</i> records from beginning of output file before copying
-    <div>&#x00A0;</div>
+    <br/>
   </dd>
-</dl>
-<dl class="Bl-tag">
   <dt>oseek=<i>n</i></dt>
   <dd>same as seek
-    <div>&#x00A0;</div>
+    <br/>
   </dd>
-</dl>
-<dl class="Bl-tag">
-  <dt>count=<i>n</i></dt>
+  <dt id="count="><a class="permalink" href="#count=">count=<i>n</i></a></dt>
   <dd>copy only <i>n</i> input records
-    <div>&#x00A0;</div>
+    <br/>
   </dd>
-</dl>
-<dl class="Bl-tag">
-  <dt>conv=ascii</dt>
+  <dt id="conv=ascii"><a class="permalink" href="#conv=ascii">conv=ascii</a></dt>
   <dd>convert EBCDIC to ASCII
-    <div>&#x00A0;</div>
+    <br/>
   </dd>
 </dl>
 <dl class="Bl-tag">
   <dt>ebcdic</dt>
   <dd>convert ASCII to EBCDIC
-    <div>&#x00A0;</div>
+    <br/>
   </dd>
-</dl>
-<dl class="Bl-tag">
   <dt>ibm</dt>
   <dd>slightly different map of ASCII to EBCDIC
-    <div>&#x00A0;</div>
+    <br/>
   </dd>
-</dl>
-<dl class="Bl-tag">
   <dt>block</dt>
   <dd>convert newline-terminated input lines to blocks
-    <div>&#x00A0;</div>
+    <br/>
   </dd>
-</dl>
-<dl class="Bl-tag">
   <dt>unblock</dt>
   <dd>convert blocked input to lines
-    <div>&#x00A0;</div>
+    <br/>
   </dd>
-</dl>
-<dl class="Bl-tag">
   <dt>lcase</dt>
   <dd>map alphabetics to lower case
-    <div>&#x00A0;</div>
+    <br/>
   </dd>
-</dl>
-<dl class="Bl-tag">
   <dt>ucase</dt>
   <dd>map alphabetics to upper case
-    <div>&#x00A0;</div>
+    <br/>
   </dd>
-</dl>
-<dl class="Bl-tag">
   <dt>swab</dt>
   <dd>swap every pair of bytes
-    <div>&#x00A0;</div>
+    <br/>
   </dd>
-</dl>
-<dl class="Bl-tag">
   <dt>noerror</dt>
   <dd>do not stop processing on an error
-    <div>&#x00A0;</div>
+    <br/>
   </dd>
-</dl>
-<dl class="Bl-tag">
   <dt>notrunc</dt>
   <dd>do not truncate the output file
-    <div>&#x00A0;</div>
+    <br/>
   </dd>
-</dl>
-<dl class="Bl-tag">
   <dt>sync</dt>
   <dd>pad every input record to <i>ibs</i>
-    <div>&#x00A0;</div>
+    <br/>
   </dd>
-</dl>
-<dl class="Bl-tag">
   <dt>... , ...</dt>
   <dd>several comma-separated conversions</dd>
 </dl>
-<div class="Pp"></div>
-<br/>
-Where sizes are specified, a number of bytes is expected. A number may end with
-  <b>k, b</b> or <b>w</b> to specify multiplication by 1024, 512, or 2
-  respectively; a pair of numbers may be separated by <b>x</b> to indicate a
-  product.
-<div class="Pp"></div>
-<i>Cbs</i> is used only if <i>ascii</i>, <i>unblock,</i> <i>ebcdic</i>,
-  <i>ibm</i>, or <i>block</i> conversion is specified. In the first two cases,
-  <i>cbs</i> bytes are placed into the conversion buffer, converted to ASCII,
-  and trailing blanks trimmed and new-line added before sending the line to the
-  output. In the latter three cases, ASCII characters (bytes) are read into the
-  conversion buffer, converted to EBCDIC, and blanks added to make up an output
-  record of size <i>cbs</i>.
-<div class="Pp"></div>
-Two additional values for the `conv' option, `conv=idirect' and `conv=odirect',
-  are available as extensions. They enable direct i/o on input or output,
-  respectively. See the description of the `O_DIRECT' flag in <i>open</i>(2) for
-  more information. `conv=odirect' must be used with care as it requires padding
-  for correct operation; a write that is not a multiple of an acceptable buffer
-  size will fail. This is particularly of concern for the last block written.
-  Using `conv=odirect' thus usually requires `conv=sync' and cannot be used if
-  such padding destroys the file integrity.
-<div class="Pp"></div>
-After completion, <i>dd</i> reports the number of whole and partial input and
-  output blocks.
-<h1 class="Sh" title="Sh" id="ENVIRONMENT_VARIABLES"><a class="permalink" href="#ENVIRONMENT_VARIABLES">ENVIRONMENT
+<p class="Pp">
+  <br/>
+  Where sizes are specified, a number of bytes is expected. A number may end
+    with <b>k, b</b> or <b>w</b> to specify multiplication by 1024, 512, or 2
+    respectively; a pair of numbers may be separated by <b>x</b> to indicate a
+    product.</p>
+<p class="Pp"><i>Cbs</i> is used only if <i>ascii</i>, <i>unblock,</i>
+    <i>ebcdic</i>, <i>ibm</i>, or <i>block</i> conversion is specified. In the
+    first two cases, <i>cbs</i> bytes are placed into the conversion buffer,
+    converted to ASCII, and trailing blanks trimmed and new-line added before
+    sending the line to the output. In the latter three cases, ASCII characters
+    (bytes) are read into the conversion buffer, converted to EBCDIC, and blanks
+    added to make up an output record of size <i>cbs</i>.</p>
+<p class="Pp">Two additional values for the `conv' option, `conv=idirect' and
+    `conv=odirect', are available as extensions. They enable direct i/o on input
+    or output, respectively. See the description of the `O_DIRECT' flag in
+    <i>open</i>(2) for more information. `conv=odirect' must be used with care
+    as it requires padding for correct operation; a write that is not a multiple
+    of an acceptable buffer size will fail. This is particularly of concern for
+    the last block written. Using `conv=odirect' thus usually requires
+    `conv=sync' and cannot be used if such padding destroys the file
+  integrity.</p>
+<p class="Pp">After completion, <i>dd</i> reports the number of whole and
+    partial input and output blocks.</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="ENVIRONMENT_VARIABLES"><a class="permalink" href="#ENVIRONMENT_VARIABLES">ENVIRONMENT
   VARIABLES</a></h1>
 <dl class="Bl-tag">
-  <dt><b>LANG</b>, <b>LC_ALL</b></dt>
+  <dt id="LANG"><a class="permalink" href="#LANG"><b>LANG</b>,
+    <b>LC_ALL</b></a></dt>
   <dd>See <i>locale</i>(7).</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>LC_CTYPE</b></dt>
+  <dt id="LC_CTYPE"><a class="permalink" href="#LC_CTYPE"><b>LC_CTYPE</b></a></dt>
   <dd>Determines the mapping of bytes to characters for `conv=lcase' and
       `conv=ucase'.</dd>
 </dl>
-<h1 class="Sh" title="Sh" id="EXAMPLES"><a class="permalink" href="#EXAMPLES">EXAMPLES</a></h1>
-To read an EBCDIC tape blocked ten 80-byte EBCDIC card images per record into
-  the ASCII file <i>x</i>:
+</section>
+<section class="Sh">
+<h1 class="Sh" id="EXAMPLES"><a class="permalink" href="#EXAMPLES">EXAMPLES</a></h1>
+<p class="Pp">To read an EBCDIC tape blocked ten 80-byte EBCDIC card images per
+    record into the ASCII file <i>x</i>:</p>
 <dl class="Bl-tag">
   <dt>
-  <div class="Pp"></div>
   </dt>
   <dd>dd if=/dev/rmt0 of=x ibs=800 cbs=80 conv=ascii,lcase</dd>
 </dl>
-<div class="Pp"></div>
-Note the use of raw magtape. <i>Dd</i> is especially suited to I/O on the raw
-  physical devices because it allows reading and writing in arbitrary record
-  sizes.
-<div class="Pp"></div>
-To skip over a file before copying from magnetic tape do
+<p class="Pp">Note the use of raw magtape. <i>Dd</i> is especially suited to I/O
+    on the raw physical devices because it allows reading and writing in
+    arbitrary record sizes.</p>
+<p class="Pp">To skip over a file before copying from magnetic tape do</p>
 <dl class="Bl-tag">
   <dt>
-  <div class="Pp"></div>
   </dt>
   <dd>(dd of=/dev/null; dd of=x) &lt;/dev/rmt0</dd>
 </dl>
-<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
   ALSO</a></h1>
-cp(1), tr(1), locale(7)
-<h1 class="Sh" title="Sh" id="DIAGNOSTICS"><a class="permalink" href="#DIAGNOSTICS">DIAGNOSTICS</a></h1>
-f+p records in(out): numbers of full and partial records read(written)
-<h1 class="Sh" title="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
-The ASCII/EBCDIC conversion tables are taken from a proposed BTL standard April
-  16, 1979. The `ibm' conversion, while less blessed as a standard, corresponds
-  better to certain IBM print train conventions. There is no universal solution.
-<div class="Pp"></div>
-When reading from pipes, FIFOs, character devices (e.g. terminals), or network
-  sockets, partial input records can occur at any time even before the end of
-  the data stream is reached. For the `count' option, these are handled exactly
-  like full records. Using <i>dd</i> to retrieve exactly <i>count</i>*<i>ibs</i>
-  bytes from such files does thus not generally work unless `ibs=1'.</div>
+<p class="Pp">cp(1), tr(1), locale(7)</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DIAGNOSTICS"><a class="permalink" href="#DIAGNOSTICS">DIAGNOSTICS</a></h1>
+<p class="Pp">f+p records in(out): numbers of full and partial records
+    read(written)</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
+<p class="Pp">The ASCII/EBCDIC conversion tables are taken from a proposed BTL
+    standard April 16, 1979. The `ibm' conversion, while less blessed as a
+    standard, corresponds better to certain IBM print train conventions. There
+    is no universal solution.</p>
+<p class="Pp">When reading from pipes, FIFOs, character devices (e.g.
+    terminals), or network sockets, partial input records can occur at any time
+    even before the end of the data stream is reached. For the `count' option,
+    these are handled exactly like full records. Using <i>dd</i> to retrieve
+    exactly <i>count</i>*<i>ibs</i> bytes from such files does thus not
+    generally work unless `ibs=1'.</p>
+</section>
+</div>
 <table class="foot">
   <tr>
     <td class="foot-date">1/14/05</td>

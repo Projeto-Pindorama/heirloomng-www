@@ -9,6 +9,7 @@
  -->
 <head>
   <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
   <title>DIRCMP(1)</title>
 </head>
@@ -21,27 +22,38 @@
   </tr>
 </table>
 <div class="manual-text">
-<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
-dircmp - directory comparison
-<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
-<b>dircmp</b> [<b>-ds</b>] [<b>-w</b><i> width</i>] <i>directory directory</i>
-<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
-The <i>dircmp</i> command creates a list of files which are identical,
-  different, or exist in only one of the two <i>directories</i> given.
-<div class="Pp"></div>
-With the <b>-d</b> option, differing files are compared using <i>diff</i>(1),
-  and its output is included.
-<div class="Pp"></div>
-The <b>-s</b> option suppresses messages about identical files.
-<div class="Pp"></div>
-Output is paginated through <i>pr</i>(1). The <b>-w</b> option specifies a
-  maximum <i>width</i> for the formatted output.
-<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+<section class="Sh">
+<h1 class="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+<p class="Pp">dircmp - directory comparison</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<p class="Pp"><b>dircmp</b> [<b>-ds</b>] [<b>-w</b><i> width</i>] <i>directory
+    directory</i></p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<p class="Pp">The <i>dircmp</i> command creates a list of files which are
+    identical, different, or exist in only one of the two <i>directories</i>
+    given.</p>
+<p class="Pp">With the <b>-d</b> option, differing files are compared using
+    <i>diff</i>(1), and its output is included.</p>
+<p class="Pp">The <b>-s</b> option suppresses messages about identical
+  files.</p>
+<p class="Pp">Output is paginated through <i>pr</i>(1). The <b>-w</b> option
+    specifies a maximum <i>width</i> for the formatted output.</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
   ALSO</a></h1>
-diff(1)
-<h1 class="Sh" title="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
-<i>dircmp</i> ignores files whose names contain backslash or newline
-  characters.</div>
+<p class="Pp">diff(1)</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
+<p class="Pp"><i>dircmp</i> ignores files whose names contain backslash or
+    newline characters.</p>
+</section>
+</div>
 <table class="foot">
   <tr>
     <td class="foot-date">6/25/05</td>

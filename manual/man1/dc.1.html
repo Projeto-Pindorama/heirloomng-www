@@ -9,6 +9,7 @@
  -->
 <head>
   <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
   <title>DC(1)</title>
 </head>
@@ -21,163 +22,132 @@
   </tr>
 </table>
 <div class="manual-text">
-<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
-dc - desk calculator
-<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
-<b>dc</b> [<i>file</i>]
-<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
-<i>Dc</i> is an arbitrary precision arithmetic package. Ordinarily it operates
-  on decimal integers, but one may specify an input base, output base, and a
-  number of fractional digits to be maintained. The overall structure of
-  <i>dc</i> is a stacking (reverse Polish) calculator. If an argument is given,
-  input is taken from that file until its end, then from the standard input. The
-  following constructions are recognized:
-<div class="Pp"></div>
-<div class="HP">number
-<div>&#x00A0;</div>
-The value of the number is pushed on the stack. A number is an unbroken string
-  of the digits 0-9. It may be preceded by an underscore _ to input a negative
-  number. Numbers may contain decimal points.</div>
-<div class="Pp"></div>
-<div class="HP">+ - / * % ^
-<div>&#x00A0;</div>
-The top two values on the stack are added (+), subtracted (-), multiplied (*),
-  divided (/), remaindered (%), or exponentiated (^). The two entries are popped
-  off the stack; the result is pushed on the stack in their place. Any
-  fractional part of an exponent is ignored.</div>
+<section class="Sh">
+<h1 class="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+<p class="Pp">dc - desk calculator</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<p class="Pp"><b>dc</b> [<i>file</i>]</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<p class="Pp"><i>Dc</i> is an arbitrary precision arithmetic package. Ordinarily
+    it operates on decimal integers, but one may specify an input base, output
+    base, and a number of fractional digits to be maintained. The overall
+    structure of <i>dc</i> is a stacking (reverse Polish) calculator. If an
+    argument is given, input is taken from that file until its end, then from
+    the standard input. The following constructions are recognized:</p>
+<p class="Pp HP">number
+  <br/>
+  The value of the number is pushed on the stack. A number is an unbroken string
+    of the digits 0-9. It may be preceded by an underscore _ to input a negative
+    number. Numbers may contain decimal points.</p>
+<p class="Pp HP">+ - / * % ^
+  <br/>
+  The top two values on the stack are added (+), subtracted (-), multiplied (*),
+    divided (/), remaindered (%), or exponentiated (^). The two entries are
+    popped off the stack; the result is pushed on the stack in their place. Any
+    fractional part of an exponent is ignored.</p>
 <dl class="Bl-tag">
-  <dt><b>s</b><i>x</i></dt>
+  <dt id="s"><a class="permalink" href="#s"><b>s</b><i>x</i></a></dt>
   <dd>The top of the stack is popped and stored into a register named <i>x,</i>
       where <i>x</i> may be any character. If the <b>s</b> is capitalized,
       <i>x</i> is treated as a stack and the value is pushed on it.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>l</b><i>x</i></dt>
+  <dt id="l"><a class="permalink" href="#l"><b>l</b><i>x</i></a></dt>
   <dd>The value in register <i>x</i> is pushed on the stack. The register
       <i>x</i> is not altered. All registers start with zero value. If the
       <b>l</b> is capitalized, register <i>x</i> is treated as a stack and its
       top value is popped onto the main stack.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>d</b></dt>
+  <dt id="d"><a class="permalink" href="#d"><b>d</b></a></dt>
   <dd>The top value on the stack is duplicated.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>p</b></dt>
+  <dt id="p"><a class="permalink" href="#p"><b>p</b></a></dt>
   <dd>The top value on the stack is printed. The top value remains unchanged.
       <b>P</b> interprets the top of the stack as an ascii string, removes it,
       and prints it.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>f</b></dt>
+  <dt id="f"><a class="permalink" href="#f"><b>f</b></a></dt>
   <dd>All values on the stack and in registers are printed.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>q</b></dt>
+  <dt id="q"><a class="permalink" href="#q"><b>q</b></a></dt>
   <dd>exits the program. If executing a string, the recursion level is popped by
       two. If <b>q</b> is capitalized, the top value on the stack is popped and
       the string execution level is popped by that value.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>x</b></dt>
+  <dt id="x"><a class="permalink" href="#x"><b>x</b></a></dt>
   <dd>treats the top element of the stack as a character string and executes it
       as a string of dc commands.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>X</b></dt>
+  <dt id="X"><a class="permalink" href="#X"><b>X</b></a></dt>
   <dd>replaces the number on the top of the stack with its scale factor.</dd>
-</dl>
-<dl class="Bl-tag">
   <dt><b>[ ... ]</b></dt>
   <dd>puts the bracketed ascii string onto the top of the stack.</dd>
 </dl>
-<div class="Pp"></div>
-<div class="HP"><i>&lt;x &gt;x =x</i>
-<div>&#x00A0;</div>
-The top two elements of the stack are popped and compared. Register <i>x</i> is
-  executed if they obey the stated relation.</div>
+<p class="Pp HP"><i>&lt;x &gt;x =x</i>
+  <br/>
+  The top two elements of the stack are popped and compared. Register <i>x</i>
+    is executed if they obey the stated relation.</p>
 <dl class="Bl-tag">
-  <dt><b>v</b></dt>
+  <dt id="v"><a class="permalink" href="#v"><b>v</b></a></dt>
   <dd>replaces the top element on the stack by its square root. Any existing
       fractional part of the argument is taken into account, but otherwise the
       scale factor is ignored.</dd>
-</dl>
-<dl class="Bl-tag">
   <dt><b>!</b></dt>
   <dd>interprets the rest of the line as a UNIX command.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>c</b></dt>
+  <dt id="c"><a class="permalink" href="#c"><b>c</b></a></dt>
   <dd>All values on the stack are popped.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>i</b></dt>
+  <dt id="i"><a class="permalink" href="#i"><b>i</b></a></dt>
   <dd>The top value on the stack is popped and used as the number radix for
       further input. <b>I</b> pushes the input base on the top of the
     stack.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>o</b></dt>
+  <dt id="o"><a class="permalink" href="#o"><b>o</b></a></dt>
   <dd>The top value on the stack is popped and used as the number radix for
       further output.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>O</b></dt>
+  <dt><small><b>O</b></small></dt>
   <dd>pushes the output base on the top of the stack.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>k</b></dt>
+  <dt id="k"><a class="permalink" href="#k"><b>k</b></a></dt>
   <dd>the top of the stack is popped, and that value is used as a non-negative
       scale factor: the appropriate number of places are printed on output, and
       maintained during multiplication, division, and exponentiation. The
       interaction of scale factor, input base, and output base will be
       reasonable if all are changed together.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>z</b></dt>
+  <dt id="z"><a class="permalink" href="#z"><b>z</b></a></dt>
   <dd>The stack level is pushed onto the stack.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>Z</b></dt>
+  <dt><small><b>Z</b></small></dt>
   <dd>replaces the number on the top of the stack with its length.</dd>
-</dl>
-<dl class="Bl-tag">
   <dt><b>?</b></dt>
   <dd>A line of input is taken from the input source (usually the terminal) and
       executed.</dd>
-</dl>
-<dl class="Bl-tag">
   <dt><b>; :</b></dt>
   <dd>are used by <i>bc</i> for array operations.</dd>
 </dl>
-<div class="Pp"></div>
-An example which prints the first ten values of n! is
-<div class="Pp"></div>
+<p class="Pp">An example which prints the first ten values of n! is</p>
 <pre>
 <br/>
 [la1+dsa*pla10&gt;y]sy
-<div>&#x00A0;</div>
+<br/>
 0sa1
-<div>&#x00A0;</div>
-lyx
-</pre>
-<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+<br/>
+lyx</pre>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
   ALSO</a></h1>
-bc(1), which is a preprocessor for <i>dc</i> providing infix notation and a
-  C-like syntax which implements functions and reasonable control structures for
-  programs.
-<h1 class="Sh" title="Sh" id="DIAGNOSTICS"><a class="permalink" href="#DIAGNOSTICS">DIAGNOSTICS</a></h1>
-`x is unimplemented' where x is an octal number.
-<div>&#x00A0;</div>
-`stack empty' for not enough elements on the stack to do what was asked.
-<div>&#x00A0;</div>
-`Out of space' when the free list is exhausted (too many digits).
-<div>&#x00A0;</div>
-`Out of headers' for too many numbers being kept around.
-<div>&#x00A0;</div>
-`Out of pushdown' for too many items on the stack.
-<div>&#x00A0;</div>
-`Nesting Depth' for too many levels of nested execution.</div>
+<p class="Pp">bc(1), which is a preprocessor for <i>dc</i> providing infix
+    notation and a C-like syntax which implements functions and reasonable
+    control structures for programs.</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DIAGNOSTICS"><a class="permalink" href="#DIAGNOSTICS">DIAGNOSTICS</a></h1>
+<p class="Pp">`x is unimplemented' where x is an octal number.
+  <br/>
+  `stack empty' for not enough elements on the stack to do what was asked.
+  <br/>
+  `Out of space' when the free list is exhausted (too many digits).
+  <br/>
+  `Out of headers' for too many numbers being kept around.
+  <br/>
+  `Out of pushdown' for too many items on the stack.
+  <br/>
+  `Nesting Depth' for too many levels of nested execution.</p>
+</section>
+</div>
 <table class="foot">
   <tr>
     <td class="foot-date">1/11/03</td>

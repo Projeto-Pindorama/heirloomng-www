@@ -9,6 +9,7 @@
  -->
 <head>
   <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
   <title>PRIOCNTL(1)</title>
 </head>
@@ -21,22 +22,27 @@
   </tr>
 </table>
 <div class="manual-text">
-<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
-priocntl - process scheduler control
-<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
-<b>priocntl</b> <b>-l</b>
-<div>&#x00A0;</div>
-<b>priocntl</b> <b>-d</b> [<b>-i</b><i> idtype</i>] [<i>idlist</i>]
-<div>&#x00A0;</div>
-<b>priocntl</b> <b>-s</b> [<b>-c</b><i> class</i>] [<i>c.s.o.</i>] [<b>-i</b><i>
-  idtype</i>] [ <i>idlist</i>]
-<div>&#x00A0;</div>
-<b>priocntl</b> <b>-e</b> [<b>-c</b><i> class</i>] [<i>c.s.o.</i>]
-  <i>command</i> [ <i>argument(s)</i>]
-<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
-The <b>priocntl</b> command sets or displays scheduling parameters for a set of
-  processes. Every running process is member of a scheduling class. Standard
-  scheduling classes are:
+<section class="Sh">
+<h1 class="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+<p class="Pp">priocntl - process scheduler control</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<p class="Pp"><b>priocntl</b> <b>-l</b>
+  <br/>
+  <b>priocntl</b> <b>-d</b> [<b>-i</b><i> idtype</i>] [<i>idlist</i>]
+  <br/>
+  <b>priocntl</b> <b>-s</b> [<b>-c</b><i> class</i>] [<i>c.s.o.</i>]
+    [<b>-i</b><i> idtype</i>] [<i>idlist</i>]
+  <br/>
+  <b>priocntl</b> <b>-e</b> [<b>-c</b><i> class</i>] [<i>c.s.o.</i>]
+    <i>command</i> [<i>argument(s)</i>]</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<p class="Pp">The <b>priocntl</b> command sets or displays scheduling parameters
+    for a set of processes. Every running process is member of a scheduling
+    class. Standard scheduling classes are:</p>
 <dl class="Bl-tag">
   <dt></dt>
   <dd>The time-sharing class (<b>TS</b>), which is usually the default.
@@ -46,123 +52,99 @@ The <b>priocntl</b> command sets or displays scheduling parameters for a set of
       <i>nice</i> value (see <i>nice</i>(1)); higher base priorities mean a
       higher chance that the process is run. Base priorities range between -19
       and 20.</dd>
-</dl>
-<dl class="Bl-tag">
   <dt></dt>
   <dd>The batch class (<b>B</b>), whose members are given longer timeslices but
       can be preempted by any time-sharing process.</dd>
-</dl>
-<dl class="Bl-tag">
   <dt></dt>
   <dd>The isochronous class (<b>ISO</b>), whose members retain their dynamic
       priority even if they make heavy use of computing resources.</dd>
-</dl>
-<dl class="Bl-tag">
   <dt></dt>
-  <dd>The real time round-robin (fixed priority) scheduling class ( <b>RT</b> or
+  <dd>The real time round-robin (fixed priority) scheduling class (<b>RT</b> or
       <b>FP</b>). Processes that belong to this class have always a fixed higher
       priority than processes in the time-sharing class and are scheduled
       according to a priority value (1 to 99). Each process can run for a
       maximum time quantum and is placed at the end of the associated priority
       list if the time quantum is exceeded.</dd>
-</dl>
-<dl class="Bl-tag">
   <dt></dt>
   <dd>The real time first in-first out scheduling class (<b>FF</b>), which is
       similar to the round-robin scheduling class except that no maximum time
       quantum is applied.</dd>
 </dl>
-<div class="Pp"></div>
-The process usually requires privilegue to get into one of the real time
-  scheduling classes. If a process tries this but lacks the privilegue, it will
-  be put into the isochronous class instead.
-<div class="Pp"></div>
-See <i>sched_setscheduler</i>(2) for further detail on scheduling classes.
-<div class="Pp"></div>
-With the <b>-l</b> option, a list of all available scheduling classes is printed
-  along with the associated parameters for each class.
-<div class="Pp"></div>
-The <b>-d</b> option causes the current scheduling parameters for a set of
-  processes to be printed.
-<div class="Pp"></div>
-The <b>-s</b> option allows to alter the scheduling parameters for a set of
-  processes. To change the parameters of the <i>init</i> process (process ID 1),
-  the <i>-i pid</i> option must be specified with 1 appearing in <i>idlist</i>.
-<div class="Pp"></div>
-If the <b>-e</b> option is used, <i>command</i> is executed with the given
-  scheduling parameters.
-<div class="Pp"></div>
-The <i>idlist</i> arguments specify the set of processes to be selected for the
-  <b>-d</b> and <b>-s</b> options. They are normally interpreted as process IDs;
-  the <b>-i</b> option can be used to alter their meaning, according to the
-  following arguments:
+<p class="Pp">The process usually requires privilegue to get into one of the
+    real time scheduling classes. If a process tries this but lacks the
+    privilegue, it will be put into the isochronous class instead.</p>
+<p class="Pp">See <i>sched_setscheduler</i>(2) for further detail on scheduling
+    classes.</p>
+<p class="Pp">With the <b>-l</b> option, a list of all available scheduling
+    classes is printed along with the associated parameters for each class.</p>
+<p class="Pp">The <b>-d</b> option causes the current scheduling parameters for
+    a set of processes to be printed.</p>
+<p class="Pp">The <b>-s</b> option allows to alter the scheduling parameters for
+    a set of processes. To change the parameters of the <i>init</i> process
+    (process ID 1), the <i>-i pid</i> option must be specified with 1 appearing
+    in <i>idlist</i>.</p>
+<p class="Pp">If the <b>-e</b> option is used, <i>command</i> is executed with
+    the given scheduling parameters.</p>
+<p class="Pp">The <i>idlist</i> arguments specify the set of processes to be
+    selected for the <b>-d</b> and <b>-s</b> options. They are normally
+    interpreted as process IDs; the <b>-i</b> option can be used to alter their
+    meaning, according to the following arguments:</p>
 <div class="Bd-indent">
 <dl class="Bl-tag">
-  <dt><b>pid</b></dt>
+  <dt id="pid"><a class="permalink" href="#pid"><b>pid</b></a></dt>
   <dd><i>idlist</i> is a set of process IDs (the default).</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>ppid</b></dt>
+  <dt id="ppid"><a class="permalink" href="#ppid"><b>ppid</b></a></dt>
   <dd>Causes all processes whose parent process has a process ID present in
       <i>idlist</i> to be selected.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>pgid</b></dt>
+  <dt id="pgid"><a class="permalink" href="#pgid"><b>pgid</b></a></dt>
   <dd>Selects all processes that belong to a process group id present in
       <i>idlist</i>.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>sid</b></dt>
+  <dt id="sid"><a class="permalink" href="#sid"><b>sid</b></a></dt>
   <dd>Selects all processes that belong to a session whose session id is present
       in <i>idlist</i>.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>class</b></dt>
+  <dt id="class"><a class="permalink" href="#class"><b>class</b></a></dt>
   <dd><i>idlist</i> is interpreted as a set of scheduling classes; all processes
       that belong to a given class are selected.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>uid</b></dt>
+  <dt id="uid"><a class="permalink" href="#uid"><b>uid</b></a></dt>
   <dd>Selects all processes whose (numeric) effective user ID appears in
       <i>idlist .</i></dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>gid</b></dt>
+  <dt id="gid"><a class="permalink" href="#gid"><b>gid</b></a></dt>
   <dd>Selects all processes whose (numeric) effective group ID appears in
       <i>idlist .</i></dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>all</b></dt>
+  <dt id="all"><a class="permalink" href="#all"><b>all</b></a></dt>
   <dd>Selects all processes currently running. The <i>idlist</i> arguments are
       ignored.</dd>
 </dl>
 </div>
-<div class="Pp"></div>
-If an <b>-i</b> option is present but no <i>idlist</i> is specified, the process
-  ID, parent process ID etc. of the <i>priocntl</i> command itself is used.
-<div class="Pp"></div>
-The <b>-c</b> option allows to select a scheduling class for processes with the
-  <b>-s</b> and <b>-e</b> options (see above for the explanation of valid
-  classes).
-<div class="Pp"></div>
-The class-specific option is currently <b>-p</b><i> priority</i> for all
-  scheduling classes; it allows to set the base or scheduling priority for the
-  process, as described above.
-<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+<p class="Pp">If an <b>-i</b> option is present but no <i>idlist</i> is
+    specified, the process ID, parent process ID etc. of the <i>priocntl</i>
+    command itself is used.</p>
+<p class="Pp">The <b>-c</b> option allows to select a scheduling class for
+    processes with the <b>-s</b> and <b>-e</b> options (see above for the
+    explanation of valid classes).</p>
+<p class="Pp">The class-specific option is currently <b>-p</b><i> priority</i>
+    for all scheduling classes; it allows to set the base or scheduling priority
+    for the process, as described above.</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
   ALSO</a></h1>
-nice(1), renice(1), sched_setscheduler(2), setpriority(2)
-<h1 class="Sh" title="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
-Due to the lack of a <i>priocntl</i>() system call on Linux and FreeBSD,
-  selection of processes is performed in user space, and there is a time gap
-  between selection and the operation of parameter setting with the <b>-s</b>
-  option. For an <i>idlist</i> of other than a single process id, it is thus
-  possible that the <i>priocntl</i> command misses processes that are created at
-  the time it is running, without being able to inform the user if this has
-  happened.
-<div class="Pp"></div>
-The batch class and the isochronous class are not available on FreeBSD and are
-  currently not part of the mainline Linux kernel; Con Kolivas' patch set adds
-  support for them.</div>
+<p class="Pp">nice(1), renice(1), sched_setscheduler(2), setpriority(2)</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
+<p class="Pp">Due to the lack of a <i>priocntl</i>() system call on Linux and
+    FreeBSD, selection of processes is performed in user space, and there is a
+    time gap between selection and the operation of parameter setting with the
+    <b>-s</b> option. For an <i>idlist</i> of other than a single process id, it
+    is thus possible that the <i>priocntl</i> command misses processes that are
+    created at the time it is running, without being able to inform the user if
+    this has happened.</p>
+<p class="Pp">The batch class and the isochronous class are not available on
+    FreeBSD and are currently not part of the mainline Linux kernel; Con
+    Kolivas' patch set adds support for them.</p>
+</section>
+</div>
 <table class="foot">
   <tr>
     <td class="foot-date">9/25/04</td>

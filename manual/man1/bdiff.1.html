@@ -10,6 +10,7 @@
  -->
 <head>
   <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
   <title>BDIFF(1)</title>
 </head>
@@ -22,49 +23,58 @@
   </tr>
 </table>
 <div class="manual-text">
-<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
-bdiff - big diff
-<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
-<b>bdiff</b> <i>filename1</i> <i>filename2</i> [<i>n</i>] [<b>-s</b>]
-<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
-<b>bdiff</b> is used in a manner analogous to <b>diff</b> to find which lines in
-  <i>filename1</i> and <i>filename2</i> must be changed to bring the files into
-  agreement. Its purpose is to allow processing of files too large for
-  <b>diff</b>. If <i>filename1 (filename2)</i> is <b>&#x2212;</b>, the standard
-  input is read.
-<div class="Pp"></div>
-<b>bdiff</b> ignores lines common to the beginning of both files, splits the
-  remainder of each file into <i>n</i>-line segments, and invokes <b>diff</b> on
-  corresponding segments. If both optional arguments are specified, they must
-  appear in the order indicated above.
-<div class="Pp"></div>
-The output of <b>bdiff</b> is exactly that of <b>diff</b>, with line numbers
-  adjusted to account for the segmenting of the files (that is, to make it look
-  as if the files had been processed whole). Note: Because of the segmenting of
-  the files, <b>bdiff</b> does not necessarily find a smallest sufficient set of
-  file differences.
-<div class="Pp"></div>
-The options are:
+<section class="Sh">
+<h1 class="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+<p class="Pp">bdiff - big diff</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<p class="Pp"><b>bdiff</b> <i>filename1</i> <i>filename2</i> [<i>n</i>]
+    [<b>-s</b>]</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<p class="Pp"><b>bdiff</b> is used in a manner analogous to <b>diff</b> to find
+    which lines in <i>filename1</i> and <i>filename2</i> must be changed to
+    bring the files into agreement. Its purpose is to allow processing of files
+    too large for <b>diff</b>. If <i>filename1 (filename2)</i> is
+    <b>&#x2212;</b>, the standard input is read.</p>
+<p class="Pp"><b>bdiff</b> ignores lines common to the beginning of both files,
+    splits the remainder of each file into <i>n</i>-line segments, and invokes
+    <b>diff</b> on corresponding segments. If both optional arguments are
+    specified, they must appear in the order indicated above.</p>
+<p class="Pp">The output of <b>bdiff</b> is exactly that of <b>diff</b>, with
+    line numbers adjusted to account for the segmenting of the files (that is,
+    to make it look as if the files had been processed whole). Note: Because of
+    the segmenting of the files, <b>bdiff</b> does not necessarily find a
+    smallest sufficient set of file differences.</p>
+<p class="Pp">The options are:</p>
 <dl class="Bl-tag">
-  <dt><b></b><i>n</i> </dt>
+  <dt id="n"><a class="permalink" href="#n"><b></b><i>n</i> </a></dt>
   <dd>The number of line segments. The value of <i>n</i> is 3500 by default. If
       the optional third argument is given and it is numeric, it is used as the
       value for <i>n</i>. This is useful in those cases in which 3500-line
       segments are too large for <b>diff</b>, causing it to fail.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b></b><b>-s</b> </dt>
+  <dt id="s"><a class="permalink" href="#s"><b></b><b>-s</b> </a></dt>
   <dd>Specifies that no diagnostics are to be printed by <b>bdiff</b> (silent
       option). Note: However, this does not suppress possible diagnostic
       messages from <b>diff</b>, which <b>bdiff</b> calls.</dd>
 </dl>
-<h1 class="Sh" title="Sh" id="FILES"><a class="permalink" href="#FILES">FILES</a></h1>
-/tmp/bd?????
-<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+</section>
+<section class="Sh">
+<h1 class="Sh" id="FILES"><a class="permalink" href="#FILES">FILES</a></h1>
+<p class="Pp">/tmp/bd?????</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
   ALSO</a></h1>
-<i>diff</i>(1)
-<h1 class="Sh" title="Sh" id="DIAGNOSTICS"><a class="permalink" href="#DIAGNOSTICS">DIAGNOSTICS</a></h1>
-Use <i>help</i>(1) for explanations.</div>
+<p class="Pp"><i>diff</i>(1)</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DIAGNOSTICS"><a class="permalink" href="#DIAGNOSTICS">DIAGNOSTICS</a></h1>
+<p class="Pp">Use <i>help</i>(1) for explanations.</p>
+</section>
+</div>
 <table class="foot">
   <tr>
     <td class="foot-date">2/3/07</td>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<!-- This is an automatically generated file.  Do not edit.
+   Copyright(C) 2024 Luiz Ant\[u00F4]nio Rangel. All rights reserved.
+  
+   SPDX-Licence-Identifier: Zlib
+   -->
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
+  <title>TIMEOUT(1)</title>
+</head>
+<body>
+<table class="head">
+  <tr>
+    <td class="head-ltitle">TIMEOUT(1)</td>
+    <td class="head-vol">User Commands</td>
+    <td class="head-rtitle">TIMEOUT(1)</td>
+  </tr>
+</table>
+<div class="manual-text">
+<section class="Sh">
+<h1 class="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+<p class="Pp">timeout - execute a command with a time limit</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<p class="Pp"><b>timeout</b> [<b>-k</b> <i>time</i>] [<b>-s</b> <i>signal</i>]
+    [-fp] <i>time</i> <i>command</i> [<i>argument</i> ...]</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<p class="Pp"><i>Timeout</i> executes a specified <i>command</i> and attempts to
+    terminate it after an also specified <i>time</i>. Per default, it sends
+    signal 15 (terminate, alias SIGTERM), but the signal can be redefined (see
+    option If the duration is a zero value, the timer is disabled (see
+    timer_settime(2)), ergo there will not be any signal sent to the specified
+    <i>command</i>'s process.</p>
+<p class="Pp">It accepts the following options:</p>
+<dl class="Bl-tag">
+  <dt id="k"><a class="permalink" href="#k"><b>-k <i>time</i></b></a></dt>
+  <dd>Sets a complementary time for tolerance before sending a final signal 9
+      (SIGKILL) to <i>command</i> if it's still executing.</dd>
+  <dt><b>-s <i>signal</i></b></dt>
+  <dd>Sets a signal to be sent instead of signal 15 (terminate). It's defined
+      per a decimal number or its symbolic name (see kill(1) '-l' option).
+    <br/>
+    If it's defined as 9 (SIGKILL), it has an immediate effect and annuls the
+      '-k' option.</dd>
+  <dt id="f"><a class="permalink" href="#f"><b>-f</b></a></dt>
+  <dd>Permits that <i>command</i> runs as foreground and recieves signals from
+      the terminal; per using this option, the children processes that
+      <i>command</i> may create will not be terminated with it even in case of
+      the timer timing out.</dd>
+  <dt id="p"><a class="permalink" href="#p"><b>-p</b></a></dt>
+  <dd>Keep <i>command</i>'s exit status instead of using this program's
+    default.</dd>
+</dl>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DURATION_FORMATTING"><a class="permalink" href="#DURATION_FORMATTING">DURATION
+  FORMATTING</a></h1>
+<p class="Pp"><i>time</i> can be specified as a fractional number by using a
+    full stop or a comma as the decimal separator. The default value are seconds
+    unless a time unit is specified per its single-letter identifier; in ascend
+    order, the supported units are:</p>
+<dl class="Bl-tag">
+  <dt id="s"><a class="permalink" href="#s"><i>s</i></a></dt>
+  <dd>seconds</dd>
+  <dt id="m"><a class="permalink" href="#m"><i>m</i></a></dt>
+  <dd>minutes</dd>
+  <dt id="h"><a class="permalink" href="#h"><i>h</i></a></dt>
+  <dd>hours</dd>
+  <dt id="d"><a class="permalink" href="#d"><i>d</i></a></dt>
+  <dd>days</dd>
+</dl>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DIAGNOSTICS"><a class="permalink" href="#DIAGNOSTICS">DIAGNOSTICS</a></h1>
+<p class="Pp">Exit status is 124 if the timer expired and the -p option was not
+    set, 126 if the command could be found, but could not be executed and 127 if
+    the command could not be found.</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="EXAMPLES"><a class="permalink" href="#EXAMPLES">EXAMPLES</a></h1>
+<p class="Pp">This program has different possible applications in one's routine,
+    here are some:
+  <br/>
+  Lets suppose you need to check if your system is connected to the Internet and
+    that it can successfully connect to a server in less than 5 seconds, you can
+    use timeout along with nc(1):</p>
+<p class="Pp"></p>
+<div class="Bd-indent">
+<p class="Pp"></p>
+<pre>% timeout -p 5 nc -vz pindorama.dob.jp 80
+% echo $?
+0</pre>
+<p class="Pp"></p>
+</div>
+In another example, you have a project and start experiencing hangings at some
+  part after a contributor sent a patch, but you do not know the part nor the
+  file that was broken; since you know that it should not take more than half a
+  minute to pass that part, you can use timeout and visualize precisely where it
+  hangs per enabling debug at the shell interpreter:
+<dl class="Bl-tag">
+  <dt></dt>
+  <dd><b>% timeout 0,5m /bin/ksh -x ./build.ksh</b></dd>
+</dl>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
+<p class="Pp">Although this implementation being <i>s&#x0153;ur</i> with BSDs'
+    implementations since it shares some parts of code with it, it does not
+    support long options as GNU (and BSDs') does, so some shell scripts may not
+    work unchanged with this implementation.
+  <br/>
+  An abideable approach for solving this problem could be an small check/wrapper
+    for the timeout command in case of utilizing the -f or the -p options in its
+    long format.</p>
+<div class="Bd-indent">
+<p class="Pp"></p>
+<pre>if test `getconf HEIRLOOM_TOOLCHEST_VERSION` -ge 20240220
+then
+<br/>
+     timeout -p -k<i>time</i> <i>time</i> <i>command</i>
+else
+<br/>
+     timeout --preserve-duration --kill-after <i>time</i> <i>time</i> <i>command</i>
+fi</pre>
+<p class="Pp"></p>
+</div>
+<p class="Pp">This implementation supports intervals using both European or
+    Anglo decimal separators, GNU doesn't.</p>
+<p class="Pp">In contrast to OpenBSD's &#x2014; and any other implementation
+    thoroughly based and/or ported from FreeBSD 10.3R &#x2014;, this
+    implementation supports nanoseconds as the interval instead of microseconds.
+    This can change in the future depending on your platform, though.</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+  ALSO</a></h1>
+<p class="Pp">exec(3), fork(2), kill(1), signal(2), timer_settime(2),
+    itimerspec(3type), wait(2)</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="HISTORY"><a class="permalink" href="#HISTORY">HISTORY</a></h1>
+<p class="Pp">The timeout utility first appeared as a proposal in BusyBox
+    mailing lists in February 3, 2006, but this version have payloads closer to
+    the timeout found at GNU Coreutils 7.0, released in 05 October, 2008.</p>
+</section>
+</div>
+<table class="foot">
+  <tr>
+    <td class="foot-date">2/20/24</td>
+    <td class="foot-os">Heirloom Toolchest</td>
+  </tr>
+</table>
+</body>
+</html>

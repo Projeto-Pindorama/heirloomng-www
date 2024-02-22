@@ -9,6 +9,7 @@
  -->
 <head>
   <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
   <title>PGREP(1)</title>
 </head>
@@ -21,189 +22,166 @@
   </tr>
 </table>
 <div class="manual-text">
-<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
-pgrep, pkill - find or signal processes by name and other attributes
-<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
-<div class="HP"><b>pgrep</b> [<b>-flnovx</b>] [<b>-d&#x00A0;</b><i>delim</i>] [
-  <b>-P&#x00A0;</b><i>ppidlist</i>] [<b>-g&#x00A0;</b><i>pgrplist</i>]
-  [<b>-s&#x00A0;</b> <i>sidlist</i>] [ <b>-u&#x00A0;</b><i>euidlist</i>]
-  [<b>-U&#x00A0;</b> <i>uidlist</i>] [ <b>-G&#x00A0;</b><i>gidlist</i>]
-  [<b>-t&#x00A0;</b> <i>termlist</i>] [<i>pattern</i>]</div>
-<div class="Pp"></div>
-<div class="HP"><b>pkill</b> [<b>-</b><i>signal</i>] [<b>-fnovx</b>] [
-  <b>-P&#x00A0;</b> <i>ppidlist</i>] [<b>-g&#x00A0;</b><i>pgrplist</i>]
-  [<b>-s&#x00A0;</b> <i>sidlist</i>] [ <b>-u&#x00A0;</b><i>euidlist</i>]
-  [<b>-U&#x00A0;</b> <i>uidlist</i>] [ <b>-G&#x00A0;</b><i>gidlist</i>]
-  [<b>-t&#x00A0;</b> <i>termlist</i>] [<i>pattern</i>]
-<div>&#x00A0;</div>
-</div>
-<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
-<i>Pgrep</i> searches the currently active processes for occurences of the
-  specified <i>pattern</i> and prints the process IDs of the matching ones.
-  <i>Pattern</i> is treated as an extended regular expression as described in
-  <i>egrep</i>(1). A number of options can be used in addition to the
-  <i>pattern</i> (or without specifying <i>pattern</i>) to further restrict the
-  set of matching processes. Multiple criteria can be specified for each of
-  these options, separated by commas or blanks, or by giving the option more
-  than once. In this case, all processes that match any of the given criteria
-  are considered matches. If more than one kind of criterion is specified, a
-  process must match each kind of criterion.
-<div class="Pp"></div>
-<i>Pkill</i> is similar to <i>pgrep</i>, but a signal (SIGTERM by default) is
-  sent to matching processes instead of printing its process ID. The signal can
-  be changed with the <b>-</b><i>signal</i> argument; this argument must appear
-  before all options to be recognized. <i>Signal</i> can be either numeric or
-  symbolic with the SIG prefix omitted (as in QUIT for SIGQUIT).
-<div class="Pp"></div>
-Zombie processes and the current <i>pgrep</i> or <i>pkill</i> process are never
-  included.
-<div class="Pp"></div>
-Both commands accept the following options:
+<section class="Sh">
+<h1 class="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+<p class="Pp">pgrep, pkill - find or signal processes by name and other
+    attributes</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<p class="Pp HP"><b>pgrep</b> [<b>-flnovx</b>] [<b>-d&#x00A0;</b><i>delim</i>]
+    [<b>-P&#x00A0;</b><i>ppidlist</i>] [<b>-g&#x00A0;</b><i>pgrplist</i>]
+    [<b>-s&#x00A0;</b><i>sidlist</i>] [<b>-u&#x00A0;</b><i>euidlist</i>]
+    [<b>-U&#x00A0;</b><i>uidlist</i>] [<b>-G&#x00A0;</b><i>gidlist</i>]
+    [<b>-t&#x00A0;</b><i>termlist</i>] [<i>pattern</i>]</p>
+<p class="Pp HP"><b>pkill</b> [<b>-</b><i>signal</i>] [<b>-fnovx</b>]
+    [<b>-P&#x00A0;</b><i>ppidlist</i>] [<b>-g&#x00A0;</b><i>pgrplist</i>]
+    [<b>-s&#x00A0;</b><i>sidlist</i>] [<b>-u&#x00A0;</b><i>euidlist</i>]
+    [<b>-U&#x00A0;</b><i>uidlist</i>] [<b>-G&#x00A0;</b><i>gidlist</i>]
+    [<b>-t&#x00A0;</b><i>termlist</i>] [<i>pattern</i>]
+  <br/>
+</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<p class="Pp"><i>Pgrep</i> searches the currently active processes for
+    occurences of the specified <i>pattern</i> and prints the process IDs of the
+    matching ones. <i>Pattern</i> is treated as an extended regular expression
+    as described in <i>egrep</i>(1). A number of options can be used in addition
+    to the <i>pattern</i> (or without specifying <i>pattern</i>) to further
+    restrict the set of matching processes. Multiple criteria can be specified
+    for each of these options, separated by commas or blanks, or by giving the
+    option more than once. In this case, all processes that match any of the
+    given criteria are considered matches. If more than one kind of criterion is
+    specified, a process must match each kind of criterion.</p>
+<p class="Pp"><i>Pkill</i> is similar to <i>pgrep</i>, but a signal (SIGTERM by
+    default) is sent to matching processes instead of printing its process ID.
+    The signal can be changed with the <b>-</b><i>signal</i> argument; this
+    argument must appear before all options to be recognized. <i>Signal</i> can
+    be either numeric or symbolic with the SIG prefix omitted (as in QUIT for
+    SIGQUIT).</p>
+<p class="Pp">Zombie processes and the current <i>pgrep</i> or <i>pkill</i>
+    process are never included.</p>
+<p class="Pp">Both commands accept the following options:</p>
 <dl class="Bl-tag">
-  <dt><b>-d </b><i>delim</i></dt>
+  <dt id="d"><a class="permalink" href="#d"><b>-d </b><i>delim</i></a></dt>
   <dd>Use the specified <i>delimiter</i> string to separate process IDs in
       output. By default, a newline character is used. This option is accepted
       by <i>pgrep</i> only.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-f</b></dt>
+  <dt id="f"><a class="permalink" href="#f"><b>-f</b></a></dt>
   <dd>Use the command line arguments of each process instead of the name of its
       executable file for matching, and, if <b>-l</b> is also specified, for
       printing.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-g</b><i> pgrplist</i></dt>
+  <dt id="g"><a class="permalink" href="#g"><b>-g</b><i> pgrplist</i></a></dt>
   <dd>Restrict matches to processes whose process group ID appears in
       <i>pgrplist</i>. If an ID is `0', the process group ID of the current
       process is used.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-G</b><i> gidlist</i></dt>
+  <dt id="G"><a class="permalink" href="#G"><b>-G</b><i> gidlist</i></a></dt>
   <dd>Restrict matches to processes whose real group ID appears in
       <i>gidlist</i>.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-l</b></dt>
+  <dt id="l"><a class="permalink" href="#l"><b>-l</b></a></dt>
   <dd>Print the command name in addition to the process ID. This option is
       accepted by <i>pgrep</i> only.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-n</b></dt>
+  <dt id="n"><a class="permalink" href="#n"><b>-n</b></a></dt>
   <dd>Select only the newest (most recently created) process of all processes
       that matched the other criteria. Cannot be combined with <i>-o</i>.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-o</b></dt>
+  <dt id="o"><a class="permalink" href="#o"><b>-o</b></a></dt>
   <dd>Select only the oldest (least recently created) process of all processes
       that matched the other criteria. Cannot be combined with <i>-n</i>.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-P</b><i> ppidlist</i></dt>
+  <dt id="P"><a class="permalink" href="#P"><b>-P</b><i> ppidlist</i></a></dt>
   <dd>Restrict matches to processes whose parent ID appears in
     <i>ppidlist</i>.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-s</b><i> sidlist</i></dt>
+  <dt id="s"><a class="permalink" href="#s"><b>-s</b><i> sidlist</i></a></dt>
   <dd>Restrict matches to processes that are members of a session given in
       <i>sidlist</i>. If an ID is `0', the session ID of the current process is
       used.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-t</b><i> termlist</i></dt>
+  <dt id="t"><a class="permalink" href="#t"><b>-t</b><i> termlist</i></a></dt>
   <dd>Restrict matches to processes that run on any controlling terminal given
       in <i>termlist</i>. Terminal specifications have the format described in
       <i>ps</i>(1).</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-u</b><i> uidlist</i></dt>
+  <dt id="u"><a class="permalink" href="#u"><b>-u</b><i> uidlist</i></a></dt>
   <dd>Restrict matches to processes whose effective user ID appears in
       <i>uidlist</i>.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-U</b><i> uidlist</i></dt>
+  <dt id="U"><a class="permalink" href="#U"><b>-U</b><i> uidlist</i></a></dt>
   <dd>Restrict matches to processes whose real user ID appears in
       <i>uidlist</i>.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-v</b></dt>
+  <dt id="v"><a class="permalink" href="#v"><b>-v</b></a></dt>
   <dd>Reverse the match, that is, select all processes that fail to fulfill the
       given criteria.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-x</b></dt>
+  <dt id="x"><a class="permalink" href="#x"><b>-x</b></a></dt>
   <dd>Require the entire process name to be matched, as if <i>pattern</i> was
       surrounded by `^( )$'.</dd>
 </dl>
-<h1 class="Sh" title="Sh" id="EXAMPLES"><a class="permalink" href="#EXAMPLES">EXAMPLES</a></h1>
-Determine the process ID of the <i>inetd</i> process:
+</section>
+<section class="Sh">
+<h1 class="Sh" id="EXAMPLES"><a class="permalink" href="#EXAMPLES">EXAMPLES</a></h1>
+<p class="Pp">Determine the process ID of the <i>inetd</i> process:</p>
 <div class="Bd-indent">
-<div class="Pp"></div>
-pgrep -x inetd
-<div class="Pp"></div>
+<p class="Pp">pgrep -x inetd</p>
+<p class="Pp"></p>
 </div>
 Print all processes that have a first argument starting with <i>/bin/</i> along
   with their arguments:
 <div class="Bd-indent">
-<div class="Pp"></div>
-pgrep -l -f &#x00B4;^/bin/&#x00B4;
-<div class="Pp"></div>
+<p class="Pp">pgrep -l -f &#x00B4;^/bin/&#x00B4;</p>
+<p class="Pp"></p>
 </div>
 Send a SIGHUP signal to all processes that are owned by either the <i>root</i>
   or the <i>daemon</i> user and are children of the <i>init</i> process (process
   ID 1):
 <div class="Bd-indent">
-<div class="Pp"></div>
-pkill -HUP -u root,daemon -P 1
-<div class="Pp"></div>
+<p class="Pp">pkill -HUP -u root,daemon -P 1</p>
+<p class="Pp"></p>
 </div>
-<h1 class="Sh" title="Sh" id="ENVIRONMENT_VARIABLES"><a class="permalink" href="#ENVIRONMENT_VARIABLES">ENVIRONMENT
+</section>
+<section class="Sh">
+<h1 class="Sh" id="ENVIRONMENT_VARIABLES"><a class="permalink" href="#ENVIRONMENT_VARIABLES">ENVIRONMENT
   VARIABLES</a></h1>
 <dl class="Bl-tag">
-  <dt><b>LANG</b>, <b>LC_ALL</b></dt>
+  <dt id="LANG"><a class="permalink" href="#LANG"><b>LANG</b>,
+    <b>LC_ALL</b></a></dt>
   <dd>See <i>locale</i>(7).</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>LC_COLLATE</b></dt>
+  <dt id="LC_COLLATE"><a class="permalink" href="#LC_COLLATE"><b>LC_COLLATE</b></a></dt>
   <dd>Affects the collation order for range expressions, equivalence classes,
       and collation symbols in extended regular expressions.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>LC_CTYPE</b></dt>
+  <dt id="LC_CTYPE"><a class="permalink" href="#LC_CTYPE"><b>LC_CTYPE</b></a></dt>
   <dd>Determines the mapping of bytes to characters and the availability and
       composition of character classes in extended regular expressions.</dd>
 </dl>
-<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
   ALSO</a></h1>
-egrep(1), ps(1), locale(7)
-<h1 class="Sh" title="Sh" id="DIAGNOSTICS"><a class="permalink" href="#DIAGNOSTICS">DIAGNOSTICS</a></h1>
-<i>Pgrep</i> and <i>Pkill</i> exit with
+<p class="Pp">egrep(1), ps(1), locale(7)</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DIAGNOSTICS"><a class="permalink" href="#DIAGNOSTICS">DIAGNOSTICS</a></h1>
+<p class="Pp"><i>Pgrep</i> and <i>Pkill</i> exit with</p>
 <dl class="Bl-tag">
   <dt>0</dt>
   <dd>if matching processes were found, and the <i>-v</i> option was not
       specified;
-    <div>&#x00A0;</div>
+    <br/>
   </dd>
-</dl>
-<dl class="Bl-tag">
   <dt>1</dt>
   <dd>if no matching processes were found, or the <i>-v</i> option was specified
       without any matches;
-    <div>&#x00A0;</div>
+    <br/>
   </dd>
-</dl>
-<dl class="Bl-tag">
   <dt>2</dt>
   <dd>if an invalid command line argument was found;
-    <div>&#x00A0;</div>
+    <br/>
   </dd>
-</dl>
-<dl class="Bl-tag">
   <dt>3</dt>
   <dd>on fatal errors.</dd>
 </dl>
-<h1 class="Sh" title="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
-Command names are limited to 18 characters, process arguments to 80 characters;
-  excess characters are stripped.</div>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
+<p class="Pp">Command names are limited to 18 characters, process arguments to
+    80 characters; excess characters are stripped.</p>
+</section>
+</div>
 <table class="foot">
   <tr>
     <td class="foot-date">8/14/05</td>

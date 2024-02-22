@@ -9,6 +9,7 @@
    -->
 <head>
   <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
   <title>EXPR(1)</title>
 </head>
@@ -21,53 +22,50 @@
   </tr>
 </table>
 <div class="manual-text">
-<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
-expr - evaluate arguments as an expression
-<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
-<b>expr</b> <i>arguments</i> ...
-<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
-The arguments are taken as an expression. After evaluation, the result is
-  written on the standard output. Each token of the expression is a separate
-  argument.
-<div class="Pp"></div>
-The operators and keywords are listed below. The list is in order of increasing
-  precedence, with equal precedence operators grouped.
+<section class="Sh">
+<h1 class="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+<p class="Pp">expr - evaluate arguments as an expression</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<p class="Pp"><b>expr</b> <i>arguments</i> ...</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<p class="Pp">The arguments are taken as an expression. After evaluation, the
+    result is written on the standard output. Each token of the expression is a
+    separate argument.</p>
+<p class="Pp">The operators and keywords are listed below. The list is in order
+    of increasing precedence, with equal precedence operators grouped.</p>
 <dl class="Bl-tag">
   <dt><i>expr | expr</i></dt>
   <dd>yields the first <i>expr</i> if it is neither null nor `0', otherwise
       yields the second <i>expr.</i></dd>
-</dl>
-<dl class="Bl-tag">
   <dt><i>expr &amp; expr</i></dt>
   <dd>yields the first <i>expr</i> if neither <i>expr</i> is null or `0',
       otherwise yields `0'.</dd>
-</dl>
-<dl class="Bl-tag">
   <dt><i>expr relop expr</i></dt>
   <dd>where <i>relop is one of</i> &lt; &lt;= = != &gt;= &gt;, yields `1' if the
       indicated comparison is true, `0' if false. The comparison is numeric if
       both <i>expr</i> are integers, otherwise lexicographic.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><i>expr</i> + <i>expr</i></dt>
+  <dt id="expr"><a class="permalink" href="#expr"><i>expr</i> +
+    <i>expr</i></a></dt>
   <dd>
-    <div>&#x00A0;</div>
+    <br/>
     <i>expr</i> - <i>expr</i>
-    <div>&#x00A0;</div>
+    <br/>
     addition or subtraction of the arguments.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><i>expr</i> * <i>expr</i></dt>
+  <dt id="expr~2"><a class="permalink" href="#expr~2"><i>expr</i> *
+    <i>expr</i></a></dt>
   <dd>
-    <div>&#x00A0;</div>
+    <br/>
     <i>expr</i> / <i>expr</i>
-    <div>&#x00A0;</div>
+    <br/>
     <i>expr</i> % <i>expr</i>
-    <div>&#x00A0;</div>
+    <br/>
     multiplication, division, or remainder of the arguments.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><i>expr</i> : <i>expr</i></dt>
+  <dt id="expr~3"><a class="permalink" href="#expr~3"><i>expr</i> :
+    <i>expr</i></a></dt>
   <dd>The matching operator compares the string first argument with the regular
       expression second argument. Regular expression syntax is the same as that
       of <i>ed</i>(1); <b>/usr/5bin/expr</b> uses simple regular expressions,
@@ -76,94 +74,89 @@ The operators and keywords are listed below. The list is in order of increasing
       <b>\(...\)</b> pattern symbols can be used to select a portion of the
       first argument. Otherwise, the matching operator yields the number of
       characters matched (`0' on failure).</dd>
-</dl>
-<dl class="Bl-tag">
   <dt>match<i> expr expr</i></dt>
   <dd>Same as <i>expr</i> : <i>expr</i>.</dd>
-</dl>
-<dl class="Bl-tag">
   <dt>(<i> expr </i>)</dt>
   <dd>parentheses for grouping.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><i>string</i></dt>
+  <dt id="string"><a class="permalink" href="#string"><i>string</i></a></dt>
   <dd>Yields itself unless it is part of a larger expression. With
       <b>/usr/5bin/posix/expr</b> and <b>/usr/5bin/posix2001/expr</b>, all
       <i>strings</i> that form valid decimal numbers are converted to the
       canonical form.</dd>
 </dl>
-<div class="Pp"></div>
-The following operators are supported only by <b>/usr/5bin/s42/expr</b> or if
-  the <b>SYSV3</b> environment variable is set:
+<p class="Pp">The following operators are supported only by
+    <b>/usr/5bin/s42/expr</b> or if the <b>SYSV3</b> environment variable is
+    set:</p>
 <dl class="Bl-tag">
   <dt>length<i> string</i></dt>
   <dd>Returns the number of characters in <i>string</i>.</dd>
-</dl>
-<dl class="Bl-tag">
   <dt>substr<i> string index count</i></dt>
   <dd>Returns a string that consists of <i>count</i> characters beginning at
       position <i>index</i> of <i>string</i> (starting at 1).</dd>
-</dl>
-<dl class="Bl-tag">
   <dt>index<i> string set</i></dt>
   <dd>Returns the index in <i>string</i> (starting at 1) of the first occurrence
       of one of the characters in <i>set</i>, or 0 if no character is
     found.</dd>
 </dl>
-<h1 class="Sh" title="Sh" id="ENVIRONMENT_VARIABLES"><a class="permalink" href="#ENVIRONMENT_VARIABLES">ENVIRONMENT
+</section>
+<section class="Sh">
+<h1 class="Sh" id="ENVIRONMENT_VARIABLES"><a class="permalink" href="#ENVIRONMENT_VARIABLES">ENVIRONMENT
   VARIABLES</a></h1>
 <dl class="Bl-tag">
-  <dt><b>LANG</b>, <b>LC_ALL</b></dt>
+  <dt id="LANG"><a class="permalink" href="#LANG"><b>LANG</b>,
+    <b>LC_ALL</b></a></dt>
   <dd>See locale(7).</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>LC_COLLATE</b></dt>
+  <dt id="LC_COLLATE"><a class="permalink" href="#LC_COLLATE"><b>LC_COLLATE</b></a></dt>
   <dd>Sets the collation sequence for string comparison, and for range
       expressions, equivalence classes, and collation symbols in basic regular
       expressions.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>LC_CTYPE</b></dt>
+  <dt id="LC_CTYPE"><a class="permalink" href="#LC_CTYPE"><b>LC_CTYPE</b></a></dt>
   <dd>Determines the mapping of bytes to characters in regular expressions, for
       the match, length, substr, and index operators, and the availability and
       composition of character classes in basic regular expressions.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>SYSV3</b></dt>
+  <dt id="SYSV3"><a class="permalink" href="#SYSV3"><b>SYSV3</b></a></dt>
   <dd>Enables some additional operators as described above.</dd>
 </dl>
-<h1 class="Sh" title="Sh" id="EXAMPLES"><a class="permalink" href="#EXAMPLES">EXAMPLES</a></h1>
-To add 1 to the Shell variable <i>a</i>:
+</section>
+<section class="Sh">
+<h1 class="Sh" id="EXAMPLES"><a class="permalink" href="#EXAMPLES">EXAMPLES</a></h1>
+<p class="Pp">To add 1 to the Shell variable <i>a</i>:</p>
 <dl class="Bl-tag">
   <dt></dt>
   <dd>a=`expr $a + 1`</dd>
 </dl>
-<div class="Pp"></div>
-To find the filename part (least significant part) of the pathname stored in
-  variable <i>a,</i> which may or may not contain `/':
+<p class="Pp">To find the filename part (least significant part) of the pathname
+    stored in variable <i>a,</i> which may or may not contain `/':</p>
 <dl class="Bl-tag">
   <dt></dt>
   <dd>expr &quot;$a&quot; : &#x00B4;.*/\(.*\)&#x00B4; &#x00B4;|&#x00B4;
       &quot;$a&quot;</dd>
 </dl>
-<div class="Pp"></div>
-Note the quoted Shell metacharacters. Also note that this example generates
-  wrong results if the result of the substitution is `0' or if `$a' equals one
-  of the <i>expr</i> operators. Be sure that your code avoids such problems and
-  use <i>basename</i>(1) if to actually cut out filename parts.
-<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+<p class="Pp">Note the quoted Shell metacharacters. Also note that this example
+    generates wrong results if the result of the substitution is `0' or if `$a'
+    equals one of the <i>expr</i> operators. Be sure that your code avoids such
+    problems and use <i>basename</i>(1) if to actually cut out filename
+  parts.</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
   ALSO</a></h1>
-ed(1), sh(1), test(1)
-<h1 class="Sh" title="Sh" id="DIAGNOSTICS"><a class="permalink" href="#DIAGNOSTICS">DIAGNOSTICS</a></h1>
-<i>Expr</i> returns the following exit codes:
-<div class="Pp"></div>
-	0	if the expression is neither null nor `0',
-<div>&#x00A0;</div>
-	1	if the expression is null or `0',
-<div>&#x00A0;</div>
-	2	for invalid expressions.
-<h1 class="Sh" title="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
-Integers are treated as 64-bit, 2's complement numbers.</div>
+<p class="Pp">ed(1), sh(1), test(1)</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DIAGNOSTICS"><a class="permalink" href="#DIAGNOSTICS">DIAGNOSTICS</a></h1>
+<p class="Pp"><i>Expr</i> returns the following exit codes:</p>
+<p class="Pp">	0	if the expression is neither null nor `0',
+  <br/>
+  	1	if the expression is null or `0',
+  <br/>
+  	2	for invalid expressions.</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
+<p class="Pp">Integers are treated as 64-bit, 2's complement numbers.</p>
+</section>
+</div>
 <table class="foot">
   <tr>
     <td class="foot-date">2/3/05</td>

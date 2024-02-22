@@ -9,6 +9,7 @@
    -->
 <head>
   <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
   <title>TEST(1B)</title>
 </head>
@@ -21,121 +22,82 @@
   </tr>
 </table>
 <div class="manual-text">
-<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
-test - (BSD) condition command
-<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
-<b>/usr/ucb/test</b> [<i>expr</i>]
-<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
-<i>test</i> evaluates the expression <i>expr</i>, and if its value is true then
-  returns zero exit status; otherwise, a non zero exit status is returned.
-  <i>test</i> returns a non zero exit if there are no arguments.
-<div class="Pp"></div>
-The following primitives are used to construct <i>expr</i>:
+<section class="Sh">
+<h1 class="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+<p class="Pp">test - (BSD) condition command</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<p class="Pp"><b>/usr/ucb/test</b> [<i>expr</i>]</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<p class="Pp"><i>test</i> evaluates the expression <i>expr</i>, and if its value
+    is true then returns zero exit status; otherwise, a non zero exit status is
+    returned. <i>test</i> returns a non zero exit if there are no arguments.</p>
+<p class="Pp">The following primitives are used to construct <i>expr</i>:</p>
 <dl class="Bl-tag">
-  <dt><b>-r</b> file</dt>
+  <dt id="r"><a class="permalink" href="#r"><b>-r</b> file</a></dt>
   <dd>true if the file exists and is readable.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-w</b> file</dt>
+  <dt id="w"><a class="permalink" href="#w"><b>-w</b> file</a></dt>
   <dd>true if the file exists and is writable.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-u</b> file</dt>
+  <dt id="u"><a class="permalink" href="#u"><b>-u</b> file</a></dt>
   <dd>true if the file exists and has the setuid bit set.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-g</b> file</dt>
+  <dt id="g"><a class="permalink" href="#g"><b>-g</b> file</a></dt>
   <dd>true if the file exists and has the setgid bit set.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-k</b> file</dt>
+  <dt id="k"><a class="permalink" href="#k"><b>-k</b> file</a></dt>
   <dd>true if the file exists and has the sticky bit set.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-f</b> file</dt>
+  <dt id="f"><a class="permalink" href="#f"><b>-f</b> file</a></dt>
   <dd>true if the file exists and is not a directory.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-d</b> file</dt>
+  <dt id="d"><a class="permalink" href="#d"><b>-d</b> file</a></dt>
   <dd>true if the file exists and is a directory.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-h</b> file</dt>
+  <dt id="h"><a class="permalink" href="#h"><b>-h</b> file</a></dt>
   <dd>true if the file exists and is a symbolic link.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-L</b> file</dt>
+  <dt id="L"><a class="permalink" href="#L"><b>-L</b> file</a></dt>
   <dd>true if the file exists and is a symbolic link.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-p</b> file</dt>
+  <dt id="p"><a class="permalink" href="#p"><b>-p</b> file</a></dt>
   <dd>true if the file exists and is a named pipe.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-b</b> file</dt>
+  <dt id="b"><a class="permalink" href="#b"><b>-b</b> file</a></dt>
   <dd>true if the file exists and is a block device.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-c</b> file</dt>
+  <dt id="c"><a class="permalink" href="#c"><b>-c</b> file</a></dt>
   <dd>true if the file exists and is a character device.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-s</b> file</dt>
+  <dt id="s"><a class="permalink" href="#s"><b>-s</b> file</a></dt>
   <dd>true if the file exists and has a size greater than zero.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-t</b> [fildes]</dt>
+  <dt id="t"><a class="permalink" href="#t"><b>-t</b> [fildes]</a></dt>
   <dd>true if the open file whose file descriptor number is <i>fildes</i> (1 by
       default) is associated with a terminal device.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-z</b> s1</dt>
+  <dt id="z"><a class="permalink" href="#z"><b>-z</b> s1</a></dt>
   <dd>true if the length of string <i>s1</i> is zero.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-n</b> s1</dt>
+  <dt id="n"><a class="permalink" href="#n"><b>-n</b> s1</a></dt>
   <dd>true if the length of the string <i>s1</i> is nonzero.</dd>
-</dl>
-<dl class="Bl-tag">
   <dt>s1<b> = </b>s2</dt>
   <dd>true if the strings <i>s1</i> and <i>s2</i> are equal.</dd>
-</dl>
-<dl class="Bl-tag">
   <dt>s1<b> != </b>s2</dt>
   <dd>true if the strings <i>s1</i> and <i>s2</i> are not equal.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt>s1</dt>
+  <dt id="s1"><a class="permalink" href="#s1">s1</a></dt>
   <dd>true if <i>s1</i> is not the null string.</dd>
-</dl>
-<dl class="Bl-tag">
   <dt>n1<b> -eq </b>n2</dt>
   <dd>true if the integers <i>n1</i> and <i>n2</i> are algebraically equal. Any
       of the comparisons <b>-ne</b>, <b>-gt</b>, <b>-ge</b>, <b>-lt</b>, or
       <b>-le</b> may be used in place of <b>-eq</b>.</dd>
 </dl>
-<div class="Pp"></div>
-These primaries may be combined with the following operators:
+<p class="Pp">These primaries may be combined with the following operators:</p>
 <dl class="Bl-tag">
   <dt><b>!</b></dt>
   <dd>unary negation operator</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-a</b></dt>
+  <dt id="a"><a class="permalink" href="#a"><b>-a</b></a></dt>
   <dd>binary <i>and</i> operator</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-o</b></dt>
+  <dt id="o"><a class="permalink" href="#o"><b>-o</b></a></dt>
   <dd>binary <i>or</i> operator</dd>
-</dl>
-<dl class="Bl-tag">
   <dt><b>( </b>expr<b> )</b></dt>
   <dd>parentheses for grouping.</dd>
 </dl>
-<div class="Pp"></div>
-<b>-a</b> has higher precedence than <b>-o.</b> Notice that all the operators
-  and flags are separate arguments to <i>test</i>. Notice also that parentheses
-  are meaningful as command separators and must be escaped.</div>
+<p class="Pp"><b>-a</b> has higher precedence than <b>-o.</b> Notice that all
+    the operators and flags are separate arguments to <i>test</i>. Notice also
+    that parentheses are meaningful as command separators and must be
+  escaped.</p>
+</section>
+</div>
 <table class="foot">
   <tr>
     <td class="foot-date">7/2/05</td>

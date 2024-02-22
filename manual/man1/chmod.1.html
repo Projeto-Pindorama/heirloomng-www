@@ -9,6 +9,7 @@
  -->
 <head>
   <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
   <title>CHMOD(1)</title>
 </head>
@@ -21,146 +22,131 @@
   </tr>
 </table>
 <div class="manual-text">
-<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
-chmod - change mode
-<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
-<b>chmod</b> [<b>-R</b>] <i>mode</i> <i>file</i> ...
-<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
-The mode of each named file is changed according to <i>mode,</i> which may be
-  absolute or symbolic. An absolute <i>mode</i> is an octal number constructed
-  from the OR of the following modes:
+<section class="Sh">
+<h1 class="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+<p class="Pp">chmod - change mode</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<p class="Pp"><b>chmod</b> [<b>-R</b>] <i>mode</i> <i>file</i> ...</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<p class="Pp">The mode of each named file is changed according to <i>mode,</i>
+    which may be absolute or symbolic. An absolute <i>mode</i> is an octal
+    number constructed from the OR of the following modes:</p>
 <dl class="Bl-tag">
   <dt>4000</dt>
   <dd>Set user ID on execution.
-    <div>&#x00A0;</div>
-    <div>&#x00A0;</div>
+    <br/>
   </dd>
-</dl>
-<dl class="Bl-tag">
   <dt>20#0</dt>
   <dd>Set group ID on execution if # is 7, 5, 3, or 1 and <i>file</i> is not a
       directory.
-    <div>&#x00A0;</div>
+    <br/>
     Enable mandatory locking if # is 6, 4, 2, or 0 and <i>file</i> is not a
       directory.
-    <div>&#x00A0;</div>
+    <br/>
     If <i>file</i> is a directory, files created in this directory will get the
       group <small>ID</small> of the directory instead of the current process
       (may be set or cleared using explicit symbolic modes only).
-    <div>&#x00A0;</div>
-    <div>&#x00A0;</div>
+    <br/>
   </dd>
-</dl>
-<dl class="Bl-tag">
   <dt>1000</dt>
   <dd>Sticky bit. If file is a directory, only the owner of the file or the
       super-user can rename or delete a file in that directory.
-    <div>&#x00A0;</div>
-    <div>&#x00A0;</div>
+    <br/>
   </dd>
-</dl>
-<dl class="Bl-tag">
   <dt>0400</dt>
   <dd>Read by owner.
-    <div>&#x00A0;</div>
-    <div>&#x00A0;</div>
+    <br/>
   </dd>
-</dl>
-<dl class="Bl-tag">
   <dt>0200</dt>
   <dd>Write by owner.
-    <div>&#x00A0;</div>
-    <div>&#x00A0;</div>
+    <br/>
   </dd>
-</dl>
-<dl class="Bl-tag">
   <dt>0100</dt>
   <dd>Execute (search in directory) by owner.
-    <div>&#x00A0;</div>
-    <div>&#x00A0;</div>
+    <br/>
   </dd>
-</dl>
-<dl class="Bl-tag">
   <dt>0070</dt>
   <dd>Read, write, execute (search) by group.
-    <div>&#x00A0;</div>
-    <div>&#x00A0;</div>
+    <br/>
   </dd>
-</dl>
-<dl class="Bl-tag">
   <dt>0007</dt>
   <dd>Read, write, execute (search) by others.</dd>
 </dl>
-<div class="Pp"></div>
-A symbolic <i>mode</i> has the form:
+<p class="Pp">A symbolic <i>mode</i> has the form:</p>
 <dl class="Bl-tag">
   <dt></dt>
   <dd>[<i>who</i>] <i>op permission</i> [<i>op permission</i>] ...</dd>
 </dl>
-<div class="Pp"></div>
-The <i>who</i> part is a combination of the letters <b>u</b> (for user's
-  permissions), <b>g</b> (group) and <b>o</b> (other). The letter <b>a</b>
-  stands for <b>ugo.</b> If <i>who</i> is omitted, the default is <i>a</i> but
-  the setting of the file creation mask (see umask(2)) is taken into account for
-  <b>/usr/5bin/posix/chmod</b> and <b>/usr/5bin/posix2001/chmod.</b>
-<div class="Pp"></div>
-<i>Op</i> can be <b>+</b> to add <i>permission</i> to the file's mode, <b>-</b>
-  to take away <i>permission</i> and <b>=</b> to assign <i>permission</i>
-  absolutely (all other bits will be reset).
-<div class="Pp"></div>
-<i>Permission</i> is any combination of the letters <b>r</b> (read), <b>w</b>
-  (write), <b>x</b> (execute), <b>X</b> (execute if file is a directory or if it
-  already has at least one execute bit set), <b>s</b> (set owner or group id),
-  <b>t</b> (save text - sticky), and <b>l</b> (mandatory locking). Letters
-  <b>u,</b> <b>g</b> or <b>o</b> indicate that <i>permission</i> is to be taken
-  from the current mode. Omitting <i>permission</i> is only useful with <b>=</b>
-  to take away all permissions.
-<div class="Pp"></div>
-The first example denies write permission to others, the second makes a file
-  executable:
+<p class="Pp">The <i>who</i> part is a combination of the letters <b>u</b> (for
+    user's permissions), <b>g</b> (group) and <b>o</b> (other). The letter
+    <b>a</b> stands for <b>ugo.</b> If <i>who</i> is omitted, the default is
+    <i>a</i> but the setting of the file creation mask (see umask(2)) is taken
+    into account for <b>/usr/5bin/posix/chmod</b> and
+    <b>/usr/5bin/posix2001/chmod.</b></p>
+<p class="Pp"><i>Op</i> can be <b>+</b> to add <i>permission</i> to the file's
+    mode, <b>-</b> to take away <i>permission</i> and <b>=</b> to assign
+    <i>permission</i> absolutely (all other bits will be reset).</p>
+<p class="Pp"><i>Permission</i> is any combination of the letters <b>r</b>
+    (read), <b>w</b> (write), <b>x</b> (execute), <b>X</b> (execute if file is a
+    directory or if it already has at least one execute bit set), <b>s</b> (set
+    owner or group id), <b>t</b> (save text - sticky), and <b>l</b> (mandatory
+    locking). Letters <b>u,</b> <b>g</b> or <b>o</b> indicate that
+    <i>permission</i> is to be taken from the current mode. Omitting
+    <i>permission</i> is only useful with <b>=</b> to take away all
+  permissions.</p>
+<p class="Pp">The first example denies write permission to others, the second
+    makes a file executable:</p>
 <dl class="Bl-tag">
   <dt></dt>
   <dd>chmod o-w file
-    <div>&#x00A0;</div>
+    <br/>
     chmod +x file</dd>
 </dl>
-<div class="Pp"></div>
-Multiple symbolic modes separated by commas may be given. Operations are
-  performed in the order specified. The letter <b>s</b> is only useful with
-  <b>u</b> or <b>g.</b>
-<div class="Pp"></div>
-Only the owner of a file (or the super-user) may change its mode.
-<div class="Pp"></div>
-The <b>chmod</b> command accepts the following option:
+<p class="Pp">Multiple symbolic modes separated by commas may be given.
+    Operations are performed in the order specified. The letter <b>s</b> is only
+    useful with <b>u</b> or <b>g.</b></p>
+<p class="Pp">Only the owner of a file (or the super-user) may change its
+  mode.</p>
+<p class="Pp">The <b>chmod</b> command accepts the following option:</p>
 <dl class="Bl-tag">
-  <dt><b>-R</b></dt>
+  <dt id="R"><a class="permalink" href="#R"><b>-R</b></a></dt>
   <dd>Recursively descend each <i>file</i> operand. If a symbolic link is
       encountered, the permissions of its target are changed, but the link is
       not followed otherwise.</dd>
 </dl>
-<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
   ALSO</a></h1>
-chown(1), ls(1), chmod(2), stat(2), umask(2)
-<h1 class="Sh" title="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
-Use of the <b>-R</b> option is not generally recommended since symbolic links
-  can lead to modification of files at arbitrary places outside the file
-  hierarchies specified as arguments. The <i>find</i>(1) command can be used in
-  combination with <i>chmod</i> to achieve the desired result in a more
-  controlled manner. For example,
-<br/>
-<div class="Pp"></div>
-find . ! -type l -exec chmod u+w {} +
-<div class="Pp"></div>
-<br/>
-will add write permission for the invoking user, and
-<br/>
-<div class="Pp"></div>
-find . -type d -exec chmod a+rx {} + -o \
-<br/>
- ! -type l ! -type d -exec chmod a+r {} +
-<div class="Pp"></div>
-<br/>
-will make the file hierarchy accessible to all users.</div>
+<p class="Pp">chown(1), ls(1), chmod(2), stat(2), umask(2)</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
+<p class="Pp">Use of the <b>-R</b> option is not generally recommended since
+    symbolic links can lead to modification of files at arbitrary places outside
+    the file hierarchies specified as arguments. The <i>find</i>(1) command can
+    be used in combination with <i>chmod</i> to achieve the desired result in a
+    more controlled manner. For example,
+  <br/>
+</p>
+<p class="Pp">find . ! -type l -exec chmod u+w {} +</p>
+<p class="Pp">
+  <br/>
+  will add write permission for the invoking user, and
+  <br/>
+</p>
+<p class="Pp">find . -type d -exec chmod a+rx {} + -o \
+  <br/>
+   ! -type l ! -type d -exec chmod a+r {} +</p>
+<p class="Pp">
+  <br/>
+  will make the file hierarchy accessible to all users.</p>
+</section>
+</div>
 <table class="foot">
   <tr>
     <td class="foot-date">1/24/05</td>

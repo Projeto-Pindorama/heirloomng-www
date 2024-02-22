@@ -9,6 +9,7 @@
    -->
 <head>
   <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
   <title>CKSUM(1)</title>
 </head>
@@ -21,22 +22,33 @@
   </tr>
 </table>
 <div class="manual-text">
-<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
-cksum - write file checksums and sizes
-<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
-<b>cksum</b> [<i>file</i>&#x00A0;.&#x00A0;.&#x00A0;.&#x00A0;]
-<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
-<i>Cksum</i> calculates and prints a checksum for each named <i>file</i>, and
-  also prints the number of bytes in the file. It is typically used to look for
-  bad spots, or to validate a file communicated over some transmission line. The
-  CRC used is based on the polynomial used for CRC error checking in the ISO/IEC
-  8802-3:1992 Ethernet standard.
-<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+<section class="Sh">
+<h1 class="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+<p class="Pp">cksum - write file checksums and sizes</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<p class="Pp"><b>cksum</b> [<i>file</i>&#x00A0;.&#x00A0;.&#x00A0;.&#x00A0;]</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<p class="Pp"><i>Cksum</i> calculates and prints a checksum for each named
+    <i>file</i>, and also prints the number of bytes in the file. It is
+    typically used to look for bad spots, or to validate a file communicated
+    over some transmission line. The CRC used is based on the polynomial used
+    for CRC error checking in the ISO/IEC 8802-3:1992 Ethernet standard.</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
   ALSO</a></h1>
-sum(1), wc(1)
-<h1 class="Sh" title="Sh" id="DIAGNOSTICS"><a class="permalink" href="#DIAGNOSTICS">DIAGNOSTICS</a></h1>
-`Read error' is indistinguishable from end of file on most devices; check the
-  block count.</div>
+<p class="Pp">sum(1), wc(1)</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DIAGNOSTICS"><a class="permalink" href="#DIAGNOSTICS">DIAGNOSTICS</a></h1>
+<p class="Pp">`Read error' is indistinguishable from end of file on most
+    devices; check the block count.</p>
+</section>
+</div>
 <table class="foot">
   <tr>
     <td class="foot-date">3/17/03</td>

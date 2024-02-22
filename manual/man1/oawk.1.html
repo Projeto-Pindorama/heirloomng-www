@@ -25,6 +25,7 @@
  -->
 <head>
   <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
   <title>OAWK(1)</title>
 </head>
@@ -37,216 +38,185 @@
   </tr>
 </table>
 <div class="manual-text">
-<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
-oawk - pattern scanning and processing language
-<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
-<b>oawk</b> [<b>-F</b><i>c</i>] [<b>-f </b><i>file</i> | <i>prog</i>]
-  [<i>file</i> .&#x00A0;.&#x00A0;.]
-<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
-<i>Oawk</i> scans each input <i>file</i> for lines that match any of a set of
-  patterns specified in <i>prog</i>. With each pattern in <i>prog</i> there can
-  be an associated action that will be performed when a line of a <i>file</i>
-  matches the pattern. The set of patterns may appear literally as <i>prog,</i>
-  or in a file specified as <b>-f</b> <i>file</i>.
-<div class="Pp"></div>
-Files are read in order; if there are no files, the standard input is read. The
-  file name `-' means the standard input. Each line is matched against the
-  pattern portion of every pattern-action statement; the associated action is
-  performed for each matched pattern.
-<div class="Pp"></div>
-An input line is made up of fields separated by white space. (This default can
-  be changed by using FS, <i>vide infra</i>.) The fields are denoted <b>$1</b>,
-  <b>$2</b>, ... ; <b>$0</b> refers to the entire line.
-<div class="Pp"></div>
-A pattern-action statement has the form
-<div class="Pp"></div>
-	 <i>pattern </i><b>{</b><i> action </i><b>}</b>
-<div class="Pp"></div>
-A missing { action } means print the line; a missing pattern always matches.
-<div class="Pp"></div>
-An action is a sequence of statements. A statement can be one of the following:
-<div class="Pp"></div>
-<pre>
-	 <b>if (</b><i> conditional</i><b> )</b><i> statement </i>[<b> else </b><i>statement </i>]
-	 <b>while ( </b><i>conditional</i><b> ) </b><i>statement</i>
-	 <b>for ( </b><i>expression</i><b> ; </b><i>conditional</i><b> ; </b><i>expression</i><b> ) </b><i>statement</i>
-	 <b>for ( </b><i>var</i><b> in </b><i>array</i><b> ) </b><i>statement</i>
-	 <b>break</b>
-	 <b>continue</b>
-	 <b>{ </b>[ <i>statement</i> ] ... <b>}</b>
-	 <i>variable</i><b> = </b><i>expression</i>
-	 <b>print</b> [ <i>expression-list</i> ] [ <b>&gt;</b><i>expression</i> ]
-	 <b>printf</b> <i>format [ </i><b>, </b><i>expression-list</i> ] [ <b>&gt;</b><i>expression</i> ]
-	 <b>next</b>	# skip remaining patterns on this input line 
-	 <b>exit</b>	# skip the rest of the input
-</pre>
-<div class="Pp"></div>
-Statements are terminated by semicolons, newlines or right braces. An empty
-  expression-list stands for the whole line. Expressions take on string or
-  numeric values as appropriate, and are built using the operators <b>+</b>,
-  <b>-</b>, <b>*</b>, <b>/</b>, <b>%</b>, and concatenation (indicated by a
-  blank). The C operators <b>++</b>, <b>--</b>, <b>+=</b>, <b>-=</b>, <b>*=</b>,
-  <b>/=</b>, and <b>%=</b> are also available in expressions. Variables may be
-  scalars, array elements (denoted <i>x</i><b>[</b><i>i</i><b>]</b>) or fields.
-  Variables are initialized to the null string. Array subscripts may be any
-  string, not necessarily numeric; this allows for a form of associative memory.
-  String constants are quoted <b>&quot;</b>...<b>&quot;</b>.
-<div class="Pp"></div>
-The <b>print</b> statement prints its arguments on the standard output (or on a
-  file if <b>&gt;</b><i>file</i> is present or on a pipe if <b>|</b><i>cmd</i>
-  is present), separated by the current output field separator, and terminated
-  by the output record separator. The <b>printf</b> statement formats its
-  expression list according to the format (see <i>printf</i>(3)).
-<div class="Pp"></div>
-There are mathematical built-in functions <b>exp,</b> <b>log,</b> <b>sqrt,</b>
-  and <b>int</b>. The last truncates its argument to an integer. Other built-in
-  functions are:
+<section class="Sh">
+<h1 class="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+<p class="Pp">oawk - pattern scanning and processing language</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<p class="Pp"><b>oawk</b> [<b>-F</b><i>c</i>] [<b>-f </b><i>file</i> |
+    <i>prog</i>] [<i>file</i> .&#x00A0;.&#x00A0;.]</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<p class="Pp"><i>Oawk</i> scans each input <i>file</i> for lines that match any
+    of a set of patterns specified in <i>prog</i>. With each pattern in
+    <i>prog</i> there can be an associated action that will be performed when a
+    line of a <i>file</i> matches the pattern. The set of patterns may appear
+    literally as <i>prog,</i> or in a file specified as <b>-f</b>
+  <i>file</i>.</p>
+<p class="Pp">Files are read in order; if there are no files, the standard input
+    is read. The file name `-' means the standard input. Each line is matched
+    against the pattern portion of every pattern-action statement; the
+    associated action is performed for each matched pattern.</p>
+<p class="Pp">An input line is made up of fields separated by white space. (This
+    default can be changed by using FS, <i>vide infra</i>.) The fields are
+    denoted <b>$1</b>, <b>$2</b>, ... ; <b>$0</b> refers to the entire line.</p>
+<p class="Pp">A pattern-action statement has the form</p>
+<p class="Pp">	<i>pattern </i><b>{</b><i> action </i><b>}</b></p>
+<p class="Pp">A missing { action } means print the line; a missing pattern
+    always matches.</p>
+<p class="Pp">An action is a sequence of statements. A statement can be one of
+    the following:</p>
+<p class="Pp"></p>
+<pre>	<b>if (</b><i> conditional</i><b> )</b><i> statement </i>[<b> else </b><i>statement </i>]
+	<b>while ( </b><i>conditional</i><b> ) </b><i>statement</i>
+	<b>for ( </b><i>expression</i><b> ; </b><i>conditional</i><b> ; </b><i>expression</i><b> ) </b><i>statement</i>
+	<b>for ( </b><i>var</i><b> in </b><i>array</i><b> ) </b><i>statement</i>
+	<b>break</b>
+	<b>continue</b>
+	<b>{ </b>[ <i>statement</i> ] ... <b>}</b>
+	<i>variable</i><b> = </b><i>expression</i>
+	<b>print</b> [ <i>expression-list</i> ] [ <b>&gt;</b><i>expression</i> ]
+	<b>printf</b> <i>format [ </i><b>, </b><i>expression-list</i> ] [ <b>&gt;</b><i>expression</i> ]
+	<b>next</b>	# skip remaining patterns on this input line 
+	<b>exit</b>	# skip the rest of the input</pre>
+<p class="Pp">Statements are terminated by semicolons, newlines or right braces.
+    An empty expression-list stands for the whole line. Expressions take on
+    string or numeric values as appropriate, and are built using the operators
+    <b>+</b>, <b>-</b>, <b>*</b>, <b>/</b>, <b>%</b>, and concatenation
+    (indicated by a blank). The C operators <b>++</b>, <b>--</b>, <b>+=</b>,
+    <b>-=</b>, <b>*=</b>, <b>/=</b>, and <b>%=</b> are also available in
+    expressions. Variables may be scalars, array elements (denoted
+    <i>x</i><b>[</b><i>i</i><b>]</b>) or fields. Variables are initialized to
+    the null string. Array subscripts may be any string, not necessarily
+    numeric; this allows for a form of associative memory. String constants are
+    quoted <b>&quot;</b>...<b>&quot;</b>.</p>
+<p class="Pp">The <b>print</b> statement prints its arguments on the standard
+    output (or on a file if <b>&gt;</b><i>file</i> is present or on a pipe if
+    <b>|</b><i>cmd</i> is present), separated by the current output field
+    separator, and terminated by the output record separator. The <b>printf</b>
+    statement formats its expression list according to the format (see
+    <i>printf</i>(3)).</p>
+<p class="Pp">There are mathematical built-in functions <b>exp,</b> <b>log,</b>
+    <b>sqrt,</b> and <b>int</b>. The last truncates its argument to an integer.
+    Other built-in functions are:</p>
 <dl class="Bl-tag">
-  <dt><b>getline</b></dt>
+  <dt id="getline"><a class="permalink" href="#getline"><b>getline</b></a></dt>
   <dd>sets $0 to the next input record. It returns 1 for successful input, and 0
       for end of file.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>index(</b><i>s</i><b>,</b><i>t</i><b>)</b></dt>
+  <dt id="index("><a class="permalink" href="#index("><b>index(</b><i>s</i><b>,</b><i>t</i><b>)</b></a></dt>
   <dd>the position in <i>s</i> where the string <i>t</i> occurs, or 0 if it does
       not.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>length(</b><i>s</i><b>)</b></dt>
+  <dt id="length("><a class="permalink" href="#length("><b>length(</b><i>s</i><b>)</b></a></dt>
   <dd>returns the length of its argument taken as a string, or of the whole line
       if no argument.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>split(</b><i>s</i><b>, </b><i>a</i><b>, </b><i>fs</i><b>)</b></dt>
+  <dt id="split("><a class="permalink" href="#split("><b>split(</b><i>s</i><b>,
+    </b><i>a</i><b>, </b><i>fs</i><b>)</b></a></dt>
   <dd>splits the string <i>s</i> into array elements <i>a</i>[1], <i>a</i>[2],
       ..., <i>a</i>[n], and returns n. The separation is done with the character
       <i>fs</i> or with the field separator <i>FS</i> if <i>fs</i> is not
     given.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>sprintf(</b><i>fmt</i><b>, </b><i>expr</i><b>, </b><i>expr</i><b>,</b>
-    ... <b>)</b></dt>
+  <dt id="sprintf("><a class="permalink" href="#sprintf("><b>sprintf(</b><i>fmt</i><b>,
+    </b><i>expr</i><b>, </b><i>expr</i><b>,</b> ...<b>)</b></a></dt>
   <dd>formats the expressions according to the <i>printf</i>(3) format given by
       <i>fmt</i> and returns the resulting string.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>substr(</b><i>s</i><b>, </b><i>m</i><b>, </b><i>n</i><b>)</b></dt>
+  <dt id="substr("><a class="permalink" href="#substr("><b>substr(</b><i>s</i><b>,
+    </b><i>m</i><b>, </b><i>n</i><b>)</b></a></dt>
   <dd>returns the <i>n</i>-character substring of <i>s</i> that begins at
       position <i>m</i>.</dd>
 </dl>
-<div class="Pp"></div>
-Patterns are arbitrary Boolean combinations ( <b>!</b>, <b>||</b>,
-  <b>&amp;&amp;</b>, and parentheses) of regular expressions and relational
-  expressions. Regular expressions must be surrounded by slashes and are full
-  regular expressions as described in <i>egrep</i>(1). Isolated regular
-  expressions in a pattern apply to the entire line. Regular expressions may
-  also occur in relational expressions.
-<div class="Pp"></div>
-A pattern may consist of two patterns separated by a comma; in this case, the
-  action is performed for all lines between an occurrence of the first pattern
-  and the next occurrence of the second.
-<div class="Pp"></div>
+<p class="Pp">Patterns are arbitrary Boolean combinations (<b>!</b>, <b>||</b>,
+    <b>&amp;&amp;</b>, and parentheses) of regular expressions and relational
+    expressions. Regular expressions must be surrounded by slashes and are full
+    regular expressions as described in <i>egrep</i>(1). Isolated regular
+    expressions in a pattern apply to the entire line. Regular expressions may
+    also occur in relational expressions.</p>
+<p class="Pp">A pattern may consist of two patterns separated by a comma; in
+    this case, the action is performed for all lines between an occurrence of
+    the first pattern and the next occurrence of the second.</p>
+<p class="Pp"></p>
+<pre>A relational expression is one of the following:</pre>
 <pre>
-A relational expression is one of the following:
-</pre>
-<div class="Pp"></div>
-<pre>
-	 <i>expression matchop regular-expression</i>
-	 <i>expression relop expression</i>
-</pre>
-<div class="Pp"></div>
 <br/>
+	<i>expression matchop regular-expression</i>
+	<i>expression relop expression</i></pre>
+<pre></pre>
 where a relop is any of the six relational operators in C, and a matchop is
   either <b>~</b> (for contains) or <b>!~</b> (for does not contain). A
   conditional is an arithmetic expression, a relational expression, or a Boolean
   combination of these.
-<div class="Pp"></div>
-The special patterns <b>BEGIN</b> and <b>END</b> may be used to capture control
-  before the first input line is read and after the last. BEGIN must be the
-  first pattern, END the last.
-<div class="Pp"></div>
-A single character <i>c</i> may be used to separate the fields by starting the
-  program with
-<div class="Pp"></div>
-	BEGIN { FS = &quot;c&quot; }
-<div class="Pp"></div>
-or by using the <b>-F</b><i>c</i> option.
-<div class="Pp"></div>
-Other variable names with special meanings include <b>NF</b>, the number of
-  fields in the current record; <b>NR</b>, the ordinal number of the current
-  record; <b>FILENAME</b>, the name of the current input file; <b>OFS</b>, the
-  output field separator (default blank); <b>ORS</b>, the output record
-  separator (default newline); and <b>OFMT</b>, the output format for numbers
-  (default &quot;%.6g&quot;).
-<h1 class="Sh" title="Sh" id="EXAMPLES"><a class="permalink" href="#EXAMPLES">EXAMPLES</a></h1>
-Print lines longer than 72 characters:
-<div class="Pp"></div>
-<pre>
-	length &gt; 72
-</pre>
-<div class="Pp"></div>
-Print first two fields in opposite order:
-<div class="Pp"></div>
-<pre>
-	{ print $2, $1 }
-</pre>
-<div class="Pp"></div>
-Add up first column, print sum and average:
-<div class="Pp"></div>
-<pre>
-		{ s += $1 }
-	END	{ print &quot;sum is&quot;, s, &quot; average is&quot;, s/NR }
-</pre>
-<div class="Pp"></div>
-Print fields in reverse order:
-<div class="Pp"></div>
-<pre>
-	{ for (i = NF; i &gt; 0; --i) print $i }
-</pre>
-<div class="Pp"></div>
-Print all lines between start/stop pairs:
-<div class="Pp"></div>
-<pre>
-	/start/, /stop/
-</pre>
-<div class="Pp"></div>
-Print all lines whose first field is different from previous one:
-<div class="Pp"></div>
-<pre>
-	$1 != prev { print; prev = $1 }
-</pre>
-<h1 class="Sh" title="Sh" id="ENVIRONMENT_VARIABLES"><a class="permalink" href="#ENVIRONMENT_VARIABLES">ENVIRONMENT
+<p class="Pp">The special patterns <b>BEGIN</b> and <b>END</b> may be used to
+    capture control before the first input line is read and after the last.
+    BEGIN must be the first pattern, END the last.</p>
+<p class="Pp">A single character <i>c</i> may be used to separate the fields by
+    starting the program with</p>
+<p class="Pp">	BEGIN { FS = &quot;c&quot; }</p>
+<p class="Pp">or by using the <b>-F</b><i>c</i> option.</p>
+<p class="Pp">Other variable names with special meanings include <b>NF</b>, the
+    number of fields in the current record; <b>NR</b>, the ordinal number of the
+    current record; <b>FILENAME</b>, the name of the current input file;
+    <b>OFS</b>, the output field separator (default blank); <b>ORS</b>, the
+    output record separator (default newline); and <b>OFMT</b>, the output
+    format for numbers (default &quot;%.6g&quot;).</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="EXAMPLES"><a class="permalink" href="#EXAMPLES">EXAMPLES</a></h1>
+<p class="Pp">Print lines longer than 72 characters:</p>
+<p class="Pp"></p>
+<pre>	length &gt; 72</pre>
+<p class="Pp">Print first two fields in opposite order:</p>
+<p class="Pp"></p>
+<pre>	{ print $2, $1 }</pre>
+<p class="Pp">Add up first column, print sum and average:</p>
+<p class="Pp"></p>
+<pre>		{ s += $1 }
+	END	{ print &quot;sum is&quot;, s, &quot; average is&quot;, s/NR }</pre>
+<p class="Pp">Print fields in reverse order:</p>
+<p class="Pp"></p>
+<pre>	{ for (i = NF; i &gt; 0; --i) print $i }</pre>
+<p class="Pp">Print all lines between start/stop pairs:</p>
+<p class="Pp"></p>
+<pre>	/start/, /stop/</pre>
+<p class="Pp">Print all lines whose first field is different from previous
+  one:</p>
+<p class="Pp"></p>
+<pre>	$1 != prev { print; prev = $1 }</pre>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="ENVIRONMENT_VARIABLES"><a class="permalink" href="#ENVIRONMENT_VARIABLES">ENVIRONMENT
   VARIABLES</a></h1>
 <dl class="Bl-tag">
-  <dt><b>LANG</b>, <b>LC_ALL</b></dt>
+  <dt id="LANG"><a class="permalink" href="#LANG"><b>LANG</b>,
+    <b>LC_ALL</b></a></dt>
   <dd>See <i>locale</i>(7).</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>LC_COLLATE</b></dt>
+  <dt id="LC_COLLATE"><a class="permalink" href="#LC_COLLATE"><b>LC_COLLATE</b></a></dt>
   <dd>Determines the collation order used for string comparison.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>LC_CTYPE</b></dt>
+  <dt id="LC_CTYPE"><a class="permalink" href="#LC_CTYPE"><b>LC_CTYPE</b></a></dt>
   <dd>Maps bytes to characters.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>LC_NUMERIC</b></dt>
+  <dt id="LC_NUMERIC"><a class="permalink" href="#LC_NUMERIC"><b>LC_NUMERIC</b></a></dt>
   <dd>Determine the radix character used when interpreting numeric input,
       performing conversions between numeric and string values and formatting
       numeric output. Regardless of locale, the period character (the
       decimal-point character of the C locale) is the decimal-point character
       recognized in processing awk programs.</dd>
 </dl>
-<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
   ALSO</a></h1>
-egrep(1), nawk(1), sed(1), printf(3), locale(7)
-<div>&#x00A0;</div>
-A. V. Aho, B. W. Kernighan, P. J. Weinberger, <i>Awk - a pattern scanning and
-  processing language</i>
-<h1 class="Sh" title="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
-There are no explicit conversions between numbers and strings. To force an
-  expression to be treated as a number add 0 to it; to force it to be treated as
-  a string concatenate &quot;&quot; to it.</div>
+<p class="Pp">egrep(1), nawk(1), sed(1), printf(3), locale(7)
+  <br/>
+  A. V. Aho, B. W. Kernighan, P. J. Weinberger, <i>Awk - a pattern scanning and
+    processing language</i></p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
+<p class="Pp">There are no explicit conversions between numbers and strings. To
+    force an expression to be treated as a number add 0 to it; to force it to be
+    treated as a string concatenate &quot;&quot; to it.</p>
+</section>
+</div>
 <table class="foot">
   <tr>
     <td class="foot-date">4/30/03</td>

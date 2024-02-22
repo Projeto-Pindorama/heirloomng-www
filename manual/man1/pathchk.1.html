@@ -9,6 +9,7 @@
  -->
 <head>
   <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
   <title>PATHCHK(1)</title>
 </head>
@@ -21,24 +22,30 @@
   </tr>
 </table>
 <div class="manual-text">
-<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
-pathchk - check pathnames
-<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
-<b>pathchk</b> [<b>-p</b>] <i>name</i> ...
-<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
-The <i>pathchk</i> command verifies the validity or portability of path names.
-  For each <i>name</i> given, it is checked that each of the intermediate
-  directories is searchable or could be created, that none of its components is
-  longer than NAME_MAX, and that the whole <i>name</i> is not longer than
-  PATH_MAX.
-<div class="Pp"></div>
-With the <b>-p</b> option, the checks are performed using _POSIX_NAME_MAX and
-  _POSIX_PATH_MAX, and each character of a component of <i>name</i> must be in
-  the portable character set (i.e. alphanumerics, dot `.', underscore `_', and
-  minus sign `-'). The check for local searchability is omitted.
-<div class="Pp"></div>
-If any violation of these rules is detected, <i>pathchk</i> prints an error
-  message and exits with failure.</div>
+<section class="Sh">
+<h1 class="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+<p class="Pp">pathchk - check pathnames</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<p class="Pp"><b>pathchk</b> [<b>-p</b>] <i>name</i> ...</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<p class="Pp">The <i>pathchk</i> command verifies the validity or portability of
+    path names. For each <i>name</i> given, it is checked that each of the
+    intermediate directories is searchable or could be created, that none of its
+    components is longer than NAME_MAX, and that the whole <i>name</i> is not
+    longer than PATH_MAX.</p>
+<p class="Pp">With the <b>-p</b> option, the checks are performed using
+    _POSIX_NAME_MAX and _POSIX_PATH_MAX, and each character of a component of
+    <i>name</i> must be in the portable character set (i.e. alphanumerics, dot
+    `.', underscore `_', and minus sign `-'). The check for local searchability
+    is omitted.</p>
+<p class="Pp">If any violation of these rules is detected, <i>pathchk</i> prints
+    an error message and exits with failure.</p>
+</section>
+</div>
 <table class="foot">
   <tr>
     <td class="foot-date">7/17/05</td>

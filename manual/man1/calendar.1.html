@@ -11,6 +11,7 @@
  -->
 <head>
   <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
   <title>CALENDAR(1)</title>
 </head>
@@ -23,55 +24,66 @@
   </tr>
 </table>
 <div class="manual-text">
-<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
-calendar - reminder service
-<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
-<b>calendar</b> [<b>-</b>]
-<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
-<i>Calendar</i> consults the file `calendar' in the current directory and prints
-  out lines that contain today's or tomorrow's date anywhere in the line. In the
-  C locale, most reasonable month-day dates such as `Dec. 7,' `december 7,'
-  `12/7,' etc., are recognized, but not `7 December' or `7/12'. On weekends
-  `tomorrow' extends through Monday.
-<div class="Pp"></div>
-When an argument is present, <i>calendar</i> does its job for every user who has
-  a file `calendar' in his login directory and sends him any positive results by
-  <i>mail</i>(1). This can be done daily in the wee hours under control of
-  <i>cron</i>(1).
-<h1 class="Sh" title="Sh" id="ENVIRONMENT_VARIABLES"><a class="permalink" href="#ENVIRONMENT_VARIABLES">ENVIRONMENT
+<section class="Sh">
+<h1 class="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+<p class="Pp">calendar - reminder service</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<p class="Pp"><b>calendar</b> [<b>-</b>]</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<p class="Pp"><i>Calendar</i> consults the file `calendar' in the current
+    directory and prints out lines that contain today's or tomorrow's date
+    anywhere in the line. In the C locale, most reasonable month-day dates such
+    as `Dec. 7,' `december 7,' `12/7,' etc., are recognized, but not `7
+    December' or `7/12'. On weekends `tomorrow' extends through Monday.</p>
+<p class="Pp">When an argument is present, <i>calendar</i> does its job for
+    every user who has a file `calendar' in his login directory and sends him
+    any positive results by <i>mail</i>(1). This can be done daily in the wee
+    hours under control of <i>cron</i>(1).</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="ENVIRONMENT_VARIABLES"><a class="permalink" href="#ENVIRONMENT_VARIABLES">ENVIRONMENT
   VARIABLES</a></h1>
 <dl class="Bl-tag">
-  <dt><b>LANG</b>,&#x00A0;<b>LC_ALL</b></dt>
+  <dt id="LANG"><a class="permalink" href="#LANG"><b>LANG</b>,&#x00A0;<b>LC_ALL</b></a></dt>
   <dd>See locale(7).</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>LC_CTYPE</b></dt>
+  <dt id="LC_CTYPE"><a class="permalink" href="#LC_CTYPE"><b>LC_CTYPE</b></a></dt>
   <dd>Used to separate the first three characters for abbreviated month
     names.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>LC_TIME</b></dt>
+  <dt id="LC_TIME"><a class="permalink" href="#LC_TIME"><b>LC_TIME</b></a></dt>
   <dd>Determines the abbreviated month names and the order of month and
     day.</dd>
 </dl>
-<h1 class="Sh" title="Sh" id="FILES"><a class="permalink" href="#FILES">FILES</a></h1>
-calendar
-<div>&#x00A0;</div>
-/usr/5lib/calprog to figure out today's and tomorrow's dates
-<div>&#x00A0;</div>
-/etc/passwd
-<div>&#x00A0;</div>
-/tmp/cal*
-<div>&#x00A0;</div>
-egrep, sed, mail subprocesses
-<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+</section>
+<section class="Sh">
+<h1 class="Sh" id="FILES"><a class="permalink" href="#FILES">FILES</a></h1>
+<p class="Pp">calendar
+  <br/>
+  /usr/5lib/calprog to figure out today's and tomorrow's dates
+  <br/>
+  /etc/passwd
+  <br/>
+  /tmp/cal*
+  <br/>
+  egrep, sed, mail subprocesses</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
   ALSO</a></h1>
-at(1), cron(1), mail(1)
-<h1 class="Sh" title="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
-Your calendar must be public information for you to get reminder service.
-<div>&#x00A0;</div>
-<i>Calendar's</i> extended idea of `tomorrow' doesn't account for
-  holidays.</div>
+<p class="Pp">at(1), cron(1), mail(1)</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
+<p class="Pp">Your calendar must be public information for you to get reminder
+    service.
+  <br/>
+  <i>Calendar's</i> extended idea of `tomorrow' doesn't account for
+  holidays.</p>
+</section>
+</div>
 <table class="foot">
   <tr>
     <td class="foot-date">10/11/03</td>

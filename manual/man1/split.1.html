@@ -8,6 +8,7 @@
    -->
 <head>
   <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
   <title>SPLIT(1)</title>
 </head>
@@ -20,44 +21,48 @@
   </tr>
 </table>
 <div class="manual-text">
-<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
-split - split a file into pieces
-<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
-<div class="HP"><b>split</b> [ <b>-b</b><i>&#x00A0;bytes</i>[<b>k</b>|<b>m</b>]
-  | <b>-l</b><i>&#x00A0;lines</i> | <b>-</b><i>lines</i>] [
-  <b>-a</b><i>&#x00A0;suffixlength</i>] [ <i>file</i>&#x00A0;[<i>name</i>]]
-<div>&#x00A0;</div>
-</div>
-<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
-<i>Split</i> reads <i>file</i> and writes it in 1000-line pieces as many as
-  necessary, onto a set of output files. The name of the first output file is
-  <i>name</i> with <i>aa</i> appended, and so on lexicographically. If no output
-  name is given, <b>x</b> is default.
-<div class="Pp"></div>
-If no input file is given, or if <b>-</b> is given in its stead, then the
-  standard input file is used.
-<div class="Pp"></div>
-The following options (all of them introduced by POSIX.2) are accepted:
+<section class="Sh">
+<h1 class="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+<p class="Pp">split - split a file into pieces</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<p class="Pp HP"><b>split</b> [<b>-b</b><i>&#x00A0;bytes</i>[<b>k</b>|<b>m</b>]
+    | <b>-l</b><i>&#x00A0;lines</i> | <b>-</b><i>lines</i>]
+    [<b>-a</b><i>&#x00A0;suffixlength</i>] [<i>file</i>&#x00A0;[<i>name</i>]]
+  <br/>
+</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<p class="Pp"><i>Split</i> reads <i>file</i> and writes it in 1000-line pieces
+    as many as necessary, onto a set of output files. The name of the first
+    output file is <i>name</i> with <i>aa</i> appended, and so on
+    lexicographically. If no output name is given, <b>x</b> is default.</p>
+<p class="Pp">If no input file is given, or if <b>-</b> is given in its stead,
+    then the standard input file is used.</p>
+<p class="Pp">The following options (all of them introduced by POSIX.2) are
+    accepted:</p>
 <dl class="Bl-tag">
-  <dt><b>-a</b><i>&#x00A0;suffixlength</i></dt>
+  <dt id="a"><a class="permalink" href="#a"><b>-a</b><i>&#x00A0;suffixlength</i></a></dt>
   <dd>Use <i>suffixlength</i> characters for the appended part of the output
       file name different for each file instead of 2 (using a
       <i>suffixlength</i> of 3 will create files named
-      <b>x</b><i>aaa</i>&#x2013; <b>x</b><i>zzz</i>, and so forth).</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-b</b><i>&#x00A0;n</i>[<b>k</b>|<b>m</b>]</dt>
+      <b>x</b><i>aaa</i>&#x2013;<b>x</b><i>zzz</i>, and so forth).</dd>
+  <dt id="b"><a class="permalink" href="#b"><b>-b</b><i>&#x00A0;n</i>[<b>k</b>|<b>m</b>]</a></dt>
   <dd>Split the file in pieces of <i>n</i> bytes each. If <b>k</b> is appended,
       <i>n</i> is taken in kilobyte (1024-byte) units; with <b>m</b>, in
       megabyte units.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-l</b><i>&#x00A0;n</i></dt>
+  <dt id="l"><a class="permalink" href="#l"><b>-l</b><i>&#x00A0;n</i></a></dt>
   <dd>Split the file in pieces of <i>n</i> lines each.</dd>
 </dl>
-<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
   ALSO</a></h1>
-csplit(1)</div>
+<p class="Pp">csplit(1)</p>
+</section>
+</div>
 <table class="foot">
   <tr>
     <td class="foot-date">12/6/04</td>

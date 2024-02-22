@@ -8,6 +8,7 @@
  -->
 <head>
   <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
   <title>BASENAME(1)</title>
 </head>
@@ -20,31 +21,42 @@
   </tr>
 </table>
 <div class="manual-text">
-<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
-basename - return non-directory portion of a pathname
-<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
-<b>basename</b> <i>string</i> [<i>suffix</i>]
-<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
-<i>Basename</i> deletes the directory part of the filename-like <i>string</i>
-  and prints the result. If <i>suffix</i> is specified, and <i>suffix</i>
-  matches the last part of the result while characters remain, the matched
-  portion of <i>string</i> is also deleted. <b>/usr/5bin/basename</b> and
-  <b>/usr/5bin/s42/basename</b> interpret <i>suffix</i> as a simple regular
-  expression as described in <i>ed</i>(1); <b>/usr/5bin/posix/basename</b> and
-  <b>/usr/5bin/posix2001/basename</b> treat it as a fixed string.
-<h1 class="Sh" title="Sh" id="ENVIRONMENT_VARIABLES"><a class="permalink" href="#ENVIRONMENT_VARIABLES">ENVIRONMENT
+<section class="Sh">
+<h1 class="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+<p class="Pp">basename - return non-directory portion of a pathname</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<p class="Pp"><b>basename</b> <i>string</i> [<i>suffix</i>]</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<p class="Pp"><i>Basename</i> deletes the directory part of the filename-like
+    <i>string</i> and prints the result. If <i>suffix</i> is specified, and
+    <i>suffix</i> matches the last part of the result while characters remain,
+    the matched portion of <i>string</i> is also deleted.
+    <b>/usr/5bin/basename</b> and <b>/usr/5bin/s42/basename</b> interpret
+    <i>suffix</i> as a simple regular expression as described in <i>ed</i>(1);
+    <b>/usr/5bin/posix/basename</b> and <b>/usr/5bin/posix2001/basename</b>
+    treat it as a fixed string.</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="ENVIRONMENT_VARIABLES"><a class="permalink" href="#ENVIRONMENT_VARIABLES">ENVIRONMENT
   VARIABLES</a></h1>
 <dl class="Bl-tag">
-  <dt><b>LANG</b>, <b>LC_ALL</b></dt>
+  <dt id="LANG"><a class="permalink" href="#LANG"><b>LANG</b>,
+    <b>LC_ALL</b></a></dt>
   <dd>See <i>locale</i>(7).</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>LC_CTYPE</b></dt>
+  <dt id="LC_CTYPE"><a class="permalink" href="#LC_CTYPE"><b>LC_CTYPE</b></a></dt>
   <dd>Determines the mapping of bytes to characters.</dd>
 </dl>
-<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
   ALSO</a></h1>
-dirname(1), ed(1), sh(1), locale(7)</div>
+<p class="Pp">dirname(1), ed(1), sh(1), locale(7)</p>
+</section>
+</div>
 <table class="foot">
   <tr>
     <td class="foot-date">1/24/05</td>

@@ -9,6 +9,7 @@
  -->
 <head>
   <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
   <title>RM(1)</title>
 </head>
@@ -21,67 +22,72 @@
   </tr>
 </table>
 <div class="manual-text">
-<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
-rm - remove directory entries
-<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
-<b>rm</b> [<b>-fiRr</b>] <i>file</i> ...
-<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
-Rm removes the entries for one or more files from a directory. If an entry was
-  the last link to the file, the file is destroyed. Removal of a file requires
-  write permission in its directory, but neither read nor write permission on
-  the file itself.
-<div class="Pp"></div>
-If a file has no write permission and the standard input is a terminal, its
-  permissions are printed and a line is read from the standard input. If that
-  line begins with `y' the file is deleted, otherwise the file remains.
-<div class="Pp"></div>
-When <b>rm</b> encounters a symbolic link, the link will be removed, but its
-  target will remain in the file hierarchy.
-<div class="Pp"></div>
-The <b>rm</b> command accepts the following options:
+<section class="Sh">
+<h1 class="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+<p class="Pp">rm - remove directory entries</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<p class="Pp"><b>rm</b> [<b>-fiRr</b>] <i>file</i> ...</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<p class="Pp">Rm removes the entries for one or more files from a directory. If
+    an entry was the last link to the file, the file is destroyed. Removal of a
+    file requires write permission in its directory, but neither read nor write
+    permission on the file itself.</p>
+<p class="Pp">If a file has no write permission and the standard input is a
+    terminal, its permissions are printed and a line is read from the standard
+    input. If that line begins with `y' the file is deleted, otherwise the file
+    remains.</p>
+<p class="Pp">When <b>rm</b> encounters a symbolic link, the link will be
+    removed, but its target will remain in the file hierarchy.</p>
+<p class="Pp">The <b>rm</b> command accepts the following options:</p>
 <dl class="Bl-tag">
-  <dt><b>-f</b></dt>
+  <dt id="f"><a class="permalink" href="#f"><b>-f</b></a></dt>
   <dd>No questions are asked and neither error messages are printed nor the exit
       status is affected in case of nonexistent files. <b>/usr/5bin/rm</b> and
       <b>/usr/5bin/s42/rm</b> will not print an error message if removal of a
       file failed. For <b>/usr/5bin/posix/rm</b> and
       <b>/usr/5bin/posix2001/rm</b>, any previous occurrences of the <b>-i</b>
       option are ignored.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-i</b></dt>
+  <dt id="i"><a class="permalink" href="#i"><b>-i</b></a></dt>
   <dd>Causes <b>rm</b> to ask for confirmation before deleting any file, and,
       unter <b>-r</b>, whether to examine each directory. For
       <b>/usr/5bin/posix/rm</b> and <b>/usr/5bin/posix2001/rm</b>, any previous
       occurrences of the <b>-f</b> option are ignored.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-R</b></dt>
+  <dt id="R"><a class="permalink" href="#R"><b>-R</b></a></dt>
   <dd>Same as <b>-r</b>. This option has been introduced by POSIX.2.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-r</b></dt>
+  <dt id="r"><a class="permalink" href="#r"><b>-r</b></a></dt>
   <dd><b>Rm</b> will recursively delete the entire contents of directories given
       as operands, and the directory itself. Without this option, an error
       comment is printed if a designated file is a directory.</dd>
 </dl>
-<h1 class="Sh" title="Sh" id="ENVIRONMENT_VARIABLES"><a class="permalink" href="#ENVIRONMENT_VARIABLES">ENVIRONMENT
+</section>
+<section class="Sh">
+<h1 class="Sh" id="ENVIRONMENT_VARIABLES"><a class="permalink" href="#ENVIRONMENT_VARIABLES">ENVIRONMENT
   VARIABLES</a></h1>
 <dl class="Bl-tag">
-  <dt><b>SYSV3</b></dt>
+  <dt id="SYSV3"><a class="permalink" href="#SYSV3"><b>SYSV3</b></a></dt>
   <dd>Causes the text of some messages to be changed.</dd>
 </dl>
-<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
   ALSO</a></h1>
-rmdir(1), unlink(2), rmdir(2)
-<h1 class="Sh" title="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
-It is forbidden to remove the files `.' and `..' merely to avoid the antisocial
-  consequences of inadvertently doing something like `rm -r .*'.
-<div class="Pp"></div>
-With <b>/usr/5bin/rm</b> and <b>/usr/5bin/s42/rm</b>, a single `-' can be used
-  to indicate the end of the options list, as with `rm - -file'. If `--' is used
-  to terminate the options list, though, a following `-' will be interpreted as
-  a file name, so `rm -- -' will remove the file `-'.</div>
+<p class="Pp">rmdir(1), unlink(2), rmdir(2)</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
+<p class="Pp">It is forbidden to remove the files `.' and `..' merely to avoid
+    the antisocial consequences of inadvertently doing something like `rm -r
+    .*'.</p>
+<p class="Pp">With <b>/usr/5bin/rm</b> and <b>/usr/5bin/s42/rm</b>, a single `-'
+    can be used to indicate the end of the options list, as with `rm - -file'.
+    If `--' is used to terminate the options list, though, a following `-' will
+    be interpreted as a file name, so `rm -- -' will remove the file `-'.</p>
+</section>
+</div>
 <table class="foot">
   <tr>
     <td class="foot-date">1/24/05</td>

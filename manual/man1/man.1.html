@@ -9,6 +9,7 @@
    -->
 <head>
   <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
   <title>MAN(1)</title>
 </head>
@@ -21,298 +22,259 @@
   </tr>
 </table>
 <div class="manual-text">
-<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
-man - find and display reference manual pages
-<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
-<div class="HP"><b>man</b> [<b>-</b>] [<b>-M</b><i>&#x00A0;path</i>] [
-  <b>-T</b><i>&#x00A0;macro-package</i>] [<b>-adlptw</b>] [
-  <b>-m</b><i>&#x00A0;system</i>] [ <b>-s</b><i>&#x00A0;section</i>] [[
-  <i>section</i>]&#x00A0; <i>title</i>&#x00A0;.&#x00A0;.&#x00A0;.]
-  <i>title</i>&#x00A0;.&#x00A0;.&#x00A0;.</div>
-<div class="Pp"></div>
-<b>man</b> [<b>-M</b><i>&#x00A0;path</i>]
-  <b>-k</b><i>&#x00A0;keyword</i>&#x00A0;.&#x00A0;.&#x00A0;.
-<div class="Pp"></div>
-<b>man</b> [<b>-M</b><i>&#x00A0;path</i>]
-  <b>-f</b><i>&#x00A0;file</i>&#x00A0;.&#x00A0;.&#x00A0;.
-<div>&#x00A0;</div>
-<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
-The <b>man</b> command shows information from the system reference manuals. For
-  each given <i>title</i>, the manual path is searched for the first matching
-  entry, which is formatted if appropriate. When printing to a terminal, or if
-  the <b>-</b> flag is given, the <b>man</b> command will invoke a pager to
-  display the documentation, else, <i>cat</i>(1) is used.
-<div class="Pp"></div>
-The <i>section</i> argument, if present, restricts the search to the given
-  section of the manual. <i>section</i> consists of a single digit, optionally
-  followed by a single letter, or one of <i>new</i>, <i>local</i>, <i>old</i>,
-  or <i>public</i>. Multiple <i>section</i> arguments may be present in the
-  argument list, each applies to the <i>titles</i> positioned behind.
-<div class="Pp"></div>
-The <b>man</b> command accepts the following options:
+<section class="Sh">
+<h1 class="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+<p class="Pp">man - find and display reference manual pages</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<p class="Pp HP"><b>man</b> [<b>-</b>] [<b>-M</b><i>&#x00A0;path</i>]
+    [<b>-T</b><i>&#x00A0;macro-package</i>] [<b>-adlptw</b>]
+    [<b>-m</b><i>&#x00A0;system</i>] [<b>-s</b><i>&#x00A0;section</i>]
+    [[<i>section</i>]&#x00A0;<i>title</i>&#x00A0;.&#x00A0;.&#x00A0;.]
+    <i>title</i>&#x00A0;.&#x00A0;.&#x00A0;.</p>
+<p class="Pp"><b>man</b> [<b>-M</b><i>&#x00A0;path</i>]
+    <b>-k</b><i>&#x00A0;keyword</i>&#x00A0;.&#x00A0;.&#x00A0;.</p>
+<p class="Pp"><b>man</b> [<b>-M</b><i>&#x00A0;path</i>]
+    <b>-f</b><i>&#x00A0;file</i>&#x00A0;.&#x00A0;.&#x00A0;.
+  <br/>
+</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<p class="Pp">The <b>man</b> command shows information from the system reference
+    manuals. For each given <i>title</i>, the manual path is searched for the
+    first matching entry, which is formatted if appropriate. When printing to a
+    terminal, or if the <b>-</b> flag is given, the <b>man</b> command will
+    invoke a pager to display the documentation, else, <i>cat</i>(1) is
+  used.</p>
+<p class="Pp">The <i>section</i> argument, if present, restricts the search to
+    the given section of the manual. <i>section</i> consists of a single digit,
+    optionally followed by a single letter, or one of <i>new</i>, <i>local</i>,
+    <i>old</i>, or <i>public</i>. Multiple <i>section</i> arguments may be
+    present in the argument list, each applies to the <i>titles</i> positioned
+    behind.</p>
+<p class="Pp">The <b>man</b> command accepts the following options:</p>
 <dl class="Bl-tag">
-  <dt><b>-f</b><i>&#x00A0;file</i></dt>
+  <dt id="f"><a class="permalink" href="#f"><b>-f</b><i>&#x00A0;file</i></a></dt>
   <dd>Searches for manual entries related to the given <i>files</i> and print
       one-line summaries of them. Only the basename component of each
       <i>file</i> is used. A <b>windex</b> database as created by the
       <i>catman</i>(8) command must exist for this operation.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-k</b><i>&#x00A0;keyword</i></dt>
+  <dt id="k"><a class="permalink" href="#k"><b>-k</b><i>&#x00A0;keyword</i></a></dt>
   <dd>Prints one-line summaries matching any of the given <i>keywords</i>. This
       also needs a <b>windex</b> database.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-M</b><i>&#x00A0;path</i></dt>
+  <dt id="M"><a class="permalink" href="#M"><b>-M</b><i>&#x00A0;path</i></a></dt>
   <dd>Uses the given <i>path</i> as the manual search path, overriding both the
       configuration file and the environment. The format of this path is
       described below.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-t</b></dt>
+  <dt id="t"><a class="permalink" href="#t"><b>-t</b></a></dt>
   <dd>If an entry is in <i>troff</i>(1) source format, it is preformatted for a
       typesetter instead of a terminal.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-T</b><i>&#x00A0;macset</i></dt>
+  <dt id="T"><a class="permalink" href="#T"><b>-T</b><i>&#x00A0;macset</i></a></dt>
   <dd>Use the specified <i>troff</i>(1) macro package instead of the standard
       <i>-man</i> set.</dd>
 </dl>
-<div class="Pp"></div>
-The following options are accepted as extensions:
+<p class="Pp">The following options are accepted as extensions:</p>
 <dl class="Bl-tag">
-  <dt><b>-a</b></dt>
+  <dt id="a"><a class="permalink" href="#a"><b>-a</b></a></dt>
   <dd>Finds and displays all entries for each given <i>title</i>, not just the
       first one.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-d</b></dt>
+  <dt id="d"><a class="permalink" href="#d"><b>-d</b></a></dt>
   <dd>Uses a file name relative to current directory as the location of the
       manual page instead of searching in the manual search path. The complete
       file name of a manual page source in troff format must be specified with
       this option instead of the page title.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-l</b></dt>
+  <dt id="l"><a class="permalink" href="#l"><b>-l</b></a></dt>
   <dd>Lists the titles of all matching entries instead of manual page
     contents.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-m&#x00A0;</b><i>system</i></dt>
+  <dt id="m"><a class="permalink" href="#m"><b>-m&#x00A0;</b><i>system</i></a></dt>
   <dd>For each entry in the manual search path, a directory named <i>system</i>
       below it is searched for manual pages. Thus to make the manual pages of
       other systems accessible, they can be put into separate subdirectories
       within the system default manual directory.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-p</b></dt>
+  <dt id="p"><a class="permalink" href="#p"><b>-p</b></a></dt>
   <dd>Prints debugging messages instead of the formatted manual page.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-s</b><i>&#x00A0;section</i></dt>
+  <dt id="s"><a class="permalink" href="#s"><b>-s</b><i>&#x00A0;section</i></a></dt>
   <dd>Provides an alternate method to restrict the search to specific sections
       of the manual. This is useful if the section name would otherwise be
       interpreted as a page name. Multiple section names may be specified,
       separated by commas; the order in which matches are displayed is not
       necessarily the one given at this point.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-w</b></dt>
+  <dt id="w"><a class="permalink" href="#w"><b>-w</b></a></dt>
   <dd>Prints the full path name of the respective manual page(s) instead of
       their contents.</dd>
 </dl>
-<h2 class="Ss" title="Ss" id="Manual_Structure"><a class="permalink" href="#Manual_Structure">Manual
+<section class="Ss">
+<h2 class="Ss" id="Manual_Structure"><a class="permalink" href="#Manual_Structure">Manual
   Structure</a></h2>
-The manual is divided into eight sections:
+<p class="Pp">The manual is divided into eight sections:</p>
 <div class="Bd-indent">
-<div class="Pp"></div>
-1.	User commands
-<div>&#x00A0;</div>
-2.	System calls
-<div>&#x00A0;</div>
-3.	Subroutines
-<div>&#x00A0;</div>
-4.	Special files
-<div>&#x00A0;</div>
-5.	File formats and conventions
-<div>&#x00A0;</div>
-6.	Games
-<div>&#x00A0;</div>
-7.	Macro packages and language conventions
-<div>&#x00A0;</div>
-8.	Maintenance commands
-<div class="Pp"></div>
+<p class="Pp">1.	User commands
+  <br/>
+  2.	System calls
+  <br/>
+  3.	Subroutines
+  <br/>
+  4.	Special files
+  <br/>
+  5.	File formats and conventions
+  <br/>
+  6.	Games
+  <br/>
+  7.	Macro packages and language conventions
+  <br/>
+  8.	Maintenance commands</p>
+<p class="Pp"></p>
 </div>
 Commands are programs intended to be invoked directly by the user, in
   contradistinction to subroutines, which are intended to be called by the
   user's programs. Commands generally reside in a directory <i>.../bin</i> (for
   <i>bin</i>ary programs). These directories are usually searched automatically
   by the command interpreter, see <i>sh</i>(1).
-<div class="Pp"></div>
-System calls are entries into the kernel. Every system call has one or more C
-  language interfaces described in section 2.
-<div class="Pp"></div>
-An assortment of subroutines is available; they are described in section 3. The
-  primary libraries in which they are kept are described in <i>intro</i>(3). The
-  functions are described in terms of C, but most will work with Fortran as
-  well.
-<div class="Pp"></div>
-The special files section 4 discusses the characteristics of each system `file'
-  that actually refers to an I/O device. The names in this section may refer to
-  the manufacturer device names for the hardware, instead of the names of the
-  special files themselves.
-<div class="Pp"></div>
-The file formats and conventions section 5 documents the structure of particular
-  kinds of files; for example, the form of the output of the loader and
-  assembler is given. Excluded are files used by only one command, for example
-  the assembler's intermediate files.
-<div class="Pp"></div>
-Games have been relegated to section 6 to keep them from contaminating the more
-  staid information of section 1.
-<div class="Pp"></div>
-Section 7 is a miscellaneous collection of information necessary to writing in
-  various specialized languages: character codes, macro packages for
-  typesetting, etc.
-<div class="Pp"></div>
-The maintenance section 8 discusses procedures not intended for use by the
-  ordinary user. These procedures often involve use of commands of section 1,
-  where an attempt has been made to single out peculiarly maintenance-flavored
-  commands by marking them 1M.
-<div class="Pp"></div>
-Each section consists of a number of independent entries of a page or so each.
-  The name of the entry is in the upper corners of its pages, together with the
-  section number, and sometimes a letter characteristic of a subcategory, e.g.
-  graphics is 1G, and the math library is 3M.
-<div class="Pp"></div>
-All entries are based on a common format, not all of whose subsections will
-  always appear.
+<p class="Pp">System calls are entries into the kernel. Every system call has
+    one or more C language interfaces described in section 2.</p>
+<p class="Pp">An assortment of subroutines is available; they are described in
+    section 3. The primary libraries in which they are kept are described in
+    <i>intro</i>(3). The functions are described in terms of C, but most will
+    work with Fortran as well.</p>
+<p class="Pp">The special files section 4 discusses the characteristics of each
+    system `file' that actually refers to an I/O device. The names in this
+    section may refer to the manufacturer device names for the hardware, instead
+    of the names of the special files themselves.</p>
+<p class="Pp">The file formats and conventions section 5 documents the structure
+    of particular kinds of files; for example, the form of the output of the
+    loader and assembler is given. Excluded are files used by only one command,
+    for example the assembler's intermediate files.</p>
+<p class="Pp">Games have been relegated to section 6 to keep them from
+    contaminating the more staid information of section 1.</p>
+<p class="Pp">Section 7 is a miscellaneous collection of information necessary
+    to writing in various specialized languages: character codes, macro packages
+    for typesetting, etc.</p>
+<p class="Pp">The maintenance section 8 discusses procedures not intended for
+    use by the ordinary user. These procedures often involve use of commands of
+    section 1, where an attempt has been made to single out peculiarly
+    maintenance-flavored commands by marking them 1M.</p>
+<p class="Pp">Each section consists of a number of independent entries of a page
+    or so each. The name of the entry is in the upper corners of its pages,
+    together with the section number, and sometimes a letter characteristic of a
+    subcategory, e.g. graphics is 1G, and the math library is 3M.</p>
+<p class="Pp">All entries are based on a common format, not all of whose
+    subsections will always appear.</p>
 <div class="Bd-indent">
-<div class="Pp"></div>
-The <i>name</i> subsection lists the exact names of the commands and subroutines
-  covered under the entry and gives a very short description of their purpose.
-<div class="Pp"></div>
-The <i>synopsis</i> summarizes the use of the program being described. A few
-  conventions are used, particularly in the Commands subsection:
-<div class="Pp"></div>
+<p class="Pp">The <i>name</i> subsection lists the exact names of the commands
+    and subroutines covered under the entry and gives a very short description
+    of their purpose.</p>
+<p class="Pp">The <i>synopsis</i> summarizes the use of the program being
+    described. A few conventions are used, particularly in the Commands
+    subsection:</p>
+<p class="Pp"></p>
 <div class="Bd-indent"><b>Boldface</b> words are considered literals, and are
   typed just as they appear.
-<div class="Pp"></div>
-Square brackets [ ] around an argument indicate that the argument is optional.
-  When an argument is given as `name', it always refers to a file name.
-<div class="Pp"></div>
-Ellipses `...' are used to show that the previous argument-prototype may be
-  repeated.
-<div class="Pp"></div>
-A final convention is used by the commands themselves. An argument beginning
-  with a minus sign `-' is often taken to mean some sort of option-specifying
-  argument even if it appears in a position where a file name could appear.
-  Therefore, it is unwise to have files whose names begin with `-'.</div>
-<div class="Pp"></div>
-The <i>description</i> subsection discusses in detail the subject at hand.
-<div class="Pp"></div>
-The <i>files</i> subsection gives the names of files which are built into the
-  program.
-<div class="Pp"></div>
-A <i>see also</i> subsection gives pointers to related information.
-<div class="Pp"></div>
-A <i>diagnostics</i> subsection discusses the diagnostic indications which may
-  be produced. Messages which are intended to be self-explanatory are not
-  listed.
-<div class="Pp"></div>
-The <i>bugs</i> or <i>notes</i> subsection gives remarks, known bugs and
-  sometimes deficiencies. Occasionally also the suggested fix is
-  described.</div>
-<h2 class="Ss" title="Ss" id="Configuration"><a class="permalink" href="#Configuration">Configuration</a></h2>
-The <b>man</b> command reads the configuration file <b>/etc/default/man</b> on
-  startup. Lines containing the following strings are interpreted:
+<p class="Pp">Square brackets [ ] around an argument indicate that the argument
+    is optional. When an argument is given as `name', it always refers to a file
+    name.</p>
+<p class="Pp">Ellipses `...' are used to show that the previous
+    argument-prototype may be repeated.</p>
+<p class="Pp">A final convention is used by the commands themselves. An argument
+    beginning with a minus sign `-' is often taken to mean some sort of
+    option-specifying argument even if it appears in a position where a file
+    name could appear. Therefore, it is unwise to have files whose names begin
+    with `-'.</p>
+</div>
+<p class="Pp">The <i>description</i> subsection discusses in detail the subject
+    at hand.</p>
+<p class="Pp">The <i>files</i> subsection gives the names of files which are
+    built into the program.</p>
+<p class="Pp">A <i>see also</i> subsection gives pointers to related
+    information.</p>
+<p class="Pp">A <i>diagnostics</i> subsection discusses the diagnostic
+    indications which may be produced. Messages which are intended to be
+    self-explanatory are not listed.</p>
+<p class="Pp">The <i>bugs</i> or <i>notes</i> subsection gives remarks, known
+    bugs and sometimes deficiencies. Occasionally also the suggested fix is
+    described.</p>
+</div>
+</section>
+<section class="Ss">
+<h2 class="Ss" id="Configuration"><a class="permalink" href="#Configuration">Configuration</a></h2>
+<p class="Pp">The <b>man</b> command reads the configuration file
+    <b>/etc/default/man</b> on startup. Lines containing the following strings
+    are interpreted:</p>
 <dl class="Bl-tag">
-  <dt><b>MANPATH=</b><i>path</i></dt>
+  <dt id="MANPATH="><a class="permalink" href="#MANPATH="><b>MANPATH=</b><i>path</i></a></dt>
   <dd>Sets the manual search path, formatted as a colon-separated list of
       directories. The default is
     <i>/usr/local/share/man:/usr/share/man</i>.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>TROFF=</b><i>command</i></dt>
+  <dt id="TROFF="><a class="permalink" href="#TROFF="><b>TROFF=</b><i>command</i></a></dt>
   <dd>This command is invoked if the <b>-t</b> option is given, usually
       <i>troff</i>.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>NROFF=</b><i>command</i></dt>
+  <dt id="NROFF="><a class="permalink" href="#NROFF="><b>NROFF=</b><i>command</i></a></dt>
   <dd>Sets the command used to preformat manual pages for a terminal, defaults
       to <i>nroff -Tlp</i>.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>EQN=</b><i>command</i></dt>
+  <dt id="EQN="><a class="permalink" href="#EQN="><b>EQN=</b><i>command</i></a></dt>
   <dd>The eqn command for formatting mathematics on a typesetter, normally
       <i>eqn</i>.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>NEQN=</b><i>command</i></dt>
+  <dt id="NEQN="><a class="permalink" href="#NEQN="><b>NEQN=</b><i>command</i></a></dt>
   <dd>The neqn command for formatting mathematics on a terminal, normally
       <i>neqn</i>.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>TBL=</b><i>command</i></dt>
+  <dt id="TBL="><a class="permalink" href="#TBL="><b>TBL=</b><i>command</i></a></dt>
   <dd>The tbl command for formatting tables, usually <i>tbl</i>.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>REFER=</b><i>command</i></dt>
+  <dt id="REFER="><a class="permalink" href="#REFER="><b>REFER=</b><i>command</i></a></dt>
   <dd>The refer command for formatting bibliographic references, usually
       <i>refer</i>.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>VGRIND=</b><i>command</i></dt>
+  <dt id="VGRIND="><a class="permalink" href="#VGRIND="><b>VGRIND=</b><i>command</i></a></dt>
   <dd>The vgrind command for formatting program listings, normally
       <i>vgrind</i>.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>MACSET=</b><i>macro-package</i></dt>
+  <dt id="MACSET="><a class="permalink" href="#MACSET="><b>MACSET=</b><i>macro-package</i></a></dt>
   <dd>The <i>troff</i>(1) macro set to be used, normally <i>-man</i>.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>COL=</b><i>command</i></dt>
+  <dt id="COL="><a class="permalink" href="#COL="><b>COL=</b><i>command</i></a></dt>
   <dd>The command used to filter <i>nroff</i>(1) output, normally <i>col</i>(1)
       with the option <i>-x</i>.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>PAGER=</b><i>command</i></dt>
+  <dt id="PAGER="><a class="permalink" href="#PAGER="><b>PAGER=</b><i>command</i></a></dt>
   <dd>The pager command that is used to display pages on a terminal instead of
       <i>pg</i>.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>TCAT=</b><i>command</i></dt>
+  <dt id="TCAT="><a class="permalink" href="#TCAT="><b>TCAT=</b><i>command</i></a></dt>
   <dd>Used to display pages if the <b>-t</b> option is present, defaults to
       <i>cat</i>.</dd>
 </dl>
-<div class="Pp"></div>
-In addition, each directory within the manual search path may contain a file
-  named <b>man.cf</b> with the following content:
+<p class="Pp">In addition, each directory within the manual search path may
+    contain a file named <b>man.cf</b> with the following content:</p>
 <dl class="Bl-tag">
-  <dt><b>MANSECTS=</b><i>sections</i></dt>
+  <dt id="MANSECTS="><a class="permalink" href="#MANSECTS="><b>MANSECTS=</b><i>sections</i></a></dt>
   <dd>Section search order for this directory. Multiple section names may be
       specified, separated by commas.</dd>
 </dl>
-<div class="Pp"></div>
-If no <b>man.cf</b> file is present, sections are searched in lexicographical
-  order.
-<h1 class="Sh" title="Sh" id="ENVIRONMENT_VARIABLES"><a class="permalink" href="#ENVIRONMENT_VARIABLES">ENVIRONMENT
+<p class="Pp">If no <b>man.cf</b> file is present, sections are searched in
+    lexicographical order.</p>
+</section>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="ENVIRONMENT_VARIABLES"><a class="permalink" href="#ENVIRONMENT_VARIABLES">ENVIRONMENT
   VARIABLES</a></h1>
-If any of the strings described in the global configuration file format above is
-  present within the environment, the latter setting is used.
+<p class="Pp">If any of the strings described in the global configuration file
+    format above is present within the environment, the latter setting is
+  used.</p>
 <dl class="Bl-tag">
-  <dt><b>MANPATH</b></dt>
+  <dt id="MANPATH"><a class="permalink" href="#MANPATH"><b>MANPATH</b></a></dt>
   <dd>If the value of this variable contains the string ``::'', the manual path
       specified in the configuration file is inserted at this point.</dd>
 </dl>
-<h1 class="Sh" title="Sh" id="FILES"><a class="permalink" href="#FILES">FILES</a></h1>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="FILES"><a class="permalink" href="#FILES">FILES</a></h1>
 <dl class="Bl-tag">
   <dt><b>/etc/default/man</b></dt>
   <dd>Configuration file.</dd>
 </dl>
-<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
   ALSO</a></h1>
-apropos(1), cat(1), col(1), eqn(1), nroff(1), pg(1), refer(1), tbl(1), troff(1),
-  vgrind(1), whatis(1), man(7), catman(8)</div>
+<p class="Pp">apropos(1), cat(1), col(1), eqn(1), nroff(1), pg(1), refer(1),
+    tbl(1), troff(1), vgrind(1), whatis(1), man(7), catman(8)</p>
+</section>
+</div>
 <table class="foot">
   <tr>
     <td class="foot-date">2/5/05</td>

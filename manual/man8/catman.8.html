@@ -5,6 +5,7 @@
  -->
 <head>
   <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
   <title>CATMAN(8)</title>
 </head>
@@ -17,46 +18,48 @@
   </tr>
 </table>
 <div class="manual-text">
-<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
-catman - create the formatted files for the reference manual
-<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
-<b>catman</b> [<b>-M</b><i>&#x00A0;path</i>]
-  [<b>-T</b><i>&#x00A0;macro-package</i>] [ <b>-pnw</b>] [<i>sections</i>]
-<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
-The <b>catman</b> command generates plain text versions of <i>nroff</i>(1)
-  manual pages and a <b>windex</b> database for the <i>apropos</i>(1) and
-  <i>whatis</i>(1) commands.
-<div class="Pp"></div>
-The <b>catman</b> command accepts the following options:
+<section class="Sh">
+<h1 class="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+<p class="Pp">catman - create the formatted files for the reference manual</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<p class="Pp"><b>catman</b> [<b>-M</b><i>&#x00A0;path</i>]
+    [<b>-T</b><i>&#x00A0;macro-package</i>] [<b>-pnw</b>] [<i>sections</i>]</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<p class="Pp">The <b>catman</b> command generates plain text versions of
+    <i>nroff</i>(1) manual pages and a <b>windex</b> database for the
+    <i>apropos</i>(1) and <i>whatis</i>(1) commands.</p>
+<p class="Pp">The <b>catman</b> command accepts the following options:</p>
 <dl class="Bl-tag">
-  <dt><b>-p</b></dt>
+  <dt id="p"><a class="permalink" href="#p"><b>-p</b></a></dt>
   <dd>Prints the steps to be done instead of actually executing them.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-n</b></dt>
+  <dt id="n"><a class="permalink" href="#n"><b>-n</b></a></dt>
   <dd>Inhibits the creation of <b>windex</b> databases.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-w</b></dt>
+  <dt id="w"><a class="permalink" href="#w"><b>-w</b></a></dt>
   <dd>Only the <b>windex</b> database is created, no preformatting is done.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-M</b><i>&#x00A0;path</i></dt>
+  <dt id="M"><a class="permalink" href="#M"><b>-M</b><i>&#x00A0;path</i></a></dt>
   <dd>Specifies a colon-separated list of manual directories. Usually, this is
       determined by the same method used in <i>man</i>(1).</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-T</b><i>&#x00A0;macro-package</i></dt>
+  <dt id="T"><a class="permalink" href="#T"><b>-T</b><i>&#x00A0;macro-package</i></a></dt>
   <dd>Specifies the nroff macro package to be used instead of the default.</dd>
 </dl>
-<h1 class="Sh" title="Sh" id="FILES"><a class="permalink" href="#FILES">FILES</a></h1>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="FILES"><a class="permalink" href="#FILES">FILES</a></h1>
 <dl class="Bl-tag">
   <dt><b>/etc/default/man</b></dt>
   <dd>Configuration, as described in <i>man</i>(1).</dd>
 </dl>
-<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
   ALSO</a></h1>
-apropos(1), nroff(1), man(1), whatis(1), man(7)</div>
+<p class="Pp">apropos(1), nroff(1), man(1), whatis(1), man(7)</p>
+</section>
+</div>
 <table class="foot">
   <tr>
     <td class="foot-date">1/11/03</td>

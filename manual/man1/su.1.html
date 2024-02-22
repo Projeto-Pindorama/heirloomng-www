@@ -9,6 +9,7 @@
  -->
 <head>
   <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
   <title>SU(1)</title>
 </head>
@@ -21,76 +22,74 @@
   </tr>
 </table>
 <div class="manual-text">
-<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
-su - become super-user or another user
-<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
-<b>su</b> [<b>-</b>] [<i>username</i> [<i>arg ...</i>]]
-<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
-The <b>su</b> command allows one user to get the credentials of another without
-  logging on and off. The default <i>username</i> is <b>root</b> (that is, the
-  <i>super-user</i>).
-<div class="Pp"></div>
-Unless the caller is the super-user, the user's password must be entered (the
-  exact authentication mechanism may depend on <small>PAM</small> settings for
-  <b>su</b>, see <i>pam</i>(8)). If access is granted, the <b>su</b> command
-  will execute the user's shell from the system's password file with the
-  appropriate user id, group id and supplementary group ids. Any additional
-  arguments will be passed to this shell.
-<div class="Pp"></div>
-If the first argument is <b>-</b>, a login shell is executed in the user's home
-  directory using default environment variables; only the settings of the
-  <small>DISPLAY</small> and <small>TERM</small> variables are retained. In any
-  case, the <small>PATH</small> environment variable is adjusted.
-<div class="Pp"></div>
-The <b>su</b> command reads the configuration file <b>/etc/default/su</b> on
-  startup. Lines containing the following strings are interpreted:
+<section class="Sh">
+<h1 class="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+<p class="Pp">su - become super-user or another user</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<p class="Pp"><b>su</b> [<b>-</b>] [<i>username</i> [<i>arg ...</i>]]</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<p class="Pp">The <b>su</b> command allows one user to get the credentials of
+    another without logging on and off. The default <i>username</i> is
+    <b>root</b> (that is, the <i>super-user</i>).</p>
+<p class="Pp">Unless the caller is the super-user, the user's password must be
+    entered (the exact authentication mechanism may depend on <small>PAM</small>
+    settings for <b>su</b>, see <i>pam</i>(8)). If access is granted, the
+    <b>su</b> command will execute the user's shell from the system's password
+    file with the appropriate user id, group id and supplementary group ids. Any
+    additional arguments will be passed to this shell.</p>
+<p class="Pp">If the first argument is <b>-</b>, a login shell is executed in
+    the user's home directory using default environment variables; only the
+    settings of the <small>DISPLAY</small> and <small>TERM</small> variables are
+    retained. In any case, the <small>PATH</small> environment variable is
+    adjusted.</p>
+<p class="Pp">The <b>su</b> command reads the configuration file
+    <b>/etc/default/su</b> on startup. Lines containing the following strings
+    are interpreted:</p>
 <dl class="Bl-tag">
-  <dt><b>CONSOLE=</b><i>filename</i></dt>
+  <dt id="CONSOLE="><a class="permalink" href="#CONSOLE="><b>CONSOLE=</b><i>filename</i></a></dt>
   <dd>All attempts are logged to the specified file, usually
       <b>/dev/console</b>. If no such line is present, console logging is not
       done.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>PATH=</b><i>path</i></dt>
+  <dt id="PATH="><a class="permalink" href="#PATH="><b>PATH=</b><i>path</i></a></dt>
   <dd>The default path for non-super-user accounts. If unset,
       <i>/usr/local/bin:/bin:/usr/bin:</i> is assumed.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>SLEEPTIME=</b><i>seconds</i></dt>
+  <dt id="SLEEPTIME="><a class="permalink" href="#SLEEPTIME="><b>SLEEPTIME=</b><i>seconds</i></a></dt>
   <dd>If authentication fails, <b>su</b> will wait the specified number of
       seconds before printing an error message and exiting. Default is 4,
       minimum is 0, maximum is 5 seconds.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>SULOG=</b><i>filename</i></dt>
+  <dt id="SULOG="><a class="permalink" href="#SULOG="><b>SULOG=</b><i>filename</i></a></dt>
   <dd>All attempts are logged to the specified file, if present.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>SUPATH=</b><i>path</i></dt>
+  <dt id="SUPATH="><a class="permalink" href="#SUPATH="><b>SUPATH=</b><i>path</i></a></dt>
   <dd>The default path for super-user accounts. If unset,
       <i>/usr/local/sbin:/usr/local/bin:/sbin:/usr/sbin:/bin:/usr/bin</i> is
       assumed.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>SYSLOG=</b><i>value</i></dt>
+  <dt id="SYSLOG="><a class="permalink" href="#SYSLOG="><b>SYSLOG=</b><i>value</i></a></dt>
   <dd>Log attempts to the <i>syslog</i>(3) <i>LOG_AUTH</i> facility. If <i>value
       is</i> <i>YES</i>, all attempts are logged; if <i>FAIL</i>, only the ones
       that failed. <i>LOG_CRIT</i> messages are generated for failed <b>su</b>
       attempts, <i>LOG_NOTICE</i> messages for successful attempts to become
       super-user, and <i>LOG_INFO</i> messages otherwise.</dd>
 </dl>
-<h1 class="Sh" title="Sh" id="FILES"><a class="permalink" href="#FILES">FILES</a></h1>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="FILES"><a class="permalink" href="#FILES">FILES</a></h1>
 <dl class="Bl-tag">
   <dt><b>/etc/default/su</b></dt>
   <dd>Configuration file.</dd>
-</dl>
-<dl class="Bl-tag">
   <dt><b>/etc/passwd</b></dt>
   <dd>User database.</dd>
 </dl>
-<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
   ALSO</a></h1>
-env(1), login(1), sh(1), syslog(3), passwd(5), pam(8)</div>
+<p class="Pp">env(1), login(1), sh(1), syslog(3), passwd(5), pam(8)</p>
+</section>
+</div>
 <table class="foot">
   <tr>
     <td class="foot-date">4/17/03</td>

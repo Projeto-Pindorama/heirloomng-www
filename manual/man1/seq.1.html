@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<!-- This is an automatically generated file.  Do not edit.
+   Copyright (c) 2023 Luiz Ant\[u00F4]nio Rangel
+  
+   SPDX-Licence-Identifier: Zlib
+   -->
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
+  <title>SEQ(1)</title>
+</head>
+<body>
+<table class="head">
+  <tr>
+    <td class="head-ltitle">SEQ(1)</td>
+    <td class="head-vol">User Commands</td>
+    <td class="head-rtitle">SEQ(1)</td>
+  </tr>
+</table>
+<div class="manual-text">
+<section class="Sh">
+<h1 class="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+<p class="Pp">seq - print a sequence of numbers</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<p class="Pp"><b>seq</b> [<b>-s separator</b>] [<b>start</b> [<b>step</b>]]
+  stop</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<p class="Pp">The <b>seq</b> utility prints a sequence of numbers, one per line
+    or separated per a character defined by the user, from the <b>start</b>
+    (which is defaulted to 1) as near as possible to <b>stop</b>, in steps of
+    <b>step</b>.
+  <br/>
+  It works in a similar spirit than a <b>for()</b> loop, present in the C, Go
+    and <b>ksh93(1)</b> programming languages, and also <b>range()</b> in
+    Python.</p>
+<p class="Pp">It accepts the following options:</p>
+<dl class="Bl-tag">
+  <dt id="s"><a class="permalink" href="#s"><b>-s</b></a></dt>
+  <dd>Defines a character to be the separator between the numbers being printed.
+      The default is a line break (&quot;\n&quot;).</dd>
+</dl>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="EXAMPLES"><a class="permalink" href="#EXAMPLES">EXAMPLES</a></h1>
+<p class="Pp">The <b>seq</b> utility may be used as one of the ways to calculate
+    a termial (<i>n</i>) in a quick way using in a pipeline.</p>
+<dl class="Bl-tag">
+  <dt></dt>
+  <dd><b>example% seq -s'+' 4 | bc</b></dd>
+</dl>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
+<p class="Pp">No, it does not support floating points, altough it's fairly
+    faster than the most common GNU implementation when counting small (less
+    than 10^4) numbers. This was tested on a AMD Ryzen 5 3500U.
+  <br/>
+</p>
+<p class="Pp">If you need to count from a negative number to a positive one, you
+    will need to do this maneuver below, at least for now:</p>
+<dl class="Bl-tag">
+  <dt></dt>
+  <dd><b>example% seq -s' ' -- -5 10</b></dd>
+</dl>
+<p class="Pp">It does not implement the -w option neither -f found in Plan 9
+    from Bell Labs' implementation.</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="BUGS"><a class="permalink" href="#BUGS">BUGS</a></h1>
+<p class="Pp">Maybe?</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="HISTORY"><a class="permalink" href="#HISTORY">HISTORY</a></h1>
+<p class="Pp">A <b>seq</b> command first appeared in AT&amp;T Research Unix 8th
+    edition.
+  <br/>
+  This version has its payloads based off Plan 9 from Bell Labs, 1th Ed. and GNU
+    shell utilities 1.13 implementation, but only part of the standard was
+    implemented.</p>
+</section>
+</div>
+<table class="foot">
+  <tr>
+    <td class="foot-date">06/03/23</td>
+    <td class="foot-os">Heirloom Toolchest</td>
+  </tr>
+</table>
+</body>
+</html>

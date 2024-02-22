@@ -5,6 +5,7 @@
  -->
 <head>
   <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
   <title>TAPE(1)</title>
 </head>
@@ -17,79 +18,59 @@
   </tr>
 </table>
 <div class="manual-text">
-<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
-tape - magnetic tape maintenance
-<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
-<b>tape</b> [<b>-</b><i>tape</i>] [<b>-a</b><i> arg</i>] <i>command</i>
-  [<i>device</i>]
-<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
-The <i>tape</i> command performs control operations on tape devices. If no
-  <i>device</i> is given on the command line, the file /etc/default/tape is
-  scanned for a line beginning with `device='; the remainder of the lines
-  specifies the default device.
-<div class="Pp"></div>
-The <i>command</i> argument may be one of:
+<section class="Sh">
+<h1 class="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+<p class="Pp">tape - magnetic tape maintenance</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<p class="Pp"><b>tape</b> [<b>-</b><i>tape</i>] [<b>-a</b><i> arg</i>]
+    <i>command</i> [<i>device</i>]</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<p class="Pp">The <i>tape</i> command performs control operations on tape
+    devices. If no <i>device</i> is given on the command line, the file
+    /etc/default/tape is scanned for a line beginning with `device='; the
+    remainder of the lines specifies the default device.</p>
+<p class="Pp">The <i>command</i> argument may be one of:</p>
 <dl class="Bl-tag">
-  <dt><b>status</b></dt>
+  <dt id="status"><a class="permalink" href="#status"><b>status</b></a></dt>
   <dd>Print status information about the drive.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>reten</b></dt>
+  <dt id="reten"><a class="permalink" href="#reten"><b>reten</b></a></dt>
   <dd>Retension the tape.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>erase</b></dt>
+  <dt id="erase"><a class="permalink" href="#erase"><b>erase</b></a></dt>
   <dd>Erase the tape.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>reset</b></dt>
+  <dt id="reset"><a class="permalink" href="#reset"><b>reset</b></a></dt>
   <dd>Reset tape drive.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>rewind</b></dt>
+  <dt id="rewind"><a class="permalink" href="#rewind"><b>rewind</b></a></dt>
   <dd>Rewind tape.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>rfm</b></dt>
+  <dt id="rfm"><a class="permalink" href="#rfm"><b>rfm</b></a></dt>
   <dd>Skip to the next file.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>eod</b></dt>
+  <dt id="eod"><a class="permalink" href="#eod"><b>eod</b></a></dt>
   <dd>Seek to the end of written data.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>wfm</b></dt>
+  <dt id="wfm"><a class="permalink" href="#wfm"><b>wfm</b></a></dt>
   <dd>Write a filemark at the current position.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>load</b></dt>
+  <dt id="load"><a class="permalink" href="#load"><b>load</b></a></dt>
   <dd>Load the tape device.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>unload</b></dt>
+  <dt id="unload"><a class="permalink" href="#unload"><b>unload</b></a></dt>
   <dd>Unload the tape device.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>setblk</b></dt>
+  <dt id="setblk"><a class="permalink" href="#setblk"><b>setblk</b></a></dt>
   <dd>Set the block size (in bytes) for the tape device.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>setcomp</b></dt>
+  <dt id="setcomp"><a class="permalink" href="#setcomp"><b>setcomp</b></a></dt>
   <dd>Set tape compression. A value of 0 means no compression, all other values
       mean compression</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>setdensity</b></dt>
+  <dt id="setdensity"><a class="permalink" href="#setdensity"><b>setdensity</b></a></dt>
   <dd>Set tape density (in hexadecimal). Some density codes are: 0 = default
       (autodetect); 4 = QIC-11; 5 = QIC-24; F = QIC-120, 10 = QIC-150; 11 =
       QIC-320; 14 = EXB-8200; 15 = EXB-8500; 15 = QIC-1000; 22 = QIC-2GB; 8C =
       EXB-8500c; 90 = EXB-8200c.</dd>
 </dl>
-<div class="Pp"></div>
-The <b>-a</b> option gives a count for the <i>rfm</i>, <i>wfm</i>,
-  <i>setblk</i>, <i>setcomp</i>, and <i>setdensity</i> commands.
-<div class="Pp"></div>
-The [ <b>-</b><i>tape</i>] option is currently ignored.</div>
+<p class="Pp">The <b>-a</b> option gives a count for the <i>rfm</i>, <i>wfm</i>,
+    <i>setblk</i>, <i>setcomp</i>, and <i>setdensity</i> commands.</p>
+<p class="Pp">The [<b>-</b><i>tape</i>] option is currently ignored.</p>
+</section>
+</div>
 <table class="foot">
   <tr>
     <td class="foot-date">2/29/04</td>

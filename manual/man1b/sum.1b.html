@@ -9,6 +9,7 @@
    -->
 <head>
   <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
   <title>SUM(1B)</title>
 </head>
@@ -21,26 +22,40 @@
   </tr>
 </table>
 <div class="manual-text">
-<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
-sum - (BSD) sum and count blocks in a file
-<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
-<b>/usr/ucb/sum</b> [<i>file</i>]
-<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
-<i>Sum</i> calculates and prints a 16-bit checksum for the named file, and also
-  prints the number of kilobytes in the file. It is typically used to look for
-  bad spots, or to validate a file communicated over some transmission line.
-<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+<section class="Sh">
+<h1 class="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+<p class="Pp">sum - (BSD) sum and count blocks in a file</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<p class="Pp"><b>/usr/ucb/sum</b> [<i>file</i>]</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<p class="Pp"><i>Sum</i> calculates and prints a 16-bit checksum for the named
+    file, and also prints the number of kilobytes in the file. It is typically
+    used to look for bad spots, or to validate a file communicated over some
+    transmission line.</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
   ALSO</a></h1>
-cksum(1), wc(1)
-<h1 class="Sh" title="Sh" id="DIAGNOSTICS"><a class="permalink" href="#DIAGNOSTICS">DIAGNOSTICS</a></h1>
-`Read error' is indistinguishable from end of file on most devices; check the
-  block count.
-<h1 class="Sh" title="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
-The checksum is identical to that obtained with the <b>-r</b> option of
-  <b>/usr/5bin/sum</b>.
-<div class="Pp"></div>
-The algorithm may produce different results in different implementations. For
-  this reason, <i>cksum</i>(1) should be used in preference.</div>
+<p class="Pp">cksum(1), wc(1)</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DIAGNOSTICS"><a class="permalink" href="#DIAGNOSTICS">DIAGNOSTICS</a></h1>
+<p class="Pp">`Read error' is indistinguishable from end of file on most
+    devices; check the block count.</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
+<p class="Pp">The checksum is identical to that obtained with the <b>-r</b>
+    option of <b>/usr/5bin/sum</b>.</p>
+<p class="Pp">The algorithm may produce different results in different
+    implementations. For this reason, <i>cksum</i>(1) should be used in
+    preference.</p>
+</section>
+</div>
 <table class="foot">
   <tr>
     <td class="foot-date">10/11/03</td>

@@ -8,6 +8,7 @@
  -->
 <head>
   <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
   <title>DF(1B)</title>
 </head>
@@ -20,70 +21,72 @@
   </tr>
 </table>
 <div class="manual-text">
-<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
-df - (BSD) disk free
-<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
-<b>/usr/ucb/df</b> [<b>-aihkP</b>] [<b>-M</b><i> mtab</i>] [ <b>-t</b><i>
-  fstype</i> | <i>file</i> ...]
-<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
-Df prints file system statistics. A file system is selected by a file it
-  contains, or by its device file, as specified by the <i>file</i> argument. If
-  no <i>file</i> argument is given, statistics are printed for all mounted file
-  systems.
-<div class="Pp"></div>
-The <b>df</b> command accepts the following options:
+<section class="Sh">
+<h1 class="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+<p class="Pp">df - (BSD) disk free</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<p class="Pp"><b>/usr/ucb/df</b> [<b>-aihkP</b>] [<b>-M</b><i> mtab</i>]
+    [<b>-t</b><i> fstype</i> | <i>file</i> ...]</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<p class="Pp">Df prints file system statistics. A file system is selected by a
+    file it contains, or by its device file, as specified by the <i>file</i>
+    argument. If no <i>file</i> argument is given, statistics are printed for
+    all mounted file systems.</p>
+<p class="Pp">The <b>df</b> command accepts the following options:</p>
 <dl class="Bl-tag">
-  <dt><b>-a</b></dt>
+  <dt id="a"><a class="permalink" href="#a"><b>-a</b></a></dt>
   <dd>Print statistics for all mounted file systems. Normally, file systems with
       zero block count are omitted.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-i</b></dt>
+  <dt id="i"><a class="permalink" href="#i"><b>-i</b></a></dt>
   <dd>Print i-node statistics.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-t</b><i>&#x00A0;fstype</i></dt>
+  <dt id="t"><a class="permalink" href="#t"><b>-t</b><i>&#x00A0;fstype</i></a></dt>
   <dd>Restrict output to filesystems of type <i>fstype.</i></dd>
 </dl>
-<div class="Pp"></div>
-The following options have been introduced by POSIX.2:
+<p class="Pp">The following options have been introduced by POSIX.2:</p>
 <dl class="Bl-tag">
-  <dt><b>-P</b></dt>
+  <dt id="P"><a class="permalink" href="#P"><b>-P</b></a></dt>
   <dd>Select the portable <small>(POSIX)</small> output format. Changes the
       default size unit to a block consisting of 512 bytes.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-k</b></dt>
+  <dt id="k"><a class="permalink" href="#k"><b>-k</b></a></dt>
   <dd>If combined with the -P option, the size unit is changed from blocks to
       kbytes.</dd>
 </dl>
-<div class="Pp"></div>
-The following options are extensions:
+<p class="Pp">The following options are extensions:</p>
 <dl class="Bl-tag">
-  <dt><b>-h</b></dt>
+  <dt id="h"><a class="permalink" href="#h"><b>-h</b></a></dt>
   <dd>Prints the sizes in human-readable powers of 1024, i.e. `K' for kilobyte,
       `M' for megabyte, `G' for gigabyte, `T' for terabyte, `P' for petabyte,
       and `E' for exabyte.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-M</b><i>&#x00A0;mtab</i></dt>
+  <dt id="M"><a class="permalink" href="#M"><b>-M</b><i>&#x00A0;mtab</i></a></dt>
   <dd>Use the specified <i>mtab</i> file to get a list of mounted
     filesystems.</dd>
 </dl>
-<h1 class="Sh" title="Sh" id="FILES"><a class="permalink" href="#FILES">FILES</a></h1>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="FILES"><a class="permalink" href="#FILES">FILES</a></h1>
 <dl class="Bl-tag">
   <dt><b>/etc/mtab</b></dt>
   <dd>default mount table</dd>
 </dl>
-<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
   ALSO</a></h1>
-find(1), statvfs(2), mtab(5), mount(8)
-<h1 class="Sh" title="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
-This <i>df</i> implementation cannot handle unmounted file systems.
-<div class="Pp"></div>
-Some advanced file system designs allocate i-nodes dynamically. <i>Df</i> then
-  tries to estimate free and total counts of available files. This is currently
-  done for the <i>reiserfs</i> file system.</div>
+<p class="Pp">find(1), statvfs(2), mtab(5), mount(8)</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
+<p class="Pp">This <i>df</i> implementation cannot handle unmounted file
+    systems.</p>
+<p class="Pp">Some advanced file system designs allocate i-nodes dynamically.
+    <i>Df</i> then tries to estimate free and total counts of available files.
+    This is currently done for the <i>reiserfs</i> file system.</p>
+</section>
+</div>
 <table class="foot">
   <tr>
     <td class="foot-date">12/9/04</td>

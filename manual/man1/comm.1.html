@@ -8,6 +8,7 @@
    -->
 <head>
   <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
   <title>COMM(1)</title>
 </head>
@@ -20,37 +21,44 @@
   </tr>
 </table>
 <div class="manual-text">
-<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
-comm - select or reject lines common to two sorted files
-<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
-<b>comm</b> [<b>-123</b>] <i>file1 file2</i>
-<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
-<i>Comm</i> reads <i>file1</i> and <i>file2,</i> which should be ordered in the
-  current collating sequence, and produces a three column output: lines only in
-  <i>file1;</i> lines only in <i>file2;</i> and lines in both files. The
-  filename `-' means the standard input.
-<div class="Pp"></div>
-Flags 1, 2, or 3 suppress printing of the corresponding column. Thus <b>comm</b>
-  <b>-12</b> prints only the lines common to the two files; <b>comm</b>
-  <b>-23</b> prints only lines in the first file but not in the second;
-  <b>comm</b> <b>-123</b> is a no-op.
-<h1 class="Sh" title="Sh" id="ENVIRONMENT_VARIABLES"><a class="permalink" href="#ENVIRONMENT_VARIABLES">ENVIRONMENT
+<section class="Sh">
+<h1 class="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+<p class="Pp">comm - select or reject lines common to two sorted files</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<p class="Pp"><b>comm</b> [<b>-123</b>] <i>file1 file2</i></p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<p class="Pp"><i>Comm</i> reads <i>file1</i> and <i>file2,</i> which should be
+    ordered in the current collating sequence, and produces a three column
+    output: lines only in <i>file1;</i> lines only in <i>file2;</i> and lines in
+    both files. The filename `-' means the standard input.</p>
+<p class="Pp">Flags 1, 2, or 3 suppress printing of the corresponding column.
+    Thus <b>comm</b> <b>-12</b> prints only the lines common to the two files;
+    <b>comm</b> <b>-23</b> prints only lines in the first file but not in the
+    second; <b>comm</b> <b>-123</b> is a no-op.</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="ENVIRONMENT_VARIABLES"><a class="permalink" href="#ENVIRONMENT_VARIABLES">ENVIRONMENT
   VARIABLES</a></h1>
 <dl class="Bl-tag">
-  <dt><b>LANG</b>, <b>LC_ALL</b></dt>
+  <dt id="LANG"><a class="permalink" href="#LANG"><b>LANG</b>,
+    <b>LC_ALL</b></a></dt>
   <dd>See <i>locale</i>(7).</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>LC_COLLATE</b></dt>
+  <dt id="LC_COLLATE"><a class="permalink" href="#LC_COLLATE"><b>LC_COLLATE</b></a></dt>
   <dd>Sets the collation sequence.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>LC_CTYPE</b></dt>
+  <dt id="LC_CTYPE"><a class="permalink" href="#LC_CTYPE"><b>LC_CTYPE</b></a></dt>
   <dd>Determines the mapping of bytes to characters.</dd>
 </dl>
-<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
   ALSO</a></h1>
-cmp(1), diff(1), uniq(1), locale(7)</div>
+<p class="Pp">cmp(1), diff(1), uniq(1), locale(7)</p>
+</section>
+</div>
 <table class="foot">
   <tr>
     <td class="foot-date">3/16/03</td>

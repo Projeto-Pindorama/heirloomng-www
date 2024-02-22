@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<!-- This is an automatically generated file.  Do not edit.
+   Copyright (c) 2023 Luiz Ant\[u00F4]nio Rangel
+  
+   SPDX-Licence-Identifier: Zlib
+   -->
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
+  <title>WATCH(1)</title>
+</head>
+<body>
+<table class="head">
+  <tr>
+    <td class="head-ltitle">WATCH(1)</td>
+    <td class="head-vol">User Commands</td>
+    <td class="head-rtitle">WATCH(1)</td>
+  </tr>
+</table>
+<div class="manual-text">
+<section class="Sh">
+<h1 class="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+<p class="Pp">watch - Keep an eye on a command output.</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<p class="Pp"><b>watch</b> <b>-n</b> [<i>seconds</i>] [<b>-bt</b>]
+    [<b>command</b> [<i>args</i>...]]</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<p class="Pp">The <b>watch</b> utility executes a command repeatedly every
+    &quot;user-defined&quot; seconds. This allows you to watch a program output
+    change over the time.</p>
+<p class="Pp">It accepts the following options:</p>
+<dl class="Bl-tag">
+  <dt id="n"><a class="permalink" href="#n"><b>-n</b></a></dt>
+  <dd>Specifies the interval to refresh the output. Per default, the interval is
+      of 2 seconds.</dd>
+  <dt id="b"><a class="permalink" href="#b"><b>-b</b></a></dt>
+  <dd>Beeps if the program being run returns a non-zero exit status.</dd>
+  <dt id="t"><a class="permalink" href="#t"><b>-t</b></a></dt>
+  <dd>Turns off the information header, letting just the verbatim program output
+      being refreshed every time on the screen &#x2014; equivalent to a
+      <i>ksh</i>(1) <i>for ((;;))</i> accompanied by <i>sleep</i>(1).
+    <br/>
+    Not recommended, unless you're using <i>tmux</i>(1) or another terminal
+      multiplexer that shows you information that would originally be shown by
+      that header.</dd>
+</dl>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="EXAMPLES"><a class="permalink" href="#EXAMPLES">EXAMPLES</a></h1>
+<p class="Pp">It can be very useful when backuping some disc and needing to see
+    how many files were already copied.
+  <br/>
+  Lets suppose you're copying a disc from a terminal and, in another, you want
+    to keep an eye at <i>du</i>(1) output to see every minute if the file size
+    matches with what you're expecting.</p>
+<dl class="Bl-tag">
+  <dt></dt>
+  <dd><b>% watch -n 60 -b du -sh /dsk/1</b></dd>
+</dl>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
+<p class="Pp">This implementation does not support the
+    &quot;<i>WATCH_INTERVAL</i>&quot; environment variable.</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+  ALSO</a></h1>
+<p class="Pp">execvp(3), nanosleep(2), curses(3X)</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="HISTORY"><a class="permalink" href="#HISTORY">HISTORY</a></h1>
+<p class="Pp">The <b>watch(1)</b> utility has a hazy history. Nobody seems to be
+    actually sure of where it has appeared first.
+  <br/>
+  According to procps 010114's watch C source code, where it first appeared in
+    that package, it was written from scratch by Tony Rems in 1991, and later
+    recieved many modifications and corrections by Francois Pinard.
+  <br/>
+  However, according to Internet Initiative Japan Inc.'s iwatch manual page, the
+    watch utility came first from BSDI Inc. BSD/OS 3.1 and their code is
+    slightly derived from it; he/she &#x2014; who wrote the manual page and
+    comments at the original source code &#x2014; also speculated that its
+    existence was earlier than BSD/OS 3.1, from some another free distribution,
+    but there's no further information that supports this.</p>
+<p class="Pp">This implementation mimicks some of the basic behavior of
+    procps-ng's watch, just the necessary to have a useful, simple and stable
+    program.</p>
+</section>
+</div>
+<table class="foot">
+  <tr>
+    <td class="foot-date">06/14/23</td>
+    <td class="foot-os">Heirloom Toolchest</td>
+  </tr>
+</table>
+</body>
+</html>

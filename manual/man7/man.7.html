@@ -11,6 +11,7 @@
  -->
 <head>
   <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
   <title>MAN(7)</title>
 </head>
@@ -23,74 +24,80 @@
   </tr>
 </table>
 <div class="manual-text">
-<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
-man - macros to typeset manual
-<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
-<b>nroff -man&#x00A0;</b> file ...
-<div class="Pp"></div>
-<b>troff -man&#x00A0;</b> file ...
-<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
-These macros are used to lay out pages of this manual.
-<div class="Pp"></div>
-Any text argument <i>t</i> may be zero to six words. Quotes may be used to
-  include blanks in a `word'. If <i>text</i> is empty, the special treatment is
-  applied to the next input line with text to be printed. In this way <b>.</b>I
-  may be used to italicize a whole line, or <b>.</b>SM followed by <b>.</b>B to
-  make small bold letters.
-<div class="Pp"></div>
-A prevailing indent distance is remembered between successive indented
-  paragraphs, and is reset to default value upon reaching a non-indented
-  paragraph. Default units for indents <i>i</i> are ens.
-<div class="Pp"></div>
-Type font and size are reset to default values before each paragraph, and after
-  processing font and size setting macros.
-<div class="Pp"></div>
-These strings are predefined by <b>-man</b>:
+<section class="Sh">
+<h1 class="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+<p class="Pp">man - macros to typeset manual</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<p class="Pp"><b>nroff -man&#x00A0;</b> file ...</p>
+<p class="Pp"><b>troff -man&#x00A0;</b> file ...</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<p class="Pp">These macros are used to lay out pages of this manual.</p>
+<p class="Pp">Any text argument <i>t</i> may be zero to six words. Quotes may be
+    used to include blanks in a `word'. If <i>text</i> is empty, the special
+    treatment is applied to the next input line with text to be printed. In this
+    way <b>.</b>I may be used to italicize a whole line, or <b>.</b>SM followed
+    by <b>.</b>B to make small bold letters.</p>
+<p class="Pp">A prevailing indent distance is remembered between successive
+    indented paragraphs, and is reset to default value upon reaching a
+    non-indented paragraph. Default units for indents <i>i</i> are ens.</p>
+<p class="Pp">Type font and size are reset to default values before each
+    paragraph, and after processing font and size setting macros.</p>
+<p class="Pp">These strings are predefined by <b>-man</b>:</p>
 <dl class="Bl-tag">
   <dt>\*R</dt>
   <dd>`(Reg)', trademark symbol in <i>troff.</i></dd>
-</dl>
-<dl class="Bl-tag">
   <dt>\*S</dt>
   <dd>Change to default type size.</dd>
 </dl>
-<h1 class="Sh" title="Sh" id="REQUESTS"><a class="permalink" href="#REQUESTS">REQUESTS</a></h1>
-			
-<div>&#x00A0;</div>
-<br/>
-Request	Cause	If no	Explanation 	Break	Argument .B
-  <i>t</i>	no	<i>t</i>=n.t.l.*	Text <i>t</i> is bold. .BI
-  <i>t</i>	no	<i>t</i>=n.t.l.	Join words of <i>t</i> alternating bold and
-  italic. .BR <i>t</i>	no	<i>t</i>=n.t.l.	Join words of <i>t</i> alternating
-  bold and Roman. .DT	no	.5i 1i...	Restore default tabs. .HP
-  <i>i</i>	yes	<i>i</i>=p.i.*	Set prevailing indent to <i>i.</i> Begin paragraph
-  with hanging indent. .I <i>t</i>	no	<i>t</i>=n.t.l.	Text <i>t</i> is italic.
-  .IB <i>t</i>	no	<i>t</i>=n.t.l.	Join words of <i>t</i> alternating italic and
-  bold. .IP <i>x i</i>	yes	<i>x</i>=&quot;&quot;	Same as .TP with tag <i>x.</i>
-  .IR <i>t</i>	no	<i>t</i>=n.t.l.	Join words of <i>t</i> alternating italic and
-  Roman. .LP	yes	-	Same as .PP. .PD <i>d</i>	no	<i>d</i>=.4v	Interparagraph
-  distance is <i>d.</i> .PP	yes	-	Begin paragraph. Set prevailing indent to .5i.
-  .RE	yes	-	End of relative indent. Set prevailing indent to amount of starting
-  .RS. .RB <i>t</i>	no	<i>t</i>=n.t.l.	Join words of <i>t</i> alternating Roman
-  and bold. .RI <i>t</i>	no	<i>t</i>=n.t.l.	Join words of <i>t</i> alternating
-  Roman and italic. .RS <i>i</i>	yes	<i>i</i>=p.i.	Start relative indent, move
-  left margin in distance <i>i.</i> Set prevailing indent to .5i for nested
-  indents. .SH <i>t</i>	yes	<i>t</i>=n.t.l.	Subhead. .SB
-  <i>t</i>	no	<i>t</i>=n.t.l.	Text <i>t</i> is small and bold. .SM
-  <i>t</i>	no	<i>t</i>=n.t.l.	Text <i>t</i> is small. .TH <i>n c d x
-  s</i>	yes	-	Begin page named <i>n</i> of chapter <i>c;</i> <i>d</i> is date of
-  last change; <i>x</i> is extra commentary, e.g. `local', for page foot;
-  <i>s</i> is a section description. Set prevailing indent and tabs to .5i. .TP
-  <i>i</i>	yes	<i>i</i>=p.i.	Set prevailing indent to <i>i.</i> Begin indented
-  paragraph with hanging tag given by next text line. If tag doesn't fit, place
-  it on separate line.
-<div class="Pp"></div>
-* n.t.l. = next text line; p.i. = prevailing indent
-<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+</section>
+<section class="Sh">
+<h1 class="Sh" id="REQUESTS"><a class="permalink" href="#REQUESTS">REQUESTS</a></h1>
+<p class="Pp">			
+  <br/>
+  <br/>
+  Request	Cause	If no	Explanation 	Break	Argument .B
+    <i>t</i>	no	<i>t</i>=n.t.l.*	Text <i>t</i> is bold. .BI
+    <i>t</i>	no	<i>t</i>=n.t.l.	Join words of <i>t</i> alternating bold and
+    italic. .BR <i>t</i>	no	<i>t</i>=n.t.l.	Join words of <i>t</i> alternating
+    bold and Roman. .DT	no	.5i 1i...	Restore default tabs. .HP
+    <i>i</i>	yes	<i>i</i>=p.i.*	Set prevailing indent to <i>i.</i> Begin
+    paragraph with hanging indent. .I <i>t</i>	no	<i>t</i>=n.t.l.	Text <i>t</i>
+    is italic. .IB <i>t</i>	no	<i>t</i>=n.t.l.	Join words of <i>t</i>
+    alternating italic and bold. .IP <i>x i</i>	yes	<i>x</i>=&quot;&quot;	Same
+    as .TP with tag <i>x.</i> .IR <i>t</i>	no	<i>t</i>=n.t.l.	Join words of
+    <i>t</i> alternating italic and Roman. .LP	yes	-	Same as .PP. .PD
+    <i>d</i>	no	<i>d</i>=.4v	Interparagraph distance is <i>d.</i>
+    .PP	yes	-	Begin paragraph. Set prevailing indent to .5i. .RE	yes	-	End of
+    relative indent. Set prevailing indent to amount of starting .RS. .RB
+    <i>t</i>	no	<i>t</i>=n.t.l.	Join words of <i>t</i> alternating Roman and
+    bold. .RI <i>t</i>	no	<i>t</i>=n.t.l.	Join words of <i>t</i> alternating
+    Roman and italic. .RS <i>i</i>	yes	<i>i</i>=p.i.	Start relative indent, move
+    left margin in distance <i>i.</i> Set prevailing indent to .5i for nested
+    indents. .SH <i>t</i>	yes	<i>t</i>=n.t.l.	Subhead. .SB
+    <i>t</i>	no	<i>t</i>=n.t.l.	Text <i>t</i> is small and bold. .SM
+    <i>t</i>	no	<i>t</i>=n.t.l.	Text <i>t</i> is small. .TH <i>n c d x
+    s</i>	yes	-	Begin page named <i>n</i> of chapter <i>c;</i> <i>d</i> is date
+    of last change; <i>x</i> is extra commentary, e.g. `local', for page foot;
+    <i>s</i> is a section description. Set prevailing indent and tabs to .5i.
+    .TP <i>i</i>	yes	<i>i</i>=p.i.	Set prevailing indent to <i>i.</i> Begin
+    indented paragraph with hanging tag given by next text line. If tag doesn't
+    fit, place it on separate line.</p>
+<p class="Pp">* n.t.l. = next text line; p.i. = prevailing indent</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
   ALSO</a></h1>
-nroff(1), troff(1), man(1)
-<h1 class="Sh" title="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
-Relative indents don't nest.</div>
+<p class="Pp">nroff(1), troff(1), man(1)</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
+<p class="Pp">Relative indents don't nest.</p>
+</section>
+</div>
 <table class="foot">
   <tr>
     <td class="foot-date">7/21/03</td>

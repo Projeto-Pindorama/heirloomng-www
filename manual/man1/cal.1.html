@@ -11,6 +11,7 @@
  -->
 <head>
   <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
   <title>CAL(1)</title>
 </head>
@@ -23,33 +24,46 @@
   </tr>
 </table>
 <div class="manual-text">
-<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
-cal - print calendar
-<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
-<b>cal</b> [[<i>month</i>] <i>year</i>]
-<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
-<i>Cal</i> prints a calendar for the specified year. If a month is also
-  specified, a calendar just for that month is printed. If no year is given, the
-  calendar for the current month is printed. <i>Year</i> can be between 1 and
-  9999. The <i>month</i> is a number between 1 and 12. The calendar produced is
-  that for England and her colonies.
-<div class="Pp"></div>
-Try September 1752.
-<h1 class="Sh" title="Sh" id="ENVIRONMENT_VARIABLES"><a class="permalink" href="#ENVIRONMENT_VARIABLES">ENVIRONMENT
+<section class="Sh">
+<h1 class="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+<p class="Pp">cal - print calendar</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<p class="Pp"><b>cal</b> [[<i>month</i>] <i>year</i>]</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<p class="Pp"><i>Cal</i> prints a calendar for the specified year. If a month is
+    also specified, a calendar just for that month is printed. If no year is
+    given, the calendar for the current month is printed. <i>Year</i> can be
+    between 1 and 9999. The <i>month</i> is a number between 1 and 12. The
+    calendar produced is that for England and her colonies.</p>
+<p class="Pp">Try September 1752.</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="ENVIRONMENT_VARIABLES"><a class="permalink" href="#ENVIRONMENT_VARIABLES">ENVIRONMENT
   VARIABLES</a></h1>
 <dl class="Bl-tag">
-  <dt><b>LANG</b>, <b>LC_ALL</b>, <b>LC_CTYPE</b>, <b>LC_TIME</b></dt>
+  <dt id="LANG"><a class="permalink" href="#LANG"><b>LANG</b>, <b>LC_ALL</b>,
+    <b>LC_CTYPE</b>, <b>LC_TIME</b></a></dt>
   <dd>Determines the month and weekday strings.</dd>
 </dl>
-<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
   ALSO</a></h1>
-calendar(1), date(1), locale(7)
-<h1 class="Sh" title="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
-The year is always considered to start in January even though this is
-  historically naive.
-<div>&#x00A0;</div>
-Beware that `cal 78' refers to the early Christian era, not the 20th
-  century.</div>
+<p class="Pp">calendar(1), date(1), locale(7)</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
+<p class="Pp">The year is always considered to start in January even though this
+    is historically naive.
+  <br/>
+  Beware that `cal 78' refers to the early Christian era, not the 20th
+  century.</p>
+</section>
+</div>
 <table class="foot">
   <tr>
     <td class="foot-date">1/11/03</td>

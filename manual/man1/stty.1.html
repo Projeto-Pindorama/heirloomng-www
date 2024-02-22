@@ -9,6 +9,7 @@
    -->
 <head>
   <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
   <title>STTY(1)</title>
 </head>
@@ -21,21 +22,26 @@
   </tr>
 </table>
 <div class="manual-text">
-<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
-stty - set the options for a terminal
-<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
-<b>stty</b> [<b>-a</b>] [<b>-g</b>] [<i>options</i>]
-<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
-<i>Stty</i> sets certain I/O options on the terminal currently associated with
-  standard input. With no argument, it reports the current settings of selected
-  options; the <b>-a</b> flag causes it to report all options. With the
-  <b>-g</b> flag, <i>stty</i> prints all settings in a form that can be passed
-  to it again to restore the current settings.
-<div class="Pp"></div>
-The option strings are selected from the following set; where an option is shown
-  prefixed by `[-]', it can be negated as described in the text.
-<div class="Pp"></div>
-Control modes:
+<section class="Sh">
+<h1 class="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+<p class="Pp">stty - set the options for a terminal</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<p class="Pp"><b>stty</b> [<b>-a</b>] [<b>-g</b>] [<i>options</i>]</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<p class="Pp"><i>Stty</i> sets certain I/O options on the terminal currently
+    associated with standard input. With no argument, it reports the current
+    settings of selected options; the <b>-a</b> flag causes it to report all
+    options. With the <b>-g</b> flag, <i>stty</i> prints all settings in a form
+    that can be passed to it again to restore the current settings.</p>
+<p class="Pp">The option strings are selected from the following set; where an
+    option is shown prefixed by `[-]', it can be negated as described in the
+    text.</p>
+<p class="Pp">Control modes:</p>
+<p class="Pp"></p>
 <table class="tbl">
   <tr>
     <td>[<b>-</b>]<b>parenb</b></td>
@@ -77,8 +83,8 @@ Control modes:
       terminals support all rates).</td>
   </tr>
 </table>
-<div class="Pp"></div>
-Input modes:
+<p class="Pp">Input modes:</p>
+<p class="Pp"></p>
 <table class="tbl">
   <tr>
     <td>[<b>-</b>]<b>ignbrk</b></td>
@@ -143,8 +149,8 @@ Input modes:
     <td>(do not) handle input as UTF-8</td>
   </tr>
 </table>
-<div class="Pp"></div>
-Output modes:
+<p class="Pp">Output modes:</p>
+<p class="Pp"></p>
 <table class="tbl">
   <tr>
     <td>[<b>-</b>]<b>opost</b></td>
@@ -202,8 +208,8 @@ Output modes:
     <td>select style of delay for vertical tab</td>
   </tr>
 </table>
-<div class="Pp"></div>
-Local modes:
+<p class="Pp">Local modes:</p>
+<p class="Pp"></p>
 <table class="tbl">
   <tr>
     <td>[<b>-</b>]<b>isig</b></td>
@@ -266,8 +272,8 @@ Local modes:
     <td>enable (disable) extended control characters</td>
   </tr>
 </table>
-<div class="Pp"></div>
-Control characters:
+<p class="Pp">Control characters:</p>
+<p class="Pp"></p>
 <table class="tbl">
   <tr>
     <td><b>intr </b><i>c</i><b></b></td>
@@ -334,16 +340,15 @@ Control characters:
     <td>set lnext character to <i>c</i>.</td>
   </tr>
 </table>
-<div class="Pp"></div>
-A control character may be either given as a literal character, or as `
-  <b>^</b><i>c</i>' for ASCII control characters CTRL-<i>c</i>; the special
-  values ` <b>^-</b>' and `<b>undef</b>' disable the control function. Multibyte
-  characters cannot be used as control characters; trying to do so will result
-  in the control character set to the first byte of the multibyte character
-  sequence, which has the undesired effect of applying the control function to
-  more characters than the one supplied.
-<div class="Pp"></div>
-Combination modes et cetera:
+<p class="Pp">A control character may be either given as a literal character, or
+    as `<b>^</b><i>c</i>' for ASCII control characters CTRL-<i>c</i>; the
+    special values `<b>^-</b>' and `<b>undef</b>' disable the control function.
+    Multibyte characters cannot be used as control characters; trying to do so
+    will result in the control character set to the first byte of the multibyte
+    character sequence, which has the undesired effect of applying the control
+    function to more characters than the one supplied.</p>
+<p class="Pp">Combination modes et cetera:</p>
+<p class="Pp"></p>
 <table class="tbl">
   <tr>
     <td>[<b>-</b>]<b>raw</b></td>
@@ -457,17 +462,25 @@ Combination modes et cetera:
     <td>set the width of the terminal in pixels</td>
   </tr>
 </table>
-<h1 class="Sh" title="Sh" id="ENVIRONMENT_VARIABLES"><a class="permalink" href="#ENVIRONMENT_VARIABLES">ENVIRONMENT
+</section>
+<section class="Sh">
+<h1 class="Sh" id="ENVIRONMENT_VARIABLES"><a class="permalink" href="#ENVIRONMENT_VARIABLES">ENVIRONMENT
   VARIABLES</a></h1>
 <dl class="Bl-tag">
-  <dt><b>SYSV3</b></dt>
+  <dt id="SYSV3"><a class="permalink" href="#SYSV3"><b>SYSV3</b></a></dt>
   <dd>Affects the default and <b>-a</b> output formats.</dd>
 </dl>
-<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
   ALSO</a></h1>
-termios(3), tabs(1)
-<h1 class="Sh" title="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
-Not all settings are available on all platforms.</div>
+<p class="Pp">termios(3), tabs(1)</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
+<p class="Pp">Not all settings are available on all platforms.</p>
+</section>
+</div>
 <table class="foot">
   <tr>
     <td class="foot-date">7/15/04</td>

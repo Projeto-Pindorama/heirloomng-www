@@ -9,6 +9,7 @@
    -->
 <head>
   <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
   <title>SUM(1)</title>
 </head>
@@ -21,27 +22,41 @@
   </tr>
 </table>
 <div class="manual-text">
-<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
-sum - sum and count blocks in a file
-<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
-<b>sum</b> [<b>-r</b>] [<i>file</i>]
-<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
-<i>Sum</i> calculates and prints a 16-bit checksum for the named file, and also
-  prints the number of blocks in the file. It is typically used to look for bad
-  spots, or to validate a file communicated over some transmission line.
-<div class="Pp"></div>
-If the <b>-r</b> option is present, an alternate checksum algorithm is used.
-<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+<section class="Sh">
+<h1 class="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+<p class="Pp">sum - sum and count blocks in a file</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<p class="Pp"><b>sum</b> [<b>-r</b>] [<i>file</i>]</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<p class="Pp"><i>Sum</i> calculates and prints a 16-bit checksum for the named
+    file, and also prints the number of blocks in the file. It is typically used
+    to look for bad spots, or to validate a file communicated over some
+    transmission line.</p>
+<p class="Pp">If the <b>-r</b> option is present, an alternate checksum
+    algorithm is used.</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
   ALSO</a></h1>
-cksum(1), wc(1)
-<h1 class="Sh" title="Sh" id="DIAGNOSTICS"><a class="permalink" href="#DIAGNOSTICS">DIAGNOSTICS</a></h1>
-`Read error' is indistinguishable from end of file on most devices; check the
-  block count.
-<h1 class="Sh" title="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
-The default algorithm is unable to detect added or missing NUL bytes. The
-  algorithm selected with <b>-r</b> may produce different results in different
-  implementations. For these reasons, <i>cksum</i>(1) should be used in
-  preference.</div>
+<p class="Pp">cksum(1), wc(1)</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DIAGNOSTICS"><a class="permalink" href="#DIAGNOSTICS">DIAGNOSTICS</a></h1>
+<p class="Pp">`Read error' is indistinguishable from end of file on most
+    devices; check the block count.</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
+<p class="Pp">The default algorithm is unable to detect added or missing NUL
+    bytes. The algorithm selected with <b>-r</b> may produce different results
+    in different implementations. For these reasons, <i>cksum</i>(1) should be
+    used in preference.</p>
+</section>
+</div>
 <table class="foot">
   <tr>
     <td class="foot-date">2/14/03</td>

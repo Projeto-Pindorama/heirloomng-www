@@ -11,6 +11,7 @@
  -->
 <head>
   <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
   <title>CHROOT(8)</title>
 </head>
@@ -23,46 +24,54 @@
   </tr>
 </table>
 <div class="manual-text">
-<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
-chroot - change system's root directory and execute a command there
-<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
-<b>chroot</b> <i>newroot</i> [<i>command</i>]
-<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
-The <b>chroot</b> command calls <b>chroot(2)</b> to change the system's root
-  (<b>/</b>) directory to <i>newroot</i> and <b>exec(3)</b> to execute
-  <i>command</i> &#x2014; and any of its child processes &#x2014; there.
+<section class="Sh">
+<h1 class="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+<p class="Pp">chroot - change system's root directory and execute a command
+    there</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<p class="Pp"><b>chroot</b> <i>newroot</i> [<i>command</i>]</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<p class="Pp">The <b>chroot</b> command calls <b>chroot(2)</b> to change the
+    system's root (<b>/</b>) directory to <i>newroot</i> and <b>exec(3)</b> to
+    execute <i>command</i> &#x2014; and any of its child processes &#x2014;
+    there.</p>
 <dl class="Bl-tag">
-  <dt><b>NEWROOT</b></dt>
+  <dt id="NEWROOT"><a class="permalink" href="#NEWROOT"><b>NEWROOT</b></a></dt>
   <dd>The directory to switch the command's system root to.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>COMMAND</b></dt>
+  <dt id="COMMAND"><a class="permalink" href="#COMMAND"><b>COMMAND</b></a></dt>
   <dd>The command to execute, relative to <i>NEWROOT</i>.</dd>
 </dl>
-<h1 class="Sh" title="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
-Please, take note that redirecting the output of <i>command</i> to a file will
-  create it relative to the original root, not in the new one.
-<div class="Pp"></div>
-For instance, let's redirect <i>command</i>'s standard output to a file called
-  &quot; <i>x</i>&quot; at the <i>/tmp</i> directory:
+</section>
+<section class="Sh">
+<h1 class="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
+<p class="Pp">Please, take note that redirecting the output of <i>command</i> to
+    a file will create it relative to the original root, not in the new one.</p>
+<p class="Pp">For instance, let's redirect <i>command</i>'s standard output to a
+    file called &quot;<i>x</i>&quot; at the <i>/tmp</i> directory:</p>
 <dl class="Bl-tag">
   <dt></dt>
   <dd><b># chroot newroot command &gt;/tmp/x</b></dd>
 </dl>
-<div class="Pp"></div>
-This will create <i>x</i> relative to the original root directory, not in
-  <i>newroot</i>.
-<div class="Pp"></div>
-If you need to redirect the output inside the <i>newroot</i>, you will need to
-  quote the actual <i>command</i> and prefix it with <b>sh(1)</b> followed by
-  the &quot; <i>-c</i>&quot; option, like this:
+<p class="Pp">This will create <i>x</i> relative to the original root directory,
+    not in <i>newroot</i>.</p>
+<p class="Pp">If you need to redirect the output inside the <i>newroot</i>, you
+    will need to quote the actual <i>command</i> and prefix it with <b>sh(1)</b>
+    followed by the &quot;<i>-c</i>&quot; option, like this:</p>
 <dl class="Bl-tag">
   <dt></dt>
   <dd><b># chroot newroot /bin/sh -c 'command &gt;/tmp/x'</b></dd>
 </dl>
-<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
   ALSO</a></h1>
-cd(1), chroot(2), exec(3)</div>
+<p class="Pp">cd(1), chroot(2), exec(3)</p>
+</section>
+</div>
 <table class="foot">
   <tr>
     <td class="foot-date">04/29/23</td>

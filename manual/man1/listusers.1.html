@@ -9,6 +9,7 @@
  -->
 <head>
   <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
   <title>LISTUSERS(1)</title>
 </head>
@@ -21,30 +22,38 @@
   </tr>
 </table>
 <div class="manual-text">
-<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
-listusers - print a list of user logins
-<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
-listusers [-g groups] [-l logins]
-<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
-Listusers prints the name and the gecos information of all users known to the
-  system, sorted by username.
-<div class="Pp"></div>
-Valid options are:
+<section class="Sh">
+<h1 class="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+<p class="Pp">listusers - print a list of user logins</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<p class="Pp">listusers [-g groups] [-l logins]</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<p class="Pp">Listusers prints the name and the gecos information of all users
+    known to the system, sorted by username.</p>
+<p class="Pp">Valid options are:</p>
 <dl class="Bl-tag">
-  <dt><b>-g</b><i>&#x00A0;groups</i></dt>
+  <dt id="g"><a class="permalink" href="#g"><b>-g</b><i>&#x00A0;groups</i></a></dt>
   <dd>Only print the names of users that belong to the given group. Multiple
       groups are accepted if separated by commas.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-l</b><i>&#x00A0;logins</i></dt>
+  <dt id="l"><a class="permalink" href="#l"><b>-l</b><i>&#x00A0;logins</i></a></dt>
   <dd>Print only user names that match <i>logins</i>. Multiple user names are
       accepted if separated by commas.</dd>
 </dl>
-<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
   ALSO</a></h1>
-passwd(5)
-<h1 class="Sh" title="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
-Only users whose UID is greater than 100 are recognized.</div>
+<p class="Pp">passwd(5)</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
+<p class="Pp">Only users whose UID is greater than 100 are recognized.</p>
+</section>
+</div>
 <table class="foot">
   <tr>
     <td class="foot-date">4/17/03</td>

@@ -8,6 +8,7 @@
    -->
 <head>
   <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
   <title>SORT(1)</title>
 </head>
@@ -20,191 +21,167 @@
   </tr>
 </table>
 <div class="manual-text">
-<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
-sort - sort or merge files
-<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
-<div class="HP"><b>sort</b> [<b>-mubdfiMnrt</b><i>x</i>] [
-  <b>+</b><i>pos1&#x00A0;</i>[ <b>-</b><i>pos2</i>]] ... [
-  <b>-k&#x00A0;</b><i>keydef</i>] [ <b>-o&#x00A0;</b><i>name</i>]
-  [<b>-T&#x00A0;</b> <i>directory</i>] [ <b>-y</b>[<i>kmem</i>]]
-  [<b>-z&#x00A0;</b> <i>recsz</i>] [ <i>name</i>]&#x00A0;...
-<div>&#x00A0;</div>
-</div>
-<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
-<i>Sort</i> sorts lines of all the named files together and writes the result on
-  the standard output. The name `-' means the standard input. If no input files
-  are named, the standard input is sorted.
-<div class="Pp"></div>
-The default sort key is an entire line. Default ordering is lexicographic by
-  characters in the current collating sequence.
-<div class="Pp"></div>
-The behavior of <i>sort</i> is altered by the following options:
+<section class="Sh">
+<h1 class="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+<p class="Pp">sort - sort or merge files</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<p class="Pp HP"><b>sort</b> [<b>-mubdfiMnrt</b><i>x</i>]
+    [<b>+</b><i>pos1&#x00A0;</i>[<b>-</b><i>pos2</i>]] ...
+    [<b>-k&#x00A0;</b><i>keydef</i>] [<b>-o&#x00A0;</b><i>name</i>]
+    [<b>-T&#x00A0;</b><i>directory</i>] [<b>-y</b>[<i>kmem</i>]]
+    [<b>-z&#x00A0;</b><i>recsz</i>] [<i>name</i>]&#x00A0;...
+  <br/>
+</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<p class="Pp"><i>Sort</i> sorts lines of all the named files together and writes
+    the result on the standard output. The name `-' means the standard input. If
+    no input files are named, the standard input is sorted.</p>
+<p class="Pp">The default sort key is an entire line. Default ordering is
+    lexicographic by characters in the current collating sequence.</p>
+<p class="Pp">The behavior of <i>sort</i> is altered by the following
+  options:</p>
 <dl class="Bl-tag">
-  <dt><b>-c</b></dt>
+  <dt id="c"><a class="permalink" href="#c"><b>-c</b></a></dt>
   <dd>Check that the input file is sorted according to the ordering rules, give
       no output unless the file is out of sort. Only one input file may be
       given.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-m</b></dt>
+  <dt id="m"><a class="permalink" href="#m"><b>-m</b></a></dt>
   <dd>Merge only, the input files are already sorted.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-o&#x00A0;</b><i>file</i></dt>
+  <dt id="o"><a class="permalink" href="#o"><b>-o&#x00A0;</b><i>file</i></a></dt>
   <dd>The <i>file</i> argument is the name of an output file to use instead of
       the standard output. This file may be the same as one of the inputs.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-T&#x00A0;</b><i>tmpdir</i></dt>
+  <dt id="T"><a class="permalink" href="#T"><b>-T&#x00A0;</b><i>tmpdir</i></a></dt>
   <dd>The <i>tmpdir</i> argument is the name of a directory in which temporary
       files should be made.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-u</b></dt>
+  <dt id="u"><a class="permalink" href="#u"><b>-u</b></a></dt>
   <dd>Suppress all but one in each set of equal lines. Ignored bytes and bytes
       outside keys do not participate in this comparison.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-y</b>[<i>kmem</i>]</dt>
+  <dt id="y"><a class="permalink" href="#y"><b>-y</b>[<i>kmem</i>]</a></dt>
   <dd>Sets the amount of memory to be allocated initially to <i>kmem</i> (in
       kilobytes). If <i>kmem</i> is omitted or is larger than the maximum
       allowed value, a maximum value is used. If <i>kmem</i> is 0 or is smaller
       than the minimum allowed value, a minimum value is used. More memory is
       allocated during the sort phase if a line exceeds the expected
     length.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-z</b><i>&#x00A0;recsz</i></dt>
+  <dt id="z"><a class="permalink" href="#z"><b>-z</b><i>&#x00A0;recsz</i></a></dt>
   <dd>Sets the length of the maximum allowed line during the merge phase to
       <i>recsz</i>. The length of lines is normally computed during the sort
       phase, so this option is relevant only if the sort phase is omitted (with
       <b>-c</b> or <b>-m</b>).</dd>
 </dl>
-<div class="Pp"></div>
-The ordering is affected globally by the following options, one or more of which
-  may appear.
+<p class="Pp">The ordering is affected globally by the following options, one or
+    more of which may appear.</p>
 <dl class="Bl-tag">
-  <dt><b>-b</b></dt>
+  <dt id="b"><a class="permalink" href="#b"><b>-b</b></a></dt>
   <dd>Ignore leading blanks (spaces and tabs) in field comparisons.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-d</b></dt>
+  <dt id="d"><a class="permalink" href="#d"><b>-d</b></a></dt>
   <dd>`Dictionary' order: only letters, digits and blanks are significant in
       comparisons.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-f</b></dt>
+  <dt id="f"><a class="permalink" href="#f"><b>-f</b></a></dt>
   <dd>Fold upper case letters onto lower case.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-i</b></dt>
+  <dt id="i"><a class="permalink" href="#i"><b>-i</b></a></dt>
   <dd>Ignore nonprintable characters in nonnumeric comparisons.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-M</b></dt>
+  <dt id="M"><a class="permalink" href="#M"><b>-M</b></a></dt>
   <dd>Compare the first three characters of the field without regard to case as
       abbreviated month names `JAN', `FEB', `MAR' etc. Invalid fields compare to
       `JAN'. Implies option <b>-b</b>.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-n</b></dt>
+  <dt id="n"><a class="permalink" href="#n"><b>-n</b></a></dt>
   <dd>An initial numeric string, consisting of optional blanks, optional minus
       sign, and zero or more digits with optional decimal point and optional
       thousands separators, is sorted by arithmetic value.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-r</b></dt>
+  <dt id="r"><a class="permalink" href="#r"><b>-r</b></a></dt>
   <dd>Reverse the sense of comparisons.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-t</b><i>x</i></dt>
+  <dt id="t"><a class="permalink" href="#t"><b>-t</b><i>x</i></a></dt>
   <dd>`Tab character' separating fields is <i>x</i>. With <b>/usr/5bin/sort</b>
       and <b>/usr/5bin/s42/sort</b><i>,</i> the <i>x</i> argument is optional;
       if it is missing, the field separator is reset to the default.</dd>
 </dl>
-<div class="Pp"></div>
-The notation <b>+</b><i>pos1 </i><b>-<i>pos2</i></b> <i>restricts a sort key to
-  a field beginning at</i> <i>pos1</i> and ending just before <i>pos2</i>.
-  <i>Pos1</i> and <i>pos2</i> each have the form <i>m</i><b>.</b><i>n,</i>
-  optionally followed by one or more of the flags <b>bdfiMnr,</b> where <i>m</i>
-  tells a number of fields to skip from the beginning of the line and <i>n</i>
-  tells a number of characters to skip further. If any flags are present they
-  override all the global ordering options for this key. If the <b>-b</b> option
-  is in effect <i>n</i> is counted from the first nonblank in the field;
-  <b>-b</b> is attached independently to <i>pos2</i>. A missing <b>.</b><i>n</i>
-  means .0; a missing <b>-</b><i>pos2</i> means the end of the line. Under the
-  <b>-t</b><i>x</i> option, fields are strings separated by <i>x</i>; otherwise
-  fields are nonempty nonblank strings separated by blanks.
-<div class="Pp"></div>
-When there are multiple sort keys, later keys are compared only after all
-  earlier keys compare equal. Lines that otherwise compare equal are ordered
-  with all bytes significant.
-<div class="Pp"></div>
-The <b>-k</b><i>&#x00A0;keydef</i> option, which was introduced by POSIX.2,
-  provides another method to specify sort keys. Start field and end field are
-  separated by commas, field and character numbers start at 1 instead of 0, and,
-  if no character position is specified for the end key, the last character of
-  the field is used; otherwise, the meaning of field specifications is
-  identical.
-<h1 class="Sh" title="Sh" id="EXAMPLES"><a class="permalink" href="#EXAMPLES">EXAMPLES</a></h1>
-Print in alphabetical order all the unique spellings in a list of words.
-  Capitalized words differ from uncapitalized.
-<div class="Pp"></div>
-sort -u +0f +0 list
-<div class="Pp"></div>
-Print the password file (<i>passwd</i>(5)) sorted by user id number (the 3rd
-  colon-separated field).
-<div class="Pp"></div>
-sort -t: +2n /etc/passwd
-<div class="Pp"></div>
-Print the first instance of each month in an already sorted file of (month day)
-  entries. The options <b>-um</b> with just one input file make the choice of a
-  unique representative from a set of equal lines predictable.
-<div class="Pp"></div>
-sort -um +0 -1 dates
-<h1 class="Sh" title="Sh" id="ENVIRONMENT_VARIABLES"><a class="permalink" href="#ENVIRONMENT_VARIABLES">ENVIRONMENT
+<p class="Pp">The notation <b>+</b><i>pos1 </i><b>-<i>pos2</i></b> <i>restricts
+    a sort key to a field beginning at</i> <i>pos1</i> and ending just before
+    <i>pos2</i>. <i>Pos1</i> and <i>pos2</i> each have the form
+    <i>m</i><b>.</b><i>n,</i> optionally followed by one or more of the flags
+    <b>bdfiMnr,</b> where <i>m</i> tells a number of fields to skip from the
+    beginning of the line and <i>n</i> tells a number of characters to skip
+    further. If any flags are present they override all the global ordering
+    options for this key. If the <b>-b</b> option is in effect <i>n</i> is
+    counted from the first nonblank in the field; <b>-b</b> is attached
+    independently to <i>pos2</i>. A missing <b>.</b><i>n</i> means .0; a missing
+    <b>-</b><i>pos2</i> means the end of the line. Under the <b>-t</b><i>x</i>
+    option, fields are strings separated by <i>x</i>; otherwise fields are
+    nonempty nonblank strings separated by blanks.</p>
+<p class="Pp">When there are multiple sort keys, later keys are compared only
+    after all earlier keys compare equal. Lines that otherwise compare equal are
+    ordered with all bytes significant.</p>
+<p class="Pp">The <b>-k</b><i>&#x00A0;keydef</i> option, which was introduced by
+    POSIX.2, provides another method to specify sort keys. Start field and end
+    field are separated by commas, field and character numbers start at 1
+    instead of 0, and, if no character position is specified for the end key,
+    the last character of the field is used; otherwise, the meaning of field
+    specifications is identical.</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="EXAMPLES"><a class="permalink" href="#EXAMPLES">EXAMPLES</a></h1>
+<p class="Pp">Print in alphabetical order all the unique spellings in a list of
+    words. Capitalized words differ from uncapitalized.</p>
+<p class="Pp">sort -u +0f +0 list</p>
+<p class="Pp">Print the password file (<i>passwd</i>(5)) sorted by user id
+    number (the 3rd colon-separated field).</p>
+<p class="Pp">sort -t: +2n /etc/passwd</p>
+<p class="Pp">Print the first instance of each month in an already sorted file
+    of (month day) entries. The options <b>-um</b> with just one input file make
+    the choice of a unique representative from a set of equal lines
+  predictable.</p>
+<p class="Pp">sort -um +0 -1 dates</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="ENVIRONMENT_VARIABLES"><a class="permalink" href="#ENVIRONMENT_VARIABLES">ENVIRONMENT
   VARIABLES</a></h1>
 <dl class="Bl-tag">
-  <dt><b>LANG</b>, <b>LC_ALL</b></dt>
+  <dt id="LANG"><a class="permalink" href="#LANG"><b>LANG</b>,
+    <b>LC_ALL</b></a></dt>
   <dd>See <i>locale</i>(7).</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>LC_COLLATE</b></dt>
+  <dt id="LC_COLLATE"><a class="permalink" href="#LC_COLLATE"><b>LC_COLLATE</b></a></dt>
   <dd>Gives the sort order for comparing strings.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>LC_CTYPE</b></dt>
+  <dt id="LC_CTYPE"><a class="permalink" href="#LC_CTYPE"><b>LC_CTYPE</b></a></dt>
   <dd>Determines the mapping of bytes to characters and the character types for
       the <b>b</b>, <b>d</b>, <b>f</b>, and <b>i</b> field options.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>LC_NUMERIC</b></dt>
+  <dt id="LC_NUMERIC"><a class="permalink" href="#LC_NUMERIC"><b>LC_NUMERIC</b></a></dt>
   <dd>Affects the radix and thousands separator characters for the <b>-n</b>
       option.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>LC_TIME</b></dt>
+  <dt id="LC_TIME"><a class="permalink" href="#LC_TIME"><b>LC_TIME</b></a></dt>
   <dd>Sets the month names used with <b>-M</b>.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>TMPDIR</b></dt>
+  <dt id="TMPDIR"><a class="permalink" href="#TMPDIR"><b>TMPDIR</b></a></dt>
   <dd>Specifies a directory to use for temporary files.</dd>
 </dl>
-<h1 class="Sh" title="Sh" id="FILES"><a class="permalink" href="#FILES">FILES</a></h1>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="FILES"><a class="permalink" href="#FILES">FILES</a></h1>
 <dl class="Bl-tag">
   <dt>/var/tmp/stm*, /tmp/*</dt>
   <dd>first and second tries for temporary files</dd>
 </dl>
-<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
   ALSO</a></h1>
-comm(1), join(1), uniq(1), locale(7)
-<h1 class="Sh" title="Sh" id="DIAGNOSTICS"><a class="permalink" href="#DIAGNOSTICS">DIAGNOSTICS</a></h1>
-Comments and exits with nonzero status for various trouble conditions and for
-  disorder discovered under option <b>-c</b>.
-<h1 class="Sh" title="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
-Maximum performance is usually achieved if the <i>TMPDIR</i> environment
-  variable is set to a directory on a <i>tmpfs</i> file system, and the
-  <i>-y</i> option is given.</div>
+<p class="Pp">comm(1), join(1), uniq(1), locale(7)</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DIAGNOSTICS"><a class="permalink" href="#DIAGNOSTICS">DIAGNOSTICS</a></h1>
+<p class="Pp">Comments and exits with nonzero status for various trouble
+    conditions and for disorder discovered under option <b>-c</b>.</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
+<p class="Pp">Maximum performance is usually achieved if the <i>TMPDIR</i>
+    environment variable is set to a directory on a <i>tmpfs</i> file system,
+    and the <i>-y</i> option is given.</p>
+</section>
+</div>
 <table class="foot">
   <tr>
     <td class="foot-date">2/2/05</td>

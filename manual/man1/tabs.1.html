@@ -9,6 +9,7 @@
    -->
 <head>
   <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
   <title>TABS(1)</title>
 </head>
@@ -21,95 +22,80 @@
   </tr>
 </table>
 <div class="manual-text">
-<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
-tabs - set terminal tabs
-<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
-<b>tabs</b> [ <i>tabspec</i>] [ <b>+m</b><i>n</i>] [<b>-T</b><i>type</i>]
-<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
-<i>Tabs</i> sets the tabs on a variety of terminals, according to
-  <i>tabspec</i>; if no such argument is present, the default is <b>-8</b> (set
-  tabulator stops at every eight positions).
-<div class="Pp"></div>
-The <i>tabspec</i> argument can be one of the following:
+<section class="Sh">
+<h1 class="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+<p class="Pp">tabs - set terminal tabs</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<p class="Pp"><b>tabs</b> [<i>tabspec</i>] [<b>+m</b><i>n</i>]
+    [<b>-T</b><i>type</i>]</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<p class="Pp"><i>Tabs</i> sets the tabs on a variety of terminals, according to
+    <i>tabspec</i>; if no such argument is present, the default is <b>-8</b>
+    (set tabulator stops at every eight positions).</p>
+<p class="Pp">The <i>tabspec</i> argument can be one of the following:</p>
 <dl class="Bl-tag">
   <dt><b>-</b><i>n</i></dt>
   <dd>Set a tab stop at every <i>n</i> positions. If <i>n</i> is 0, all tab
       stops are cleared and no new ones are set.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><i>n1</i><b>,</b><i>n2</i><b>,</b><i>&#x00A0;.&#x00A0;.&#x00A0;.</i></dt>
+  <dt id="n1"><a class="permalink" href="#n1"><i>n1</i><b>,</b><i>n2</i><b>,</b><i>&#x00A0;.&#x00A0;.&#x00A0;.</i></a></dt>
   <dd>Set a tab stop at <i>n1</i>, <i>n2</i>, and any following numbers. A
       number prefixed by a plus sign is interpreted as an increment to the
       previous position.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-a</b></dt>
+  <dt id="a"><a class="permalink" href="#a"><b>-a</b></a></dt>
   <dd>1,10,16,36,72; IBM System/370 Assembler, first format.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-a2</b></dt>
+  <dt id="a2"><a class="permalink" href="#a2"><b>-a2</b></a></dt>
   <dd>1,10,16,40,72; IBM System/370 Assembler, second format.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-c</b></dt>
+  <dt id="c"><a class="permalink" href="#c"><b>-c</b></a></dt>
   <dd>1,8,12,16,20,55; COBOL, normal format.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-c2</b></dt>
+  <dt id="c2"><a class="permalink" href="#c2"><b>-c2</b></a></dt>
   <dd>1,6,10,14,49; COBOL compact format (columns 1&#x2013;6 omitted).</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-c3</b></dt>
+  <dt id="c3"><a class="permalink" href="#c3"><b>-c3</b></a></dt>
   <dd>1,6,10,14,18,22,26,30,34,38,42,46,50,54,58,62,67; COBOL compact format
       with additional tabs.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-f</b></dt>
+  <dt id="f"><a class="permalink" href="#f"><b>-f</b></a></dt>
   <dd>1,7,11,15,19,23; FORTRAN format.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-p</b></dt>
+  <dt id="p"><a class="permalink" href="#p"><b>-p</b></a></dt>
   <dd>1,5,9,13,17,21,25,29,33,37,41,45,49,53,57,61; PL/1 format.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-s</b></dt>
+  <dt id="s"><a class="permalink" href="#s"><b>-s</b></a></dt>
   <dd>1,10,55; SNOBOL format.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-u</b></dt>
+  <dt id="u"><a class="permalink" href="#u"><b>-u</b></a></dt>
   <dd>1,12,20,44; UNIVAC 1100 Assembler format.</dd>
-</dl>
-<dl class="Bl-tag">
   <dt><b>--</b><i>file</i></dt>
   <dd>Read the tabulator specifications from the first line of <i>file</i> (if
       <i>file</i> is omitted, read from standard input). See <i>fspec</i>(5) for
       the format of the tabulator specification line.</dd>
 </dl>
-<div class="Pp"></div>
-Other arguments are:
+<p class="Pp">Other arguments are:</p>
 <dl class="Bl-tag">
-  <dt><b>-T</b><i>type</i></dt>
+  <dt id="T"><a class="permalink" href="#T"><b>-T</b><i>type</i></a></dt>
   <dd>Overrides the default terminal type. Various of the terminal names given
       in <i>term</i>(7) are recognized.</dd>
-</dl>
-<dl class="Bl-tag">
   <dt><b>+m</b><i>n</i></dt>
   <dd>Sets the left margin to <i>n</i> or, if <i>n</i> is omitted, to 10 (if
       supported by the terminal). The leftmost margin can be set with
       <b>+m0</b>. The left margin is not set unless this argument is
     present.</dd>
 </dl>
-<div class="Pp"></div>
-All operation is performed on standard output.
-<h1 class="Sh" title="Sh" id="ENVIRONMENT_VARIABLES"><a class="permalink" href="#ENVIRONMENT_VARIABLES">ENVIRONMENT
+<p class="Pp">All operation is performed on standard output.</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="ENVIRONMENT_VARIABLES"><a class="permalink" href="#ENVIRONMENT_VARIABLES">ENVIRONMENT
   VARIABLES</a></h1>
 <dl class="Bl-tag">
-  <dt><b>TERM</b></dt>
+  <dt id="TERM"><a class="permalink" href="#TERM"><b>TERM</b></a></dt>
   <dd>Specifies the default terminal type.</dd>
 </dl>
-<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
   ALSO</a></h1>
-stty(1), fspec(5), term(7)</div>
+<p class="Pp">stty(1), fspec(5), term(7)</p>
+</section>
+</div>
 <table class="foot">
   <tr>
     <td class="foot-date">5/19/03</td>

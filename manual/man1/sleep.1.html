@@ -9,6 +9,7 @@
    -->
 <head>
   <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
   <title>SLEEP(1)</title>
 </head>
@@ -21,32 +22,41 @@
   </tr>
 </table>
 <div class="manual-text">
-<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
-sleep - suspend execution for an interval
-<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
-<b>sleep</b><i> time</i>
-<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
-The <b>sleep</b> command suspends execution for <i>time</i> seconds. It is used
-  to execute a command after a certain amount of time as in:
+<section class="Sh">
+<h1 class="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+<p class="Pp">sleep - suspend execution for an interval</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<p class="Pp"><b>sleep</b><i> time</i></p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<p class="Pp">The <b>sleep</b> command suspends execution for <i>time</i>
+    seconds. It is used to execute a command after a certain amount of time as
+    in:</p>
 <div class="Bd-indent">
-<div class="Pp"></div>
-(sleep 105; command) &amp;
-<div class="Pp"></div>
+<p class="Pp">(sleep 105; command) &amp;</p>
+<p class="Pp"></p>
 </div>
 or to execute a command every so often, as in:
 <div class="Bd-indent">
-<div class="Pp"></div>
-<pre>
-while true
+<p class="Pp"></p>
+<pre>while true
 do
+<br/>
         command
+<br/>
         sleep 37
-done
-</pre>
+done</pre>
 </div>
-<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
   ALSO</a></h1>
-sh(1), sleep(3)</div>
+<p class="Pp">sh(1), sleep(3)</p>
+</section>
+</div>
 <table class="foot">
   <tr>
     <td class="foot-date">4/12/03</td>

@@ -22,6 +22,7 @@
    -->
 <head>
   <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
   <title>TCOPY(1)</title>
 </head>
@@ -34,18 +35,25 @@
   </tr>
 </table>
 <div class="manual-text">
-<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
-tcopy - copy a magnetic tape
-<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
-<b>tcopy</b> <i>src</i> [<i>dest</i>]
-<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
-<i>Tcopy</i> is designed to copy magnetic tapes. The only assumption made about
-  the tape is that there are two tape marks at the end. <i>Tcopy</i> with only a
-  source tape specified will print information about the sizes of records and
-  tape files. If a destination is specified, then, a copy will be made of the
-  source tape. The blocking on the destination tape will be identical to that
-  used on the source tape. Copying a tape will yield the same output as if just
-  printing the sizes.</div>
+<section class="Sh">
+<h1 class="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+<p class="Pp">tcopy - copy a magnetic tape</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<p class="Pp"><b>tcopy</b> <i>src</i> [<i>dest</i>]</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<p class="Pp"><i>Tcopy</i> is designed to copy magnetic tapes. The only
+    assumption made about the tape is that there are two tape marks at the end.
+    <i>Tcopy</i> with only a source tape specified will print information about
+    the sizes of records and tape files. If a destination is specified, then, a
+    copy will be made of the source tape. The blocking on the destination tape
+    will be identical to that used on the source tape. Copying a tape will yield
+    the same output as if just printing the sizes.</p>
+</section>
+</div>
 <table class="foot">
   <tr>
     <td class="foot-date">12/24/03</td>

@@ -9,6 +9,7 @@
  -->
 <head>
   <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
   <title>HEAD(1)</title>
 </head>
@@ -21,29 +22,36 @@
   </tr>
 </table>
 <div class="manual-text">
-<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
-head - display first few lines of files
-<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
-<b>head</b> [<b>-</b><i>number</i>|<b>-n</b><i> number</i>]
-  [<i>file</i>&#x00A0;...]
-<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
-The <b>head</b> command prints the first <i>number</i> of lines from each
-  <i>file to standard output.</i> If no <i>number</i> is specified, 10 is the
-  default. Without a <i>file</i> operand, the standard input is used.
-<div class="Pp"></div>
-When more that one <i>file</i> operand is given, the string
+<section class="Sh">
+<h1 class="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+<p class="Pp">head - display first few lines of files</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<p class="Pp"><b>head</b> [<b>-</b><i>number</i>|<b>-n</b><i> number</i>]
+    [<i>file</i>&#x00A0;...]</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<p class="Pp">The <b>head</b> command prints the first <i>number</i> of lines
+    from each <i>file to standard output.</i> If no <i>number</i> is specified,
+    10 is the default. Without a <i>file</i> operand, the standard input is
+    used.</p>
+<p class="Pp">When more that one <i>file</i> operand is given, the string</p>
 <div class="Bd-indent">
-<div class="Pp"></div>
-<b>==&gt; </b><i>file</i><b> &lt;==</b>
-<div class="Pp"></div>
+<p class="Pp"><b>==&gt; </b><i>file</i><b> &lt;==</b></p>
+<p class="Pp"></p>
 </div>
 is printed before the first lines of the <i>file.</i>
-<div class="Pp"></div>
-The facility to specify the <i>number</i> with the <i>-n</i> option has been
-  introduced by POSIX.2.
-<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+<p class="Pp">The facility to specify the <i>number</i> with the <i>-n</i>
+    option has been introduced by POSIX.2.</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
   ALSO</a></h1>
-cat(1), pg(1), sed(1)</div>
+<p class="Pp">cat(1), pg(1), sed(1)</p>
+</section>
+</div>
 <table class="foot">
   <tr>
     <td class="foot-date">12/6/04</td>

@@ -48,6 +48,7 @@
    -->
 <head>
   <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
   <title>PRINTENV(1)</title>
 </head>
@@ -60,19 +61,28 @@
   </tr>
 </table>
 <div class="manual-text">
-<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
-printenv - print out the environment
-<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
-<b>printenv</b> [<i>name</i>]
-<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
-<i>Printenv</i> prints out the values of the variables in the environment. If a
-  <i>name</i> is specified, only its value is printed.
-<div class="Pp"></div>
-If a <i>name</i> is specified and it is not defined in the environment,
-  <i>printenv</i> returns exit status 1, else it returns status 0.
-<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+<section class="Sh">
+<h1 class="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+<p class="Pp">printenv - print out the environment</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<p class="Pp"><b>printenv</b> [<i>name</i>]</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<p class="Pp"><i>Printenv</i> prints out the values of the variables in the
+    environment. If a <i>name</i> is specified, only its value is printed.</p>
+<p class="Pp">If a <i>name</i> is specified and it is not defined in the
+    environment, <i>printenv</i> returns exit status 1, else it returns status
+    0.</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
   ALSO</a></h1>
-sh(1), environ(7), csh(1)</div>
+<p class="Pp">sh(1), environ(7), csh(1)</p>
+</section>
+</div>
 <table class="foot">
   <tr>
     <td class="foot-date">10/26/03</td>

@@ -10,6 +10,7 @@
  -->
 <head>
   <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
   <title>LS(1B)</title>
 </head>
@@ -22,359 +23,314 @@
   </tr>
 </table>
 <div class="manual-text">
-<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
-ls - (BSD) list contents of directory
-<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
-<b>/usr/ucb/ls</b> [ <b>-aAcCdfFgHilLqrRstu1hSUX</b>] [ <i>file</i> ...]
-<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
-For each directory argument, <i>ls</i> lists the contents of the directory; for
-  each file argument, <i>ls</i> repeats its name and any other information
-  requested. The output is sorted alphabetically by default. When no argument is
-  given, the current directory is listed. When several arguments are given, the
-  arguments are first sorted appropriately, but file arguments appear before
-  directories and their contents. There are several options:
+<section class="Sh">
+<h1 class="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+<p class="Pp">ls - (BSD) list contents of directory</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<p class="Pp"><b>/usr/ucb/ls</b> [<b>-aAcCdfFgHilLqrRstu1hSUX</b>] [<i>file</i>
+    ...]</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<p class="Pp">For each directory argument, <i>ls</i> lists the contents of the
+    directory; for each file argument, <i>ls</i> repeats its name and any other
+    information requested. The output is sorted alphabetically by default. When
+    no argument is given, the current directory is listed. When several
+    arguments are given, the arguments are first sorted appropriately, but file
+    arguments appear before directories and their contents. There are several
+    options:</p>
 <dl class="Bl-tag">
-  <dt><b>-a</b></dt>
+  <dt id="a"><a class="permalink" href="#a"><b>-a</b></a></dt>
   <dd>List all entries; usually files that begin with a `<b>.</b>' are
       suppressed.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-A</b></dt>
+  <dt id="A"><a class="permalink" href="#A"><b>-A</b></a></dt>
   <dd>List all entries except `<b>.</b>' and `<b>..</b>'. This is default if
       <b>ls</b> is invoked by the super-user.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-c</b></dt>
+  <dt id="c"><a class="permalink" href="#c"><b>-c</b></a></dt>
   <dd>Use time of last modification to inode (mode, etc.) instead of last
       modification to file for sorting (<b>-t</b>) or printing (<b>-l</b>).</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-C</b></dt>
+  <dt id="C"><a class="permalink" href="#C"><b>-C</b></a></dt>
   <dd>Output is printed in multiple columns, sorted down the columns. This
       format is selected by default if standard output refers to a
     terminal.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-d</b></dt>
+  <dt id="d"><a class="permalink" href="#d"><b>-d</b></a></dt>
   <dd>If argument is a directory, list only its name, not its contents (mostly
       used with <b>-l</b> to get status on directory).</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-f</b></dt>
+  <dt id="f"><a class="permalink" href="#f"><b>-f</b></a></dt>
   <dd>Force each argument to be interpreted as a directory and list the name
       found in each slot. This option turns off <b>-l, -t, -s,</b> and
       <b>-r,</b> and turns on <b>-a;</b> the order is the order in which entries
       appear in the directory.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-F</b></dt>
+  <dt id="F"><a class="permalink" href="#F"><b>-F</b></a></dt>
   <dd>Indicates the file type as a letter appended to each pathname:</dd>
 </dl>
 <div class="Bd-indent">
-<div class="Pp"></div>
+<p class="Pp"></p>
 <table class="tbl">
   <tr>
-    <td>/</td>
+    <td><b>/</b></td>
     <td>directory</td>
   </tr>
   <tr>
-    <td>*</td>
+    <td><b>*</b></td>
     <td>executable file</td>
   </tr>
   <tr>
-    <td>@</td>
+    <td><b>@</b></td>
     <td>symbolic link</td>
   </tr>
   <tr>
-    <td>|</td>
+    <td><b>|</b></td>
     <td>named pipe</td>
   </tr>
   <tr>
-    <td>=</td>
+    <td><b>=</b></td>
     <td>socket</td>
   </tr>
   <tr>
-    <td>&gt;</td>
+    <td><b>&gt;</b></td>
     <td>door</td>
   </tr>
 </table>
-<div class="Pp"></div>
+<p class="Pp"></p>
 </div>
 <dl class="Bl-tag">
-  <dt><b>-g</b></dt>
+  <dt id="g"><a class="permalink" href="#g"><b>-g</b></a></dt>
   <dd>If combined with <b>-l</b>, the group ID is added to the output.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-i</b></dt>
+  <dt id="i"><a class="permalink" href="#i"><b>-i</b></a></dt>
   <dd>Print i-number in first column of the report for each file listed.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-l</b></dt>
+  <dt id="l"><a class="permalink" href="#l"><b>-l</b></a></dt>
   <dd>List in long format, giving mode, number of links, owner, size in bytes,
       and time of last modification for each file. (See below.) If the file is a
       special file the size field will instead contain the major and minor
       device numbers. Symbolic links specified as arguments are not followed
       with this option unless the <i>-H</i> or <i>-L</i> option is also
     present.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-L</b></dt>
+  <dt id="L"><a class="permalink" href="#L"><b>-L</b></a></dt>
   <dd>Follow symbolic links in arguments.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-q</b></dt>
+  <dt id="q"><a class="permalink" href="#q"><b>-q</b></a></dt>
   <dd>Non-printable characters are printed as question marks `<b>?</b>'. This is
       the default if standard output refers to a terminal.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-r</b></dt>
+  <dt id="r"><a class="permalink" href="#r"><b>-r</b></a></dt>
   <dd>Reverse the order of sort to get reverse alphabetic or oldest first as
       appropriate.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-R</b></dt>
+  <dt id="R"><a class="permalink" href="#R"><b>-R</b></a></dt>
   <dd>Lists subdirectories recursively.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-s</b></dt>
+  <dt id="s"><a class="permalink" href="#s"><b>-s</b></a></dt>
   <dd>Give size in blocks, including indirect blocks, for each entry.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-t</b></dt>
+  <dt id="t"><a class="permalink" href="#t"><b>-t</b></a></dt>
   <dd>Sort by time modified (latest first) instead of by name, as is
     normal.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-u</b></dt>
+  <dt id="u"><a class="permalink" href="#u"><b>-u</b></a></dt>
   <dd>Use time of last access instead of last modification for sorting
       (<b>-t</b>) or printing (<b>-l</b>).</dd>
-</dl>
-<dl class="Bl-tag">
   <dt><b>-1</b></dt>
   <dd>Print one filename per output line. This is the default if standard output
       does not refer to a terminal.</dd>
 </dl>
-<div class="Pp"></div>
-The following option was introduced with POSIX.1-2001:
+<p class="Pp">The following option was introduced with POSIX.1-2001:</p>
 <dl class="Bl-tag">
-  <dt><b>-H</b></dt>
+  <dt id="H"><a class="permalink" href="#H"><b>-H</b></a></dt>
   <dd>Follow symbolic links given as arguments.</dd>
 </dl>
-<div class="Pp"></div>
-The following options are available as extensions:
+<p class="Pp">The following options are available as extensions:</p>
 <dl class="Bl-tag">
-  <dt><b>-h</b></dt>
+  <dt id="h"><a class="permalink" href="#h"><b>-h</b></a></dt>
   <dd>Print file sizes in human-readable powers of 1024, i.e. `K' for kilobyte,
       `M' for megabyte, `G' for gigabyte, `T' for terabyte, `P' for petabyte,
       and `E' for exabyte.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-S</b></dt>
+  <dt id="S"><a class="permalink" href="#S"><b>-S</b></a></dt>
   <dd>Sort by file size.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-U</b></dt>
+  <dt id="U"><a class="permalink" href="#U"><b>-U</b></a></dt>
   <dd>Do not sort at all.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-X</b></dt>
+  <dt id="X"><a class="permalink" href="#X"><b>-X</b></a></dt>
   <dd>Sort by file name extension, i.e. by the component of the file name
       following the last dot.</dd>
 </dl>
-<div class="Pp"></div>
-The mode printed under the <b>-l</b> option contains 10 characters which are
-  interpreted as follows: the first character is
-<div class="Pp"></div>
+<p class="Pp">The mode printed under the <b>-l</b> option contains 10 characters
+    which are interpreted as follows: the first character is</p>
+<p class="Pp"></p>
 <table class="tbl">
   <tr>
-    <td>d</td>
+    <td><b>d</b></td>
     <td>if the entry is a directory;</td>
   </tr>
   <tr>
-    <td>b</td>
+    <td><b>b</b></td>
     <td>if the entry is a block-type special file;</td>
   </tr>
   <tr>
-    <td>c</td>
+    <td><b>c</b></td>
     <td>if the entry is a character-type special file;</td>
   </tr>
   <tr>
-    <td>p</td>
+    <td><b>p</b></td>
     <td>if the entry is a named pipe;</td>
   </tr>
   <tr>
-    <td>l</td>
+    <td><b>l</b></td>
     <td>if the entry is a symbolic link;</td>
   </tr>
   <tr>
-    <td>S</td>
+    <td><b>S</b></td>
     <td>if the entry is a socket;</td>
   </tr>
   <tr>
-    <td>s</td>
+    <td><b>s</b></td>
     <td>if the entry is a XENIX semaphore;</td>
   </tr>
   <tr>
-    <td>m</td>
+    <td><b>m</b></td>
     <td>if the entry is a XENIX shared data (memory) file;</td>
   </tr>
   <tr>
-    <td>D</td>
+    <td><b>D</b></td>
     <td>if the entry is a door;</td>
   </tr>
   <tr>
-    <td>-</td>
+    <td><b>-</b></td>
     <td>if the entry is a plain file.</td>
   </tr>
 </table>
-<div class="Pp"></div>
-The next 9 characters are interpreted as three sets of three bits each. The
-  first set refers to owner permissions; the next to permissions to others in
-  the same user-group; and the last to all others. Within each set the three
-  characters indicate permission respectively to read, to write, or to execute
-  the file as a program. For a directory, `execute' permission is interpreted to
-  mean permission to search the directory for a specified file. The permissions
-  are indicated as follows:
-<div class="Pp"></div>
+<p class="Pp">The next 9 characters are interpreted as three sets of three bits
+    each. The first set refers to owner permissions; the next to permissions to
+    others in the same user-group; and the last to all others. Within each set
+    the three characters indicate permission respectively to read, to write, or
+    to execute the file as a program. For a directory, `execute' permission is
+    interpreted to mean permission to search the directory for a specified file.
+    The permissions are indicated as follows:</p>
+<p class="Pp"></p>
 <table class="tbl">
   <tr>
-    <td>r</td>
+    <td><b>r</b></td>
     <td>if the file is readable;</td>
   </tr>
   <tr>
-    <td>w</td>
+    <td><b>w</b></td>
     <td>if the file is writable;</td>
   </tr>
   <tr>
-    <td>x</td>
+    <td><b>x</b></td>
     <td>if the file is executable;</td>
   </tr>
   <tr>
-    <td>-</td>
+    <td><b>-</b></td>
     <td>if the indicated permission is not granted.</td>
   </tr>
 </table>
-<div class="Pp"></div>
-The group-execute permission character is given as
-<div class="Pp"></div>
+<p class="Pp">The group-execute permission character is given as</p>
+<p class="Pp"></p>
 <table class="tbl">
   <tr>
-    <td>s</td>
+    <td><b>s</b></td>
     <td>if the file has set-group-ID mode;</td>
   </tr>
   <tr>
-    <td>S</td>
+    <td><b>S</b></td>
     <td>if the set-group-ID bit is set on the file but it is not
       executable.</td>
   </tr>
 </table>
-<div class="Pp"></div>
-Likewise the user-execute permission character is given as
-<div class="Pp"></div>
+<p class="Pp">Likewise the user-execute permission character is given as</p>
+<p class="Pp"></p>
 <table class="tbl">
   <tr>
-    <td>s</td>
+    <td><b>s</b></td>
     <td>if the file has set-user-ID mode;</td>
   </tr>
   <tr>
-    <td>S</td>
+    <td><b>S</b></td>
     <td>if the set-user-ID bit is set on the file but it is not executable.</td>
   </tr>
 </table>
-<div class="Pp"></div>
-The last character of the mode (normally `x' or `-') is
-<div class="Pp"></div>
+<p class="Pp">The last character of the mode (normally `x' or `-') is</p>
+<p class="Pp"></p>
 <table class="tbl">
   <tr>
-    <td>t</td>
+    <td><b>t</b></td>
     <td>if the sticky bit of the mode is on;</td>
   </tr>
   <tr>
-    <td>T</td>
+    <td><b>T</b></td>
     <td>if the sticky bit is on but the file is not executable.</td>
   </tr>
 </table>
-<div class="Pp"></div>
-See <i>chmod</i>(1) for the meaning of this mode.
-<div class="Pp"></div>
-When the sizes of the files in a directory are listed, a total count of blocks,
-  including indirect blocks is printed.
-<div class="Pp"></div>
-If <i>ls</i> writes its output to a terminal that supports colors or boldface,
-  file names printed are colorized according to their types:
-<div class="Pp"></div>
+<p class="Pp">See <i>chmod</i>(1) for the meaning of this mode.</p>
+<p class="Pp">When the sizes of the files in a directory are listed, a total
+    count of blocks, including indirect blocks is printed.</p>
+<p class="Pp">If <i>ls</i> writes its output to a terminal that supports colors
+    or boldface, file names printed are colorized according to their types:</p>
+<p class="Pp"></p>
 <table class="tbl">
   <tr>
-    <td>blue/bold</td>
+    <td><b>blue/bold</b></td>
     <td>if the file is a directory;</td>
   </tr>
   <tr>
-    <td>yellow/bold</td>
+    <td><b>yellow/bold</b></td>
     <td>if the file is a special file;</td>
   </tr>
   <tr>
-    <td>yellow</td>
+    <td><b>yellow</b></td>
     <td>if the file is a named pipe;</td>
   </tr>
   <tr>
-    <td>cyan</td>
+    <td><b>cyan</b></td>
     <td>if the file is a symbolic link;</td>
   </tr>
   <tr>
-    <td>magenta/bold</td>
+    <td><b>magenta/bold</b></td>
     <td>if the file is a socket or a door;</td>
   </tr>
   <tr>
-    <td>magenta</td>
+    <td><b>magenta</b></td>
     <td>if the file is a XENIX special file;</td>
   </tr>
   <tr>
-    <td>green/bold</td>
+    <td><b>green/bold</b></td>
     <td>if the file is executable.</td>
   </tr>
 </table>
-<div class="Pp"></div>
-For <i>lc</i>, colors are enabled even if the output is not written to a
-  terminal. This is mainly useful if the output is filtered through a pager
-  which handles colors, such as <i>pg</i>(1).
-<h1 class="Sh" title="Sh" id="FILES"><a class="permalink" href="#FILES">FILES</a></h1>
+<p class="Pp">For <i>lc</i>, colors are enabled even if the output is not
+    written to a terminal. This is mainly useful if the output is filtered
+    through a pager which handles colors, such as <i>pg</i>(1).</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="FILES"><a class="permalink" href="#FILES">FILES</a></h1>
 <dl class="Bl-tag">
   <dt><b>/etc/passwd</b></dt>
   <dd>to get user IDs.</dd>
-</dl>
-<dl class="Bl-tag">
   <dt><b>/etc/group</b></dt>
   <dd>to get group IDs.</dd>
 </dl>
-<h1 class="Sh" title="Sh" id="ENVIRONMENT_VARIABLES"><a class="permalink" href="#ENVIRONMENT_VARIABLES">ENVIRONMENT
+</section>
+<section class="Sh">
+<h1 class="Sh" id="ENVIRONMENT_VARIABLES"><a class="permalink" href="#ENVIRONMENT_VARIABLES">ENVIRONMENT
   VARIABLES</a></h1>
 <dl class="Bl-tag">
-  <dt><b>COLUMNS</b></dt>
+  <dt id="COLUMNS"><a class="permalink" href="#COLUMNS"><b>COLUMNS</b></a></dt>
   <dd>Overrides the auto-detected terminal width.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>LANG</b>, <b>LC_ALL</b></dt>
+  <dt id="LANG"><a class="permalink" href="#LANG"><b>LANG</b>,
+    <b>LC_ALL</b></a></dt>
   <dd>See <i>locale</i>(7).</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>LC_COLLATE</b></dt>
+  <dt id="LC_COLLATE"><a class="permalink" href="#LC_COLLATE"><b>LC_COLLATE</b></a></dt>
   <dd>Affects the order of printed items when sorting by name.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>LC_CTYPE</b></dt>
+  <dt id="LC_CTYPE"><a class="permalink" href="#LC_CTYPE"><b>LC_CTYPE</b></a></dt>
   <dd>Determines whether a character is printable.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>LC_TIME</b></dt>
+  <dt id="LC_TIME"><a class="permalink" href="#LC_TIME"><b>LC_TIME</b></a></dt>
   <dd>Sets the format of time strings printed with the <b>-l</b> option.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>TERM</b></dt>
+  <dt id="TERM"><a class="permalink" href="#TERM"><b>TERM</b></a></dt>
   <dd>Used to determine the terminal type.</dd>
 </dl>
-<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
   ALSO</a></h1>
-chmod(1), locale(7)</div>
+<p class="Pp">chmod(1), locale(7)</p>
+</section>
+</div>
 <table class="foot">
   <tr>
     <td class="foot-date">1/29/05</td>

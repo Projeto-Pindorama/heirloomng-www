@@ -5,6 +5,7 @@
  -->
 <head>
   <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
   <title>MKFIFO(1)</title>
 </head>
@@ -17,25 +18,33 @@
   </tr>
 </table>
 <div class="manual-text">
-<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
-mkfifo - make FIFO special file
-<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
-<b>mkfifo</b> [<b>-m</b><i>&#x00A0;mode</i>] <i>path</i> ...
-<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
-<b>Mkfifo</b> creates FIFO special files on the given <i>path</i> names. The
-  default mode is 666, and is affected by the file creation mask (see
-  <i>umask</i>(2)).
-<div class="Pp"></div>
-The following options are accepted:
+<section class="Sh">
+<h1 class="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+<p class="Pp">mkfifo - make FIFO special file</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<p class="Pp"><b>mkfifo</b> [<b>-m</b><i>&#x00A0;mode</i>] <i>path</i> ...</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<p class="Pp"><b>Mkfifo</b> creates FIFO special files on the given <i>path</i>
+    names. The default mode is 666, and is affected by the file creation mask
+    (see <i>umask</i>(2)).</p>
+<p class="Pp">The following options are accepted:</p>
 <dl class="Bl-tag">
-  <dt><b>-m</b> <i>mode</i></dt>
+  <dt id="m"><a class="permalink" href="#m"><b>-m</b> <i>mode</i></a></dt>
   <dd>Uses the given <i>mode</i> to create the directory, ignoring the file
       creation mask. <i>Mode</i> can be given in octal or in symbolic form, as
       described in <i>chmod</i>(1).</dd>
 </dl>
-<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
   ALSO</a></h1>
-mknod(1), mkfifo(2)</div>
+<p class="Pp">mknod(1), mkfifo(2)</p>
+</section>
+</div>
 <table class="foot">
   <tr>
     <td class="foot-date">8/15/03</td>

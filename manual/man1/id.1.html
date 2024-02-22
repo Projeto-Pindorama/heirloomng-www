@@ -9,6 +9,7 @@
  -->
 <head>
   <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
   <title>ID(1)</title>
 </head>
@@ -21,84 +22,86 @@
   </tr>
 </table>
 <div class="manual-text">
-<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
-id - print user and group IDs and names
-<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
-<b>/usr/5bin/id</b>
-<div>&#x00A0;</div>
-<b>/usr/5bin/id</b> <b>-a</b>
-<div class="Pp"></div>
-<b>/usr/5bin/posix/id</b> [<i>user</i>]
-<div>&#x00A0;</div>
-<b>/usr/5bin/posix/id</b> <b>-a</b> [<i>user</i>]
-<div>&#x00A0;</div>
-<b>/usr/5bin/posix/id</b> <b>-G</b> [<b>-n</b>] [<i>user</i>]
-<div>&#x00A0;</div>
-<b>/usr/5bin/posix/id</b> <b>-g</b> [<b>-nr</b>] [<i>user</i>]
-<div>&#x00A0;</div>
-<b>/usr/5bin/posix/id</b> <b>-u</b> [<b>-nr</b>] [<i>user</i>]
-<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
-The <i>id</i> command outputs the numerical and symbolic user and group IDs of
-  the invoking user or, if the <i>user</i> argument is given for
-  <b>/usr/5bin/posix/id</b>, for the named <i>user.</i> If an effective ID does
-  not match the corresponding real ID, both are printed.
-<div class="Pp"></div>
-The <b>/usr/5bin/posix/id</b> adds supplementary group memberships to the output
-  by default.
-<div class="Pp"></div>
-<b>/usr/5bin/s42/id</b> and <b>/usr/5bin/posix2001/id</b> are identical to
-  <b>/usr/5bin/posix/id</b>.
-<div class="Pp"></div>
-The following options are accepted:
-<h2 class="Ss" title="Ss" id="/usr/5bin/id"><a class="permalink" href="#/usr/5bin/id">/usr/5bin/id</a></h2>
+<section class="Sh">
+<h1 class="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+<p class="Pp">id - print user and group IDs and names</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<p class="Pp"><b>/usr/5bin/id</b>
+  <br/>
+  <b>/usr/5bin/id</b> <b>-a</b></p>
+<p class="Pp"><b>/usr/5bin/posix/id</b> [<i>user</i>]
+  <br/>
+  <b>/usr/5bin/posix/id</b> <b>-a</b> [<i>user</i>]
+  <br/>
+  <b>/usr/5bin/posix/id</b> <b>-G</b> [<b>-n</b>] [<i>user</i>]
+  <br/>
+  <b>/usr/5bin/posix/id</b> <b>-g</b> [<b>-nr</b>] [<i>user</i>]
+  <br/>
+  <b>/usr/5bin/posix/id</b> <b>-u</b> [<b>-nr</b>] [<i>user</i>]</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<p class="Pp">The <i>id</i> command outputs the numerical and symbolic user and
+    group IDs of the invoking user or, if the <i>user</i> argument is given for
+    <b>/usr/5bin/posix/id</b>, for the named <i>user.</i> If an effective ID
+    does not match the corresponding real ID, both are printed.</p>
+<p class="Pp">The <b>/usr/5bin/posix/id</b> adds supplementary group memberships
+    to the output by default.</p>
+<p class="Pp"><b>/usr/5bin/s42/id</b> and <b>/usr/5bin/posix2001/id</b> are
+    identical to <b>/usr/5bin/posix/id</b>.</p>
+<p class="Pp">The following options are accepted:</p>
+<section class="Ss">
+<h2 class="Ss" id="/usr/5bin/id"><a class="permalink" href="#/usr/5bin/id">/usr/5bin/id</a></h2>
 <dl class="Bl-tag">
-  <dt><b>-a</b></dt>
+  <dt id="a"><a class="permalink" href="#a"><b>-a</b></a></dt>
   <dd>Adds supplementary group memberships to the output.</dd>
 </dl>
-<h2 class="Ss" title="Ss" id="/usr/5bin/posix/id"><a class="permalink" href="#/usr/5bin/posix/id">/usr/5bin/posix/id</a></h2>
+</section>
+<section class="Ss">
+<h2 class="Ss" id="/usr/5bin/posix/id"><a class="permalink" href="#/usr/5bin/posix/id">/usr/5bin/posix/id</a></h2>
 <dl class="Bl-tag">
-  <dt><b>-a</b></dt>
+  <dt id="a~2"><a class="permalink" href="#a~2"><b>-a</b></a></dt>
   <dd>Adds the primary group to the list of supplementary groups.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-G</b></dt>
+  <dt id="G"><a class="permalink" href="#G"><b>-G</b></a></dt>
   <dd>Writes real, effective and supplementary group ID numbers only.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-g</b></dt>
+  <dt id="g"><a class="permalink" href="#g"><b>-g</b></a></dt>
   <dd>Writes the effective group ID number only.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-n</b></dt>
+  <dt id="n"><a class="permalink" href="#n"><b>-n</b></a></dt>
   <dd>Modifies the output of the <b>-G</b>, <b>-g</b>, and <b>-u</b> options to
       print symbolic instead of numeric IDs.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-r</b></dt>
+  <dt id="r"><a class="permalink" href="#r"><b>-r</b></a></dt>
   <dd>Causes real instead of effective IDs to be printed.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-u</b></dt>
+  <dt id="u"><a class="permalink" href="#u"><b>-u</b></a></dt>
   <dd>Writes the effective user ID number only.</dd>
 </dl>
-<h1 class="Sh" title="Sh" id="FILES"><a class="permalink" href="#FILES">FILES</a></h1>
+</section>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="FILES"><a class="permalink" href="#FILES">FILES</a></h1>
 <dl class="Bl-tag">
   <dt><b>/etc/passwd</b></dt>
   <dd></dd>
-</dl>
-<dl class="Bl-tag">
   <dt><b>/etc/group</b></dt>
   <dd></dd>
 </dl>
-<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
   ALSO</a></h1>
-groups(1), logins(1), getuid(2), geteuid(2), getgroups(2), group(5), passwd(5)
-<h1 class="Sh" title="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
-Use of <i>id</i> with any options or arguments is unportable. For portable
-  programs, use <i>sed</i>(1) to cut the appropriate portions off the default
-  output of <i>id</i> (using the invariable `uid=' and `gid=' strings as
-  orientation) and <i>groups</i>(1) or <i>logins</i>(1) if you need more
-  information than available by this method.</div>
+<p class="Pp">groups(1), logins(1), getuid(2), geteuid(2), getgroups(2),
+    group(5), passwd(5)</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
+<p class="Pp">Use of <i>id</i> with any options or arguments is unportable. For
+    portable programs, use <i>sed</i>(1) to cut the appropriate portions off the
+    default output of <i>id</i> (using the invariable `uid=' and `gid=' strings
+    as orientation) and <i>groups</i>(1) or <i>logins</i>(1) if you need more
+    information than available by this method.</p>
+</section>
+</div>
 <table class="foot">
   <tr>
     <td class="foot-date">1/24/05</td>

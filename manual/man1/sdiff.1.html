@@ -10,6 +10,7 @@
  -->
 <head>
   <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
   <title>SDIFF(1)</title>
 </head>
@@ -22,126 +23,129 @@
   </tr>
 </table>
 <div class="manual-text">
-<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
-sdiff - print file differences side-by-side
-<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
-<b>sdiff</b> [<b>-ls</b>] [<b>-o</b><i>&#x00A0;name</i>]
-  [<b>-w</b><i>&#x00A0;width</i>] <i>file1 file2</i>
-<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
-<i>sdiff</i> presents the lines of <i>file1</i> and <i>file2</i> side-by-side in
-  two columns. Lines that are equal in both files are separated by blanks; lines
-  that differ are separated by one of the following characters:
-<div class="Pp"></div>
+<section class="Sh">
+<h1 class="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+<p class="Pp">sdiff - print file differences side-by-side</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<p class="Pp"><b>sdiff</b> [<b>-ls</b>] [<b>-o</b><i>&#x00A0;name</i>]
+    [<b>-w</b><i>&#x00A0;width</i>] <i>file1 file2</i></p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<p class="Pp"><i>sdiff</i> presents the lines of <i>file1</i> and <i>file2</i>
+    side-by-side in two columns. Lines that are equal in both files are
+    separated by blanks; lines that differ are separated by one of the following
+    characters:</p>
+<p class="Pp"></p>
 <div class="Bd-indent">
 <table class="tbl">
   <tr>
-    <td>&lt;</td>
+    <td><b>&lt;</b></td>
     <td>the line is in file1 only</td>
   </tr>
   <tr>
-    <td>|</td>
+    <td><b>|</b></td>
     <td>the line differs in file1 and file2</td>
   </tr>
   <tr>
-    <td>&gt;</td>
+    <td><b>&gt;</b></td>
     <td>the line is in file2 only.</td>
   </tr>
 </table>
 </div>
-<div class="Pp"></div>
-This might look as
-<div class="Pp"></div>
+<p class="Pp">This might look as</p>
+<p class="Pp"></p>
 <div class="Bd-indent">
-<pre>
-only in file1        &lt;  
+<pre>only in file1        &lt;  
 in both files           in both files
 this line            |  is different
+<br/>
                      &gt;  only in file2
-also in both files      also in both files
-</pre>
+also in both files      also in both files</pre>
 </div>
-<div class="Pp"></div>
-The behavior of <i>sdiff</i> can be influenced with the following options:
+<p class="Pp">The behavior of <i>sdiff</i> can be influenced with the following
+    options:</p>
 <dl class="Bl-tag">
-  <dt><b>-l</b></dt>
+  <dt id="l"><a class="permalink" href="#l"><b>-l</b></a></dt>
   <dd>Print the first column only for lines equal in both files.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-s</b></dt>
+  <dt id="s"><a class="permalink" href="#s"><b>-s</b></a></dt>
   <dd>Omit equal lines in output.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-w</b><i> width</i></dt>
+  <dt id="w"><a class="permalink" href="#w"><b>-w</b><i> width</i></a></dt>
   <dd>Set the width of output (both lines and separators added) to <i>width</i>;
       the default is 130. Long lines are truncated to fit within this
     space.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-o</b><i> name</i></dt>
+  <dt id="o"><a class="permalink" href="#o"><b>-o</b><i> name</i></a></dt>
   <dd>Generate a merged version of both input files in the file <i>name</i> in
       addition to normal output. Lines that are equal are written to
       <i>name</i>; for each set of different lines, the prompt `%' is printed
       and the user may then choose the action by typing one of the following
       commands:
-    <div class="Pp"></div>
+    <p class="Pp"></p>
   </dd>
 </dl>
 <div class="Bd-indent">
 <table class="tbl">
   <tr>
-    <td>l</td>
+    <td><b>l</b></td>
     <td>Write the lines of the left (first) file to <i>name</i>.</td>
   </tr>
   <tr>
-    <td>r</td>
+    <td><b>r</b></td>
     <td>Write the lines of the right (second) file to name.</td>
   </tr>
   <tr>
-    <td>s</td>
+    <td><b>s</b></td>
     <td>Do not print equal lines to standard output.</td>
   </tr>
   <tr>
-    <td>v</td>
+    <td><b>v</b></td>
     <td>Turn printing of equal lines on.</td>
   </tr>
   <tr>
-    <td>e&#x00A0;l</td>
+    <td><b>e&#x00A0;l</b></td>
     <td>Invoke the editor on the lines of the left file and append the result to
       <i>name</i>.</td>
   </tr>
   <tr>
-    <td>e&#x00A0;r</td>
+    <td><b>e&#x00A0;r</b></td>
     <td>Invoke the editor on the lines of the right file.</td>
   </tr>
   <tr>
-    <td>e&#x00A0;b</td>
+    <td><b>e&#x00A0;b</b></td>
     <td>Concatenate the lines of both files and invoke the editor on the
       result.</td>
   </tr>
   <tr>
-    <td>e</td>
+    <td><b>e</b></td>
     <td>Invoke the editor with an empty file.</td>
   </tr>
   <tr>
-    <td>q</td>
+    <td><b>q</b></td>
     <td>Quit <i>sdiff</i> and do not write further lines to <i>name</i>.</td>
   </tr>
 </table>
 </div>
-<h1 class="Sh" title="Sh" id="ENVIRONMENT_VARIABLES"><a class="permalink" href="#ENVIRONMENT_VARIABLES">ENVIRONMENT
+</section>
+<section class="Sh">
+<h1 class="Sh" id="ENVIRONMENT_VARIABLES"><a class="permalink" href="#ENVIRONMENT_VARIABLES">ENVIRONMENT
   VARIABLES</a></h1>
 <dl class="Bl-tag">
-  <dt><b>LANG</b>, <b>LC_ALL</b></dt>
+  <dt id="LANG"><a class="permalink" href="#LANG"><b>LANG</b>,
+    <b>LC_ALL</b></a></dt>
   <dd>See <i>locale</i>(7).</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>LC_CTYPE</b></dt>
+  <dt id="LC_CTYPE"><a class="permalink" href="#LC_CTYPE"><b>LC_CTYPE</b></a></dt>
   <dd>Determines the mapping of bytes to characters and the width of
     characters.</dd>
 </dl>
-<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
   ALSO</a></h1>
-diff(1), ed(1)</div>
+<p class="Pp">diff(1), ed(1)</p>
+</section>
+</div>
 <table class="foot">
   <tr>
     <td class="foot-date">4/30/03</td>

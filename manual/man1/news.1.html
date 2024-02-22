@@ -9,6 +9,7 @@
  -->
 <head>
   <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
   <title>NEWS(1)</title>
 </head>
@@ -21,47 +22,50 @@
   </tr>
 </table>
 <div class="manual-text">
-<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
-news - print news items
-<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
-<b>news</b> [<b>-a</b>] [<b>-n</b>] [<b>-s</b>] [<i>items</i>]
-<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
-The <b>news</b> command prints files from the systems news directory that have
-  been added or modified since its previous invocation, preceded by a header,
-  starting with the most recent file.
-<div class="Pp"></div>
-It accepts the following options:
+<section class="Sh">
+<h1 class="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+<p class="Pp">news - print news items</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<p class="Pp"><b>news</b> [<b>-a</b>] [<b>-n</b>] [<b>-s</b>] [<i>items</i>]</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<p class="Pp">The <b>news</b> command prints files from the systems news
+    directory that have been added or modified since its previous invocation,
+    preceded by a header, starting with the most recent file.</p>
+<p class="Pp">It accepts the following options:</p>
 <dl class="Bl-tag">
-  <dt><b>-a</b></dt>
+  <dt id="a"><a class="permalink" href="#a"><b>-a</b></a></dt>
   <dd>Print all files in the system news directory. The recorded time of the
       previous invocation is not changed.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-n</b></dt>
+  <dt id="n"><a class="permalink" href="#n"><b>-n</b></a></dt>
   <dd>Print only the names of added or modified files. The recorded time of the
       previous invocation is not changed.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-s</b></dt>
+  <dt id="s"><a class="permalink" href="#s"><b>-s</b></a></dt>
   <dd>Print only the count of added or modified files. The recorded time of the
       previous invocation is not changed.</dd>
 </dl>
-<h1 class="Sh" title="Sh" id="ENVIRONMENT_VARIABLES"><a class="permalink" href="#ENVIRONMENT_VARIABLES">ENVIRONMENT
+</section>
+<section class="Sh">
+<h1 class="Sh" id="ENVIRONMENT_VARIABLES"><a class="permalink" href="#ENVIRONMENT_VARIABLES">ENVIRONMENT
   VARIABLES</a></h1>
 <dl class="Bl-tag">
-  <dt><b>HOME</b></dt>
+  <dt id="HOME"><a class="permalink" href="#HOME"><b>HOME</b></a></dt>
   <dd>User's home directory.</dd>
 </dl>
-<h1 class="Sh" title="Sh" id="FILES"><a class="permalink" href="#FILES">FILES</a></h1>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="FILES"><a class="permalink" href="#FILES">FILES</a></h1>
 <dl class="Bl-tag">
   <dt><b>$HOME/.news_time</b></dt>
   <dd>The time of the previous invocation is recorded as the modification time
       of this file.</dd>
-</dl>
-<dl class="Bl-tag">
   <dt><b>/var/news</b></dt>
   <dd>System news directory.</dd>
 </dl>
+</section>
 </div>
 <table class="foot">
   <tr>

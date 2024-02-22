@@ -10,6 +10,7 @@
  -->
 <head>
   <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
   <title>FSPEC(5)</title>
 </head>
@@ -22,23 +23,26 @@
   </tr>
 </table>
 <div class="manual-text">
-<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
-fspec - format specification in text files
-<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
-It is sometimes convenient to maintain text files on the system with
-  non-standard tabs, (tabs that are not set at every eighth column). Such files
-  must generally be converted to a standard format, frequently by replacing all
-  tabs with the appropriate number of spaces, before they can be processed by
-  system commands. A format specification occurring in the first line of a text
-  file specifies how tabs are to be expanded in the remainder of the file.
-<div class="Pp"></div>
-A format specification consists of a sequence of parameters separated by blanks
-  and surrounded by the brackets <b>&lt;:</b> and <b>:&gt;</b>. Each parameter
-  consists of a keyletter, possibly followed immediately by a value. The
-  following parameters are recognized:
+<section class="Sh">
+<h1 class="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+<p class="Pp">fspec - format specification in text files</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<p class="Pp">It is sometimes convenient to maintain text files on the system
+    with non-standard tabs, (tabs that are not set at every eighth column). Such
+    files must generally be converted to a standard format, frequently by
+    replacing all tabs with the appropriate number of spaces, before they can be
+    processed by system commands. A format specification occurring in the first
+    line of a text file specifies how tabs are to be expanded in the remainder
+    of the file.</p>
+<p class="Pp">A format specification consists of a sequence of parameters
+    separated by blanks and surrounded by the brackets <b>&lt;:</b> and
+    <b>:&gt;</b>. Each parameter consists of a keyletter, possibly followed
+    immediately by a value. The following parameters are recognized:</p>
 <div class="Bd-indent">
 <dl class="Bl-tag">
-  <dt><b></b><b>t</b><i>tabs</i></dt>
+  <dt id="t"><a class="permalink" href="#t"><b></b><b>t</b><i>tabs</i></a></dt>
   <dd>The <b>t</b> parameter specifies the tab settings for the file. The value
       of <b>tabs</b> must be one of the following:</dd>
 </dl>
@@ -48,62 +52,54 @@ A format specification consists of a sequence of parameters separated by blanks
   <dt>1.</dt>
   <dd>A list of column numbers separated by commas, indicating tabs set at the
       specified columns.</dd>
-</dl>
-<dl class="Bl-tag">
   <dt>2.</dt>
   <dd>A '<b>&#x2212;</b>' followed immediately by an integer <i>n</i>,
       indicating tabs at intervals of <i>n</i> columns.</dd>
-</dl>
-<dl class="Bl-tag">
   <dt>3.</dt>
   <dd>A '<b>&#x2212;</b>' followed by the name of a ``canned'' tab
       specification.</dd>
 </dl>
 </div>
 <div class="Bd-indent">
-<div class="Pp"></div>
-Standard tabs are specified by <b>t&#x2212;8</b>, or equivalently,
-  <b>t1,9,17,25,</b> etc. The canned tabs that are recognized are defined by the
-  <b>tabs</b>(1) command.</div>
+<p class="Pp">Standard tabs are specified by <b>t&#x2212;8</b>, or equivalently,
+    <b>t1,9,17,25,</b> etc. The canned tabs that are recognized are defined by
+    the <b>tabs</b>(1) command.</p>
+</div>
 <div class="Bd-indent">
 <dl class="Bl-tag">
-  <dt><b></b><b>s</b><i>size</i></dt>
+  <dt id="s"><a class="permalink" href="#s"><b></b><b>s</b><i>size</i></a></dt>
   <dd>The <b>s</b> parameter specifies a maximum line size. The value of
       <b>size</b> must be an integer. Size checking is performed after tabs have
       been expanded, but before the margin is prepended.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b></b><b>m</b><i>margin</i></dt>
+  <dt id="m"><a class="permalink" href="#m"><b></b><b>m</b><i>margin</i></a></dt>
   <dd>The <b>m</b> parameter specifies a number of spaces to be prepended to
       each line. The value of <i>margin</i> must be an integer.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b></b><b>d</b></dt>
+  <dt id="d"><a class="permalink" href="#d"><b></b><b>d</b></a></dt>
   <dd>The <b>d</b> parameter takes no value. Its presence indicates that the
       line containing the format specification is to be deleted from the
       converted file.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b></b><b>e</b></dt>
+  <dt id="e"><a class="permalink" href="#e"><b></b><b>e</b></a></dt>
   <dd>The <b>e</b> parameter takes no value. Its presence indicates that the
       current format is to prevail only until another format specification is
       encountered in the file.</dd>
 </dl>
 </div>
-<div class="Pp"></div>
-Default values, which are assumed for parameters not supplied, are
-  <b>t&#x2212;8</b> and <b>m0</b>. If the <b>s</b> parameter is not specified,
-  no size checking is performed. If the first line of a file does not contain a
-  format specification, the above defaults are assumed for the entire file. The
-  following is an example of a line containing a format specification:
-<div class="Pp"></div>
+<p class="Pp">Default values, which are assumed for parameters not supplied, are
+    <b>t&#x2212;8</b> and <b>m0</b>. If the <b>s</b> parameter is not specified,
+    no size checking is performed. If the first line of a file does not contain
+    a format specification, the above defaults are assumed for the entire file.
+    The following is an example of a line containing a format specification:</p>
+<p class="Pp"></p>
 <div class="Bd-indent"><b>* &lt;:t5,10,15 s72:&gt; *</b></div>
-<div class="Pp"></div>
-If a format specification can be disguised as a comment, it is not necessary to
-  code the <b>d</b> parameter.
-<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+<p class="Pp">If a format specification can be disguised as a comment, it is not
+    necessary to code the <b>d</b> parameter.</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
   ALSO</a></h1>
-<i>ed</i>(1), <i>newform</i>(1), <i>tabs</i>(1)</div>
+<p class="Pp"><i>ed</i>(1), <i>newform</i>(1), <i>tabs</i>(1)</p>
+</section>
+</div>
 <table class="foot">
   <tr>
     <td class="foot-date">2/3/07</td>

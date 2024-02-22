@@ -5,6 +5,7 @@
  -->
 <head>
   <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
   <title>TAPECNTL(1)</title>
 </head>
@@ -17,82 +18,69 @@
   </tr>
 </table>
 <div class="manual-text">
-<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
-tapecntl - tape control for tape devices
-<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
-<b>tapecntl</b> [ <b>-etrwaluv</b>] [ <b>-c&#x00A0;</b><i>arg</i>] [
-  <b>-p&#x00A0;</b> <i>arg</i>] [ <b>-d&#x00A0;</b><i>density_in_decimal</i>] [
-  <b>-f&#x00A0;</b><i>arg</i>] [ <i>device</i>]
-<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
-The <i>tapecntl</i> command performs certain control operations on tape devices.
-  If neither a <i>device</i> argument is present nor the <i>TAPE</i> environment
-  variable is set, the device /dev/rmt/c0s0n is used.
-<div class="Pp"></div>
-The following options are accepted:
+<section class="Sh">
+<h1 class="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+<p class="Pp">tapecntl - tape control for tape devices</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<p class="Pp"><b>tapecntl</b> [<b>-etrwaluv</b>] [<b>-c&#x00A0;</b><i>arg</i>]
+    [<b>-p&#x00A0;</b><i>arg</i>] [<b>-d&#x00A0;</b><i>density_in_decimal</i>]
+    [<b>-f&#x00A0;</b><i>arg</i>] [<i>device</i>]</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<p class="Pp">The <i>tapecntl</i> command performs certain control operations on
+    tape devices. If neither a <i>device</i> argument is present nor the
+    <i>TAPE</i> environment variable is set, the device /dev/rmt/c0s0n is
+  used.</p>
+<p class="Pp">The following options are accepted:</p>
 <dl class="Bl-tag">
-  <dt><b>-e</b></dt>
+  <dt id="e"><a class="permalink" href="#e"><b>-e</b></a></dt>
   <dd>Erase the entire tape.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-t</b></dt>
+  <dt id="t"><a class="permalink" href="#t"><b>-t</b></a></dt>
   <dd>Retension the tape, i.e. rewind the tape, wind the tape to end of reel and
       rewind it.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-r</b></dt>
+  <dt id="r"><a class="permalink" href="#r"><b>-r</b></a></dt>
   <dd>Reset the tape device.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-w</b></dt>
+  <dt id="w"><a class="permalink" href="#w"><b>-w</b></a></dt>
   <dd>Rewind the tape.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-p&#x00A0;</b><i>position</i></dt>
+  <dt id="p"><a class="permalink" href="#p"><b>-p&#x00A0;</b><i>position</i></a></dt>
   <dd>Position the tape at the data after the named file mark. The
       <i>position</i> argument is interpreted relative to the current tape
       position.</dd>
 </dl>
-<div class="Pp"></div>
-The following options are extensions:
+<p class="Pp">The following options are extensions:</p>
 <dl class="Bl-tag">
-  <dt><b>-a</b></dt>
+  <dt id="a"><a class="permalink" href="#a"><b>-a</b></a></dt>
   <dd>Position the tape at end of data.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-l</b></dt>
+  <dt id="l"><a class="permalink" href="#l"><b>-l</b></a></dt>
   <dd>Load the tape.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-u</b></dt>
+  <dt id="u"><a class="permalink" href="#u"><b>-u</b></a></dt>
   <dd>Unload the tape.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-d&#x00A0;</b><i>density_in_decimal</i></dt>
+  <dt id="d"><a class="permalink" href="#d"><b>-d&#x00A0;</b><i>density_in_decimal</i></a></dt>
   <dd>Set the SCSI tape density. Some density codes are: 0 = default
       (autodetect); 4 = QIC-11; 5 = QIC-24; 15 = QIC-120; 16 = QIC-150; 17 =
       QIC-320; 20 = EXB-8200; 21 = EXB-8500; 21 = QIC-1000; 34 = QIC-2GB; 140 =
       EXB-8500c; 144 = EXB-8200c.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-c&#x00A0;</b><i>arg</i></dt>
+  <dt id="c"><a class="permalink" href="#c"><b>-c&#x00A0;</b><i>arg</i></a></dt>
   <dd>Enable compression (if <i>arg</i> is different from <b>0</b>) or disable
       it (if <i>arg</i> equals <b>0</b>).</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-f&#x00A0;</b><i>arg</i></dt>
+  <dt id="f"><a class="permalink" href="#f"><b>-f&#x00A0;</b><i>arg</i></a></dt>
   <dd>Set the tape block size to <i>arg</i> bytes.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-v</b></dt>
+  <dt id="v"><a class="permalink" href="#v"><b>-v</b></a></dt>
   <dd>Set variable tape block size.</dd>
 </dl>
-<h1 class="Sh" title="Sh" id="ENVIRONMENT_VARIABLES"><a class="permalink" href="#ENVIRONMENT_VARIABLES">ENVIRONMENT
+</section>
+<section class="Sh">
+<h1 class="Sh" id="ENVIRONMENT_VARIABLES"><a class="permalink" href="#ENVIRONMENT_VARIABLES">ENVIRONMENT
   VARIABLES</a></h1>
 <dl class="Bl-tag">
-  <dt>TAPE</dt>
+  <dt id="TAPE"><a class="permalink" href="#TAPE">TAPE</a></dt>
   <dd>Used as tape device if no <i>device</i> argument is given on the command
       line.</dd>
 </dl>
+</section>
 </div>
 <table class="foot">
   <tr>

@@ -22,6 +22,7 @@
    -->
 <head>
   <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
   <title>MORE(1)</title>
 </head>
@@ -34,51 +35,48 @@
   </tr>
 </table>
 <div class="manual-text">
-<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
-more, page - browse or page through a text file
-<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
-<div class="Pp"></div>
-<div class="HP"><b>more</b> [ <b>-cdflrsuw</b>] [<b>-</b><i>lines</i>] [
-  <b>+</b> <i>linenumber</i>] [<b>+/</b><i>pattern</i><b>/</b>]
-  [<i>filename</i>&#x00A0;...]</div>
-<div class="Pp"></div>
-<div class="HP"><b>page</b> [ <b>-cdflrsuw</b>] [<b>-</b><i>lines</i>] [
-  <b>+</b> <i>linenumber</i>] [<b>+/</b><i>pattern</i><b>/</b>]
-  [<i>filename</i>&#x00A0;...]
-<div>&#x00A0;</div>
-</div>
-<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
-<i>More</i> is a filter which allows examination of a continuous text one
-  screenful at a time on a soft-copy terminal. It normally pauses after each
-  screenful, printing --More-- at the bottom of the screen. If the user then
-  types a carriage return, one more line is displayed. If the user hits a space,
-  another screenful is displayed. Other possibilities are enumerated later.
-<div class="Pp"></div>
-The command line options are:
+<section class="Sh">
+<h1 class="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+<p class="Pp">more, page - browse or page through a text file</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<p class="Pp HP"><b>more</b> [<b>-cdflrsuw</b>] [<b>-</b><i>lines</i>]
+    [<b>+</b><i>linenumber</i>] [<b>+/</b><i>pattern</i><b>/</b>]
+    [<i>filename</i>&#x00A0;...]</p>
+<p class="Pp HP"><b>page</b> [<b>-cdflrsuw</b>] [<b>-</b><i>lines</i>]
+    [<b>+</b><i>linenumber</i>] [<b>+/</b><i>pattern</i><b>/</b>]
+    [<i>filename</i>&#x00A0;...]
+  <br/>
+</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<p class="Pp"><i>More</i> is a filter which allows examination of a continuous
+    text one screenful at a time on a soft-copy terminal. It normally pauses
+    after each screenful, printing --More-- at the bottom of the screen. If the
+    user then types a carriage return, one more line is displayed. If the user
+    hits a space, another screenful is displayed. Other possibilities are
+    enumerated later.</p>
+<p class="Pp">The command line options are:</p>
 <dl class="Bl-tag">
-  <dt><i>-n</i></dt>
+  <dt id="n"><a class="permalink" href="#n"><i>-n</i></a></dt>
   <dd>An integer which is the size (in lines) of the window which <i>more</i>
       will use instead of the default.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-c</b></dt>
+  <dt id="c"><a class="permalink" href="#c"><b>-c</b></a></dt>
   <dd><i>More</i> will draw each page by beginning at the top of the screen and
       erasing each line just before it draws on it. This avoids scrolling the
       screen, making it easier to read while <i>more</i> is writing. This option
       will be ignored if the terminal does not have the ability to clear to the
       end of a line.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-d</b></dt>
+  <dt id="d"><a class="permalink" href="#d"><b>-d</b></a></dt>
   <dd><i>More</i> will prompt the user with the message &quot;Press space to
       continue, &#x00B4;q&#x00B4; to quit.&quot; at the end of each screenful,
       and will respond to subsequent illegal user input by printing &quot;Press
       &#x00B4;h&#x00B4; for instructions.&quot; instead of ringing the bell.
       This is useful if <i>more</i> is being used as a filter in some setting,
       such as a class, where many users may be unsophisticated.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-f</b></dt>
+  <dt id="f"><a class="permalink" href="#f"><b>-f</b></a></dt>
   <dd>This causes <i>more</i> to count logical, rather than screen lines. That
       is, long lines are not folded. This option is recommended if <i>nroff</i>
       output is being piped through <i>ul,</i> since the latter may generate
@@ -87,127 +85,87 @@ The command line options are:
       sent to the terminal as part of an escape sequence. Thus <i>more</i> may
       think that lines are longer than they actually are, and fold lines
       erroneously.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-l</b></dt>
+  <dt id="l"><a class="permalink" href="#l"><b>-l</b></a></dt>
   <dd>Do not treat ^L (form feed) specially. If this option is not given,
       <i>more</i> will pause after any line that contains a ^L, as if the end of
       a screenful had been reached. Also, if a file begins with a form feed, the
       screen will be cleared before the file is printed.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-r</b></dt>
+  <dt id="r"><a class="permalink" href="#r"><b>-r</b></a></dt>
   <dd><i>More</i> will print ASCII control characters as `c' with this
     option.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-s</b></dt>
+  <dt id="s"><a class="permalink" href="#s"><b>-s</b></a></dt>
   <dd>Squeeze multiple blank lines from the output, producing only one blank
       line. Especially helpful when viewing <i>nroff</i> output, this option
       maximizes the useful information present on the screen.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-u</b></dt>
+  <dt id="u"><a class="permalink" href="#u"><b>-u</b></a></dt>
   <dd>Normally, <i>more</i> will handle underlining such as produced by
       <i>nroff</i> in a manner appropriate to the particular terminal: if the
       terminal can perform underlining or has a stand-out mode, <i>more</i> will
       output appropriate escape sequences to enable underlining or stand-out
       mode for underlined information in the source file. The <i>-u</i> option
       suppresses this processing.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-w</b></dt>
+  <dt id="w"><a class="permalink" href="#w"><b>-w</b></a></dt>
   <dd><i>More</i> normally exits immediately when the end of the last file is
       reached. This option causes it to print a message and wait for any key to
       be pressed before exiting.</dd>
-</dl>
-<dl class="Bl-tag">
   <dt><b>+<i>linenumber</i></b></dt>
   <dd>Start up at <i>linenumber</i>.</dd>
-</dl>
-<dl class="Bl-tag">
   <dt><b>+/<i>pattern</i></b></dt>
   <dd>Start up two lines before the line containing the regular expression
       <i>pattern</i>.</dd>
 </dl>
-<div class="Pp"></div>
-If the program is invoked as <i>page,</i> then the screen is cleared before each
-  screenful is printed (but only if a full screenful is being printed), and
-  <i>k</i> - 1 rather than <i>k</i> - 2 lines are printed in each screenful,
-  where <i>k</i> is the number of lines the terminal can display.
-<div class="Pp"></div>
-<i>More</i> looks in the terminfo database to determine terminal
-  characteristics, and to determine the default window size. On a terminal
-  capable of displaying 24 lines, the default window size is 22 lines.
-<div class="Pp"></div>
-<i>More</i> looks in the environment variable <i>MORE</i> to pre-set any flags
-  desired. For example, if you prefer to view files using the <i>-c</i> mode of
-  operation, the <i>csh</i> command <i>setenv MORE -c</i> or the <i>sh</i>
-  command sequence <i>MORE='-c' ; export MORE</i> would cause all invocations of
-  <i>more ,</i> including invocations by programs such as <i>man</i> and <i>msgs
-  ,</i> to use this mode. Normally, the user will place the command sequence
-  which sets up the <i>MORE</i> environment variable in the <i>.cshrc</i> or
-  <i>.profile</i> file.
-<div class="Pp"></div>
-If <i>more</i> is reading from a file, rather than a pipe, then a percentage is
-  displayed along with the --More-- prompt. This gives the fraction of the file
-  (in characters, not lines) that has been read so far.
-<div class="Pp"></div>
-Other sequences which may be typed when <i>more</i> pauses, and their effects,
-  are as follows ( <i>i</i> is an optional integer argument, defaulting to 1) :
+<p class="Pp">If the program is invoked as <i>page,</i> then the screen is
+    cleared before each screenful is printed (but only if a full screenful is
+    being printed), and <i>k</i> - 1 rather than <i>k</i> - 2 lines are printed
+    in each screenful, where <i>k</i> is the number of lines the terminal can
+    display.</p>
+<p class="Pp"><i>More</i> looks in the terminfo database to determine terminal
+    characteristics, and to determine the default window size. On a terminal
+    capable of displaying 24 lines, the default window size is 22 lines.</p>
+<p class="Pp"><i>More</i> looks in the environment variable <i>MORE</i> to
+    pre-set any flags desired. For example, if you prefer to view files using
+    the <i>-c</i> mode of operation, the <i>csh</i> command <i>setenv MORE
+    -c</i> or the <i>sh</i> command sequence <i>MORE='-c' ; export MORE</i>
+    would cause all invocations of <i>more ,</i> including invocations by
+    programs such as <i>man</i> and <i>msgs ,</i> to use this mode. Normally,
+    the user will place the command sequence which sets up the <i>MORE</i>
+    environment variable in the <i>.cshrc</i> or <i>.profile</i> file.</p>
+<p class="Pp">If <i>more</i> is reading from a file, rather than a pipe, then a
+    percentage is displayed along with the --More-- prompt. This gives the
+    fraction of the file (in characters, not lines) that has been read so
+  far.</p>
+<p class="Pp">Other sequences which may be typed when <i>more</i> pauses, and
+    their effects, are as follows (<i>i</i> is an optional integer argument,
+    defaulting to 1) :</p>
 <dl class="Bl-tag">
-  <dt><i>i</i>&lt;space&gt;</dt>
+  <dt id="i"><a class="permalink" href="#i"><i>i</i>&lt;space&gt;</a></dt>
   <dd>display <i>i</i> more lines, (or another screenful if no argument is
       given)</dd>
-</dl>
-<dl class="Bl-tag">
   <dt>^D</dt>
   <dd>display 11 more lines (a ``scroll''). If <i>i</i> is given, then the
       scroll size is set to <i>i</i>.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt>d</dt>
+  <dt id="d~2"><a class="permalink" href="#d~2">d</a></dt>
   <dd>same as ^D (control-D)</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><i>i</i>z</dt>
+  <dt id="i~2"><a class="permalink" href="#i~2"><i>i</i>z</a></dt>
   <dd>same as typing a space except that <i>i</i>, if present, becomes the new
       window size.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><i>i</i>s</dt>
+  <dt id="i~3"><a class="permalink" href="#i~3"><i>i</i>s</a></dt>
   <dd>skip <i>i</i> lines and print a screenful of lines</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><i>i</i>f</dt>
+  <dt id="i~4"><a class="permalink" href="#i~4"><i>i</i>f</a></dt>
   <dd>skip <i>i</i> screenfuls and print a screenful of lines</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><i>i</i>b</dt>
+  <dt id="i~5"><a class="permalink" href="#i~5"><i>i</i>b</a></dt>
   <dd>skip back <i>i</i> screenfuls and print a screenful of lines</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><i>i</i>^B</dt>
+  <dt id="i~6"><a class="permalink" href="#i~6"><i>i</i>^B</a></dt>
   <dd>same as b</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt>q or Q</dt>
+  <dt id="q"><a class="permalink" href="#q">q or Q</a></dt>
   <dd>Exit from <i>more.</i></dd>
-</dl>
-<dl class="Bl-tag">
   <dt>=</dt>
   <dd>Display the current line number.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt>v</dt>
+  <dt id="v"><a class="permalink" href="#v">v</a></dt>
   <dd>Start up the editor <i>vi</i> at the current line.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt>h</dt>
+  <dt id="h"><a class="permalink" href="#h">h</a></dt>
   <dd>Help command; give a description of all the <i>more</i> commands.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><i>i</i>/expr</dt>
+  <dt id="i~7"><a class="permalink" href="#i~7"><i>i</i>/expr</a></dt>
   <dd>search for the <i>i</i>-th occurrence of the regular expression
       <i>expr.</i> If there are fewer than <i>i</i> occurrences of <i>expr</i>,
       and the input is a file (rather than a pipe), then the position in the
@@ -215,79 +173,62 @@ Other sequences which may be typed when <i>more</i> pauses, and their effects,
       lines before the place where the expression was found. The user's erase
       and kill characters may be used to edit the regular expression. Erasing
       back past the first column cancels the search command.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><i>i</i>n</dt>
+  <dt id="i~8"><a class="permalink" href="#i~8"><i>i</i>n</a></dt>
   <dd>search for the <i>i</i>-th occurrence of the last regular expression
       entered.</dd>
-</dl>
-<dl class="Bl-tag">
   <dt>&#x00B4;</dt>
   <dd>(single quote) Go to the point from which the last search started. If no
       search has been performed in the current file, this command goes back to
       the beginning of the file.</dd>
-</dl>
-<dl class="Bl-tag">
   <dt>!command</dt>
   <dd>invoke a shell with <i>command</i>. The characters `%' and `!' in
       &quot;command&quot; are replaced with the current file name and the
       previous shell command respectively. If there is no current file name, `%'
       is not expanded. The sequences &quot;\%&quot; and &quot;\!&quot; are
       replaced by &quot;%&quot; and &quot;!&quot; respectively.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><i>i</i>:n</dt>
+  <dt id="i~9"><a class="permalink" href="#i~9"><i>i</i>:n</a></dt>
   <dd>skip to the <i>i</i>-th next file given in the command line (skips to last
       file if n doesn't make sense)</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><i>i</i>:p</dt>
+  <dt id="i~10"><a class="permalink" href="#i~10"><i>i</i>:p</a></dt>
   <dd>skip to the <i>i</i>-th previous file given in the command line. If this
       command is given in the middle of printing out a file, then <i>more</i>
       goes back to the beginning of the file. If <i>i</i> doesn't make sense,
       <i>more</i> skips back to the first file. If <i>more</i> is not reading
       from a file, the bell is rung and nothing else happens.</dd>
-</dl>
-<dl class="Bl-tag">
   <dt>:f</dt>
   <dd>display the current file name and line number.</dd>
-</dl>
-<dl class="Bl-tag">
   <dt>:q or :Q</dt>
   <dd>exit from <i>more</i> (same as q or Q).</dd>
-</dl>
-<dl class="Bl-tag">
   <dt>.</dt>
   <dd>(dot) repeat the previous command.</dd>
 </dl>
-<div class="Pp"></div>
-The commands take effect immediately, i.e., it is not necessary to type a
-  carriage return. Up to the time when the command character itself is given,
-  the user may hit the line kill character to cancel the numerical argument
-  being formed. In addition, the user may hit the erase character to redisplay
-  the --More--(xx%) message.
-<div class="Pp"></div>
-At any time when output is being sent to the terminal, the user can hit the quit
-  key (normally control-\). <i>More</i> will stop sending output, and will
-  display the usual --More-- prompt. The user may then enter one of the above
-  commands in the normal manner. Unfortunately, some output is lost when this is
-  done, due to the fact that any characters waiting in the terminal's output
-  queue are flushed when the quit signal occurs.
-<div class="Pp"></div>
-The terminal is set to <i>noecho</i> mode by this program so that the output can
-  be continuous. What you type will thus not show on your terminal, except for
-  the / and ! commands.
-<div class="Pp"></div>
-If the standard output is not a teletype, then <i>more</i> acts just like
-  <i>cat,</i> except that a header is printed before each file (if there is more
-  than one).
-<div class="Pp"></div>
-A sample usage of <i>more</i> in previewing <i>nroff</i> output would be
-<div class="Pp"></div>
-	nroff -ms +2 doc.n | more -s
-<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+<p class="Pp">The commands take effect immediately, i.e., it is not necessary to
+    type a carriage return. Up to the time when the command character itself is
+    given, the user may hit the line kill character to cancel the numerical
+    argument being formed. In addition, the user may hit the erase character to
+    redisplay the --More--(xx%) message.</p>
+<p class="Pp">At any time when output is being sent to the terminal, the user
+    can hit the quit key (normally control-\). <i>More</i> will stop sending
+    output, and will display the usual --More-- prompt. The user may then enter
+    one of the above commands in the normal manner. Unfortunately, some output
+    is lost when this is done, due to the fact that any characters waiting in
+    the terminal's output queue are flushed when the quit signal occurs.</p>
+<p class="Pp">The terminal is set to <i>noecho</i> mode by this program so that
+    the output can be continuous. What you type will thus not show on your
+    terminal, except for the / and ! commands.</p>
+<p class="Pp">If the standard output is not a teletype, then <i>more</i> acts
+    just like <i>cat,</i> except that a header is printed before each file (if
+    there is more than one).</p>
+<p class="Pp">A sample usage of <i>more</i> in previewing <i>nroff</i> output
+    would be</p>
+<p class="Pp">	nroff -ms +2 doc.n | more -s</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
   ALSO</a></h1>
-cat(1), csh(1), man(1), script(1), sh(1)</div>
+<p class="Pp">cat(1), csh(1), man(1), script(1), sh(1)</p>
+</section>
+</div>
 <table class="foot">
   <tr>
     <td class="foot-date">2/15/05</td>

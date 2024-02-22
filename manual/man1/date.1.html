@@ -9,6 +9,7 @@
  -->
 <head>
   <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
   <title>DATE(1)</title>
 </head>
@@ -21,85 +22,82 @@
   </tr>
 </table>
 <div class="manual-text">
-<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
-date - print or set the date
-<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
-<b>date</b> [<b>-u</b>] [<b>+</b><i>format</i>]
-<div>&#x00A0;</div>
-<b>date</b> [<b>-u</b>] [<b>-b</b>] <i>HHMM</i> |
-  <i>mmddHHMM</i>[[<i>cc</i>]<i>yy</i>]
-<div>&#x00A0;</div>
-<b>date</b> <b>-a</b> [<b>-</b>]<i>sss.fff</i>
-<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
-<b>Date</b> displays the current date if invoked without arguments or with a
-  <b>+</b><i>format</i> argument.
-<div class="Pp"></div>
-If the first argument does not start with <b>+</b>, <b>date</b> sets the system
-  time to the given value, which may consist of
-<div class="Pp"></div>
+<section class="Sh">
+<h1 class="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+<p class="Pp">date - print or set the date</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<p class="Pp"><b>date</b> [<b>-u</b>] [<b>+</b><i>format</i>]
+  <br/>
+  <b>date</b> [<b>-u</b>] [<b>-b</b>] <i>HHMM</i> |
+    <i>mmddHHMM</i>[[<i>cc</i>]<i>yy</i>]
+  <br/>
+  <b>date</b> <b>-a</b> [<b>-</b>]<i>sss.fff</i></p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<p class="Pp"><b>Date</b> displays the current date if invoked without arguments
+    or with a <b>+</b><i>format</i> argument.</p>
+<p class="Pp">If the first argument does not start with <b>+</b>, <b>date</b>
+    sets the system time to the given value, which may consist of</p>
+<p class="Pp"></p>
 <div class="Bd-indent">
 <table class="tbl">
   <tr>
-    <td>mm</td>
+    <td><b>mm</b></td>
     <td>month of year (01&#x2013;12)</td>
   </tr>
   <tr>
-    <td>dd</td>
+    <td><b>dd</b></td>
     <td>day of month (01&#x2013;31)</td>
   </tr>
   <tr>
-    <td>HH</td>
+    <td><b>HH</b></td>
     <td>hour (00&#x2013;23)</td>
   </tr>
   <tr>
-    <td>MM</td>
+    <td><b>MM</b></td>
     <td>minute (00&#x2013;59)</td>
   </tr>
   <tr>
-    <td>cc</td>
+    <td><b>cc</b></td>
     <td>first two digits of year</td>
   </tr>
   <tr>
-    <td>yy</td>
+    <td><b>yy</b></td>
     <td>second two digits of year</td>
   </tr>
 </table>
 </div>
-<div class="Pp"></div>
-The following options alter the behavior of <b>date</b>:
+<p class="Pp">The following options alter the behavior of <b>date</b>:</p>
 <dl class="Bl-tag">
-  <dt><b>-a</b> [<i>-</i>]<i>sss.fff</i></dt>
+  <dt id="a"><a class="permalink" href="#a"><b>-a</b>
+    [<i>-</i>]<i>sss.fff</i></a></dt>
   <dd>Adjust the system clock by <i>sss</i> seconds and <i>fff</i> milliseconds,
       speeding up or, with <i>-,</i> slowing down.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-u</b></dt>
+  <dt id="u"><a class="permalink" href="#u"><b>-u</b></a></dt>
   <dd>Use <small>UTC</small> values for printing and setting the date.</dd>
 </dl>
-<div class="Pp"></div>
-The following option is an extension:
+<p class="Pp">The following option is an extension:</p>
 <dl class="Bl-tag">
-  <dt><b>-b</b></dt>
+  <dt id="b"><a class="permalink" href="#b"><b>-b</b></a></dt>
   <dd>Causes <i>date</i> not to alter the `wtmp' file for the system time
       change.</dd>
 </dl>
-<div class="Pp"></div>
-An argument starting with <b>+</b> specifies a format string to print the
-  current date. A percent character <b>%</b> introduces a field descriptor with
-  one or two following characters which is replaced by a part of the current
-  date, as shown in the table below. Other characters are printed literally. A
-  newline character is printed at the end of the output.
+<p class="Pp">An argument starting with <b>+</b> specifies a format string to
+    print the current date. A percent character <b>%</b> introduces a field
+    descriptor with one or two following characters which is replaced by a part
+    of the current date, as shown in the table below. Other characters are
+    printed literally. A newline character is printed at the end of the
+  output.</p>
 <dl class="Bl-tag">
-  <dt>Field descriptors:</dt>
+  <dt id="Field"><a class="permalink" href="#Field">Field descriptors:</a></dt>
   <dd>
     <table class="tbl">
       <tr>
         <td>a</td>
         <td>locale-specific abbreviated weekday name (System&#x00A0;III)</td>
-      </tr>
-      <tr>
-        <td>.</td>
-        <td></td>
       </tr>
       <tr>
         <td>A</td>
@@ -121,7 +119,7 @@ An argument starting with <b>+</b> specifies a format string to print the
         <td>C</td>
         <td>century &#x2013; 19 or 20 (POSIX.2) (<b>/usr/5bin/s42/date</b>,
           <b>/usr/5bin/posix/date</b>, <b>/usr/5bin/posix2001/date</b>) default
-          output format ( <b>/usr/5bin/date</b>)</td>
+          output format (<b>/usr/5bin/date</b>)</td>
       </tr>
       <tr>
         <td>d</td>
@@ -334,15 +332,10 @@ An argument starting with <b>+</b> specifies a format string to print the
       </tr>
     </table>
   </dd>
-</dl>
-<dl class="Bl-tag">
-  <dt>Compatibility references:</dt>
+  <dt id="Compatibility"><a class="permalink" href="#Compatibility">Compatibility
+    references:</a></dt>
   <dd>
     <table class="tbl">
-      <tr>
-        <td>.</td>
-        <td></td>
-      </tr>
       <tr>
         <td>System III</td>
         <td>AT&amp;T System III manual page
@@ -368,39 +361,40 @@ An argument starting with <b>+</b> specifies a format string to print the
     </table>
   </dd>
 </dl>
-<div class="Pp"></div>
-When no arguments are given, the format defaults to
+<p class="Pp">When no arguments are given, the format defaults to</p>
 <div class="Bd-indent">
-<div class="Pp"></div>
-%a %b %e %H:%M:%S %Z %Y
-<div class="Pp"></div>
+<p class="Pp">%a %b %e %H:%M:%S %Z %Y</p>
+<p class="Pp"></p>
 </div>
 in the C or POSIX locale, resulting in an output like
 <div class="Bd-indent">
-<div class="Pp"></div>
-Wed Feb 26 17:48:54 CET 2003
-<div class="Pp"></div>
+<p class="Pp">Wed Feb 26 17:48:54 CET 2003</p>
+<p class="Pp"></p>
 </div>
-<h1 class="Sh" title="Sh" id="ENVIRONMENT_VARIABLES"><a class="permalink" href="#ENVIRONMENT_VARIABLES">ENVIRONMENT
+</section>
+<section class="Sh">
+<h1 class="Sh" id="ENVIRONMENT_VARIABLES"><a class="permalink" href="#ENVIRONMENT_VARIABLES">ENVIRONMENT
   VARIABLES</a></h1>
 <dl class="Bl-tag">
-  <dt><b>LANG, LC_ALL</b></dt>
+  <dt id="LANG,"><a class="permalink" href="#LANG,"><b>LANG, LC_ALL</b></a></dt>
   <dd>See <i>locale</i>(7).</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>LC_TIME</b></dt>
+  <dt id="LC_TIME"><a class="permalink" href="#LC_TIME"><b>LC_TIME</b></a></dt>
   <dd>Alters the strings printed when format arguments are given.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>TZ</b></dt>
+  <dt id="TZ"><a class="permalink" href="#TZ"><b>TZ</b></a></dt>
   <dd>Timezone; if unset, the system default is used.</dd>
 </dl>
-<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
   ALSO</a></h1>
-adjtime(2), stime(2), strftime(3), locale(7)
-<h1 class="Sh" title="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
-After setting the date, the <i>hwclock</i>(8) utility is called to adjust the
-  hardware clock on Linux systems.</div>
+<p class="Pp">adjtime(2), stime(2), strftime(3), locale(7)</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
+<p class="Pp">After setting the date, the <i>hwclock</i>(8) utility is called to
+    adjust the hardware clock on Linux systems.</p>
+</section>
+</div>
 <table class="foot">
   <tr>
     <td class="foot-date">1/24/05</td>

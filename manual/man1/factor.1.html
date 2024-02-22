@@ -9,6 +9,7 @@
    -->
 <head>
   <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
   <title>FACTOR(1)</title>
 </head>
@@ -21,24 +22,31 @@
   </tr>
 </table>
 <div class="manual-text">
-<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
-factor - factor a number
-<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
-<b>factor</b> [<i>number</i>]
-<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
-When <i>factor</i> is invoked without an argument, it waits for a number to be
-  typed in. If you type in a positive number less than 264 (about e) it will
-  factor the number and print its prime factors; each one is printed the proper
-  number of times. Then it waits for another number. It exits if it encounters a
-  zero or any non-numeric character.
-<div class="Pp"></div>
-If <i>factor</i> is invoked with an argument, it factors the number as above and
-  then exits.
-<div class="Pp"></div>
-Maximum time to factor is proportional to sqrt(n) and occurs when <i>n</i> is
-  prime or the square of a prime.
-<h1 class="Sh" title="Sh" id="DIAGNOSTICS"><a class="permalink" href="#DIAGNOSTICS">DIAGNOSTICS</a></h1>
-`Ouch.' for input out of range or for garbage input.</div>
+<section class="Sh">
+<h1 class="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+<p class="Pp">factor - factor a number</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<p class="Pp"><b>factor</b> [<i>number</i>]</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<p class="Pp">When <i>factor</i> is invoked without an argument, it waits for a
+    number to be typed in. If you type in a positive number less than 264 (about
+    1.8e19) it will factor the number and print its prime factors; each one is
+    printed the proper number of times. Then it waits for another number. It
+    exits if it encounters a zero or any non-numeric character.</p>
+<p class="Pp">If <i>factor</i> is invoked with an argument, it factors the
+    number as above and then exits.</p>
+<p class="Pp">Maximum time to factor is proportional to sqrt(n) and occurs when
+    <i>n</i> is prime or the square of a prime.</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DIAGNOSTICS"><a class="permalink" href="#DIAGNOSTICS">DIAGNOSTICS</a></h1>
+<p class="Pp">`Ouch.' for input out of range or for garbage input.</p>
+</section>
+</div>
 <table class="foot">
   <tr>
     <td class="foot-date">8/18/03</td>

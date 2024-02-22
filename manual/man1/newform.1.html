@@ -10,6 +10,7 @@
  -->
 <head>
   <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
   <title>NEWFORM(1)</title>
 </head>
@@ -22,31 +23,34 @@
   </tr>
 </table>
 <div class="manual-text">
-<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
-newform - change the format of a text file
-<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
-<div class="HP"><b>newform</b> [<b>-s</b>] [ <b>-i</b><i>tabspec</i>]
-  [<b>-o</b><i>tabspec</i>] [ <b>-b</b><i>n</i>] [<b>-e</b><i>n</i>]
-  [<b>-p</b><i>n</i>] [ <b>-a</b><i>n</i>] [<b>-f</b>] [<b>-c</b><i>char</i>] [
-  <b>-l</b><i>n</i>] [<i>filename</i>]...
-<div>&#x00A0;</div>
-</div>
-<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
-<b>newform</b> reads lines from the named <i>filename</i>s, or the standard
-  input if no input file is named, and reproduces the lines on the standard
-  output. Lines are reformatted in accordance with command line options in
-  effect.
-<div class="Pp"></div>
-Except for <b>-s</b>, command line options may appear in any order, may be
-  repeated, and may be intermingled with the optional <i>filename</i>s. Command
-  line options are processed in the order specified. This means that option
-  sequences like `` <b>-e</b>15 <b>-l</b>60'' will yield results different from
-  `` <b>-l</b>60 <b>-e</b>15''. Options are applied to all <i>filename</i>s on
-  the command line.
-<div class="Pp"></div>
-The following options are supported:
+<section class="Sh">
+<h1 class="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+<p class="Pp">newform - change the format of a text file</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<p class="Pp HP"><b>newform</b> [<b>-s</b>] [<b>-i</b><i>tabspec</i>]
+    [<b>-o</b><i>tabspec</i>] [<b>-b</b><i>n</i>] [<b>-e</b><i>n</i>]
+    [<b>-p</b><i>n</i>] [<b>-a</b><i>n</i>] [<b>-f</b>] [<b>-c</b><i>char</i>]
+    [<b>-l</b><i>n</i>] [<i>filename</i>]...
+  <br/>
+</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<p class="Pp"><b>newform</b> reads lines from the named <i>filename</i>s, or the
+    standard input if no input file is named, and reproduces the lines on the
+    standard output. Lines are reformatted in accordance with command line
+    options in effect.</p>
+<p class="Pp">Except for <b>-s</b>, command line options may appear in any
+    order, may be repeated, and may be intermingled with the optional
+    <i>filename</i>s. Command line options are processed in the order specified.
+    This means that option sequences like ``<b>-e</b>15 <b>-l</b>60'' will yield
+    results different from ``<b>-l</b>60 <b>-e</b>15''. Options are applied to
+    all <i>filename</i>s on the command line.</p>
+<p class="Pp">The following options are supported:</p>
 <dl class="Bl-tag">
-  <dt><b>-s</b> </dt>
+  <dt id="s"><a class="permalink" href="#s"><b>-s</b> </a></dt>
   <dd>Shears off leading characters on each line up to the first tab and places
       up to 8 of the sheared characters at the end of the line. If more than 8
       characters (not counting the first tab) are sheared, the eighth character
@@ -59,8 +63,6 @@ The following options are supported:
       file without a tab on each line. The characters sheared off are saved
       internally until all other options specified are applied to that line. The
       characters are then added at the end of the processed line.</dd>
-</dl>
-<dl class="Bl-tag">
   <dt></dt>
   <dd>For example, to convert a file with leading digits, one or more tabs, and
       text on each line, to a file beginning with the text, all tabs after the
@@ -69,9 +71,9 @@ The following options are supported:
       73, the command would be:</dd>
 </dl>
 <div class="Bd-indent"><b>newform </b><b>-s</b><b> </b><b>-i</b><b>
-  </b><b>-l</b> <b> </b><b>-a</b><b> </b><b>-e</b><b> </b><i>filename</i></div>
+  </b><b>-l</b><b> </b><b>-a</b><b> </b><b>-e</b><b> </b><i>filename</i></div>
 <dl class="Bl-tag">
-  <dt><b>-i</b><i>tabspec</i> </dt>
+  <dt id="i"><a class="permalink" href="#i"><b>-i</b><i>tabspec</i> </a></dt>
   <dd>Input tab specification: expands tabs to spaces, according to the tab
       specifications given. <i>Tabspec</i> recognizes all tab specification
       forms described in <i>tabs</i>(1). In addition, <i>tabspec</i> may be
@@ -80,17 +82,13 @@ The following options are supported:
       <i>fspec</i>(5)). If no <i>tabspec</i> is given, <i>tabspec</i> defaults
       to <b>&#x2212;8</b>. A <i>tabspec</i> of <b>&#x2212;0</b> expects no tabs;
       if any are found, they are treated as <b>&#x2212;1</b>.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-o</b><i>tabspec</i> </dt>
+  <dt id="o"><a class="permalink" href="#o"><b>-o</b><i>tabspec</i> </a></dt>
   <dd>Output tab specification: replaces spaces by tabs, according to the tab
       specifications given. The tab specifications are the same as for
       <b>-i</b><i>tabspec</i>. If no <i>tabspec</i> is given, <i>tabspec</i>
       defaults to <b>&#x2212;8</b>. A <i>tabspec</i> of <b>&#x2212;0</b> means
       that no spaces will be converted to tabs on output.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-b</b><i>n</i> </dt>
+  <dt id="b"><a class="permalink" href="#b"><b>-b</b><i>n</i> </a></dt>
   <dd>Truncate <i>n</i> characters from the beginning of the line when the line
       length is greater than the effective line length (see
       <b>&#x2212;l</b><i>n</i>). Default is to truncate the number of characters
@@ -101,37 +99,27 @@ The following options are supported:
 <div class="Bd-indent"><b>newform </b><b>-l</b><b>1 </b><b>-b</b><b>7
   </b><i>filename</i></div>
 <dl class="Bl-tag">
-  <dt><b>-e</b><i>n</i></dt>
+  <dt id="e"><a class="permalink" href="#e"><b>-e</b><i>n</i></a></dt>
   <dd>Same as <b>-b</b><i>n</i> except that characters are truncated from the
       end of the line.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-p</b><i>n</i></dt>
+  <dt id="p"><a class="permalink" href="#p"><b>-p</b><i>n</i></a></dt>
   <dd>Prefix <i>n</i> characters (see <b>-c</b><i>char</i>) to the beginning of
       a line when the line length is less than the effective line length.
       Default is to prefix the number of characters necessary to obtain the
       effective line length.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-a</b><i>n</i></dt>
+  <dt id="a"><a class="permalink" href="#a"><b>-a</b><i>n</i></a></dt>
   <dd>Same as <b>-p</b><i>n</i> except characters are appended to the end of a
       line.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-f</b></dt>
+  <dt id="f"><a class="permalink" href="#f"><b>-f</b></a></dt>
   <dd>Write the tab specification format line on the standard output before any
       other lines are output. The tab specification format line which is printed
       will correspond to the format specified in the <b>last</b> <b>-o</b>
       option. If no <b>-o</b> option is specified, the line which is printed
       will contain the default specification of <b>&#x2212;8</b>.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-c</b><i>char</i></dt>
+  <dt id="c"><a class="permalink" href="#c"><b>-c</b><i>char</i></a></dt>
   <dd>Change the prefix/append character to <i>char</i>. Default character for
       <i>char</i> is a space.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-l</b><i>n</i></dt>
+  <dt id="l"><a class="permalink" href="#l"><b>-l</b><i>n</i></a></dt>
   <dd>Set the effective line length to <i>n</i> characters. If <i>n</i> is not
       entered, <b>-l</b> defaults to 72. The default line length without the
       <b>-l</b> option is 80 characters. Note: Tabs and backspaces are
@@ -144,46 +132,46 @@ The following options are supported:
       shorter than any existing line in the file so that the <b>-b</b> option is
       activated.</dd>
 </dl>
-<h1 class="Sh" title="Sh" id="DIAGNOSTICS"><a class="permalink" href="#DIAGNOSTICS">DIAGNOSTICS</a></h1>
-All diagnostics are fatal.
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DIAGNOSTICS"><a class="permalink" href="#DIAGNOSTICS">DIAGNOSTICS</a></h1>
+<p class="Pp">All diagnostics are fatal.</p>
 <dl class="Bl-tag">
-  <dt><b>usage:</b> <b> ...</b> </dt>
+  <dt id="usage:"><a class="permalink" href="#usage:"><b>usage:</b> <b> ...</b>
+    </a></dt>
   <dd><b>newform</b> was called with a bad option.</dd>
-</dl>
-<dl class="Bl-tag">
   <dt><b>&quot;not </b><b>-s</b><b> format&quot;</b></dt>
   <dd>There was no tab on one line.</dd>
-</dl>
-<dl class="Bl-tag">
   <dt><b>&quot;can't open file&quot;</b></dt>
   <dd>Self-explanatory.</dd>
-</dl>
-<dl class="Bl-tag">
   <dt><b>&quot;tabspec in error&quot; </b></dt>
   <dd>A tab specification is incorrectly formatted, or specified tab stops are
       not ascending.</dd>
-</dl>
-<dl class="Bl-tag">
   <dt><b>&quot;tabspec indirection illegal&quot; </b></dt>
   <dd>A <i>tabspec</i> read from a file (or standard input) may not contain a
       <i>tabspec</i> referencing another file (or standard input).</dd>
 </dl>
-<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
   ALSO</a></h1>
-<i>csplit</i>(1), <i>tabs</i>(1), <i>fspec</i>(5)
-<h1 class="Sh" title="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
-<b>newform</b> normally only keeps track of physical characters; however, for
-  the <b>-i</b> and <b>-o</b> options, <b>newform</b> will keep track of
-  backspaces in order to line up tabs in the appropriate logical columns.
-<div class="Pp"></div>
-<b>newform</b> will not prompt the user if a <i>tabspec</i> is to be read from
-  the standard input (by use of <b></b><b>-i</b><b>-</b> or
-  <b></b><b>-o</b><b>-</b>).
-<div class="Pp"></div>
-If the <b>-f</b> option is used, and the last <b>-o</b> option specified was
-  <b></b> <b>-o</b><b>-</b>, and was preceded by either a
-  <b></b><b>-o</b><b>-</b> or a <b></b><b>-i</b><b>-</b>, the tab specification
-  format line will be incorrect.</div>
+<p class="Pp"><i>csplit</i>(1), <i>tabs</i>(1), <i>fspec</i>(5)</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
+<p class="Pp"><b>newform</b> normally only keeps track of physical characters;
+    however, for the <b>-i</b> and <b>-o</b> options, <b>newform</b> will keep
+    track of backspaces in order to line up tabs in the appropriate logical
+    columns.</p>
+<p class="Pp"><b>newform</b> will not prompt the user if a <i>tabspec</i> is to
+    be read from the standard input (by use of <b></b><b>-i</b><b>-</b> or
+    <b></b><b>-o</b><b>-</b>).</p>
+<p class="Pp">If the <b>-f</b> option is used, and the last <b>-o</b> option
+    specified was <b></b><b>-o</b><b>-</b>, and was preceded by either a
+    <b></b><b>-o</b><b>-</b> or a <b></b><b>-i</b><b>-</b>, the tab
+    specification format line will be incorrect.</p>
+</section>
+</div>
 <table class="foot">
   <tr>
     <td class="foot-date">2/3/07</td>

@@ -9,6 +9,7 @@
    -->
 <head>
   <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
   <title>MESG(1)</title>
 </head>
@@ -21,24 +22,38 @@
   </tr>
 </table>
 <div class="manual-text">
-<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
-mesg - permit or deny messages
-<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
-<b>mesg</b> [[<b>-</b>](<b>y</b>|<b>n</b>)]
-<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
-<i>Mesg</i> with argument <b>n</b> forbids messages via <i>write</i>(1) by
-  revoking non-user write permission on the user's terminal. <i>Mesg</i> with
-  argument <b>y</b> reinstates permission. All by itself, <i>mesg</i> reports
-  the current state without changing it.
-<h1 class="Sh" title="Sh" id="FILES"><a class="permalink" href="#FILES">FILES</a></h1>
-/dev/tty*
-<div>&#x00A0;</div>
-/dev
-<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+<section class="Sh">
+<h1 class="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+<p class="Pp">mesg - permit or deny messages</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<p class="Pp"><b>mesg</b> [[<b>-</b>](<b>y</b>|<b>n</b>)]</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<p class="Pp"><i>Mesg</i> with argument <b>n</b> forbids messages via
+    <i>write</i>(1) by revoking non-user write permission on the user's
+    terminal. <i>Mesg</i> with argument <b>y</b> reinstates permission. All by
+    itself, <i>mesg</i> reports the current state without changing it.</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="FILES"><a class="permalink" href="#FILES">FILES</a></h1>
+<p class="Pp">/dev/tty*
+  <br/>
+  /dev</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
   ALSO</a></h1>
-write(1)
-<h1 class="Sh" title="Sh" id="DIAGNOSTICS"><a class="permalink" href="#DIAGNOSTICS">DIAGNOSTICS</a></h1>
-Exit status is 0 if messages are receivable, 1 if not, 2 on error.</div>
+<p class="Pp">write(1)</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DIAGNOSTICS"><a class="permalink" href="#DIAGNOSTICS">DIAGNOSTICS</a></h1>
+<p class="Pp">Exit status is 0 if messages are receivable, 1 if not, 2 on
+  error.</p>
+</section>
+</div>
 <table class="foot">
   <tr>
     <td class="foot-date">7/17/05</td>

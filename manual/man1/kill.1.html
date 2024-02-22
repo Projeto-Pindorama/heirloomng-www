@@ -9,6 +9,7 @@
    -->
 <head>
   <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
   <title>KILL(1)</title>
 </head>
@@ -21,43 +22,48 @@
   </tr>
 </table>
 <div class="manual-text">
-<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
-kill - terminate a process
-<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
-<b>kill</b> [<b>-</b><i>signal</i>|<b>-s&#x00A0;</b><i>signal</i>]
-  <i>processid</i> ...
-<div>&#x00A0;</div>
-<b>kill</b> <b>-l</b> [<i>status</i>]
-<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
-<i>Kill</i> sends signal 15 (terminate) to the specified processes. If a signal
-  number or symbolic signal name preceded by `-' or <b>-s</b> is given as first
-  argument, that signal is sent instead of terminate (see <i>signal</i>(2)).
-  This will kill processes that do not catch the signal; in particular `kill -9
-  ...' is a sure kill.
-<div class="Pp"></div>
-By convention, if process number 0 is specified, all members in the process
-  group (i.e. processes resulting from the current login) are signaled. If
-  process number -1 is specified, all processes for which the user is permitted
-  to send a signal are signaled. Otherwise if the process number is negative, it
-  is treated as a process group id, and all processes in that group are
-  signaled.
-<div class="Pp"></div>
-With the <b>-l</b> option, all available symbolic signal names are listed. If
-  the <i>status</i> argument is present, the symbolic signal name corresponding
-  to <i>status</i>, interpreted either as a signal number or as an exit value as
-  given by the `$?' shell parameter, is printed.
-<div class="Pp"></div>
-A symbolic signal name consists of the name of the signal in the `C' language
-  without the `SIG' prefix, e.g. `QUIT' for `SIGQUIT'.
-<div class="Pp"></div>
-The killed processes must belong to the current user unless he is the
-  super-user.
-<div class="Pp"></div>
-The process number of an asynchronous process started with `&amp;' is reported
-  by the shell. Process numbers can also be found by using <i>ps</i>(1).
-<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+<section class="Sh">
+<h1 class="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+<p class="Pp">kill - terminate a process</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<p class="Pp"><b>kill</b> [<b>-</b><i>signal</i>|<b>-s&#x00A0;</b><i>signal</i>]
+    <i>processid</i> ...
+  <br/>
+  <b>kill</b> <b>-l</b> [<i>status</i>]</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<p class="Pp"><i>Kill</i> sends signal 15 (terminate) to the specified
+    processes. If a signal number or symbolic signal name preceded by `-' or
+    <b>-s</b> is given as first argument, that signal is sent instead of
+    terminate (see <i>signal</i>(2)). This will kill processes that do not catch
+    the signal; in particular `kill -9 ...' is a sure kill.</p>
+<p class="Pp">By convention, if process number 0 is specified, all members in
+    the process group (i.e. processes resulting from the current login) are
+    signaled. If process number -1 is specified, all processes for which the
+    user is permitted to send a signal are signaled. Otherwise if the process
+    number is negative, it is treated as a process group id, and all processes
+    in that group are signaled.</p>
+<p class="Pp">With the <b>-l</b> option, all available symbolic signal names are
+    listed. If the <i>status</i> argument is present, the symbolic signal name
+    corresponding to <i>status</i>, interpreted either as a signal number or as
+    an exit value as given by the `$?' shell parameter, is printed.</p>
+<p class="Pp">A symbolic signal name consists of the name of the signal in the
+    `C' language without the `SIG' prefix, e.g. `QUIT' for `SIGQUIT'.</p>
+<p class="Pp">The killed processes must belong to the current user unless he is
+    the super-user.</p>
+<p class="Pp">The process number of an asynchronous process started with `&amp;'
+    is reported by the shell. Process numbers can also be found by using
+    <i>ps</i>(1).</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
   ALSO</a></h1>
-ps(1), kill(2), signal(2)</div>
+<p class="Pp">ps(1), kill(2), signal(2)</p>
+</section>
+</div>
 <table class="foot">
   <tr>
     <td class="foot-date">6/30/05</td>

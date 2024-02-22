@@ -8,6 +8,7 @@
    -->
 <head>
   <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
   <title>JOIN(1)</title>
 </head>
@@ -20,93 +21,87 @@
   </tr>
 </table>
 <div class="manual-text">
-<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
-join - relational database operator
-<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
-<b>join</b> [<i>options</i>] [<i>file1</i>] [<i>file2</i>]
-<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
-<i>Join</i> forms, on the standard output, a join of the two relations specified
-  by the lines of <i>file1</i> and <i>file2</i>. If either <i>file1</i> or
-  <i>file2</i> is `-', the standard input is used.
-<div class="Pp"></div>
-<i>File1</i> and <i>file2</i> must be sorted in increasing current collating
-  sequence on the fields on which they are to be joined, normally the first in
-  each line.
-<div class="Pp"></div>
-There is one line in the output for each pair of lines in <i>file1</i> and
-  <i>file2</i> that have identical join fields. The output line normally
-  consists of the common field, then the rest of the line from <i>file1</i>,
-  then the rest of the line from <i>file2</i>.
-<div class="Pp"></div>
-Fields are normally separated by blank, tab or newline. In this case, multiple
-  separators count as one, and leading separators are discarded.
-<div class="Pp"></div>
-These options are recognized:
+<section class="Sh">
+<h1 class="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+<p class="Pp">join - relational database operator</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<p class="Pp"><b>join</b> [<i>options</i>] [<i>file1</i>] [<i>file2</i>]</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<p class="Pp"><i>Join</i> forms, on the standard output, a join of the two
+    relations specified by the lines of <i>file1</i> and <i>file2</i>. If either
+    <i>file1</i> or <i>file2</i> is `-', the standard input is used.</p>
+<p class="Pp"><i>File1</i> and <i>file2</i> must be sorted in increasing current
+    collating sequence on the fields on which they are to be joined, normally
+    the first in each line.</p>
+<p class="Pp">There is one line in the output for each pair of lines in
+    <i>file1</i> and <i>file2</i> that have identical join fields. The output
+    line normally consists of the common field, then the rest of the line from
+    <i>file1</i>, then the rest of the line from <i>file2</i>.</p>
+<p class="Pp">Fields are normally separated by blank, tab or newline. In this
+    case, multiple separators count as one, and leading separators are
+    discarded.</p>
+<p class="Pp">These options are recognized:</p>
 <dl class="Bl-tag">
-  <dt><b>-a</b><i>n</i></dt>
+  <dt id="a"><a class="permalink" href="#a"><b>-a</b><i>n</i></a></dt>
   <dd>In addition to the normal output, produce a line for each unpairable line
       in file <i>n</i>, where <i>n</i> is 1 or 2.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-e</b><i>&#x00A0;s</i></dt>
+  <dt id="e"><a class="permalink" href="#e"><b>-e</b><i>&#x00A0;s</i></a></dt>
   <dd>Replace empty output fields by string <i>s</i>.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-j</b><i>n&#x00A0;m</i></dt>
+  <dt id="j"><a class="permalink" href="#j"><b>-j</b><i>n&#x00A0;m</i></a></dt>
   <dd>Join on the <i>m</i>th field of file <i>n</i>. If <i>n</i> is missing, use
       the <i>m</i>th field in each file.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-o</b><i>&#x00A0;list</i></dt>
+  <dt id="o"><a class="permalink" href="#o"><b>-o</b><i>&#x00A0;list</i></a></dt>
   <dd>Each output line comprises the fields specified in <i>list</i>, each
       element of which has the form <i>n</i>.<i>m</i>, where <i>n</i> is a file
       number and <i>m</i> is a field number; or <b>0</b>, which specifies the
       join field. The <i>list</i> may either consist of multiple arguments, or
       of a single argument with elements separated by spaces or commas.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-t</b><i>c</i></dt>
+  <dt id="t"><a class="permalink" href="#t"><b>-t</b><i>c</i></a></dt>
   <dd>Use character <i>c</i> as a separator (tab character). Every appearance of
       <i>c</i> in a line is significant.</dd>
 </dl>
-<div class="Pp"></div>
-The following options have been introduced by POSIX.2:
+<p class="Pp">The following options have been introduced by POSIX.2:</p>
 <dl class="Bl-tag">
-  <dt><b>-v</b><i>n</i></dt>
+  <dt id="v"><a class="permalink" href="#v"><b>-v</b><i>n</i></a></dt>
   <dd>Suppress normal output and produce a line for each unpairable line in file
       <i>n</i>, where <i>n</i> is 1 or 2.</dd>
-</dl>
-<dl class="Bl-tag">
   <dt><b>-1</b><i>&#x00A0;m</i></dt>
   <dd>Join on the <i>m</i>th field of file <i>1</i>.</dd>
-</dl>
-<dl class="Bl-tag">
   <dt><b>-2</b><i>&#x00A0;m</i></dt>
   <dd>Join on the <i>m</i>th field of file <i>2</i>.</dd>
 </dl>
-<h1 class="Sh" title="Sh" id="ENVIRONMENT_VARIABLES"><a class="permalink" href="#ENVIRONMENT_VARIABLES">ENVIRONMENT
+</section>
+<section class="Sh">
+<h1 class="Sh" id="ENVIRONMENT_VARIABLES"><a class="permalink" href="#ENVIRONMENT_VARIABLES">ENVIRONMENT
   VARIABLES</a></h1>
 <dl class="Bl-tag">
-  <dt><b>LANG</b>, <b>LC_ALL</b></dt>
+  <dt id="LANG"><a class="permalink" href="#LANG"><b>LANG</b>,
+    <b>LC_ALL</b></a></dt>
   <dd>See <i>locale</i>(7).</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>LC_CTYPE</b></dt>
+  <dt id="LC_CTYPE"><a class="permalink" href="#LC_CTYPE"><b>LC_CTYPE</b></a></dt>
   <dd>Determines the mapping of bytes to characters.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>LC_COLLATE</b></dt>
+  <dt id="LC_COLLATE"><a class="permalink" href="#LC_COLLATE"><b>LC_COLLATE</b></a></dt>
   <dd>Specifies the collation sequence.</dd>
 </dl>
-<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
   ALSO</a></h1>
-sort(1), comm(1), awk(1), locale(7)
-<h1 class="Sh" title="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
-With default field separation, the collating sequence is that of
-  <i>sort&#x00A0;-b</i>; with <b>-t</b>, the sequence is that of a plain sort.
-<div class="Pp"></div>
-The conventions of <i>join, sort, comm, uniq</i> and <i>awk</i>(1) are wildly
-  incongruous.</div>
+<p class="Pp">sort(1), comm(1), awk(1), locale(7)</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
+<p class="Pp">With default field separation, the collating sequence is that of
+    <i>sort&#x00A0;-b</i>; with <b>-t</b>, the sequence is that of a plain
+  sort.</p>
+<p class="Pp">The conventions of <i>join, sort, comm, uniq</i> and <i>awk</i>(1)
+    are wildly incongruous.</p>
+</section>
+</div>
 <table class="foot">
   <tr>
     <td class="foot-date">2/5/05</td>

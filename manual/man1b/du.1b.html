@@ -9,6 +9,7 @@
    -->
 <head>
   <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
   <title>DU(1B)</title>
 </head>
@@ -21,68 +22,67 @@
   </tr>
 </table>
 <div class="manual-text">
-<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
-du - (BSD) summarize disk usage
-<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
-<b>du</b> [<b>-ahHLsxo</b>] [<i>name</i> ...]
-<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
-<i>Du</i> gives the number of blocks (1024 bytes) contained in all files and
-  (recursively) directories within each specified directory or file <i>name</i>.
-  If <i>name</i> is missing, ` <b>.</b>' is used.
-<div class="Pp"></div>
-The following options are supported:
+<section class="Sh">
+<h1 class="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+<p class="Pp">du - (BSD) summarize disk usage</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<p class="Pp"><b>du</b> [<b>-ahHLsxo</b>] [<i>name</i> ...]</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<p class="Pp"><i>Du</i> gives the number of blocks (1024 bytes) contained in all
+    files and (recursively) directories within each specified directory or file
+    <i>name</i>. If <i>name</i> is missing, `<b>.</b>' is used.</p>
+<p class="Pp">The following options are supported:</p>
 <dl class="Bl-tag">
-  <dt><b>-a</b></dt>
+  <dt id="a"><a class="permalink" href="#a"><b>-a</b></a></dt>
   <dd>This option causes an entry to be generated for each file. Absence of
       either causes an entry to be generated for each directory only.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-s</b></dt>
+  <dt id="s"><a class="permalink" href="#s"><b>-s</b></a></dt>
   <dd>This option causes only the grand total to be given. Overrides the -a
       option.</dd>
 </dl>
-<div class="Pp"></div>
-The following option has been introduced by POSIX.2:
+<p class="Pp">The following option has been introduced by POSIX.2:</p>
 <dl class="Bl-tag">
-  <dt><b>-x</b></dt>
+  <dt id="x"><a class="permalink" href="#x"><b>-x</b></a></dt>
   <dd>Do not cross device boundaries when descending a directory hierarchy.</dd>
 </dl>
-<div class="Pp"></div>
-The following options have been introduced by POSIX.1-2001:
+<p class="Pp">The following options have been introduced by POSIX.1-2001:</p>
 <dl class="Bl-tag">
-  <dt><b>-H</b></dt>
+  <dt id="H"><a class="permalink" href="#H"><b>-H</b></a></dt>
   <dd>Follow symbolic links given on the command line and count the size of the
       files they refer to, but do not follow symbolic links found during
       directory traversal and count the sizes of these symbolic links
       themselves.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-L</b></dt>
+  <dt id="L"><a class="permalink" href="#L"><b>-L</b></a></dt>
   <dd>Always follow symbolic links and count the sizes of the files they refer
       to.</dd>
 </dl>
-<div class="Pp"></div>
-The following options are extensions:
+<p class="Pp">The following options are extensions:</p>
 <dl class="Bl-tag">
-  <dt><b>-h</b></dt>
+  <dt id="h"><a class="permalink" href="#h"><b>-h</b></a></dt>
   <dd>Print statistics in human-readable powers of 1024, i.e. `K' for kilobyte,
       `M' for megabyte, `G' for gigabyte, `T' for terabyte, `P' for petabyte,
       and `E' for exabyte.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-o</b></dt>
+  <dt id="o"><a class="permalink" href="#o"><b>-o</b></a></dt>
   <dd>Do not add sizes of subdirectories to parent directories.</dd>
 </dl>
-<div class="Pp"></div>
-A file which has two links to it is only counted once.
-<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+<p class="Pp">A file which has two links to it is only counted once.</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
   ALSO</a></h1>
-df(1)
-<h1 class="Sh" title="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
-Non-directories given as arguments (not under <b>-a</b> or <b>-s</b> options)
-  are not listed.
-<div class="Pp"></div>
-Files with holes may produce incorrect results.</div>
+<p class="Pp">df(1)</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
+<p class="Pp">Non-directories given as arguments (not under <b>-a</b> or
+    <b>-s</b> options) are not listed.</p>
+<p class="Pp">Files with holes may produce incorrect results.</p>
+</section>
+</div>
 <table class="foot">
   <tr>
     <td class="foot-date">1/23/05</td>

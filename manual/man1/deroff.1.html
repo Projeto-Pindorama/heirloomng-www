@@ -14,6 +14,7 @@
    -->
 <head>
   <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
   <title>DEROFF(1)</title>
 </head>
@@ -26,59 +27,60 @@
   </tr>
 </table>
 <div class="manual-text">
-<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
-deroff - remove nroff/troff, tbl, and eqn constructs
-<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
-<b>deroff</b> [<b>-m</b><i>x</i>] [<b>-w</b>] [<b>-x</b><i>N</i>] [ <i>files</i>
-  ]
-<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
-<i>Deroff</i> reads each file in sequence and removes all <i>nroff</i> and
-  <i>troff</i>(1) requests and non-text arguments, backslash constructions, and
-  constructs of preprocessors such as <i>eqn</i>(1), <i>pic</i>(1), and
-  <i>tbl</i>(1). Remaining text is written on the standard output. <i>Deroff</i>
-  follows files included by .so and .nx commands; if a file has already been
-  included, a .so for that file is ignored and a .nx terminates execution. If no
-  input file is given, <i>deroff</i> reads from standard input.
-<div class="Pp"></div>
-The options are
+<section class="Sh">
+<h1 class="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+<p class="Pp">deroff - remove nroff/troff, tbl, and eqn constructs</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<p class="Pp"><b>deroff</b> [<b>-m</b><i>x</i>] [<b>-w</b>] [<b>-x</b><i>N</i>]
+    [ <i>files</i> ]</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<p class="Pp"><i>Deroff</i> reads each file in sequence and removes all
+    <i>nroff</i> and <i>troff</i>(1) requests and non-text arguments, backslash
+    constructions, and constructs of preprocessors such as <i>eqn</i>(1),
+    <i>pic</i>(1), and <i>tbl</i>(1). Remaining text is written on the standard
+    output. <i>Deroff</i> follows files included by .so and .nx commands; if a
+    file has already been included, a .so for that file is ignored and a .nx
+    terminates execution. If no input file is given, <i>deroff</i> reads from
+    standard input.</p>
+<p class="Pp">The options are</p>
 <dl class="Bl-tag">
-  <dt><b>-w</b></dt>
+  <dt id="w"><a class="permalink" href="#w"><b>-w</b></a></dt>
   <dd>Output a word list, one `word' (string of letters, digits, and properly
       embedded ampersands and apostrophes, beginning with a letter) per line.
       Other characters are skipped. Otherwise, the output follows the original,
       with the deletions mentioned above.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-i</b></dt>
+  <dt id="i"><a class="permalink" href="#i"><b>-i</b></a></dt>
   <dd>Ignore .so and .nx equests.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-ms</b></dt>
+  <dt id="ms"><a class="permalink" href="#ms"><b>-ms</b></a></dt>
   <dd></dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-mm</b></dt>
+  <dt id="mm"><a class="permalink" href="#mm"><b>-mm</b></a></dt>
   <dd>Remove titles, attachments, etc., as well as ordinary <i>troff</i>
       constructs, from <i>ms</i>(7) or <i>mm</i>(7) documents.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-ml</b></dt>
+  <dt id="ml"><a class="permalink" href="#ml"><b>-ml</b></a></dt>
   <dd>Same as <b>-mm</b>, but remove lists as well.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-x</b><i>N</i></dt>
+  <dt id="x"><a class="permalink" href="#x"><b>-x</b><i>N</i></a></dt>
   <dd>Set the extension level to <i>N</i> (cf. the <i>Heirloom nroff/troff
       User's Manual).</i> <i>deroff</i> also sets the extension level when it
       encounters the <b>.do</b> and <b>.xflag</b> commands, so use of this
       option will often be unnecessary.</dd>
 </dl>
-<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
   ALSO</a></h1>
-troff(1), spell(1)
-<h1 class="Sh" title="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
-<b>Deroff</b> is not a complete troff interpreter, so it can be confused by
-  subtle constructs. Most errors result in too much rather than too little
-  output.</div>
+<p class="Pp">troff(1), spell(1)</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
+<p class="Pp"><b>Deroff</b> is not a complete troff interpreter, so it can be
+    confused by subtle constructs. Most errors result in too much rather than
+    too little output.</p>
+</section>
+</div>
 <table class="foot">
   <tr>
     <td class="foot-date">9/22/06</td>

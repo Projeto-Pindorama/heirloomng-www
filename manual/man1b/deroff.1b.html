@@ -20,6 +20,7 @@
    -->
 <head>
   <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
   <title>DEROFF(1B)</title>
 </head>
@@ -32,31 +33,42 @@
   </tr>
 </table>
 <div class="manual-text">
-<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
-deroff - (BSD) remove nroff, troff, tbl and eqn constructs
-<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
-<b>/usr/ucb/deroff</b> [<b>-w</b>] <i>file</i> ...
-<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
-<b>Deroff</b> reads each file in sequence and removes all <i>nroff</i>(1) and
-  <i>troff</i>(1) command lines, backslash constructions, macro definitions,
-  <i>eqn</i>(1) constructs (between `.EQ' and `.EN' lines or between
-  delimiters), and table descriptions and writes the remainder on the standard
-  output. <b>Deroff</b> follows chains of included files (`.so' and `.nx'
-  commands); if a file has already been included, a `.so' is ignored and a `.nx'
-  terminates execution. If no input file is given, <b>deroff</b> reads from the
-  standard input.
-<div class="Pp"></div>
-If the <b>-w</b> flag is given, the output is a word list, one `word' (string of
-  letters, digits, and apostrophes, beginning with a letter; apostrophes are
-  removed) per line, and all other characters ignored. Otherwise, the output
-  follows the original, with the deletions mentioned above.
-<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+<section class="Sh">
+<h1 class="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+<p class="Pp">deroff - (BSD) remove nroff, troff, tbl and eqn constructs</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<p class="Pp"><b>/usr/ucb/deroff</b> [<b>-w</b>] <i>file</i> ...</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<p class="Pp"><b>Deroff</b> reads each file in sequence and removes all
+    <i>nroff</i>(1) and <i>troff</i>(1) command lines, backslash constructions,
+    macro definitions, <i>eqn</i>(1) constructs (between `.EQ' and `.EN' lines
+    or between delimiters), and table descriptions and writes the remainder on
+    the standard output. <b>Deroff</b> follows chains of included files (`.so'
+    and `.nx' commands); if a file has already been included, a `.so' is ignored
+    and a `.nx' terminates execution. If no input file is given, <b>deroff</b>
+    reads from the standard input.</p>
+<p class="Pp">If the <b>-w</b> flag is given, the output is a word list, one
+    `word' (string of letters, digits, and apostrophes, beginning with a letter;
+    apostrophes are removed) per line, and all other characters ignored.
+    Otherwise, the output follows the original, with the deletions mentioned
+    above.</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
   ALSO</a></h1>
-eqn(1), tbl(1), troff(1)
-<h1 class="Sh" title="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
-<b>Deroff</b> is not a complete troff interpreter, so it can be confused by
-  subtle constructs. Most errors result in too much rather than too little
-  output.</div>
+<p class="Pp">eqn(1), tbl(1), troff(1)</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
+<p class="Pp"><b>Deroff</b> is not a complete troff interpreter, so it can be
+    confused by subtle constructs. Most errors result in too much rather than
+    too little output.</p>
+</section>
+</div>
 <table class="foot">
   <tr>
     <td class="foot-date">10/25/03</td>

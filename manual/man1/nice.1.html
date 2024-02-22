@@ -9,6 +9,7 @@
    -->
 <head>
   <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
   <title>NICE(1)</title>
 </head>
@@ -21,31 +22,42 @@
   </tr>
 </table>
 <div class="manual-text">
-<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
-nice - run a command at low priority
-<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
-<b>nice</b> [<b>-n</b><i> number</i>] <i>utility</i> [<i>argument</i> ...]
-<div class="Pp"></div>
-<b>nice</b> [<b>-</b><i>number</i>] <i>utility</i> [<i>argument</i> ...]
-<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
-The <b>nice</b> command executes <i>utility</i> with low scheduling priority. If
-  the <i>number</i> argument is present, the priority is incremented (higher
-  numbers mean lower priority) by that amount up to a limit of 19. The default
-  number is 10.
-<div class="Pp"></div>
-An user with appropriate privileges may run commands with priority higher than
-  normal by using a negative priority, e.&#x00A0;g. ` <i>--10</i>'.
-<div class="Pp"></div>
-The <i>-n&#x00A0;number</i> syntax was introduced by POSIX.2.
-<h1 class="Sh" title="Sh" id="ENVIRONMENT_VARIABLES"><a class="permalink" href="#ENVIRONMENT_VARIABLES">ENVIRONMENT
+<section class="Sh">
+<h1 class="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+<p class="Pp">nice - run a command at low priority</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<p class="Pp"><b>nice</b> [<b>-n</b><i> number</i>] <i>utility</i>
+    [<i>argument</i> ...]</p>
+<p class="Pp"><b>nice</b> [<b>-</b><i>number</i>] <i>utility</i>
+    [<i>argument</i> ...]</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<p class="Pp">The <b>nice</b> command executes <i>utility</i> with low
+    scheduling priority. If the <i>number</i> argument is present, the priority
+    is incremented (higher numbers mean lower priority) by that amount up to a
+    limit of 19. The default number is 10.</p>
+<p class="Pp">An user with appropriate privileges may run commands with priority
+    higher than normal by using a negative priority, e.&#x00A0;g.
+  `<i>--10</i>'.</p>
+<p class="Pp">The <i>-n&#x00A0;number</i> syntax was introduced by POSIX.2.</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="ENVIRONMENT_VARIABLES"><a class="permalink" href="#ENVIRONMENT_VARIABLES">ENVIRONMENT
   VARIABLES</a></h1>
 <dl class="Bl-tag">
-  <dt><b>PATH</b></dt>
+  <dt id="PATH"><a class="permalink" href="#PATH"><b>PATH</b></a></dt>
   <dd>Used to locate <i>utility</i>.</dd>
 </dl>
-<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
   ALSO</a></h1>
-priocntl(1), sh(1), nice(2), execvp(3)</div>
+<p class="Pp">priocntl(1), sh(1), nice(2), execvp(3)</p>
+</section>
+</div>
 <table class="foot">
   <tr>
     <td class="foot-date">12/6/04</td>

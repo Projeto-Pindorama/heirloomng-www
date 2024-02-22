@@ -15,6 +15,7 @@
    -->
 <head>
   <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
   <title>MAIL(1)</title>
 </head>
@@ -27,206 +28,158 @@
   </tr>
 </table>
 <div class="manual-text">
-<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
-mail - send or receive mail among users
-<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
-<b>mail</b> [<b>-ehpPqr</b>] [<b>-f</b><i>&#x00A0;file</i>]
-<div>&#x00A0;</div>
-<b>mail</b> [<b>-tw</b>] <i>person</i> ...
-<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
-<i>mail</i> with no argument prints a user's mail, message-by-message, in
-  last-in, first-out order. For each message, it reads a line from the standard
-  input to direct disposition of the message.
+<section class="Sh">
+<h1 class="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+<p class="Pp">mail - send or receive mail among users</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<p class="Pp"><b>mail</b> [<b>-ehpPqr</b>] [<b>-f</b><i>&#x00A0;file</i>]
+  <br/>
+  <b>mail</b> [<b>-tw</b>] <i>person</i> ...</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<p class="Pp"><i>mail</i> with no argument prints a user's mail,
+    message-by-message, in last-in, first-out order. For each message, it reads
+    a line from the standard input to direct disposition of the message.</p>
 <dl class="Bl-tag">
-  <dt>newline</dt>
+  <dt id="newline"><a class="permalink" href="#newline">newline</a></dt>
   <dd>Go on to next message.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><i>number</i></dt>
+  <dt id="number"><a class="permalink" href="#number"><i>number</i></a></dt>
   <dd>Display the message with the given <i>number</i>.</dd>
-</dl>
-<dl class="Bl-tag">
   <dt><b>-</b></dt>
   <dd>Print the previous message.</dd>
-</dl>
-<dl class="Bl-tag">
   <dt><b>+</b></dt>
   <dd>Print the next message without deleting the current one.</dd>
-</dl>
-<dl class="Bl-tag">
   <dt><b>!</b><i>command</i></dt>
   <dd>Execute the given <i>command</i> in the shell.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>a</b></dt>
+  <dt id="a"><a class="permalink" href="#a"><b>a</b></a></dt>
   <dd>Check for newly read mail, position the current message accordingly and
       print it.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>d</b><i> number</i><b></b></dt>
+  <dt id="d"><a class="permalink" href="#d"><b>d</b><i>
+    number</i><b></b></a></dt>
   <dd>Delete the message with the given <i>number</i>. The default is the
       current message.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>dp</b></dt>
+  <dt id="dp"><a class="permalink" href="#dp"><b>dp</b></a></dt>
   <dd>Delete the current message and display the next one.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>dq</b></dt>
+  <dt id="dq"><a class="permalink" href="#dq"><b>dq</b></a></dt>
   <dd>Delete the current message and exit.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>h a</b></dt>
+  <dt id="h"><a class="permalink" href="#h"><b>h a</b></a></dt>
   <dd>Display a header summary of all messages.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>h d</b></dt>
+  <dt id="h~2"><a class="permalink" href="#h~2"><b>h d</b></a></dt>
   <dd>Display a header summary of the messages scheduled for deletion.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>h</b><i> number</i><b></b></dt>
+  <dt id="h~3"><a class="permalink" href="#h~3"><b>h</b><i>
+    number</i><b></b></a></dt>
   <dd>Display a header summary around the given <i>number</i>. The default is
       the current message.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>m</b><i> user</i><b></b></dt>
+  <dt id="m"><a class="permalink" href="#m"><b>m</b><i> user</i><b></b></a></dt>
   <dd>Mail the current message to <i>user</i> and delete it.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>n</b></dt>
+  <dt id="n"><a class="permalink" href="#n"><b>n</b></a></dt>
   <dd>Display the next message without deleting the current one.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>p</b></dt>
+  <dt id="p"><a class="permalink" href="#p"><b>p</b></a></dt>
   <dd>Print the current message and override all warnings about binary
     content.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>P</b></dt>
+  <dt id="P"><a class="permalink" href="#P"><b>P</b></a></dt>
   <dd>Print the current message including all header fields.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>q</b></dt>
+  <dt id="q"><a class="permalink" href="#q"><b>q</b></a></dt>
   <dd>Quit.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>r</b> [<i>args</i>]</dt>
+  <dt id="r"><a class="permalink" href="#r"><b>r</b> [<i>args</i>]</a></dt>
   <dd>Reply to the current letter using <i>mail</i> [<i>args</i>] and delete it
       afterwards.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>s</b> [<i>files</i>]</dt>
+  <dt id="s"><a class="permalink" href="#s"><b>s</b> [<i>files</i>]</a></dt>
   <dd>Save the current message to the given <i>files</i> (default <i>mbox</i>)
       and delete it.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>u</b> [<i>number</i>]</dt>
+  <dt id="u"><a class="permalink" href="#u"><b>u</b> [<i>number</i>]</a></dt>
   <dd>Undelete the message with the given <i>number</i> (or the current
       message).</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>w</b> [<i>files</i>]</dt>
+  <dt id="w"><a class="permalink" href="#w"><b>w</b> [<i>files</i>]</a></dt>
   <dd>Save the current message to the given <i>files</i> (default <i>mbox</i>)
       without the message header and delete it.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>x</b></dt>
+  <dt id="x"><a class="permalink" href="#x"><b>x</b></a></dt>
   <dd>Exit without actually deleting any messages.</dd>
-</dl>
-<dl class="Bl-tag">
   <dt>*</dt>
   <dd>Print a command summary.</dd>
 </dl>
-<div class="Pp"></div>
-When <i>persons</i> are named, <i>mail</i> takes the standard input up to an
-  end-of-file (or a line with just `.') and adds it to each <i>person's</i>
-  `mail' file. The message is preceded by the sender's name and a postmark.
-  Lines that look like postmarks are prepended with `&gt;'. A <i>person</i> is
-  either a user name recognized by <i>login</i>(1), an internet address (see
-  <i>mailaddr</i>(7), or a recipient on a UUCP remote system, with the login
-  name prefixed by the system name and exclamation mark (see <i>uucp</i>(1C)).
-<div class="Pp"></div>
-The <b>-e</b> option checks for the existence of mail only and causes
-  <b>mail</b> to exit successfully if mail is present.
-<div class="Pp"></div>
-The <b>-f</b> option causes the named file, for example, `mbox', to be printed
-  as if it were the mail file.
-<div class="Pp"></div>
-When invoked with the <b>-h</b> option, <i>mail</i> will display a header
-  summary when starting and will then prompt for commands.
-<div class="Pp"></div>
-With <b>-m&#x00A0;</b><i>message_type</i>, a `Message-Type:' header field with
-  the given value <i>message_type</i> is created. This field is solely for
-  informational purposes and has no technical meaning in the Internet mail
-  system.
-<div class="Pp"></div>
-The <b>-p</b> option causes all messages to be printed without prompting for
-  disposition.
-<div class="Pp"></div>
-With the <b>-P</b> option given, all header fields are printed by default.
-<div class="Pp"></div>
-An interrupt normally terminates the <i>mail</i> command; the mail file is
-  unchanged. The <b>-q</b> option tells <i>mail</i> to continue after
-  interrupts.
-<div class="Pp"></div>
-The <b>-r</b> option displays the mail messages in first-in, first-out order.
-<div class="Pp"></div>
-The <b>-t</b> option causes a `To:' header field to be created with the names of
-  all recipients.
-<div class="Pp"></div>
-With the <b>-w</b> option, <i>mail</i> does not wait until the mail transfer
-  agent finishes execution when a message is sent.
-<div class="Pp"></div>
-When a user logs in he is informed of the presence of mail.
-<h1 class="Sh" title="Sh" id="FILES"><a class="permalink" href="#FILES">FILES</a></h1>
+<p class="Pp">When <i>persons</i> are named, <i>mail</i> takes the standard
+    input up to an end-of-file (or a line with just `.') and adds it to each
+    <i>person's</i> `mail' file. The message is preceded by the sender's name
+    and a postmark. Lines that look like postmarks are prepended with `&gt;'. A
+    <i>person</i> is either a user name recognized by <i>login</i>(1), an
+    internet address (see <i>mailaddr</i>(7), or a recipient on a UUCP remote
+    system, with the login name prefixed by the system name and exclamation mark
+    (see <i>uucp</i>(1C)).</p>
+<p class="Pp">The <b>-e</b> option checks for the existence of mail only and
+    causes <b>mail</b> to exit successfully if mail is present.</p>
+<p class="Pp">The <b>-f</b> option causes the named file, for example, `mbox',
+    to be printed as if it were the mail file.</p>
+<p class="Pp">When invoked with the <b>-h</b> option, <i>mail</i> will display a
+    header summary when starting and will then prompt for commands.</p>
+<p class="Pp">With <b>-m&#x00A0;</b><i>message_type</i>, a `Message-Type:'
+    header field with the given value <i>message_type</i> is created. This field
+    is solely for informational purposes and has no technical meaning in the
+    Internet mail system.</p>
+<p class="Pp">The <b>-p</b> option causes all messages to be printed without
+    prompting for disposition.</p>
+<p class="Pp">With the <b>-P</b> option given, all header fields are printed by
+    default.</p>
+<p class="Pp">An interrupt normally terminates the <i>mail</i> command; the mail
+    file is unchanged. The <b>-q</b> option tells <i>mail</i> to continue after
+    interrupts.</p>
+<p class="Pp">The <b>-r</b> option displays the mail messages in first-in,
+    first-out order.</p>
+<p class="Pp">The <b>-t</b> option causes a `To:' header field to be created
+    with the names of all recipients.</p>
+<p class="Pp">With the <b>-w</b> option, <i>mail</i> does not wait until the
+    mail transfer agent finishes execution when a message is sent.</p>
+<p class="Pp">When a user logs in he is informed of the presence of mail.</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="FILES"><a class="permalink" href="#FILES">FILES</a></h1>
 <dl class="Bl-tag">
   <dt><b>/etc/passwd</b></dt>
   <dd>to identify sender and locate persons</dd>
-</dl>
-<dl class="Bl-tag">
   <dt><b>/var/mail/*</b></dt>
   <dd>incoming mail for user *</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>mbox	</b></dt>
+  <dt id="mbox"><a class="permalink" href="#mbox"><b>mbox	</b></a></dt>
   <dd>saved mail</dd>
-</dl>
-<dl class="Bl-tag">
   <dt><b>/tmp/ma*</b></dt>
   <dd>temp file</dd>
-</dl>
-<dl class="Bl-tag">
   <dt><b>/var/mail/*.lock</b></dt>
   <dd>lock for mail directory</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>dead.letter</b></dt>
+  <dt id="dead.letter"><a class="permalink" href="#dead.letter"><b>dead.letter</b></a></dt>
   <dd>unmailable text</dd>
 </dl>
-<h1 class="Sh" title="Sh" id="ENVIRONMENT_VARIABLES"><a class="permalink" href="#ENVIRONMENT_VARIABLES">ENVIRONMENT
+</section>
+<section class="Sh">
+<h1 class="Sh" id="ENVIRONMENT_VARIABLES"><a class="permalink" href="#ENVIRONMENT_VARIABLES">ENVIRONMENT
   VARIABLES</a></h1>
 <dl class="Bl-tag">
-  <dt><b>LANG</b>, <b>LC_ALL</b></dt>
+  <dt id="LANG"><a class="permalink" href="#LANG"><b>LANG</b>,
+    <b>LC_ALL</b></a></dt>
   <dd>See <i>locale</i>(7).</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>LC_CTYPE</b></dt>
+  <dt id="LC_CTYPE"><a class="permalink" href="#LC_CTYPE"><b>LC_CTYPE</b></a></dt>
   <dd>Determines the set of printable characters when deciding whether a message
       is text or not.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>MAIL</b></dt>
+  <dt id="MAIL"><a class="permalink" href="#MAIL"><b>MAIL</b></a></dt>
   <dd>User's mail file.</dd>
 </dl>
-<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
   ALSO</a></h1>
-mailx(1), write(1), mailaddr(7)
-<h1 class="Sh" title="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
-Race conditions sometimes result in a failure to remove a lock file.
-<div class="Pp"></div>
-The <i>mail</i> command is restricted to text messages in the current locale. It
-  does not support the MIME specification. For message exchange on the Internet,
-  <i>mail</i> is thus effectively restricted to ASCII text messages.</div>
+<p class="Pp">mailx(1), write(1), mailaddr(7)</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
+<p class="Pp">Race conditions sometimes result in a failure to remove a lock
+    file.</p>
+<p class="Pp">The <i>mail</i> command is restricted to text messages in the
+    current locale. It does not support the MIME specification. For message
+    exchange on the Internet, <i>mail</i> is thus effectively restricted to
+    ASCII text messages.</p>
+</section>
+</div>
 <table class="foot">
   <tr>
     <td class="foot-date">7/3/05</td>

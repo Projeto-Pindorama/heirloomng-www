@@ -9,6 +9,7 @@
    -->
 <head>
   <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
   <title>LN(1)</title>
 </head>
@@ -21,52 +22,54 @@
   </tr>
 </table>
 <div class="manual-text">
-<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
-ln - make a link
-<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
-<b>ln</b> [<b>-f</b>] [<b>-n</b>] [<b>-s</b>] <i>name1</i> [<i>name2</i>
-  .&#x00A0;.&#x00A0;.&#x00A0;] <i>target</i>
-<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
-A link is a directory entry referring to a file; the same file (together with
-  its size, all its protection information, etc.) may have several links to it.
-  There is no way to distinguish a link to a file from its original directory
-  entry; any changes in the file are effective independently of the name by
-  which the file is known.
-<div class="Pp"></div>
-<b>Ln</b> creates a link named <i>target</i> to an existing file <i>name1</i>.
-  If <i>target</i> is a directory, more than one name may be given, and the
-  links are placed in that directory, with the name of the last pathname
-  component.
-<div class="Pp"></div>
-It is forbidden to link to a directory or to link across file systems. It is,
-  however, possible to create a <i>symbolic</i> <i>link</i> even in this case;
-  see the <b>-s</b> option below.
-<div class="Pp"></div>
-The <b>ln</b> command accepts the following options:
+<section class="Sh">
+<h1 class="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+<p class="Pp">ln - make a link</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<p class="Pp"><b>ln</b> [<b>-f</b>] [<b>-n</b>] [<b>-s</b>] <i>name1</i>
+    [<i>name2</i> .&#x00A0;.&#x00A0;.&#x00A0;] <i>target</i></p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<p class="Pp">A link is a directory entry referring to a file; the same file
+    (together with its size, all its protection information, etc.) may have
+    several links to it. There is no way to distinguish a link to a file from
+    its original directory entry; any changes in the file are effective
+    independently of the name by which the file is known.</p>
+<p class="Pp"><b>Ln</b> creates a link named <i>target</i> to an existing file
+    <i>name1</i>. If <i>target</i> is a directory, more than one name may be
+    given, and the links are placed in that directory, with the name of the last
+    pathname component.</p>
+<p class="Pp">It is forbidden to link to a directory or to link across file
+    systems. It is, however, possible to create a <i>symbolic</i> <i>link</i>
+    even in this case; see the <b>-s</b> option below.</p>
+<p class="Pp">The <b>ln</b> command accepts the following options:</p>
 <dl class="Bl-tag">
-  <dt><b>-f</b></dt>
+  <dt id="f"><a class="permalink" href="#f"><b>-f</b></a></dt>
   <dd>If the target file exists, an attempt is made to unlink it before the new
       link is created, regardless of file permissions. This option is ignored
       with <b>/usr/5bin/ln</b> and <b>/usr/5bin/s42/ln</b> if the <i>-s</i>
       option is also given.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-n</b></dt>
+  <dt id="n"><a class="permalink" href="#n"><b>-n</b></a></dt>
   <dd>Do not remove an existing target file even if the user has write
       permission on it. This is the default for <b>/usr/5bin/posix/ls</b> and
       <b>/usr/5bin/posix2001/ls</b>.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-s</b></dt>
+  <dt id="s"><a class="permalink" href="#s"><b>-s</b></a></dt>
   <dd>Create a symbolic link, that is a special file containing the pathname of
       the target file. The system will resolve this pathname when the symbolic
       link is accessed. A symbolic link can refer to all types of files and span
       device boundaries, but will become stale if the target file is removed. An
       existing target file will not be overwritten.</dd>
 </dl>
-<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
   ALSO</a></h1>
-cp(1), mv(1), link(2), symlink(2)</div>
+<p class="Pp">cp(1), mv(1), link(2), symlink(2)</p>
+</section>
+</div>
 <table class="foot">
   <tr>
     <td class="foot-date">2/2/05</td>

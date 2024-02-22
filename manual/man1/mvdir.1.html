@@ -9,6 +9,7 @@
  -->
 <head>
   <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
   <title>MVDIR(1)</title>
 </head>
@@ -21,20 +22,29 @@
   </tr>
 </table>
 <div class="manual-text">
-<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
-mvdir - move a directory
-<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
-<b>mvdir</b><i> source target</i>
-<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
-The <i>mvdir</i> command moves the directory <i>source</i> to the directory
-  <i>target</i>. If <i>target</i> refers to an existing directory, <i>source</i>
-  is moved into <i>target</i>, i.e. if <i>source</i> is
-  `/path/to/last-component', it is moved to ` <i>target</i>/last-component'.
-  Otherwise, <i>target</i> must not previously exist. <i>source</i> is not
-  allowed to be a sub-directory of <i>target</i> and vice-versa.
-<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+<section class="Sh">
+<h1 class="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+<p class="Pp">mvdir - move a directory</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<p class="Pp"><b>mvdir</b><i> source target</i></p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<p class="Pp">The <i>mvdir</i> command moves the directory <i>source</i> to the
+    directory <i>target</i>. If <i>target</i> refers to an existing directory,
+    <i>source</i> is moved into <i>target</i>, i.e. if <i>source</i> is
+    `/path/to/last-component', it is moved to `<i>target</i>/last-component'.
+    Otherwise, <i>target</i> must not previously exist. <i>source</i> is not
+    allowed to be a sub-directory of <i>target</i> and vice-versa.</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
   ALSO</a></h1>
-mv(1)</div>
+<p class="Pp">mv(1)</p>
+</section>
+</div>
 <table class="foot">
   <tr>
     <td class="foot-date">6/25/05</td>

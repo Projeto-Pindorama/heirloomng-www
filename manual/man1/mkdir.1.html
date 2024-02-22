@@ -9,6 +9,7 @@
    -->
 <head>
   <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
   <title>MKDIR(1)</title>
 </head>
@@ -21,27 +22,30 @@
   </tr>
 </table>
 <div class="manual-text">
-<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
-mkdir - make a directory
-<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
-<b>mkdir</b> [<b>-m</b><i>&#x00A0;mode</i>] [<b>-p</b>] <i>dirname</i> ...
-<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
-<b>Mkdir</b> creates specified directories in mode 777, taking the file creation
-  mask into account (see <i>umask</i>(2)). Standard entries, `.', for the
-  directory itself, and `..' for its parent, are made automatically.
-<div class="Pp"></div>
-Mkdir requires write permission in the parent directory.
-<div class="Pp"></div>
-The following options are accepted:
+<section class="Sh">
+<h1 class="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+<p class="Pp">mkdir - make a directory</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<p class="Pp"><b>mkdir</b> [<b>-m</b><i>&#x00A0;mode</i>] [<b>-p</b>]
+    <i>dirname</i> ...</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<p class="Pp"><b>Mkdir</b> creates specified directories in mode 777, taking the
+    file creation mask into account (see <i>umask</i>(2)). Standard entries,
+    `.', for the directory itself, and `..' for its parent, are made
+    automatically.</p>
+<p class="Pp">Mkdir requires write permission in the parent directory.</p>
+<p class="Pp">The following options are accepted:</p>
 <dl class="Bl-tag">
-  <dt><b>-m</b> <i>mode</i></dt>
+  <dt id="m"><a class="permalink" href="#m"><b>-m</b> <i>mode</i></a></dt>
   <dd>Uses the given <i>mode</i> to create the directory, ignoring the file
       creation mask. <i>Mode</i> can be given in octal or in symbolic form, as
       described in <i>chmod</i>(1). The set-group-ID bit is ignored when present
       in an octal mode.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-p</b></dt>
+  <dt id="p"><a class="permalink" href="#p"><b>-p</b></a></dt>
   <dd>Creates any missing parent directories. If the <b>-m</b> option is also
       present, newly created parent directories have the specified mode with
       <b>/usr/5bin/mkdir</b>; with <b>/usr/5bin/s42/mkdir</b>,
@@ -49,16 +53,21 @@ The following options are accepted:
       default mode minus umask plus write and execute permission for the
       invoking user is always applied.</dd>
 </dl>
-<div class="Pp"></div>
-If the set-group-ID bit is set on the parent directory of a newly created
-  directory, it is inherited regardless of the <b>-m</b> option unless
-  explicitly specified as a symbolic mode with `+' or `-'.
-<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+<p class="Pp">If the set-group-ID bit is set on the parent directory of a newly
+    created directory, it is inherited regardless of the <b>-m</b> option unless
+    explicitly specified as a symbolic mode with `+' or `-'.</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
   ALSO</a></h1>
-chmod(1), rmdir(1), mkdir(2), umask(2)
-<h1 class="Sh" title="Sh" id="DIAGNOSTICS"><a class="permalink" href="#DIAGNOSTICS">DIAGNOSTICS</a></h1>
-Mkdir returns exit code 0 if all directories were successfully made. Otherwise
-  it prints a diagnostic and returns nonzero.</div>
+<p class="Pp">chmod(1), rmdir(1), mkdir(2), umask(2)</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DIAGNOSTICS"><a class="permalink" href="#DIAGNOSTICS">DIAGNOSTICS</a></h1>
+<p class="Pp">Mkdir returns exit code 0 if all directories were successfully
+    made. Otherwise it prints a diagnostic and returns nonzero.</p>
+</section>
+</div>
 <table class="foot">
   <tr>
     <td class="foot-date">1/24/05</td>

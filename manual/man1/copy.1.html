@@ -5,6 +5,7 @@
  -->
 <head>
   <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
   <title>COPY(1XNX)</title>
 </head>
@@ -17,102 +18,91 @@
   </tr>
 </table>
 <div class="manual-text">
-<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
-copy - (XENIX) copy groups of files
-<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
-<b>copy</b> [ <b>-a</b>[<b>d</b>]] [ <b>-nlsmorvh</b>]
-  <i>source</i>&#x00A0;.&#x00A0;.&#x00A0;.&#x00A0;[ <i>destination</i>]
-<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
-The <i>copy</i> command creates a copy of each <i>source</i> file in
-  <i>destination</i>. If no <i>destination</i> argument is present, the current
-  directory is used. If more than one <i>source</i> argument is given,
-  <i>destination</i> must be an existing directory; otherwise, if
-  <i>destination</i> does not exist, it is created. For a directory given as
-  <i>source</i>, its contents are copied to <i>destination</i>, but
-  subdirectories are normally ignored (see the <i>-r</i> option below). Special
-  files are copied as such.
-<div class="Pp"></div>
-If a destination file exists, its content will be overwritten, but it will
-  retain its permissions and ownership. Otherwise, files are created with the
-  owner and group set to those of the invoking user and with the permissions of
-  the source file (minus umask, see <i>umask</i>(2)).
-<div class="Pp"></div>
-The <i>copy</i> command accepts the following options, which may be given at any
-  position regarding the file operands:
+<section class="Sh">
+<h1 class="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+<p class="Pp">copy - (XENIX) copy groups of files</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<p class="Pp"><b>copy</b> [<b>-a</b>[<b>d</b>]] [<b>-nlsmorvh</b>]
+    <i>source</i>&#x00A0;.&#x00A0;.&#x00A0;.&#x00A0;[<i>destination</i>]</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<p class="Pp">The <i>copy</i> command creates a copy of each <i>source</i> file
+    in <i>destination</i>. If no <i>destination</i> argument is present, the
+    current directory is used. If more than one <i>source</i> argument is given,
+    <i>destination</i> must be an existing directory; otherwise, if
+    <i>destination</i> does not exist, it is created. For a directory given as
+    <i>source</i>, its contents are copied to <i>destination</i>, but
+    subdirectories are normally ignored (see the <i>-r</i> option below).
+    Special files are copied as such.</p>
+<p class="Pp">If a destination file exists, its content will be overwritten, but
+    it will retain its permissions and ownership. Otherwise, files are created
+    with the owner and group set to those of the invoking user and with the
+    permissions of the source file (minus umask, see <i>umask</i>(2)).</p>
+<p class="Pp">The <i>copy</i> command accepts the following options, which may
+    be given at any position regarding the file operands:</p>
 <dl class="Bl-tag">
-  <dt><b>-a</b></dt>
+  <dt id="a"><a class="permalink" href="#a"><b>-a</b></a></dt>
   <dd>Asks for confirmation for each file before a copy is attempted, and for
       each directory before it is examined.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-ad</b></dt>
+  <dt id="ad"><a class="permalink" href="#ad"><b>-ad</b></a></dt>
   <dd>Asks for confirmation for each directory before it is examined. Implies
       the <i>-r</i> option.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-h</b></dt>
+  <dt id="h"><a class="permalink" href="#h"><b>-h</b></a></dt>
   <dd>By default, symbolic links are followed. This option causes symbolic links
       encountered during traversal to be copied (symbolic links given as
       arguments will still be followed). This option is an extension.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-l</b></dt>
+  <dt id="l"><a class="permalink" href="#l"><b>-l</b></a></dt>
   <dd>If possible, files are hard linked instead of being copied. This does not
       apply to directories or special files.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-m</b></dt>
+  <dt id="m"><a class="permalink" href="#m"><b>-m</b></a></dt>
   <dd>Sets access and modification times of copied files to those of source
       files instead of current time.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-n</b></dt>
+  <dt id="n"><a class="permalink" href="#n"><b>-n</b></a></dt>
   <dd>Create new files only: If a destination file exists, it is not
       overwritten.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-o</b></dt>
+  <dt id="o"><a class="permalink" href="#o"><b>-o</b></a></dt>
   <dd>Sets the owner and group of each destination file to those of the source
       file instead of those of the invoking user.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-r</b></dt>
+  <dt id="r"><a class="permalink" href="#r"><b>-r</b></a></dt>
   <dd>Recusively copies subdirectories of the source arguments encountered.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-s</b></dt>
+  <dt id="s"><a class="permalink" href="#s"><b>-s</b></a></dt>
   <dd>Similar to <i>-l</i>, but uses soft links. This option is an
     extension.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-v</b></dt>
+  <dt id="v"><a class="permalink" href="#v"><b>-v</b></a></dt>
   <dd>Prints the name of each file or directory before it is copied or
     examined.</dd>
 </dl>
-<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
   ALSO</a></h1>
-cp(1), cpio(1)
-<h1 class="Sh" title="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
-Files copied will lose all hard link connection.
-<div class="Pp"></div>
-In contrast to <i>cp</i>(1), if a directory is copied to an existing destination
-  directory, its contents will be written directly into that directory, without
-  a subdirectory being created. For example, if the directory <i>source</i>
-  contains the files <i>file1</i> and <i>file2</i>, the command
+<p class="Pp">cp(1), cpio(1)</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
+<p class="Pp">Files copied will lose all hard link connection.</p>
+<p class="Pp">In contrast to <i>cp</i>(1), if a directory is copied to an
+    existing destination directory, its contents will be written directly into
+    that directory, without a subdirectory being created. For example, if the
+    directory <i>source</i> contains the files <i>file1</i> and <i>file2</i>,
+    the command</p>
 <div class="Bd-indent">
-<div class="Pp"></div>
-copy source dest
-<div class="Pp"></div>
+<p class="Pp">copy source dest</p>
+<p class="Pp"></p>
 </div>
 will create files <i>dest/file1</i> and <i>dest/file2</i>, while the command
 <div class="Bd-indent">
-<div class="Pp"></div>
-cp -r source dest
-<div class="Pp"></div>
+<p class="Pp">cp -r source dest</p>
+<p class="Pp"></p>
 </div>
 will create <i>dest/source/file1</i> and <i>dest/source/file2</i>. Thus if a
   single directory is named and no explicit destination is given, copies of the
-  files below that directory will be created in the current directory.</div>
+  files below that directory will be created in the current directory.
+</section>
+</div>
 <table class="foot">
   <tr>
     <td class="foot-date">12/8/04</td>

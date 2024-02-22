@@ -44,6 +44,7 @@
    -->
 <head>
   <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
   <title>GROUPS(1B)</title>
 </head>
@@ -56,23 +57,35 @@
   </tr>
 </table>
 <div class="manual-text">
-<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
-groups - (BSD) show group memberships
-<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
-<b>/usr/ucb/groups</b> [<i>user</i>&#x00A0;...]
-<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
-The <i>groups</i> command shows the groups to which you or the optionally
-  specified user belong. Each user belongs to a group specified in the password
-  file <i>/etc/passwd</i> and possibly to other groups as specified in the file
-  <i>/etc/group</i>. If you do not own a file but belong to the group which it
-  is owned by then you are granted group access to the file.
-<div class="Pp"></div>
-When a new file is created it is given the group of the containing directory.
-<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+<section class="Sh">
+<h1 class="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+<p class="Pp">groups - (BSD) show group memberships</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<p class="Pp"><b>/usr/ucb/groups</b> [<i>user</i>&#x00A0;...]</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<p class="Pp">The <i>groups</i> command shows the groups to which you or the
+    optionally specified user belong. Each user belongs to a group specified in
+    the password file <i>/etc/passwd</i> and possibly to other groups as
+    specified in the file <i>/etc/group</i>. If you do not own a file but belong
+    to the group which it is owned by then you are granted group access to the
+    file.</p>
+<p class="Pp">When a new file is created it is given the group of the containing
+    directory.</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
   ALSO</a></h1>
-getgroups(2)
-<h1 class="Sh" title="Sh" id="FILES"><a class="permalink" href="#FILES">FILES</a></h1>
-/etc/passwd, /etc/group</div>
+<p class="Pp">getgroups(2)</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="FILES"><a class="permalink" href="#FILES">FILES</a></h1>
+<p class="Pp">/etc/passwd, /etc/group</p>
+</section>
+</div>
 <table class="foot">
   <tr>
     <td class="foot-date">7/2/05</td>

@@ -9,6 +9,7 @@
    -->
 <head>
   <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
   <title>TAIL(1)</title>
 </head>
@@ -21,58 +22,66 @@
   </tr>
 </table>
 <div class="manual-text">
-<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
-tail - deliver the last part of a file
-<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
-<b>tail</b> [<b>+</b>/<b>-</b>[<i>number</i>][<b>lbc</b>][<b>f</b>]]
-  [<i>file</i>]
-<div>&#x00A0;</div>
-<b>tail</b> [<b>+</b>/<b>-</b>[<i>number</i>][<b>l</b>][<b>r</b>]] [<i>file</i>]
-<div>&#x00A0;</div>
-<b>tail</b> [<b>-f</b>] [<b>-c</b><i> number</i>|<b>-n</b><i> number</i>]
-  [<i>file</i>]
-<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
-The <b>tail</b> command copies the named <i>file</i> to the standard output
-  beginning at a designated place. If no <i>file</i> is named, the standard
-  input is used.
-<div class="Pp"></div>
-Copying begins at distance <b>+</b><i>number</i> from the beginning, or
-  <b>-</b><i>number</i> from the end of the input. <i>Number</i> is counted in
-  units of lines, blocks or characters (i.e. bytes), according to the appended
-  option <b>l</b>, <b>b</b> or <b>c</b>. When no units are specified, counting
-  is by lines; the default <i>number</i> is 10.
-<div class="Pp"></div>
-If the <b>f</b> (``follow'') option is present, <b>tail</b> will not terminate
-  at end-of-file, but check for further data to write every second.
-<div class="Pp"></div>
-With the <b>r</b> option, the order of lines printed is reversed. If no
-  <i>number</i> is specified, the entire file is printed. <i>Number</i> is
-  always taken as count of lines from the end of input.
-<div class="Pp"></div>
-The <b>tail</b> command also accepts the following options that were introduced
-  by POSIX.2, in the form shown in the third synopsis line:
+<section class="Sh">
+<h1 class="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+<p class="Pp">tail - deliver the last part of a file</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<p class="Pp"><b>tail</b>
+    [<b>+</b>/<b>-</b>[<i>number</i>][<b>lbc</b>][<b>f</b>]] [<i>file</i>]
+  <br/>
+  <b>tail</b> [<b>+</b>/<b>-</b>[<i>number</i>][<b>l</b>][<b>r</b>]]
+    [<i>file</i>]
+  <br/>
+  <b>tail</b> [<b>-f</b>] [<b>-c</b><i> number</i>|<b>-n</b><i> number</i>]
+    [<i>file</i>]</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<p class="Pp">The <b>tail</b> command copies the named <i>file</i> to the
+    standard output beginning at a designated place. If no <i>file</i> is named,
+    the standard input is used.</p>
+<p class="Pp">Copying begins at distance <b>+</b><i>number</i> from the
+    beginning, or <b>-</b><i>number</i> from the end of the input. <i>Number</i>
+    is counted in units of lines, blocks or characters (i.e. bytes), according
+    to the appended option <b>l</b>, <b>b</b> or <b>c</b>. When no units are
+    specified, counting is by lines; the default <i>number</i> is 10.</p>
+<p class="Pp">If the <b>f</b> (``follow'') option is present, <b>tail</b> will
+    not terminate at end-of-file, but check for further data to write every
+    second.</p>
+<p class="Pp">With the <b>r</b> option, the order of lines printed is reversed.
+    If no <i>number</i> is specified, the entire file is printed. <i>Number</i>
+    is always taken as count of lines from the end of input.</p>
+<p class="Pp">The <b>tail</b> command also accepts the following options that
+    were introduced by POSIX.2, in the form shown in the third synopsis
+  line:</p>
 <dl class="Bl-tag">
-  <dt><b>-c</b> [<b>+</b>|<b>-</b>]<i>number</i></dt>
+  <dt id="c"><a class="permalink" href="#c"><b>-c</b>
+    [<b>+</b>|<b>-</b>]<i>number</i></a></dt>
   <dd>Copying will start at <i>number</i> bytes; if the option argument starts
-      with a ` <b>+</b>', from the begin of the file, with ` <b>-</b>' or no
-      sign from its end.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-f</b></dt>
+      with a `<b>+</b>', from the begin of the file, with `<b>-</b>' or no sign
+      from its end.</dd>
+  <dt id="f"><a class="permalink" href="#f"><b>-f</b></a></dt>
   <dd>Follow file changes, as described above.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-n</b> [<b>+</b>|<b>-</b>]<i>number</i></dt>
+  <dt id="n"><a class="permalink" href="#n"><b>-n</b>
+    [<b>+</b>|<b>-</b>]<i>number</i></a></dt>
   <dd>Copying will start at <i>number</i> lines. The meaning of the sign is the
       same as for the <b>-c</b> option.</dd>
 </dl>
-<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
   ALSO</a></h1>
-dd(1), head(1)
-<h1 class="Sh" title="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
-Tails relative to the end of the file are treasured up in a buffer, and thus are
-  limited in length. Various kinds of anomalous behaviour may happen with
-  character special files.</div>
+<p class="Pp">dd(1), head(1)</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
+<p class="Pp">Tails relative to the end of the file are treasured up in a
+    buffer, and thus are limited in length. Various kinds of anomalous behaviour
+    may happen with character special files.</p>
+</section>
+</div>
 <table class="foot">
   <tr>
     <td class="foot-date">12/6/04</td>

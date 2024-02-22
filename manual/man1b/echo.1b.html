@@ -9,6 +9,7 @@
    -->
 <head>
   <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
   <title>ECHO(1B)</title>
 </head>
@@ -21,24 +22,34 @@
   </tr>
 </table>
 <div class="manual-text">
-<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
-echo - (BSD) echo arguments
-<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
-<b>/usr/ucb/echo</b> [<i>argument </i>...]
-<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
-<i>Echo</i> writes its <i>arguments</i> separated by blanks and terminated by a
-  newline on the standard output.
-<div class="Pp"></div>
-<i>Echo</i> is useful for producing diagnostics in shell programs and for
-  writing constant data on pipes. To send diagnostics to the standard error
-  file, do `echo ... 1&gt;&amp;2'.
-<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+<section class="Sh">
+<h1 class="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+<p class="Pp">echo - (BSD) echo arguments</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<p class="Pp"><b>/usr/ucb/echo</b> [<i>argument </i>...]</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<p class="Pp"><i>Echo</i> writes its <i>arguments</i> separated by blanks and
+    terminated by a newline on the standard output.</p>
+<p class="Pp"><i>Echo</i> is useful for producing diagnostics in shell programs
+    and for writing constant data on pipes. To send diagnostics to the standard
+    error file, do `echo ... 1&gt;&amp;2'.</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
   ALSO</a></h1>
-printf(1)
-<h1 class="Sh" title="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
-It is recommended for portability that <i>printf</i>(1) is used instead of
-  <i>echo</i> if backslashes are to be printed or if the trailing newline is to
-  be omitted.</div>
+<p class="Pp">printf(1)</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
+<p class="Pp">It is recommended for portability that <i>printf</i>(1) is used
+    instead of <i>echo</i> if backslashes are to be printed or if the trailing
+    newline is to be omitted.</p>
+</section>
+</div>
 <table class="foot">
   <tr>
     <td class="foot-date">7/2/05</td>

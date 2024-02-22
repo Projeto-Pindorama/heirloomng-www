@@ -5,6 +5,7 @@
  -->
 <head>
   <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
   <title>PG(1)</title>
 </head>
@@ -17,121 +18,90 @@
   </tr>
 </table>
 <div class="manual-text">
-<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
-pg - file perusal filter for CRTs
-<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
-<div class="HP"><b>pg</b> [<b>-</b><i>number</i>]
-  [<b>-p</b><i>&#x00A0;string</i>] [ <b>-cefnrs</b>] [<b>+</b><i>line</i>]
-  [<b>+/</b> <i>pattern</i><b>/</b>] [ <i>file</i>&#x00A0;.&#x00A0;.&#x00A0;.]
-<div>&#x00A0;</div>
-</div>
-<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
-<i>Pg</i> displays a text file on a <small>CRT</small> one screenful at once.
-  After each page, a prompt is displayed. The user may then either press the
-  newline key to view the next page or one of the keys described below.
-<div class="Pp"></div>
-If no filename is given on the command line, <i>pg</i> reads from standard
-  input. If the standard output is not a terminal, <i>pg</i> acts like
-  <i>cat</i>(1) but precedes each file with its name if there is more than one.
-<div class="Pp"></div>
-If input comes from a pipe, <i>pg</i> stores the data in a buffer file while
-  reading to make navigation possible.
-<div class="Pp"></div>
-<i>Pg</i> accepts the following options:
+<section class="Sh">
+<h1 class="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+<p class="Pp">pg - file perusal filter for CRTs</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<p class="Pp HP"><b>pg</b> [<b>-</b><i>number</i>]
+    [<b>-p</b><i>&#x00A0;string</i>] [<b>-cefnrs</b>] [<b>+</b><i>line</i>]
+    [<b>+/</b><i>pattern</i><b>/</b>] [<i>file</i>&#x00A0;.&#x00A0;.&#x00A0;.]
+  <br/>
+</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<p class="Pp"><i>Pg</i> displays a text file on a <small>CRT</small> one
+    screenful at once. After each page, a prompt is displayed. The user may then
+    either press the newline key to view the next page or one of the keys
+    described below.</p>
+<p class="Pp">If no filename is given on the command line, <i>pg</i> reads from
+    standard input. If the standard output is not a terminal, <i>pg</i> acts
+    like <i>cat</i>(1) but precedes each file with its name if there is more
+    than one.</p>
+<p class="Pp">If input comes from a pipe, <i>pg</i> stores the data in a buffer
+    file while reading to make navigation possible.</p>
+<p class="Pp"><i>Pg</i> accepts the following options:</p>
 <dl class="Bl-tag">
   <dt><b>-</b><i>number</i></dt>
   <dd>The number of lines per page. Usually, this is the number of
       <small>CRT</small> lines minus one.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-c</b></dt>
+  <dt id="c"><a class="permalink" href="#c"><b>-c</b></a></dt>
   <dd>Clear the screen before a page is displayed if the terminfo entry for the
       terminal provides this capability.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-e</b></dt>
+  <dt id="e"><a class="permalink" href="#e"><b>-e</b></a></dt>
   <dd><i>pg</i> will not pause and display <small>(EOF)</small> at the end of a
       file.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-f</b></dt>
+  <dt id="f"><a class="permalink" href="#f"><b>-f</b></a></dt>
   <dd><i>pg</i> does not split long lines.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-n</b></dt>
+  <dt id="n"><a class="permalink" href="#n"><b>-n</b></a></dt>
   <dd>Without this option, commands must be terminated by a newline character.
       With this option, <i>pg</i> advances once a command letter is
     entered.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-p</b><i>&#x00A0;string</i></dt>
+  <dt id="p"><a class="permalink" href="#p"><b>-p</b><i>&#x00A0;string</i></a></dt>
   <dd>Instead of the prompt <i> :</i> , <i>string</i> is displayed. If
       <i>string</i> contains <i>%d</i> , its first occurrence is replaced by the
       number of the current page.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-r</b></dt>
+  <dt id="r"><a class="permalink" href="#r"><b>-r</b></a></dt>
   <dd>Disallow the shell escape.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-s</b></dt>
+  <dt id="s"><a class="permalink" href="#s"><b>-s</b></a></dt>
   <dd>Print messages in <i>standout</i> mode if the terminfo entry for the
       terminal provides this capability.</dd>
-</dl>
-<dl class="Bl-tag">
   <dt><b>+</b><i>number</i></dt>
   <dd>Start at the given line.</dd>
-</dl>
-<dl class="Bl-tag">
   <dt><b>+/</b><i>pattern</i><b>/</b></dt>
   <dd>Start at the line containing the regular expression <i>pattern</i>
     given.</dd>
 </dl>
-<div class="Pp"></div>
-The following commands may be entered at the prompt. Commands preceded by
-  <i>i</i> in this document accept a number as argument, positive or negative.
-  If this argument starts with <i>+</i> or <i>-,</i> it is interpreted relative
-  to the current position in the input file, otherwise relative to the
-  beginning.
+<p class="Pp">The following commands may be entered at the prompt. Commands
+    preceded by <i>i</i> in this document accept a number as argument, positive
+    or negative. If this argument starts with <i>+</i> or <i>-,</i> it is
+    interpreted relative to the current position in the input file, otherwise
+    relative to the beginning.</p>
 <dl class="Bl-tag">
-  <dt><i>i</i><b>&lt;newline&gt;</b></dt>
+  <dt id="i"><a class="permalink" href="#i"><i>i</i><b>&lt;newline&gt;</b></a></dt>
   <dd>Display the next or the indicated page.</dd>
-</dl>
-<dl class="Bl-tag">
   <dt><i>i</i><b>d</b> or <b>^D</b></dt>
   <dd>Display the next halfpage. If <i>i</i> is given, it is always interpreted
       relative to the current position.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><i>i</i><b>l</b></dt>
+  <dt id="i~2"><a class="permalink" href="#i~2"><i>i</i><b>l</b></a></dt>
   <dd>Display the next or the indicated line.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><i>i</i><b>f</b></dt>
+  <dt id="i~3"><a class="permalink" href="#i~3"><i>i</i><b>f</b></a></dt>
   <dd>Skip a page forward. <i>i</i> must be a positive number and is always
       interpreted relative to the current position.</dd>
-</dl>
-<dl class="Bl-tag">
   <dt><i>i</i><b>w</b> or <i>i</i><b>z</b></dt>
   <dd>Behave as <i>&lt;newline&gt;</i> except that <i>i</i> becomes the new page
       size.</dd>
-</dl>
-<dl class="Bl-tag">
   <dt><b>.</b> or <b>^L</b></dt>
   <dd>Redraw the screen.</dd>
-</dl>
-<dl class="Bl-tag">
   <dt><b>$</b></dt>
   <dd>Advance to the last line of the input file.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><i>i</i><b>/</b><i>pattern</i><b>/</b></dt>
+  <dt id="i~4"><a class="permalink" href="#i~4"><i>i</i><b>/</b><i>pattern</i><b>/</b></a></dt>
   <dd>Search forward until the first or the <i>i</i>-th occurrence of the
       regular expression <i>pattern</i> is found. The search starts after the
       current page and stops at the end of the file. No wrap-around is
       performed. <i>i</i> must be a positive number.</dd>
-</dl>
-<dl class="Bl-tag">
   <dt><i>i</i><b>?</b><i>pattern</i><b>?</b> or
     <i>i</i><b>^</b><i>pattern</i><b>^</b></dt>
   <dd>Search backward until the first or the <i>i</i>-th occurrence of the
@@ -139,88 +109,75 @@ The following commands may be entered at the prompt. Commands preceded by
       current page and stops at the beginning of the file. No wrap-around is
       performed. <i>i</i> must be a positive number.</dd>
 </dl>
-<div class="Pp"></div>
-The search commands accept an added letter. If <b>t</b> is given, the line
-  containing the pattern is displayed at the top of the screen, which is the
-  default. <b>m</b> selects the middle and <b>b</b> the bottom of the screen.
-  The selected position is used in following searches, too.
+<p class="Pp">The search commands accept an added letter. If <b>t</b> is given,
+    the line containing the pattern is displayed at the top of the screen, which
+    is the default. <b>m</b> selects the middle and <b>b</b> the bottom of the
+    screen. The selected position is used in following searches, too.</p>
 <dl class="Bl-tag">
-  <dt><i>i</i><b>n</b></dt>
+  <dt id="i~5"><a class="permalink" href="#i~5"><i>i</i><b>n</b></a></dt>
   <dd>Advance to the next file or <i>i</i> files forward.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><i>i</i><b>p</b></dt>
+  <dt id="i~6"><a class="permalink" href="#i~6"><i>i</i><b>p</b></a></dt>
   <dd>Reread the previous file or <i>i</i> files backward.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>s</b><i>&#x00A0;filename</i></dt>
+  <dt id="s~2"><a class="permalink" href="#s~2"><b>s</b><i>&#x00A0;filename</i></a></dt>
   <dd>Save the current file to the given <i>filename.</i></dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>h</b></dt>
+  <dt id="h"><a class="permalink" href="#h"><b>h</b></a></dt>
   <dd>Display a command summary.</dd>
-</dl>
-<dl class="Bl-tag">
   <dt><b>!</b><i>command</i></dt>
   <dd>Execute <i>command</i> using the shell.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>q</b> or <b>Q</b></dt>
+  <dt id="q"><a class="permalink" href="#q"><b>q</b> or <b>Q</b></a></dt>
   <dd>Quit.</dd>
 </dl>
-<div class="Pp"></div>
-If the user presses the interrupt or quit key while <i>pg</i> reads from the
-  input file or writes on the terminal, <i>pg</i> will immediately display the
-  prompt. In all other situations these keys will terminate <i>pg.</i>
-<div class="Pp"></div>
-<i>Pg</i> uses limited regular expressions as described in <i>ed</i>(1).
-  <b>/usr/5bin/pg</b> uses simple regular expressions, <b>/usr/5bin/s42/pg</b>,
-  <b>/usr/5bin/posix/pg</b>, and <b>/usr/5bin/posix2001/pg</b> use basic regular
-  expressions.
-<h1 class="Sh" title="Sh" id="ENVIRONMENT_VARIABLES"><a class="permalink" href="#ENVIRONMENT_VARIABLES">ENVIRONMENT
+<p class="Pp">If the user presses the interrupt or quit key while <i>pg</i>
+    reads from the input file or writes on the terminal, <i>pg</i> will
+    immediately display the prompt. In all other situations these keys will
+    terminate <i>pg.</i></p>
+<p class="Pp"><i>Pg</i> uses limited regular expressions as described in
+    <i>ed</i>(1). <b>/usr/5bin/pg</b> uses simple regular expressions,
+    <b>/usr/5bin/s42/pg</b>, <b>/usr/5bin/posix/pg</b>, and
+    <b>/usr/5bin/posix2001/pg</b> use basic regular expressions.</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="ENVIRONMENT_VARIABLES"><a class="permalink" href="#ENVIRONMENT_VARIABLES">ENVIRONMENT
   VARIABLES</a></h1>
-The following environment variables affect the behavior of <i>pg:</i>
+<p class="Pp">The following environment variables affect the behavior of
+    <i>pg:</i></p>
 <dl class="Bl-tag">
-  <dt><b>COLUMNS</b></dt>
+  <dt id="COLUMNS"><a class="permalink" href="#COLUMNS"><b>COLUMNS</b></a></dt>
   <dd>Overrides the system-supplied number of columns if set.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>LANG</b>, <b>LC_ALL</b></dt>
+  <dt id="LANG"><a class="permalink" href="#LANG"><b>LANG</b>,
+    <b>LC_ALL</b></a></dt>
   <dd>See <i>locale</i>(7).</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>LC_COLLATE</b></dt>
+  <dt id="LC_COLLATE"><a class="permalink" href="#LC_COLLATE"><b>LC_COLLATE</b></a></dt>
   <dd>Affects the collation order for range expressions, equivalence classes,
       and collation symbols in basic regular expressions.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>LC_CTYPE</b></dt>
+  <dt id="LC_CTYPE"><a class="permalink" href="#LC_CTYPE"><b>LC_CTYPE</b></a></dt>
   <dd>Determines the mapping of bytes to characters, whether a character is
       printable, and the availability and composition of character classes in
       basic regular expressions.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>LINES</b></dt>
+  <dt id="LINES"><a class="permalink" href="#LINES"><b>LINES</b></a></dt>
   <dd>Overrides the system-supplied number of lines if set.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>SHELL</b></dt>
+  <dt id="SHELL"><a class="permalink" href="#SHELL"><b>SHELL</b></a></dt>
   <dd>Used by the <b>!</b> command.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>TERM</b></dt>
+  <dt id="TERM"><a class="permalink" href="#TERM"><b>TERM</b></a></dt>
   <dd>Determines the terminal type.</dd>
 </dl>
-<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
   ALSO</a></h1>
-cat(1), ed(1), more(1), sh(1), terminfo(5), locale(7), regex(7), term(7)
-<h1 class="Sh" title="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
-<i>Pg</i> expects the terminal tabulators to set on eight positions.
-<div class="Pp"></div>
-<i>Pg</i> contains limited support for terminal escape sequences in its input,
-  e.g. it is possible to view text in color and boldface as with
-  ``lc&#x00A0;|&#x00A0;pg''. Sequences that affect more than one output line are
-  not supported, though.</div>
+<p class="Pp">cat(1), ed(1), more(1), sh(1), terminfo(5), locale(7), regex(7),
+    term(7)</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
+<p class="Pp"><i>Pg</i> expects the terminal tabulators to set on eight
+    positions.</p>
+<p class="Pp"><i>Pg</i> contains limited support for terminal escape sequences
+    in its input, e.g. it is possible to view text in color and boldface as with
+    ``lc&#x00A0;|&#x00A0;pg''. Sequences that affect more than one output line
+    are not supported, though.</p>
+</section>
+</div>
 <table class="foot">
   <tr>
     <td class="foot-date">1/24/05</td>
