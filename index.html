@@ -11,7 +11,7 @@
 	</script>
 	
 </head>
-<body onload="getLatestTag(); getContributors();">
+<body onload="getLatestTag(); getContributors(); getIssues();">
 
 	<div id='side-bar'>
         <li><a href="#what">What is it?</a></li>
@@ -114,8 +114,18 @@
         commands? There you go.<br/>
         Read more about the details at <a
         href="https://github.com/Projeto-Pindorama/heirloom-ng#chip-in">the
-        "README"</a>.</p>
-        <h2 id="contributors">Contributors</h2>
+	"README"</a>.</p>
+	<h3><i>Help me if you can, I'm feeling down...</i></h3>
+	<p>Here is a list of all the issues open at the GitHub repository, which
+	is a way to discuss problems or even features and, of course, to make
+	new contributors aware of what is currently in need of help to get
+	implemented.</p>
+	
+	<span id="issues-list"></span>
+
+	<p><i>Won't you please, please help me?</i></p>
+
+	<h2 id="contributors">Contributors</h2>
 		<span id="contributor-list"></span>
         <h2 id="licence">Licence</h2>
         <p>The vast majority of the files &mdash; 199 of the 508 (39%),
@@ -128,13 +138,13 @@
         Caldera</a> (138 files, 27%), <a
         href="https://github.com/Projeto-Pindorama/heirloom-ng/blob/master/DOCUMENTATION.old/LICENCE/LICENSE#L97-L126">
         BSD 4-Clause</a> (35 files, 6%), <a
-        href="https://github.com/Projeto-Pindorama/heirloom-ng/blob/master/DOCUMENTATION.old/LICENCE/OPENSOLARIS.LICENSE"
-        >CDDL-1.0</a> (109 files, 21%) and
+        href="https://github.com/Projeto-Pindorama/heirloom-ng/blob/master/DOCUMENTATION.old/LICENCE/OPENSOLARIS.LICENSE">
+	CDDL-1.0</a> (109 files, 21%) and
         <a
         href="https://github.com/Projeto-Pindorama/heirloom-ng/blob/master/DOCUMENTATION.old/LICENCE/COPYING.LGPL">
         LGPL v2.1</a>/<a
-        href="https://github.com/Projeto-Pindorama/heirloom-ng/blob/master/DOCUMENTATION.old/LICENCE/COPYING"
-        >GPL v2.0</a> (27 files, 5%).<br/>
+        href="https://github.com/Projeto-Pindorama/heirloom-ng/blob/master/DOCUMENTATION.old/LICENCE/COPYING">
+	GPL v2.0</a> (27 files, 5%).<br/>
         
         If you need to know about which files use which licences, you can easily
         check for the "<tt>SPDX-Licence-Identifier</tt>" header on each of the
