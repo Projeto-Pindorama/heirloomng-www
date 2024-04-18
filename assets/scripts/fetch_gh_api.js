@@ -77,20 +77,22 @@ async function getIssues() {
 			let j = 0;
 			var cinema = "",
 				typeicon = "",
-				severity = "";
+				severity = { 
+					asusual: "",
+					help: ""
+				};
 			
 			typeicon = (issues[i].pull_request)
 				? "⚙️"
 				: "💡" ;
 
-			if (issues[i].pull_request) {
-				console.log(`${issues[i].number} is actually a pull_request.`);
-			}
-			
+			/* Set if this is a normal issue/pull-request
+			 * or if we need help */
+			severity.asusual = "#00005b";
 			for (j = 0; j < issues[i].labels.length; j++) {
 				switch(issues[i].labels[j].name) {
 					case "help wanted":
-						severity = "🆘";
+						severity.help = "#ff0000";
 						cinema = "movie"; // Hello! This is Ice MC.
 						break;
 					default:
@@ -99,18 +101,27 @@ async function getIssues() {
 				if (cinema) break;
 			}
 
-			if (severity) {
-				listItem.appendChild(document.createTextNode(" "));
-				MMSpan = document.createElement("span");
-				MMSpan.setAttribute("role", "img");
-				MMSpan.setAttribute("aria-label", "Needs help.");
-				MMSpan.innerHTML = `(${severity})`;
-				listItem.appendChild(MMSpan);
+			/* Change colour and style of words on the upper text. */
+			const asusual = document.getElementById('asusual'),
+				help = document.getElementById('help');
+			if (!asusual.style.fontWeight || !help.style.color) {
+				asusual.style.color = severity.asusual;
+				asusual.style.fontWeight = "bold";
+				help.style.color = severity.help;
+				help.style.fontWeight = "bold";
 			}
+		
 			listItem.appendChild(document.createTextNode(typeicon));
+			/* Hyperlink with colour and style. */
 			hyperLink.href = issues[i].html_url;
 			hyperLink.innerHTML = `#${issues[i].number}`;
+			hyperLink.style.color = (severity.help)
+						? severity.help
+						: severity.normal;
+			hyperLink.style.fontWeight = "bold";
+			if (severity.help) hyperLink.style.fontStyle = "italic";
 			listItem.appendChild(hyperLink);
+			/* And then the title. */	
 			listItem.appendChild(document.createTextNode(" "));
 			listItem.appendChild(document.createTextNode(issues[i].title));
 		
