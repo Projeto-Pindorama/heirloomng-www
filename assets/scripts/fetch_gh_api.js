@@ -20,21 +20,22 @@ async function getContributors() {
 					response.json())),
 			users = await Promise.all(userPromises),
 			userNames = users.map(user => user.name);
-
-		for (let i = 0; i < contributors.length; i++) {
-			const contributor = contributors[i],
-				listItem = document.createElement('li'),
+		let i = 0;
+		for (i = 0; i < contributors.length; i++) {
+			const listItem = document.createElement('li'),
 				hyperLink = document.createElement('a'),
-				image = document.createElement('img');
+				image = document.createElement('img'),
+				usernam = document.createElement('tt');
 
-			hyperLink.href = contributor.html_url;
-			hyperLink.innerHTML = `(<tt>${contributor.login}</tt>)`;
-			image.src = contributor.avatar_url;
+			hyperLink.href = contributors[i].html_url;
+			usernam.textContent = `(${contributors[i].login})`;
+			hyperLink.appendChild(usernam);
+			image.src = contributors[i].avatar_url;
 			image.style.height = '32px';
 			image.style.width = '32px';
 			listItem.appendChild(image);
 			listItem.appendChild(document.createTextNode(" "));
-			listItem.appendChild(document.createTextNode(`${userNames[i]}`));
+			listItem.appendChild(document.createTextNode(userNames[i]));
 			listItem.appendChild(document.createTextNode(" "));
 			listItem.appendChild(hyperLink);
 			image.style.border = "0.1em solid black";
@@ -117,7 +118,7 @@ async function getIssues() {
 			hyperLink.innerHTML = `#${issues[i].number}`;
 			hyperLink.style.color = (severity.help)
 						? severity.help
-						: severity.normal;
+						: severity.asusual;
 			hyperLink.style.fontWeight = "bold";
 			if (severity.help) hyperLink.style.fontStyle = "italic";
 			listItem.appendChild(hyperLink);
