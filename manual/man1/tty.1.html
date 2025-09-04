@@ -9,6 +9,7 @@
    -->
 <head>
   <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
   <title>TTY(1)</title>
 </head>
@@ -21,35 +22,38 @@
   </tr>
 </table>
 <div class="manual-text">
-<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
-tty - get terminal name
-<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
-<b>tty</b> [<b>-l</b>] [<b>-s</b>]
-<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
-<i>Tty</i> prints the pathname of the user's terminal. If the <b>-s</b> option
-  is present, nothing is printed, and only the exit status is affected. With the
-  <b>-l</b> option, <i>tty</i> prints the line number if standard input is
-  connected to a synchronous line.
-<h1 class="Sh" title="Sh" id="DIAGNOSTICS"><a class="permalink" href="#DIAGNOSTICS">DIAGNOSTICS</a></h1>
-`not a tty' if the standard input file is not a terminal.
-<div class="Pp"></div>
-The exit status is
+<section class="Sh">
+<h1 class="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+<p class="Pp">tty - get terminal name</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<p class="Pp"><b>tty</b> [<b>-l</b>] [<b>-s</b>]</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<p class="Pp"><i>Tty</i> prints the pathname of the user's terminal. If the
+    <b>-s</b> option is present, nothing is printed, and only the exit status is
+    affected. With the <b>-l</b> option, <i>tty</i> prints the line number if
+    standard input is connected to a synchronous line.</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DIAGNOSTICS"><a class="permalink" href="#DIAGNOSTICS">DIAGNOSTICS</a></h1>
+<p class="Pp">`not a tty' if the standard input file is not a terminal.</p>
+<p class="Pp">The exit status is</p>
 <dl class="Bl-tag">
   <dt>0</dt>
   <dd>if standard input is a terminal;
-    <div>&#x00A0;</div>
+    <br/>
   </dd>
-</dl>
-<dl class="Bl-tag">
   <dt>1</dt>
   <dd>if standard input is not a terminal;
-    <div>&#x00A0;</div>
+    <br/>
   </dd>
-</dl>
-<dl class="Bl-tag">
   <dt>2</dt>
   <dd>or greater on error.</dd>
 </dl>
+</section>
 </div>
 <table class="foot">
   <tr>

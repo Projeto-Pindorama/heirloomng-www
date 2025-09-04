@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<!-- This is an automatically generated file.  Do not edit.
+   Copyright (c) 2024 Luiz Ant\[u00F4]nio Rangel
+  
+   SPDX-Licence-Identifier: Zlib
+  
+   Some snippets borrowed from UNIX v10's manual page
+   for apply and pick:
+   Copyright (c) 1989, 1990 AT&T Bell Laboratories --- All Rights Reserved.
+   Copyright (c) 1990 Saunders College Publishing --- All Rights Reserved.
+   -->
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
+  <title>APPLY(1B)</title>
+</head>
+<body>
+<table class="head">
+  <tr>
+    <td class="head-ltitle">APPLY(1B)</td>
+    <td class="head-vol">BSD System Compatibility</td>
+    <td class="head-rtitle">APPLY(1B)</td>
+  </tr>
+</table>
+<div class="manual-text">
+<section class="Sh">
+<h1 class="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+<p class="Pp">apply, pick - repeatedly apply a command to a group of arguments;
+    select arguments</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<p class="Pp"><b>apply</b> [ <b>-v</b> | <b>-d</b> ] [ <b>-a</b> <i>m</i> ] [
+    <b>-<i>#</i></b> ] <i>command args ...</i></p>
+<p class="Pp"><b>pick</b> [ <b>-f</b> ] [ <i>args ...</i> ]</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<p class="Pp"><i>Apply</i> applies a <i>command</i> on specified <i>args</i>,
+    each one at a turn. Normally, arguments are permutated per one, but one can
+    change this per utilizing the <b>-#</b> option, which specifies the number
+    of arguments that will be passed to <i>command</i> at once. If the number is
+    zero, <i>command</i> will be executed with no arguments, but for the same
+    number of times as there are <i>args</i>. Character sequences of the form
+    &quot;%#&quot; in <i>command</i>, where # is also a number, this time
+    limited betwixt 1 and 9, are replaced per its correspondent argument. If
+    such sequences occur, the number indicated per the <b>-#</b> option shall be
+    ignored and the maximum number of arguments passed to <i>command</i> will be
+    the largest value of &quot;%#&quot;. The magic character &quot;%&quot; can
+    be changed per the <b>-a</b> option.</p>
+<p class="Pp"><i>Pick</i> writes each argument to the standard error output and
+    reads a reply. If the reply is &quot;y&quot;, <i>pick</i> will echo it to
+    the standard output; if the reply is &quot;q&quot;, <i>pick</i> exists
+    without reading any more arguments; there is no error output for other
+    replies, it just skips the current argument. If there are no arguments,
+    lines of the standard input are taken instead, which can be particularly
+    useful for using in pipes. The <b>-f</b> option can be useful for dealing
+    with not-so standard filenames which contain spaces and/or non-alphanumeric
+    symbols that are also reserved by the shell such as brackets, square
+    brackets, braces and chevrons.</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="EXAMPLES"><a class="permalink" href="#EXAMPLES">EXAMPLES</a></h1>
+<p class="Pp">A time-consuming alternative to <b>ls(1)</b> with the <b>-1</b>
+    option:</p>
+<dl class="Bl-tag">
+  <dt></dt>
+  <dd><b>% apply echo *</b></dd>
+</dl>
+<p class="Pp">Same as before, this time globbing-safe:</p>
+<dl class="Bl-tag">
+  <dt></dt>
+  <dd><b>% apply &quot;echo '%1'&quot; *</b></dd>
+</dl>
+<p class="Pp">Compare pairs of files:</p>
+<dl class="Bl-tag">
+  <dt></dt>
+  <dd><b>% apply -2 cmp a1 a2 b1 b2</b></dd>
+</dl>
+<p class="Pp">Pick some songs from a folder and enqueue on the playlist in
+    Qt-based Multimedia Player:</p>
+<dl class="Bl-tag">
+  <dt></dt>
+  <dd><b>% find &quot;/usr/home/luiz/Music/Cauby Peixoto&quot; -type f -print |
+      pick -f | xargs qmmp -e</b></dd>
+</dl>
+<p class="Pp">Move commits from one branch to another, from the oldest to the
+    newest, on the git(1) RCS utilizing the git-cherry-pick(1) utility.</p>
+<dl class="Bl-tag">
+  <dt></dt>
+  <dd><b>% git log --oneline | pick | cut -d' ' -f1 &gt;
+      /tmp/to-cherrypick.txt</b>
+    <br/>
+    <b>% git checkout mala # Another branch</b>
+    <br/>
+    <b>% apply 'git cherry-pick' `tail -r /tmp/to-cherrypick.txt`</b></dd>
+</dl>
+<p class="Pp">Pick '.c' and '.h' files and count the lines from each:</p>
+<dl class="Bl-tag">
+  <dt></dt>
+  <dd><b>% wc -l `pick *.[ch]`</b></dd>
+</dl>
+<p class="Pp">Same as before, with different processes for each file:</p>
+<dl class="Bl-tag">
+  <dt></dt>
+  <dd><b>% apply 'wc -l' `pick *.[ch]`</b></dd>
+</dl>
+<p class="Pp">Far from useful, but a really fun way of writing the lyrics for
+    &quot;99 bottles of beer&quot;, taking advantage of the fact that
+    <i>apply</i> calls <b>sh(1)</b> per default:</p>
+<div class="Bd-indent">
+<pre>% apply &quot;s=''; [ %1 -ne 1 ] &amp;&amp; s='s'; \
+printf '%d bottle%c of beer on the wall, %d bottle%c of beer.\n' \
+%1 \&quot;$s\&quot; %1 \&quot;$s\&quot;; \
+printf 'Take one down and pass around,'; \
+if [ -n $s ]; then \
+printf ' %d bottle%c of beer on the wall.\n' `expr %1 - 1` \&quot;$s\&quot;; \
+else \
+printf ' no more bottles of beer on the wall!\n'; \
+fi&quot; `seq 99 -1 1` </pre>
+</div>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="ENVIRONMENT_VARIABLES"><a class="permalink" href="#ENVIRONMENT_VARIABLES">ENVIRONMENT
+  VARIABLES</a></h1>
+<dl class="Bl-tag">
+  <dt id="SHELL"><a class="permalink" href="#SHELL"><b>SHELL</b></a></dt>
+  <dd>Path name to an alternative shell program to be used.</dd>
+</dl>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+  ALSO</a></h1>
+<p class="Pp">sh(1), xargs(1)</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
+<p class="Pp">Because of the algorithm for applying every argument from
+    <i>args</i> into the <i>command</i> string and then executing it via a
+    <b>system(3)</b>-oid, it is slightly slower than something that could be
+    crudely made as a <b>sh(1)</b> native function, but one shall not be
+    bothered since the difference is pretty much negligible.</p>
+<p class="Pp"><i>Pick</i> is implemented, albeit it has a -f option as an
+    extension to deal with not-so portable file names, intensively following its
+    historical description at the AT&amp;T Research Unix v10 manual page, which
+    is the reason to it being extremely simple. Since nothing about it besides
+    the description at the manual could be found, this implementation is just a
+    reconstruction of the original concept and maybe differ in some small
+    aspects.</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="BUGS"><a class="permalink" href="#BUGS">BUGS</a></h1>
+<p class="Pp">Use special shell metacharacters at the <i>command</i> string with
+    care, enclosing it in single quotes when needed; if not, one can get some
+    bizarre results.</p>
+<p class="Pp">This could be seen more like a technical limitation of the way
+    characters and strings work in the C programming language than a bug per se,
+    but only plain ASCII magic characters are supported.</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="HISTORY"><a class="permalink" href="#HISTORY">HISTORY</a></h1>
+<p class="Pp">An <i>apply</i> command first appeared in 4.2BSD.
+  <br/>
+  Then, via 4.2BSD, it got into Bell Labs' CSRC for the 8th edition of Research
+    Unix and stayed there until the 10th edition, when it became accompanied by
+    a <i>pick</i> command, which is very shady since an 10th edition of the
+    Research Unix never existed uniformly and, just as other utilities, it's
+    mentioned in the manual but neither its source nor binaries are present.
+  <br/>
+  Per the 4.2BSD manual page for <i>apply</i>, the authorship is attributed to
+    Rob Pike; just some guy who made part of small and fairly niche projects
+    such as the Blit terminal, UTF-8, Plan 9, acme and sam editors, Limbo,
+    Inferno and the Go Programming Language.</p>
+</section>
+</div>
+<table class="foot">
+  <tr>
+    <td class="foot-date">07/20/24</td>
+    <td class="foot-os">Heirloom Toolchest</td>
+  </tr>
+</table>
+</body>
+</html>

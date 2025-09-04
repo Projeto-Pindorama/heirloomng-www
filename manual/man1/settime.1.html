@@ -5,6 +5,7 @@
  -->
 <head>
   <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
   <title>SETTIME(1XNX)</title>
 </head>
@@ -17,44 +18,51 @@
   </tr>
 </table>
 <div class="manual-text">
-<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
-settime - (XENIX) change the access and modification dates of files
-<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
-<b>settime</b> [<b>-f</b><i>&#x00A0;ref_file</i>] [<i>MMDDhhmm</i>[<i>YY</i>]]
-  <i>file</i> ...
-<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
-The <b>settime</b> utility changes the access and modification times of files.
-  Arguments that do not refer to existing files are ignored. If none of the
-  arguments specify the time to set, the current time is used.
-<div class="Pp"></div>
-If the <b>-f</b> option is not used and the first non-option argument consists
-  of exactly eight or ten digits, the times of the files are set to the given
-  time.
-<div class="Pp"></div>
-The meaning of fields in time specifications is as follows:
+<section class="Sh">
+<h1 class="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+<p class="Pp">settime - (XENIX) change the access and modification dates of
+    files</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<p class="Pp"><b>settime</b> [<b>-f</b><i>&#x00A0;ref_file</i>]
+    [<i>MMDDhhmm</i>[<i>YY</i>]] <i>file</i> ...</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<p class="Pp">The <b>settime</b> utility changes the access and modification
+    times of files. Arguments that do not refer to existing files are ignored.
+    If none of the arguments specify the time to set, the current time is
+  used.</p>
+<p class="Pp">If the <b>-f</b> option is not used and the first non-option
+    argument consists of exactly eight or ten digits, the times of the files are
+    set to the given time.</p>
+<p class="Pp">The meaning of fields in time specifications is as follows:</p>
 <div class="Bd-indent">
-<div class="Pp"></div>
-<i>CC</i>	The first two digits of the year.
-<div>&#x00A0;</div>
-<i>YY</i>	The second two digits of the year.
-<div>&#x00A0;</div>
-<i>MM</i>	The month of the year (01-12).
-<div>&#x00A0;</div>
-<i>DD</i>	The day of the month (01-31).
-<div>&#x00A0;</div>
-<i>hh</i>	The hour of the day (00-23).
-<div>&#x00A0;</div>
-<i>mm</i>	The minute of the hour (00-59).
-<div>&#x00A0;</div>
-<i>SS</i>	The second of the minute (00-61).</div>
-<div class="Pp"></div>
-Unless <i>YY</i> is present, the current year is used.
-<div class="Pp"></div>
-With the <b>-f</b><i> ref_file</i> argument, the times of the files are set to
-  those of <i>ref_file</i>.
-<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+<p class="Pp"><i>CC</i>	The first two digits of the year.
+  <br/>
+  <i>YY</i>	The second two digits of the year.
+  <br/>
+  <i>MM</i>	The month of the year (01-12).
+  <br/>
+  <i>DD</i>	The day of the month (01-31).
+  <br/>
+  <i>hh</i>	The hour of the day (00-23).
+  <br/>
+  <i>mm</i>	The minute of the hour (00-59).
+  <br/>
+  <i>SS</i>	The second of the minute (00-61).</p>
+</div>
+<p class="Pp">Unless <i>YY</i> is present, the current year is used.</p>
+<p class="Pp">With the <b>-f</b><i> ref_file</i> argument, the times of the
+    files are set to those of <i>ref_file</i>.</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
   ALSO</a></h1>
-touch(1)</div>
+<p class="Pp">touch(1)</p>
+</section>
+</div>
 <table class="foot">
   <tr>
     <td class="foot-date">8/23/03</td>

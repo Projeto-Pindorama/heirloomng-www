@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <!-- This is an automatically generated file.  Do not edit.
-   Sccsid @(#)tsort.1	1.2 (gritter) 8/17/03
-   Parts taken from tsort(1), Unix 32V:
+   Sccsid @(#)wall.1m	0.1 (takusuman) 9/26/24
+   Parts taken from wall(1m), Unix 32V:
    Copyright(C) Caldera International Inc. 2001-2002. All rights reserved.
   
    SPDX-Licence-Identifier: Caldera
@@ -11,53 +11,52 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
-  <title>TSORT(1)</title>
+  <title>WALL(1M)</title>
 </head>
 <body>
 <table class="head">
   <tr>
-    <td class="head-ltitle">TSORT(1)</td>
-    <td class="head-vol">User Commands</td>
-    <td class="head-rtitle">TSORT(1)</td>
+    <td class="head-ltitle">WALL(1M)</td>
+    <td class="head-vol">Maintenance Commands</td>
+    <td class="head-rtitle">WALL(1M)</td>
   </tr>
 </table>
 <div class="manual-text">
 <section class="Sh">
 <h1 class="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
-<p class="Pp">tsort - topological sort</p>
+<p class="Pp">wall - write to all users</p>
 </section>
 <section class="Sh">
 <h1 class="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
-<p class="Pp"><b>tsort</b> [<i>file</i>]</p>
+<p class="Pp"><b>wall</b> [<i>file</i>]</p>
 </section>
 <section class="Sh">
 <h1 class="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
-<p class="Pp"><i>Tsort</i> produces on the standard output a totally ordered
-    list of items consistent with a partial ordering of items mentioned in the
-    input <i>file</i>. If no <i>file</i> is specified, the standard input is
-    understood.</p>
-<p class="Pp">The input consists of pairs of items (nonempty strings) separated
-    by blanks. Pairs of different items indicate ordering. Pairs of identical
-    items indicate presence, but not ordering.</p>
+<p class="Pp"><i>Wall</i> reads its standard input until an end-of-file. It then
+    sends this message, preceded by `Broadcast Message ...', to all logged in
+    users.</p>
+<p class="Pp">The sender should be super-user to override any protections the
+    users may have invoked.</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="FILES"><a class="permalink" href="#FILES">FILES</a></h1>
+<p class="Pp">/dev/tty?
+  <br/>
+  /var/adm/utmp</p>
 </section>
 <section class="Sh">
 <h1 class="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
   ALSO</a></h1>
-<p class="Pp">lorder(1)</p>
+<p class="Pp">mesg(1), write(1), utmp(5)</p>
 </section>
 <section class="Sh">
 <h1 class="Sh" id="DIAGNOSTICS"><a class="permalink" href="#DIAGNOSTICS">DIAGNOSTICS</a></h1>
-<p class="Pp">Odd data: there is an odd number of fields in the input file.</p>
-</section>
-<section class="Sh">
-<h1 class="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
-<p class="Pp">Uses a quadratic algorithm; not worth fixing for the typical use
-    of ordering a library archive file.</p>
+<p class="Pp">`Cannot send to ...' when the open on a user's tty file fails.</p>
 </section>
 </div>
 <table class="foot">
   <tr>
-    <td class="foot-date">8/17/03</td>
+    <td class="foot-date">09/26/24</td>
     <td class="foot-os">Heirloom Toolchest</td>
   </tr>
 </table>

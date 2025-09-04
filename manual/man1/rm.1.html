@@ -4,6 +4,7 @@
    Sccsid @(#)rm.1	1.14 (gritter) 1/24/05
    Parts taken from rm(1), Unix 7th edition:
    Copyright(C) Caldera International Inc. 2001-2002. All rights reserved.
+   Copyright(C) Pindorama 2022-2024.
   
    SPDX-Licence-Identifier: Caldera
  -->
@@ -28,7 +29,9 @@
 </section>
 <section class="Sh">
 <h1 class="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
-<p class="Pp"><b>rm</b> [<b>-fiRr</b>] <i>file</i> ...</p>
+<p class="Pp"><b>/usr/5bin/rm</b> [<b>-dfiRre</b>] [<i>file</i> ...]
+  <br/>
+  <b>/usr/5bin/s42/rm</b> [<b>-fiRr</b>] <i>file</i> ...</p>
 </section>
 <section class="Sh">
 <h1 class="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
@@ -44,13 +47,26 @@
     removed, but its target will remain in the file hierarchy.</p>
 <p class="Pp">The <b>rm</b> command accepts the following options:</p>
 <dl class="Bl-tag">
+  <dt id="d"><a class="permalink" href="#d"><b>-d</b></a></dt>
+  <dd>Attempts to delete empty directories and other types of files. This option
+      has been introduced by 4.4BSD in 1993 and is an extension to the standard.
+      This option is only present at <b>/usr/5bin/rm</b>.</dd>
+  <dt id="e"><a class="permalink" href="#e"><b>-e</b></a></dt>
+  <dd>Displays a message after deleting each file. This option has been
+      introduced by IBM AIX(R) and is an extension to the standard (see NOTES).
+      This option is only present at <b>/usr/5bin/rm</b>.</dd>
   <dt id="f"><a class="permalink" href="#f"><b>-f</b></a></dt>
   <dd>No questions are asked and neither error messages are printed nor the exit
       status is affected in case of nonexistent files. <b>/usr/5bin/rm</b> and
       <b>/usr/5bin/s42/rm</b> will not print an error message if removal of a
-      file failed. For <b>/usr/5bin/posix/rm</b> and
-      <b>/usr/5bin/posix2001/rm</b>, any previous occurrences of the <b>-i</b>
-      option are ignored.</dd>
+      file failed.
+    <br/>
+    For <b>/usr/5bin/rm</b> specifically, an error message will not printed if
+      there's not a file being informed as a parameter. This payload has been
+      introduced by POSIX.1-2008.
+    <br/>
+    For <b>/usr/5bin/posix/rm</b> and <b>/usr/5bin/posix2001/rm</b>, any
+      previous occurrences of the <b>-i</b> option are ignored.</dd>
   <dt id="i"><a class="permalink" href="#i"><b>-i</b></a></dt>
   <dd>Causes <b>rm</b> to ask for confirmation before deleting any file, and,
       unter <b>-r</b>, whether to examine each directory. For
@@ -86,11 +102,89 @@
     can be used to indicate the end of the options list, as with `rm - -file'.
     If `--' is used to terminate the options list, though, a following `-' will
     be interpreted as a file name, so `rm -- -' will remove the file `-'.</p>
+<p class="Pp">Option -e is an extension and should not be cluelessly used on
+    shell scripts. It apparently appeared first (and only) on IBM AIX(R) UNIX,
+    but it works pretty much like as BSD/GNU's -v option.
+  <br/>
+  If verbosing is desired, a measure to abide with would be to use a boilerplate
+    function that deals with different <b>rm(1)</b> implementations. An
+  example:</p>
+<div class="Bd-indent">
+<p class="Pp"></p>
+<pre>_rmv() {
+<br/>
+    if test `getconf HEIRLOOM_TOOLCHEST_VERSION` -gt 20240220 -o &quot;x`uname -s`&quot; \= &#x00B4;xAIX&#x00B4;; then
+<br/>
+        rm -re &quot;$@&quot;
+<br/>
+    elif (rm --help 2&gt;&amp;1 | egrep &#x00B4;\[\-.*v.*\]|GNU&#x00B4; 2&gt;&amp;1 &gt; /dev/null); then
+<br/>
+        rm -rv &quot;$@&quot;
+<br/>
+    else
+<br/>
+        if test -n &quot;$1&quot;; then
+<br/>
+            for file do
+<br/>
+                if test -L &quot;$file&quot; -o -f &quot;$file&quot;; then
+<br/>
+                    rm &quot;$file&quot; \
+<br/>
+                    &amp;&amp; printf &#x00B4;rm: removed file %s\n&#x00B4; &quot;$file&quot;
+<br/>
+                elif test -d &quot;$file&quot;; then
+<br/>
+                    find &quot;$file&quot; -type f -print \
+<br/>
+                    | (while read sfile; do
+<br/>
+                        rm &quot;$sfile&quot; \
+<br/>
+                        &amp;&amp; printf &#x00B4;rm: removed file %s\n&#x00B4; \
+<br/>
+                            &quot;$sfile&quot;
+<br/>
+                      done) \
+<br/>
+                    &amp;&amp; find &quot;$file&quot; -type d -print \
+<br/>
+                    | (while read directory; do
+<br/>
+                        rmdir &quot;$directory&quot; \
+<br/>
+                        &amp;&amp; printf &#x00B4;rm: removed directory %s\n&#x00B4; \
+<br/>
+                            &quot;$directory&quot;
+<br/>
+                    done)
+<br/>
+                fi
+<br/>
+            done
+<br/>
+        fi
+<br/>
+    fi
+}</pre>
+<p class="Pp"></p>
+</div>
+Above there is a shell function that works per checking which implementation is
+  being used and then use the correct option for it. In case of the <b>rm(1)</b>
+  program being strictly POSIX, it will emulate -e/-v payloads per using
+  <b>find(1)</b> along with the default <b>rm(1)</b> and <b>rmdir(1)</b>
+  commmands inside a loop. See <b>sh(1)</b> for more information about the shell
+  language structure itself. It can be said that the strict POSIX fallback is
+  fairly slower than the other options, but it works even in the crudest
+  UNIX-compatible environments.
+<br/>
+This is just an example that can be freely used and improved; I will not delve
+  much into this merit.
 </section>
 </div>
 <table class="foot">
   <tr>
-    <td class="foot-date">1/24/05</td>
+    <td class="foot-date">3/19/24</td>
     <td class="foot-os">Heirloom Toolchest</td>
   </tr>
 </table>

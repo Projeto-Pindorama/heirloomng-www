@@ -2,7 +2,7 @@
 <html>
 <!-- This is an automatically generated file.  Do not edit.
    t
-   Sccsid @(#)ps.1	1.47 (gritter) 10/13/05
+   Sccsid @(#)ps.1	1.48 (gritter) 8/19/08
    Parts taken from ps(1), Unix 7th edition:
    Copyright(C) Caldera International Inc. 2001-2002. All rights reserved.
   
@@ -79,4 +79,556 @@
   <dt id="p"><a class="permalink" href="#p"><b>-p</b><i> pidlist</i></a></dt>
   <dd>Selects all processes with one of the given <i>process ids</i>.</dd>
   <dt id="r"><a class="permalink" href="#r"><b>-r</b><i> sysname</i></a></dt>
-  <dd>Change the root directory to <i>sysname</i>, which may be 
+  <dd>Change the root directory to <i>sysname</i>, which may be either an
+      absolute pathname or the basename component of a mounted file system.
+      Requires presence of a selection criterion.</dd>
+  <dt id="s"><a class="permalink" href="#s"><b>-s</b><i> sidlist</i></a></dt>
+  <dd>Selects all processes that belong to one of the session ids in
+      <i>sidlist</i>.</dd>
+  <dt id="t"><a class="permalink" href="#t"><b>-t</b><i> device</i></a></dt>
+  <dd>Selects all processes with the current terminal <i>device</i>. This may be
+      the device name with either <b>/dev/</b> or <b>/dev/tty</b> omitted, as in
+      <i>ttyS2</i> or <i>S2</i> for <i>/dev/ttyS2</i>.</dd>
+  <dt id="u"><a class="permalink" href="#u"><b>-u</b><i> uidlist</i></a></dt>
+  <dd>Selects all processes with one of the given <i>user ids</i>, which may be
+      symbolic or numeric. The real user id is used with <b>/usr/5bin/ps</b> and
+      <b>/usr/5bin/s42/ps</b>, the effective user id with
+      <b>/usr/5bin/posix/ps</b> and <b>/usr/5bin/posix2001/ps</b>.</dd>
+</dl>
+<p class="Pp">The following options have been introduced by POSIX.2:</p>
+<dl class="Bl-tag">
+  <dt id="A"><a class="permalink" href="#A"><b>-A</b></a></dt>
+  <dd>Selects all processes.</dd>
+  <dt id="G"><a class="permalink" href="#G"><b>-G</b><i> gidlist</i></a></dt>
+  <dd>Selects all processes that have one of the specified real <i>group
+      ids</i>, which may be symbolic or numeric.</dd>
+  <dt id="o"><a class="permalink" href="#o"><b>-o</b><i>
+    property</i>[<b>=</b>[<i>title</i>]],...</a></dt>
+  <dd>The output is changed to reflect the named <i>property</i>. Multiple
+      properties can be given, separated by blanks or commas; it is also
+      possible to specify multiple <b>-o</b> options. Normally, the default
+      property description is written in the first output line. If the <b>=</b>
+      character is present, but the <i>title</i> is missing in all format
+      specifications, no descriptions are printed; if a <i>title</i> is given,
+      it is used instead of the default. See below for valid <i>property</i>
+      strings.</dd>
+  <dt id="U"><a class="permalink" href="#U"><b>-U</b><i> uidlist</i></a></dt>
+  <dd>Selects all processes with one of the given real <i>user ids</i>, which
+      may be symbolic or numeric.</dd>
+</dl>
+<p class="Pp">The following options are extensions:</p>
+<dl class="Bl-tag">
+  <dt id="L"><a class="permalink" href="#L"><b>-L</b></a></dt>
+  <dd>Prints information on lightweight processes (LWPs); adds lightweight
+      process id, lightweight process time, and, if <i>-f</i> is also present,
+      the number of lightweight processes. See below for the meaning of
+    columns.</dd>
+  <dt id="P"><a class="permalink" href="#P"><b>-P</b></a></dt>
+  <dd>Prints the processor on which the process is currently running. Disables
+      printing of flags and memory address.</dd>
+  <dt id="R"><a class="permalink" href="#R"><b>-R</b></a></dt>
+  <dd>Resource usage format; prints process id, memory and resident set size in
+      pages, buffer reads and writes, messages sent and received, user and
+      system time, and command. See below for the meaning of columns.</dd>
+  <dt id="y"><a class="permalink" href="#y"><b>-y</b></a></dt>
+  <dd>Modifies the <b>-l</b> output format; process flags, address and size in
+      pages are omitted, and resident set size and memory size in kilobytes are
+      printed instead.</dd>
+</dl>
+<p class="Pp">The meaning of columns and column headings for the <b>-c</b>,
+    <b>-f</b>, <b>-j</b>, <b>-l</b> and <b>-P</b> options are as follows (the
+    letters given in parentheses specify which option causes the column to
+    appear; <i>all</i> means that the column is always printed):</p>
+<p class="Pp"></p>
+<table class="tbl">
+  <tr>
+    <td>F</td>
+    <td>(l)</td>
+    <td colspan="3">Flags associated with the process (octal and additive):</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>01</td>
+    <td>in core;</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>02</td>
+    <td>system process;</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>04</td>
+    <td>locked in core (e.g. for physical I/O);</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>10</td>
+    <td>being swapped;</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>20</td>
+    <td>being traced by another process.</td>
+  </tr>
+  <tr>
+    <td>S</td>
+    <td>(l)</td>
+    <td colspan="3">The state of the process:</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>O</td>
+    <td>running on a processor;</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>R</td>
+    <td>runnable (on run queue);</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>S</td>
+    <td>sleeping;</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>I</td>
+    <td>intermediate;</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>Z</td>
+    <td>terminated;</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>T</td>
+    <td>stopped;</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>X</td>
+    <td>allocating memory.</td>
+  </tr>
+  <tr>
+    <td>UID</td>
+    <td>(f,l)</td>
+    <td colspan="3">The real user ID of the process owner, or, for
+      <b>/usr/5bin/posix/ps</b> and <b>/usr/5bin/posix2001/ps</b>, the effective
+      user ID. With the <b>-l</b> option, a numeric ID is printed, otherwise the
+      user name.</td>
+  </tr>
+  <tr>
+    <td>PID</td>
+    <td>(all)</td>
+    <td colspan="3">The process id of the process; as in certain cults it is
+      possible to kill a process if you know its true name.</td>
+  </tr>
+  <tr>
+    <td>PPID</td>
+    <td>(f,j,l)</td>
+    <td colspan="3">The process ID of the parent process.</td>
+  </tr>
+  <tr>
+    <td>PGID</td>
+    <td>(j)</td>
+    <td colspan="3">The process group ID of the process.</td>
+  </tr>
+  <tr>
+    <td>SID</td>
+    <td>(j)</td>
+    <td colspan="3">The session ID of the process.</td>
+  </tr>
+  <tr>
+    <td>LWP</td>
+    <td>(L)</td>
+    <td colspan="3">The lightweight process ID of the process.</td>
+  </tr>
+  <tr>
+    <td>NLWP</td>
+    <td>(fL)</td>
+    <td colspan="3">The number of lightweight processes in the process.</td>
+  </tr>
+  <tr>
+    <td>PSR</td>
+    <td>(P)</td>
+    <td colspan="3">The processor on which the process is currently
+      running.</td>
+  </tr>
+  <tr>
+    <td>C</td>
+    <td>(f,l)</td>
+    <td colspan="3">Processor utilization for scheduling.</td>
+  </tr>
+  <tr>
+    <td>CLS</td>
+    <td>(c)</td>
+    <td colspan="3">Scheduling class.</td>
+  </tr>
+  <tr>
+    <td>PRI</td>
+    <td>(c,l)</td>
+    <td colspan="3">Priority. With <b>-l</b>, high numbers mean low priority.
+      With <b>-c</b>, high numbers mean high priority; time-sharing processes
+      have priorities below 60; for real-time processes, the priority is
+      computed as <i>100 + scheduling priority.</i></td>
+  </tr>
+  <tr>
+    <td>NI</td>
+    <td>(l)</td>
+    <td colspan="3">Nice value, used in priority computation.</td>
+  </tr>
+  <tr>
+    <td>ADDR</td>
+    <td>(l)</td>
+    <td colspan="3">The core address of the process.</td>
+  </tr>
+  <tr>
+    <td>RSS</td>
+    <td>(ly)</td>
+    <td colspan="3">The amount of memory in kilobytes currently present in
+      core.</td>
+  </tr>
+  <tr>
+    <td>SZ</td>
+    <td>(l,R)</td>
+    <td colspan="3">The size in pages of the core image of the process. If the
+      <b>-y</b> option is also given, the size is printed in kilobytes.</td>
+  </tr>
+  <tr>
+    <td>MRSZ</td>
+    <td>(R)</td>
+    <td colspan="3">The amount of memory in pages currently present in
+      core.</td>
+  </tr>
+  <tr>
+    <td>PFLTS</td>
+    <td>(R)</td>
+    <td colspan="3">The number of major page faults that have occurred with the
+      process.</td>
+  </tr>
+  <tr>
+    <td>BUFR</td>
+    <td>(R)</td>
+    <td colspan="3">Buffer reads performed on behalf of the process.</td>
+  </tr>
+  <tr>
+    <td>BUFW</td>
+    <td>(R)</td>
+    <td colspan="3">Buffer writes performed on behalf of the process.</td>
+  </tr>
+  <tr>
+    <td>MRCV</td>
+    <td>(R)</td>
+    <td colspan="3">Messages received by the process.</td>
+  </tr>
+  <tr>
+    <td>MSND</td>
+    <td>(R)</td>
+    <td colspan="3">Messages sent by the process.</td>
+  </tr>
+  <tr>
+    <td>WCHAN</td>
+    <td>(l)</td>
+    <td colspan="3">The event for which the process is waiting or sleeping; if
+      blank, the process is running.</td>
+  </tr>
+  <tr>
+    <td>STIME</td>
+    <td>(f)</td>
+    <td colspan="3">The time when the process was
+      started.&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;</td>
+  </tr>
+  <tr>
+    <td>TTY</td>
+    <td>(all)</td>
+    <td colspan="3">The controlling tty for the process.</td>
+  </tr>
+  <tr>
+    <td>TIME</td>
+    <td>(all)</td>
+    <td colspan="3">The cumulative execution time for the process.</td>
+  </tr>
+  <tr>
+    <td>LTIME</td>
+    <td>(L)</td>
+    <td colspan="3">The cumulative execution time for the lightweight
+      process.</td>
+  </tr>
+  <tr>
+    <td>UTIME</td>
+    <td>(R)</td>
+    <td colspan="3">The cumulative time the process spent in user mode.</td>
+  </tr>
+  <tr>
+    <td>KTIME</td>
+    <td>(R)</td>
+    <td colspan="3">The cumulative time the process spent in system (kernel)
+      mode.</td>
+  </tr>
+  <tr>
+    <td>COMD</td>
+    <td>(all)</td>
+    <td colspan="3">The command name; with the <b>-f</b> option, the command
+      line. The heading `CMD' is printed for <b>/usr/5bin/posix/ps</b> and
+      <b>/usr/5bin/posix2001/ps</b>; the heading `COMMAND' is printed if the
+      <b>SYSV3</b> environment variable is set and the <i>-l</i> option is not
+      present.</td>
+  </tr>
+</table>
+<p class="Pp">A process that has exited and has a parent, but has not yet been
+    waited for by the parent is marked <i>&lt;defunct&gt;</i>.</p>
+<p class="Pp">For the <b>-o</b> option, the following properties (listed with
+    their default column headings) can be given:</p>
+<p class="Pp"></p>
+<table class="tbl">
+  <tr>
+    <td><b>user</b></td>
+    <td>USER</td>
+    <td>Effective user name.</td>
+  </tr>
+  <tr>
+    <td><b>ruser</b></td>
+    <td>RUSER</td>
+    <td>Real user name.</td>
+  </tr>
+  <tr>
+    <td><b>group</b></td>
+    <td>GROUP</td>
+    <td>Effective group name.</td>
+  </tr>
+  <tr>
+    <td><b>rgroup</b></td>
+    <td>RGROUP</td>
+    <td>Real group name.</td>
+  </tr>
+  <tr>
+    <td><b>pid</b></td>
+    <td>PID</td>
+    <td>Process id.</td>
+  </tr>
+  <tr>
+    <td><b>ppid</b></td>
+    <td>PPID</td>
+    <td>Parent process id.</td>
+  </tr>
+  <tr>
+    <td><b>pgid</b></td>
+    <td>PGID</td>
+    <td>Process group id.</td>
+  </tr>
+  <tr>
+    <td><b>sid</b></td>
+    <td>SID</td>
+    <td>Session id.</td>
+  </tr>
+  <tr>
+    <td><b>class</b></td>
+    <td>CLASS</td>
+    <td>Scheduling class.</td>
+  </tr>
+  <tr>
+    <td><b>pcpu</b></td>
+    <td>%CPU</td>
+    <td>Processor usage in percent.</td>
+  </tr>
+  <tr>
+    <td><b>vsz</b></td>
+    <td>VSZ</td>
+    <td>Memory usage in kilobytes.</td>
+  </tr>
+  <tr>
+    <td><b>nice</b></td>
+    <td>NI</td>
+    <td>Nice value.</td>
+  </tr>
+  <tr>
+    <td><b>etime</b></td>
+    <td>ELAPSED</td>
+    <td>Time elapsed since the process was started.</td>
+  </tr>
+  <tr>
+    <td><b>time</b></td>
+    <td>TIME</td>
+    <td>Cumulative execution time.</td>
+  </tr>
+  <tr>
+    <td><b>tty</b></td>
+    <td>TTY</td>
+    <td>Controlling terminal device.</td>
+  </tr>
+  <tr>
+    <td><b>comm</b></td>
+    <td>COMMAND</td>
+    <td>The first command line argument.</td>
+  </tr>
+  <tr>
+    <td><b>args</b></td>
+    <td>COMMAND</td>
+    <td>Command line arguments separated by spaces.</td>
+  </tr>
+  <tr>
+    <td><b>f</b></td>
+    <td>F</td>
+    <td>Process flags.</td>
+  </tr>
+  <tr>
+    <td><b>s</b></td>
+    <td>S</td>
+    <td>Process state.</td>
+  </tr>
+  <tr>
+    <td><b>c</b></td>
+    <td>C</td>
+    <td>Processor utilization for scheduling.</td>
+  </tr>
+  <tr>
+    <td><b>uid</b></td>
+    <td>UID</td>
+    <td>Numeric effective user id.</td>
+  </tr>
+  <tr>
+    <td><b>ruid</b></td>
+    <td>RUID</td>
+    <td>Numeric real user id.</td>
+  </tr>
+  <tr>
+    <td><b>gid</b></td>
+    <td>GID</td>
+    <td>Numeric effective group id.</td>
+  </tr>
+  <tr>
+    <td><b>rgid</b></td>
+    <td>RGID</td>
+    <td>Numeric real group id.</td>
+  </tr>
+  <tr>
+    <td><b>pri</b></td>
+    <td>PRI</td>
+    <td>Priority; high numbers mean high priority.</td>
+  </tr>
+  <tr>
+    <td><b>opri</b></td>
+    <td>PRI</td>
+    <td>Priority; high numbers mean low priority.</td>
+  </tr>
+  <tr>
+    <td><b>psr</b></td>
+    <td>PSR</td>
+    <td>Processor.</td>
+  </tr>
+  <tr>
+    <td><b>addr</b></td>
+    <td>ADDR</td>
+    <td>Core address.</td>
+  </tr>
+  <tr>
+    <td><b>osz</b></td>
+    <td>SZ</td>
+    <td>Memory size in pages.</td>
+  </tr>
+  <tr>
+    <td><b>wchan</b></td>
+    <td>WCHAN</td>
+    <td>Event for which the process is waiting.</td>
+  </tr>
+  <tr>
+    <td><b>stime</b></td>
+    <td>STIME</td>
+    <td>Start time of the process (may contain whitespace).</td>
+  </tr>
+  <tr>
+    <td><b>rss</b></td>
+    <td>RSS</td>
+    <td>Resident set size in kilobytes.</td>
+  </tr>
+  <tr>
+    <td><b>pmem</b></td>
+    <td>%MEM</td>
+    <td>Memory usage in percent.</td>
+  </tr>
+  <tr>
+    <td><b>fname</b></td>
+    <td>COMMAND</td>
+    <td>The first eight characters of the executable file for the process.</td>
+  </tr>
+</table>
+<p class="Pp">For those properties that correspond to user or group names, the
+    numeric id is printed if the name does not fit into the column width.</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="ENVIRONMENT_VARIABLES"><a class="permalink" href="#ENVIRONMENT_VARIABLES">ENVIRONMENT
+  VARIABLES</a></h1>
+<dl class="Bl-tag">
+  <dt id="LANG"><a class="permalink" href="#LANG"><b>LANG</b>,
+    <b>LC_ALL</b></a></dt>
+  <dd>See <i>locale</i>(7).</dd>
+  <dt id="LC_CTYPE"><a class="permalink" href="#LC_CTYPE"><b>LC_CTYPE</b></a></dt>
+  <dd>Determines the set of printable characters and the character width.
+      Non-printable characters in arguments and file names are dropped if
+      writing to a terminal.</dd>
+  <dt id="LC_TIME"><a class="permalink" href="#LC_TIME"><b>LC_TIME</b></a></dt>
+  <dd>Affects the format of date and time strings printed.</dd>
+  <dt id="SYSV3"><a class="permalink" href="#SYSV3"><b>SYSV3</b></a></dt>
+  <dd>Changes the text of some headings as described above.</dd>
+</dl>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="FILES"><a class="permalink" href="#FILES">FILES</a></h1>
+<dl class="Bl-tag">
+  <dt><b>/etc/passwd</b></dt>
+  <dd>Used for converting numeric and symbolic user ids.</dd>
+  <dt><b>/etc/group</b></dt>
+  <dd>Used for converting numeric and symbolic group ids.</dd>
+  <dt><b>/etc/default/ps</b></dt>
+  <dd></dd>
+  <dt><b>/proc/</b></dt>
+  <dd></dd>
+  <dt><b>/dev/</b></dt>
+  <dd></dd>
+</dl>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+  ALSO</a></h1>
+<p class="Pp">nice(1), kill(1), priocntl(1), proc(5), locale(7)</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
+<p class="Pp">Things can change while ps is running; the picture it gives is
+    only a close approximation to reality.</p>
+</section>
+</div>
+<table class="foot">
+  <tr>
+    <td class="foot-date">8/19/08</td>
+    <td class="foot-os">Heirloom Toolchest</td>
+  </tr>
+</table>
+</body>
+</html>

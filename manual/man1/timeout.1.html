@@ -90,10 +90,10 @@
   Lets suppose you need to check if your system is connected to the Internet and
     that it can successfully connect to a server in less than 5 seconds, you can
     use timeout along with nc(1):</p>
-<p class="Pp"></p>
 <div class="Bd-indent">
 <p class="Pp"></p>
 <pre>% timeout -p 5 nc -vz pindorama.dob.jp 80
+Connection to pindorama.dob.jp (168.138.140.147) 80 port [tcp/http] succeeded!
 % echo $?
 0</pre>
 <p class="Pp"></p>
@@ -120,13 +120,12 @@ In another example, you have a project and start experiencing hangings at some
     long format.</p>
 <div class="Bd-indent">
 <p class="Pp"></p>
-<pre>if test `getconf HEIRLOOM_TOOLCHEST_VERSION` -ge 20240220
-then
+<pre>if test `getconf HEIRLOOM_TOOLCHEST_VERSION` -ge 20240220; then
 <br/>
-     timeout -p -k<i>time</i> <i>time</i> <i>command</i>
+     timeout -p -k<i>$time</i> <i>$time</i> <i>&quot;$command&quot;</i>
 else
 <br/>
-     timeout --preserve-duration --kill-after <i>time</i> <i>time</i> <i>command</i>
+     timeout --preserve-duration --kill-after <i>$time</i> <i>$time</i> <i>&quot;$command&quot;</i>
 fi</pre>
 <p class="Pp"></p>
 </div>

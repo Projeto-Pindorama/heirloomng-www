@@ -9,6 +9,7 @@
  -->
 <head>
   <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
   <title>WC(1)</title>
 </head>
@@ -21,37 +22,35 @@
   </tr>
 </table>
 <div class="manual-text">
-<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
-wc - word count
-<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
-<b>wc</b> [<b>-c</b>|<b>-m</b>] [<b>-lw</b>] [<i>file</i> ...]
-<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
-Wc determines the number of lines, words and characters contained in each
-  <i>file</i> and writes the count in that order to standard output, separated
-  by spaces and followed by the filename. If no <i>file</i> argument is given,
-  standard input is used and no filename is printed. If more than one input file
-  was processed successfully, a grand total for all files is printed in the line
-  of output.
-<div class="Pp"></div>
-The <b>wc</b> command accepts the following options; if any of them is present,
-  output is restricted to the specified fields:
+<section class="Sh">
+<h1 class="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+<p class="Pp">wc - word count</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<p class="Pp"><b>wc</b> [<b>-c</b>|<b>-m</b>] [<b>-lw</b>] [<i>file</i> ...]</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<p class="Pp">Wc determines the number of lines, words and characters contained
+    in each <i>file</i> and writes the count in that order to standard output,
+    separated by spaces and followed by the filename. If no <i>file</i> argument
+    is given, standard input is used and no filename is printed. If more than
+    one input file was processed successfully, a grand total for all files is
+    printed in the line of output.</p>
+<p class="Pp">The <b>wc</b> command accepts the following options; if any of
+    them is present, output is restricted to the specified fields:</p>
 <dl class="Bl-tag">
-  <dt><b>-c</b></dt>
+  <dt id="c"><a class="permalink" href="#c"><b>-c</b></a></dt>
   <dd>Print the number of bytes.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-l</b></dt>
+  <dt id="l"><a class="permalink" href="#l"><b>-l</b></a></dt>
   <dd>Print the number of lines (i.&#x00A0;e. newline characters).</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-m</b></dt>
+  <dt id="m"><a class="permalink" href="#m"><b>-m</b></a></dt>
   <dd>Print the number of characters instead of the number of bytes. The number
       of characters equals the number of bytes in singlebyte locales. In
       multibyte locales, this is the count of byte sequences forming a valid
       character. This option was introduced by POSIX.2.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-w</b></dt>
+  <dt id="w"><a class="permalink" href="#w"><b>-w</b></a></dt>
   <dd>Print the number of words. With <b>/usr/5bin/wc</b> and
       <b>/usr/5bin/s42/wc</b>, a word is a string of characters that contains at
       least one graphical character and is delimited by blank or newline
@@ -59,21 +58,25 @@ The <b>wc</b> command accepts the following options; if any of them is present,
       <b>/usr/5bin/posix2001/wc</b>, a word is a nonempty string of characters
       that is delimited by white space.</dd>
 </dl>
-<h1 class="Sh" title="Sh" id="ENVIRONMENT_VARIABLES"><a class="permalink" href="#ENVIRONMENT_VARIABLES">ENVIRONMENT
+</section>
+<section class="Sh">
+<h1 class="Sh" id="ENVIRONMENT_VARIABLES"><a class="permalink" href="#ENVIRONMENT_VARIABLES">ENVIRONMENT
   VARIABLES</a></h1>
 <dl class="Bl-tag">
-  <dt><b>LANG, LC_ALL</b></dt>
+  <dt id="LANG,"><a class="permalink" href="#LANG,"><b>LANG, LC_ALL</b></a></dt>
   <dd>See <i>locale</i>(7).</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>LC_CTYPE</b></dt>
+  <dt id="LC_CTYPE"><a class="permalink" href="#LC_CTYPE"><b>LC_CTYPE</b></a></dt>
   <dd>Determines the byte sequences that form a character for the <b>-m</b>
       option and for the interpretation of white space, graphical characters and
       newlines.</dd>
 </dl>
-<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
   ALSO</a></h1>
-cksum(1), locale(7)</div>
+<p class="Pp">cksum(1), locale(7)</p>
+</section>
+</div>
 <table class="foot">
   <tr>
     <td class="foot-date">2/6/05</td>

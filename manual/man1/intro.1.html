@@ -10,7 +10,8 @@
  -->
 <head>
   <meta charset="utf-8"/>
-  <link rel="stylesheet" href="../../assets/mandoc.css" type="text/css" media="all"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
   <title>INTRO(1)</title>
 </head>
 <body>
@@ -22,46 +23,45 @@
   </tr>
 </table>
 <div class="manual-text">
-<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
-intro - introduction to commands
-<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
-The <i>Heirloom Toolchest</i> is a collection of standard Unix utilities that is
-  intended to provide maximum compatibility with traditional Unix while
-  incorporating additional features necessary today. To achieve this, utilities
-  are derived from original Unix sources if permitted by its licenses. This
-  means that material from Unix 6th Edition, Unix 7th Edition, and Unix 32V was
-  used, since these systems were put under an Open Source license by Caldera in
-  January 2002. In addition, 4BSD source (governed by the University's copyright
-  and partially derived from 32V) has been used. (Other sources were Sun's
-  `OpenSolaris', Caldera's `Open Source Unix[tm] Tools', the MINIX utility
-  collection, Plan 9, and Info-ZIP's compression codes.) If no freely available
-  Unix sources were available (for example, for tools introduced in System III
-  or System V), utilities were rewritten from scratch. (The exact license terms
-  are provided in a separate document.)
-<div class="Pp"></div>
-The tools in this collection are oriented on the specifications or systems named
-  below. Since there are some incompatibilities between them, some tools are
-  present in more than one version.
+<section class="Sh">
+<h1 class="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+<p class="Pp">intro - introduction to commands</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<p class="Pp">The <i>Heirloom Toolchest</i> is a collection of standard Unix
+    utilities that is intended to provide maximum compatibility with traditional
+    Unix while incorporating additional features necessary today. To achieve
+    this, utilities are derived from original Unix sources if permitted by its
+    licenses. This means that material from Unix 6th Edition, Unix 7th Edition,
+    and Unix 32V was used, since these systems were put under an Open Source
+    license by Caldera in January 2002. In addition, 4BSD source (governed by
+    the University's copyright and partially derived from 32V) has been used.
+    (Other sources were Sun's `OpenSolaris', Caldera's `Open Source Unix[tm]
+    Tools', the MINIX utility collection, Plan 9, and Info-ZIP's compression
+    codes.) If no freely available Unix sources were available (for example, for
+    tools introduced in System III or System V), utilities were rewritten from
+    scratch. (The exact license terms are provided in a separate document.)</p>
+<p class="Pp">The tools in this collection are oriented on the specifications or
+    systems named below. Since there are some incompatibilities between them,
+    some tools are present in more than one version.</p>
 <dl class="Bl-tag">
   <dt>&#x2013;</dt>
   <dd>System V Interface Definition, Third Edition (UNIX System Laboratories,
       1992) (SVID3). This specification corresponds to a System V Release 4 or
-      Solaris 2 system. Utilities in <b>/opt/heirloom/bin</b> are modeled after
-      this specification and related system environments. If extensions
-      introduced in POSIX.2 or POSIX.1-2001 (see below) did not provoke
-      conflicts with the behavior at this level, they were incorporated in these
-      utilities as well. This is the most traditional personality available with
-      the <i>Heirloom Toolchest</i>; prominently, regular expressions do not
-      have any of the internationalization features (see <i>ed</i>(1) and
-      <i>egrep</i>(1)), and <i>awk</i> is the old version, <i>oawk</i>(1). Use
-      this personality to get best compatibility with traditional System V
-      behavior.</dd>
-</dl>
-<dl class="Bl-tag">
+      Solaris 2 system. Utilities in <b>/usr/5bin</b> are modeled after this
+      specification and related system environments. If extensions introduced in
+      POSIX.2 or POSIX.1-2001 (see below) did not provoke conflicts with the
+      behavior at this level, they were incorporated in these utilities as well.
+      This is the most traditional personality available with the <i>Heirloom
+      Toolchest</i>; prominently, regular expressions do not have any of the
+      internationalization features (see <i>ed</i>(1) and <i>egrep</i>(1)), and
+      <i>awk</i> is the old version, <i>oawk</i>(1). Use this personality to get
+      best compatibility with traditional System V behavior.</dd>
   <dt>&#x2013;</dt>
   <dd>System V Interface Definition, Fourth Edition (Novell, Inc., 1995)
       (SVID4). This specification corresponds to a System V Release 4.2 MP
-      system. Utilities in <b>/opt/heirloom/bin/s42</b> are modeled after this
+      system. Utilities in <b>/usr/5bin/s42</b> are modeled after this
       specification and related system environments. If extensions introduced in
       POSIX.2 or POSIX.1-2001 (see below) did not provoke conflicts with the
       behavior at this level, they were incorporated in these utilities as well.
@@ -70,81 +70,70 @@ The tools in this collection are oriented on the specifications or systems named
       <i>nawk</i>(1), for <i>awk</i>. Use this personality to get traditional
       System V behavior combined with internationalized regular
     expressions.</dd>
-</dl>
-<dl class="Bl-tag">
   <dt>&#x2013;</dt>
   <dd>ISO/IEC 9945-2:1993 / ANSI/IEEE Std 1003.2-1992 (POSIX.2), with the
       extensions of The Single UNIX Specification, Version 2 (The Open Group,
-      1997). Utilities in <b>/opt/heirloom/bin/posix</b> are intended to fully
-      comply to this specification even in cases of conflict with historical
-      behavior. Non-conflicting extensions to POSIX.2 found in the environments
-      described above are also present in these utilities. Use this personality
-      if you need POSIX.2 features in preference to traditional System V
-    ones.</dd>
-</dl>
-<dl class="Bl-tag">
+      1997). Utilities in <b>/usr/5bin/posix</b> are intended to fully comply to
+      this specification even in cases of conflict with historical behavior.
+      Non-conflicting extensions to POSIX.2 found in the environments described
+      above are also present in these utilities. Use this personality if you
+      need POSIX.2 features in preference to traditional System V ones.</dd>
   <dt>&#x2013;</dt>
   <dd>ISO/IEC 9945-1:2001 / ANSI/IEEE Std 1003.1-2001 (POSIX.1-2001), with the
       extensions of The Single UNIX Specification, Version 3 (The Open Group,
-      2001). Utilities in <b>/opt/heirloom/bin/posix2001</b> are intended to
-      fully comply to this specification even in cases of conflict with
-      historical behavior. Non-conflicting extensions to POSIX.1-2001 found in
-      the environments described above are also present in these utilities. Use
-      this personality if you need POSIX.1-2001 features in preference to
-      traditional System V ones.</dd>
+      2001). Utilities in <b>/usr/5bin/posix2001</b> are intended to fully
+      comply to this specification even in cases of conflict with historical
+      behavior. Non-conflicting extensions to POSIX.1-2001 found in the
+      environments described above are also present in these utilities. Use this
+      personality if you need POSIX.1-2001 features in preference to traditional
+      System V ones.</dd>
 </dl>
-<div class="Pp"></div>
-To use the <i>Heirloom Toolchest</i>, select one of these personalities and put
-  the corresponding directory at the beginning of the PATH environment variable,
-  immediately followed by the toolchest base directory, <b>/opt/heirloom/bin</b>
-  (which contains the tools that are the same for all personalities). For
-  example, to use the toolchest with a SVID4 personality, execute
+<p class="Pp">To use the <i>Heirloom Toolchest</i>, select one of these
+    personalities and put the corresponding directory at the beginning of the
+    PATH environment variable, immediately followed by the toolchest base
+    directory, <b>/usr/5bin</b> (which contains the tools that are the same for
+    all personalities). For example, to use the toolchest with a SVID4
+    personality, execute</p>
 <div class="Bd-indent">
-<div class="Pp"></div>
-PATH=/opt/heirloom/bin/s42:/opt/heirloom/bin:$PATH export PATH</div>
-<div class="Pp"></div>
-You must select exactly one of the personalities above; you do not have access
-  to the complete set of tools otherwise.
-<div class="Pp"></div>
-The manual pages generally note which behavior corresponds to which utility
-  version. They also mark whether options and arguments were part of System V,
-  were introduced with POSIX.2 or POSIX.1-2001, or if they are extensions
-  provided by the Heirloom Toolchest, (possibly oriented at extensions
-  introduced by other vendors). Such extensions are subject to change without a
-  grace period; they are only intended for interactive usage and should not be
-  included in scripts.
-<div class="Pp"></div>
-The toolchest also includes some utilities modeled after the BSD Compatibility
-  environment of System V; these roughly correspond to 4.3BSD or SunOS 4
-  systems. These tools can be found in <b>/opt/heirloom/bin/ucb</b>; since they
-  do not form a full personality set as the ones described above, they should be
-  used in addition, as e.g.
+<p class="Pp">PATH=/usr/5bin/s42:/usr/5bin:$PATH export PATH</p>
+</div>
+<p class="Pp">You must select exactly one of the personalities above; you do not
+    have access to the complete set of tools otherwise.</p>
+<p class="Pp">The manual pages generally note which behavior corresponds to
+    which utility version. They also mark whether options and arguments were
+    part of System V, were introduced with POSIX.2 or POSIX.1-2001, or if they
+    are extensions provided by the Heirloom Toolchest, (possibly oriented at
+    extensions introduced by other vendors). Such extensions are subject to
+    change without a grace period; they are only intended for interactive usage
+    and should not be included in scripts.</p>
+<p class="Pp">The toolchest also includes some utilities modeled after the BSD
+    Compatibility environment of System V; these roughly correspond to 4.3BSD or
+    SunOS 4 systems. These tools can be found in <b>/usr/ucb</b>; since they do
+    not form a full personality set as the ones described above, they should be
+    used in addition, as e.g.</p>
 <div class="Bd-indent">
-<div class="Pp"></div>
-PATH=/opt/heirloom/bin/ucb:/opt/heirloom/bin/s42:/opt/heirloom/bin:$PATH export
-  PATH
-<div class="Pp"></div>
+<p class="Pp">PATH=/usr/ucb:/usr/5bin/s42:/usr/5bin:$PATH export PATH</p>
+<p class="Pp"></p>
 </div>
 does.
-<div class="Pp"></div>
-While the <i>Heirloom Toolchest</i> is intended to be as compatible as possible
-  with historical practice in general, annoying static limits of historical
-  implementations are not present any longer. Input lines of unlimited length
-  are generally accepted (as long as enough memory is available); most utilities
-  are also able to handle binary input data (i.e. ASCII NUL characters in the
-  input stream).
-<h2 class="Ss" title="Ss" id="Multibyte_character_encodings"><a class="permalink" href="#Multibyte_character_encodings">Multibyte
+<p class="Pp">While the <i>Heirloom Toolchest</i> is intended to be as
+    compatible as possible with historical practice in general, annoying static
+    limits of historical implementations are not present any longer. Input lines
+    of unlimited length are generally accepted (as long as enough memory is
+    available); most utilities are also able to handle binary input data (i.e.
+    ASCII NUL characters in the input stream).</p>
+<section class="Ss">
+<h2 class="Ss" id="Multibyte_character_encodings"><a class="permalink" href="#Multibyte_character_encodings">Multibyte
   character encodings</a></h2>
-The <i>Heirloom Toolchest</i> includes support for multibyte character
-  encodings; if the underlying C library supports this and the <i>LC_CTYPE</i>
-  locale (see <i>locale</i>(7) for an introduction) is set appropriately,
-  multiple input bytes can form a single character and are handled as such in
-  regular expressions, display width computations etc.
-<div class="Pp"></div>
-Multibyte character support was designed with special regard to the UTF-8
-  encoding. Additional supported encodings are EUC-JP, EUC-KR, Big5, Big5-HKSCS,
-  GB&#x00A0;2312, and GBK. Other encodings may also work, with the following
-  restrictions:
+<p class="Pp">The <i>Heirloom Toolchest</i> includes support for multibyte
+    character encodings; if the underlying C library supports this and the
+    <i>LC_CTYPE</i> locale (see <i>locale</i>(7) for an introduction) is set
+    appropriately, multiple input bytes can form a single character and are
+    handled as such in regular expressions, display width computations etc.</p>
+<p class="Pp">Multibyte character support was designed with special regard to
+    the UTF-8 encoding. Additional supported encodings are EUC-JP, EUC-KR, Big5,
+    Big5-HKSCS, GB&#x00A0;2312, and GBK. Other encodings may also work, with the
+    following restrictions:</p>
 <dl class="Bl-tag">
   <dt>&#x2013;</dt>
   <dd>The character set must be a superset of ASCII (more specifically, of the
@@ -153,66 +142,68 @@ Multibyte character support was designed with special regard to the UTF-8
       character. This excludes 7-bit encodings like UTF-7. In addition, the C
       language implementation must map each ASCII character to a wide character
       with the same value.</dd>
-</dl>
-<dl class="Bl-tag">
   <dt>&#x2013;</dt>
   <dd>The first byte of each multibyte character must have the highest bit set,
       i.e. it must not be an ASCII character. This excludes encodings whose
       sequences start with ASCII characters like TCVN 5712.</dd>
-</dl>
-<dl class="Bl-tag">
   <dt>&#x2013;</dt>
   <dd>Locking-shift encodings, like those that use ISO&#x00A0;2022 escape
       sequences, are not supported.</dd>
 </dl>
-<div class="Pp"></div>
-Character comparison, regular expression matching and similar tasks are
-  generally performed on the character representation obtained from the locale
-  processing of the C library. A glyph formed by the application of combining
-  characters to a base character will thus not normally be considered equal to
-  the same glyph represented by a single base character. For string comparison,
-  the results depend on the collation mechanism of the locale, which might or
-  might not respect such relations.
-<div class="Pp"></div>
-Processing of multibyte character encodings is often notably slower than that of
-  singlebyte character encodings. Since many widely-used languages (especially
-  European ones based on Latin letters) contain few multibyte characters if
-  encoded in UTF-8, and since experience shows that large amounts of textual
-  data tend to be machine generated and to contain mostly ASCII characters (e.g.
-  log files), while international language texts are mostly created by humans
-  and tend to be smaller, processing of text in multibyte locales has generally
-  been optimized for ASCII text. The performance penalty for using a multibyte
-  locale is thus usually low if no or few multibyte characters actually occur in
-  the data processed.
-<div class="Pp"></div>
-A problem with multibyte encodings that does not normally occur in singlebyte
-  encodings is that of illegal byte sequences. In a singlebyte locale, each byte
-  is treated as a character entity even if its value is not defined in the coded
-  character set. For example, bytes with their highest bit set are simply passed
-  through in the default `C' or `POSIX' locale, and can appear in option
-  arguments as well as in input data. In multibyte locales however, byte
-  sequences that do not form a valid character cannot be handled this way,
-  because it is not always clear which bytes are to be grouped together. As an
-  example, suppose that the `\200' byte introduces a multibyte sequence. If this
-  byte occurs in a string to be matched by a utility but is not followed by a
-  valid continuation byte, it is unclear if it should match any byte sequence
-  containing this byte, including valid ones that form a character, or if
-  matches should be restricted to occurences in other incomplete sequences. For
-  this reason, this implementation generally treats illegal byte sequences in
-  command line arguments or programming scripts as syntax errors. Utilities do
-  not issue a warning or even terminate with an error if such sequences appear
-  in input data, though, since this frequently occurs in practice when
-  processing binary or foreign-locale files. In most cases, the sequences are
-  passed to the output unaltered. That data is accepted or generated by a
-  utility can thus not be taken as an indication for its validity in respect to
-  the current character encoding.
-<h2 class="Ss" title="Ss" id="List_of_commands"><a class="permalink" href="#List_of_commands">List
+<p class="Pp">Character comparison, regular expression matching and similar
+    tasks are generally performed on the character representation obtained from
+    the locale processing of the C library. A glyph formed by the application of
+    combining characters to a base character will thus not normally be
+    considered equal to the same glyph represented by a single base character.
+    For string comparison, the results depend on the collation mechanism of the
+    locale, which might or might not respect such relations.</p>
+<p class="Pp">Processing of multibyte character encodings is often notably
+    slower than that of singlebyte character encodings. Since many widely-used
+    languages (especially European ones based on Latin letters) contain few
+    multibyte characters if encoded in UTF-8, and since experience shows that
+    large amounts of textual data tend to be machine generated and to contain
+    mostly ASCII characters (e.g. log files), while international language texts
+    are mostly created by humans and tend to be smaller, processing of text in
+    multibyte locales has generally been optimized for ASCII text. The
+    performance penalty for using a multibyte locale is thus usually low if no
+    or few multibyte characters actually occur in the data processed.</p>
+<p class="Pp">A problem with multibyte encodings that does not normally occur in
+    singlebyte encodings is that of illegal byte sequences. In a singlebyte
+    locale, each byte is treated as a character entity even if its value is not
+    defined in the coded character set. For example, bytes with their highest
+    bit set are simply passed through in the default `C' or `POSIX' locale, and
+    can appear in option arguments as well as in input data. In multibyte
+    locales however, byte sequences that do not form a valid character cannot be
+    handled this way, because it is not always clear which bytes are to be
+    grouped together. As an example, suppose that the `\200' byte introduces a
+    multibyte sequence. If this byte occurs in a string to be matched by a
+    utility but is not followed by a valid continuation byte, it is unclear if
+    it should match any byte sequence containing this byte, including valid ones
+    that form a character, or if matches should be restricted to occurences in
+    other incomplete sequences. For this reason, this implementation generally
+    treats illegal byte sequences in command line arguments or programming
+    scripts as syntax errors. Utilities do not issue a warning or even terminate
+    with an error if such sequences appear in input data, though, since this
+    frequently occurs in practice when processing binary or foreign-locale
+    files. In most cases, the sequences are passed to the output unaltered. That
+    data is accepted or generated by a utility can thus not be taken as an
+    indication for its validity in respect to the current character
+  encoding.</p>
+</section>
+<section class="Ss">
+<h2 class="Ss" id="List_of_commands"><a class="permalink" href="#List_of_commands">List
   of commands</a></h2>
 <table class="tbl">
   <tr>
     <td>Name</td>
     <td>Appears on Page</td>
     <td>Description</td>
+  </tr>
+  <tr>
+    <td>apply</td>
+    <td>apply(1B)</td>
+    <td>repeatedly apply a command to a group of arguments; select
+      arguments</td>
   </tr>
   <tr>
     <td>apropos</td>
@@ -288,6 +279,11 @@ A problem with multibyte encodings that does not normally occur in singlebyte
     <td>chown</td>
     <td>chown(1B)</td>
     <td>(BSD) change file ownwer</td>
+  </tr>
+  <tr>
+    <td>chroot</td>
+    <td>chroot(8)</td>
+    <td>change system's root directory and execute a command there</td>
   </tr>
   <tr>
     <td>cksum</td>
@@ -705,6 +701,12 @@ A problem with multibyte encodings that does not normally occur in singlebyte
     <td>find or signal processes by name and other attributes</td>
   </tr>
   <tr>
+    <td>pick</td>
+    <td>apply(1B)</td>
+    <td>repeatedly apply a command to a group of arguments; select
+      arguments</td>
+  </tr>
+  <tr>
     <td>pkill</td>
     <td>pgrep(1)</td>
     <td>find or signal processes by name and other attributes</td>
@@ -760,9 +762,24 @@ A problem with multibyte encodings that does not normally occur in singlebyte
     <td>(XENIX) generate a random number</td>
   </tr>
   <tr>
+    <td>readlink</td>
+    <td>readlink(1)</td>
+    <td>displays the target of a symbolic link</td>
+  </tr>
+  <tr>
+    <td>readlink</td>
+    <td>readlink(1B)</td>
+    <td>(BSD) displays the target of a symbolic link</td>
+  </tr>
+  <tr>
     <td>renice</td>
     <td>renice(1)</td>
     <td>alter priority of running processes</td>
+  </tr>
+  <tr>
+    <td>rev</td>
+    <td>rev(1)</td>
+    <td>reverse lines of a file</td>
   </tr>
   <tr>
     <td>rm</td>
@@ -783,6 +800,11 @@ A problem with multibyte encodings that does not normally occur in singlebyte
     <td>sed</td>
     <td>sed(1)</td>
     <td>stream editor</td>
+  </tr>
+  <tr>
+    <td>seq</td>
+    <td>seq(1)</td>
+    <td>print a sequence of numbers</td>
   </tr>
   <tr>
     <td>setpgrp</td>
@@ -900,6 +922,11 @@ A problem with multibyte encodings that does not normally occur in singlebyte
     <td>time a command</td>
   </tr>
   <tr>
+    <td>timeout</td>
+    <td>timeout(1)</td>
+    <td>execute a command with a time limit</td>
+  </tr>
+  <tr>
     <td>touch</td>
     <td>touch(1)</td>
     <td>update file access and modification times</td>
@@ -970,6 +997,16 @@ A problem with multibyte encodings that does not normally occur in singlebyte
     <td>who is on and what they are doing</td>
   </tr>
   <tr>
+    <td>wall </td>
+    <td>wall(1M)</td>
+    <td> write to all users</td>
+  </tr>
+  <tr>
+    <td>watch</td>
+    <td>watch(1)</td>
+    <td>Keep an eye on a command output.</td>
+  </tr>
+  <tr>
     <td>wc</td>
     <td>wc(1)</td>
     <td>word count</td>
@@ -977,7 +1014,7 @@ A problem with multibyte encodings that does not normally occur in singlebyte
   <tr>
     <td>what</td>
     <td>what(1)</td>
-    <td>identify SCCS files</td>
+    <td>extract SCCS version information from a file</td>
   </tr>
   <tr>
     <td>whatis</td>
@@ -1000,6 +1037,11 @@ A problem with multibyte encodings that does not normally occur in singlebyte
     <td>who is doing what</td>
   </tr>
   <tr>
+    <td>write </td>
+    <td>write(1)</td>
+    <td> write to another user</td>
+  </tr>
+  <tr>
     <td>xargs</td>
     <td>xargs(1)</td>
     <td>construct argument list(s) and execute command</td>
@@ -1007,10 +1049,12 @@ A problem with multibyte encodings that does not normally occur in singlebyte
   <tr>
     <td>yes</td>
     <td>yes(1XNX)</td>
-    <td>(XENIX) print strint repeatedly</td>
+    <td>(XENIX) print string repeatedly</td>
   </tr>
 </table>
-<h2 class="Ss" title="Ss" id="Other_manual_entries"><a class="permalink" href="#Other_manual_entries">Other
+</section>
+<section class="Ss">
+<h2 class="Ss" id="Other_manual_entries"><a class="permalink" href="#Other_manual_entries">Other
   manual entries</a></h2>
 <table class="tbl">
   <tr>
@@ -1019,17 +1063,15 @@ A problem with multibyte encodings that does not normally occur in singlebyte
   </tr>
   <tr>
     <td>fspec(5)</td>
-    <td>format specifications in text files</td>
-  </tr>
-  <tr>
-    <td>intro(1)</td>
-    <td>introduction to commands</td>
+    <td>format specification in text files</td>
   </tr>
   <tr>
     <td>man(7)</td>
     <td>macros to typeset manual</td>
   </tr>
 </table>
+</section>
+</section>
 </div>
 <table class="foot">
   <tr>

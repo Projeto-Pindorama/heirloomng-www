@@ -9,6 +9,7 @@
  -->
 <head>
   <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
   <title>TOUCH(1)</title>
 </head>
@@ -21,72 +22,68 @@
   </tr>
 </table>
 <div class="manual-text">
-<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
-touch - update file access and modification times
-<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
-<b>touch</b> [<b>-amc</b>] [<i>MMDDhhmm</i>[<i>YY</i>]] <i>file</i> ...
-<div>&#x00A0;</div>
-<b>touch</b> [<b>-amc</b>] [
-  <b>-r</b><i>&#x00A0;ref_file</i>|<b>-t</b><i>&#x00A0;time</i>] <i>file</i> ...
-<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
-The <b>touch</b> utility changes the access and modification times of files. It
-  creates a file if it does not already exist. If none of the arguments specify
-  the time to set, the current time is used.
-<div class="Pp"></div>
-If neither the <b>-r</b> nor the <b>-t</b> option is used to specify a time
-  value and the first non-option argument begins with a digit, and it consists
-  of exactly eight or ten digits with <b>/usr/5bin/posix/touch</b> and
-  <b>/usr/5bin/posix2001/touch</b>, the times of the files are set to the given
-  time.
-<div class="Pp"></div>
-The meaning of fields in time specifications is as follows:
+<section class="Sh">
+<h1 class="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+<p class="Pp">touch - update file access and modification times</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<p class="Pp"><b>touch</b> [<b>-amc</b>] [<i>MMDDhhmm</i>[<i>YY</i>]]
+    <i>file</i> ...
+  <br/>
+  <b>touch</b> [<b>-amc</b>]
+    [<b>-r</b><i>&#x00A0;ref_file</i>|<b>-t</b><i>&#x00A0;time</i>] <i>file</i>
+    ...</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<p class="Pp">The <b>touch</b> utility changes the access and modification times
+    of files. It creates a file if it does not already exist. If none of the
+    arguments specify the time to set, the current time is used.</p>
+<p class="Pp">If neither the <b>-r</b> nor the <b>-t</b> option is used to
+    specify a time value and the first non-option argument begins with a digit,
+    and it consists of exactly eight or ten digits with
+    <b>/usr/5bin/posix/touch</b> and <b>/usr/5bin/posix2001/touch</b>, the times
+    of the files are set to the given time.</p>
+<p class="Pp">The meaning of fields in time specifications is as follows:</p>
 <div class="Bd-indent">
-<div class="Pp"></div>
-<i>CC</i>	The first two digits of the year.
-<div>&#x00A0;</div>
-<i>YY</i>	The second two digits of the year.
-<div>&#x00A0;</div>
-<i>MM</i>	The month of the year (01-12).
-<div>&#x00A0;</div>
-<i>DD</i>	The day of the month (01-31).
-<div>&#x00A0;</div>
-<i>hh</i>	The hour of the day (00-23).
-<div>&#x00A0;</div>
-<i>mm</i>	The minute of the hour (00-59).
-<div>&#x00A0;</div>
-<i>SS</i>	The second of the minute (00-61).</div>
-<div class="Pp"></div>
-Unless <i>YY</i> is present, the current year is used. If <i>YY</i> is given
-  without <i>CC</i>, the century is 19 if <i>YY</i> is in the range of
-  69&#x2013;99, or 20 for <i>YY</i> values of 00&#x2013;68.
-<div class="Pp"></div>
-The following options are accepted:
+<p class="Pp"><i>CC</i>	The first two digits of the year.
+  <br/>
+  <i>YY</i>	The second two digits of the year.
+  <br/>
+  <i>MM</i>	The month of the year (01-12).
+  <br/>
+  <i>DD</i>	The day of the month (01-31).
+  <br/>
+  <i>hh</i>	The hour of the day (00-23).
+  <br/>
+  <i>mm</i>	The minute of the hour (00-59).
+  <br/>
+  <i>SS</i>	The second of the minute (00-61).</p>
+</div>
+<p class="Pp">Unless <i>YY</i> is present, the current year is used. If
+    <i>YY</i> is given without <i>CC</i>, the century is 19 if <i>YY</i> is in
+    the range of 69&#x2013;99, or 20 for <i>YY</i> values of 00&#x2013;68.</p>
+<p class="Pp">The following options are accepted:</p>
 <dl class="Bl-tag">
-  <dt><b>-a</b></dt>
+  <dt id="a"><a class="permalink" href="#a"><b>-a</b></a></dt>
   <dd>Change the access time, but not the modification time unless <b>-m</b> is
       also present.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-c</b></dt>
+  <dt id="c"><a class="permalink" href="#c"><b>-c</b></a></dt>
   <dd>If a file does not exist, it is not created. No diagnostic message is
       printed; for <b>/usr/5bin/touch</b> and <b>/usr/5bin/s42/touch</b>, the
       exit status is incremented. The exit status is not affected for
       <b>/usr/5bin/posix/touch</b> and <b>/usr/5bin/posix2001/touch</b>.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-m</b></dt>
+  <dt id="m"><a class="permalink" href="#m"><b>-m</b></a></dt>
   <dd>Change the access time, but not the modification time unless <b>-a</b> is
       also present.</dd>
 </dl>
-<div class="Pp"></div>
-The following options have been introduced by POSIX.2:
+<p class="Pp">The following options have been introduced by POSIX.2:</p>
 <dl class="Bl-tag">
-  <dt><b>-r</b><i>&#x00A0;ref_file</i></dt>
+  <dt id="r"><a class="permalink" href="#r"><b>-r</b><i>&#x00A0;ref_file</i></a></dt>
   <dd>The corresponding time of the specified file is used instead of the
       current time.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-t</b><i>&#x00A0;time</i></dt>
+  <dt id="t"><a class="permalink" href="#t"><b>-t</b><i>&#x00A0;time</i></a></dt>
   <dd>Instead of the current time, the <i>time</i> specified as</dd>
 </dl>
 <div class="Bd-indent">
@@ -94,13 +91,17 @@ The following options have been introduced by POSIX.2:
   <dt></dt>
   <dd>[[<i>CC</i>]<i>YY</i>]<i>MMDDhhmm</i>[.<i>SS</i>]</dd>
 </dl>
-<div class="Pp"></div>
-is used.</div>
-<div class="Pp"></div>
-The exit status is the number of files that were not successfully processed.
-<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+<p class="Pp">is used.</p>
+</div>
+<p class="Pp">The exit status is the number of files that were not successfully
+    processed.</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
   ALSO</a></h1>
-date(1), utime(2)</div>
+<p class="Pp">date(1), utime(2)</p>
+</section>
+</div>
 <table class="foot">
   <tr>
     <td class="foot-date">2/10/05</td>

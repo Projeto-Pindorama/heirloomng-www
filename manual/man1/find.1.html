@@ -302,61 +302,91 @@ $ find . -print
 /etc
 ./dummy
 /etc/passwd
-$&#x00A0;</pre>
-<p class="Pp"></p>
+$.fi
+
+</pre>
 </div>
-Shell scripts or utilities unaware of this problem will operate on
-  <i>/etc/passwd</i> (or other arbitrary file names) when reading such output; a
-  malicious user might create such files to read or overwrite privileged
-  information. To circumvent this problem, one of the following proposals should
-  be taken unless the file hierarchy traversed by the <i>find</i> command is
-  definitively known not to contain such file names:
+<pre>Shell scripts or utilities unaware of this problem
+will operate on
+<i>/etc/passwd</i>
+(or other arbitrary file names)
+when reading such output;
+a malicious user might create such files
+to read or overwrite privileged information.
+To circumvent this problem,
+one of the following proposals should be taken
+unless the file hierarchy traversed by the
+<i>find</i>
+command is definitively known not to contain such file names:</pre>
 <dl class="Bl-tag">
   <dt>&#x2013;</dt>
-  <dd>If the output is read by the <i>xargs</i> utility to gain faster execution
-      by aggregating command arguments as in
-    <br/>
-    <p class="Pp">find . -print | xargs <i>command</i></p>
-    <p class="Pp">
-      <br/>
-      a safe and equally fast substitute is the
-      <br/>
-    </p>
-    <p class="Pp">find . -exec <i>command</i> {} +</p>
-    <p class="Pp">
-      <br/>
-      operand of <i>find</i>; it is not portably accepted by <i>find</i>
-        implementations, though.</p>
+  <dd>
+    <pre>If the output is read by the
+<i>xargs</i>
+utility to gain faster execution by aggregating command arguments as in
+<br/>
+
+find . -print | xargs <i>command</i>
+
+<br/>
+a safe and equally fast substitute is the
+<br/>
+
+find . -exec <i>command</i> {} +
+
+<br/>
+operand of
+<i>find</i>;
+it is not portably accepted by
+<i>find</i>
+implementations, though.</pre>
   </dd>
   <dt>&#x2013;</dt>
-  <dd>A universal solution for submitting file names to the <i>xargs</i> utility
-      is given in the <i>NOTES</i> section of <i>xargs</i>(1).</dd>
-  <dt>&#x2013;</dt>
-  <dd>The method employed by this script can be generalized as follows: If the
-      script or utility reading the output of <i>find</i> provides the necessary
-      parsing capabilities, special path prefixes can be given to the
-      <i>find</i> command, such as
-    <br/>
-    <p class="Pp">find /.//. -print</p>
-    <p class="Pp">
-      <br/>
-      for absolute path names or
-      <br/>
-    </p>
-    <p class="Pp">find .//. -print</p>
-    <p class="Pp">
-      <br/>
-      for relative path names. Since adjacent slash characters never appear in
-        relative file names found during directory traversal, they can be taken
-        as delimiters; a line starts a new path name only if the delimiter
-        appears.</p>
+  <dd>
+    <pre>A universal solution for submitting file names to the
+<i>xargs</i>
+utility is given in the
+<i>NOTES</i>
+section of
+<i>xargs</i>(1).</pre>
   </dd>
   <dt>&#x2013;</dt>
-  <dd>The <i>-name</i> operand can be used to exclude all path names that
-      contain newline characters, as in
-    <br/>
-    <p class="Pp"></p>
-    <pre>$ find . -name &#x00B4;* 
+  <dd>
+    <pre>The method employed by this script can be generalized as follows:
+If the script or utility reading the output of
+<i>find</i>
+provides the necessary parsing capabilities,
+special path prefixes can be given to the
+<i>find</i>
+command, such as
+<br/>
+
+find /.//. -print
+
+<br/>
+for absolute path names or
+<br/>
+
+find .//. -print
+
+<br/>
+for relative path names.
+Since adjacent slash characters never appear
+in relative file names found during directory traversal,
+they can be taken as delimiters;
+a line starts a new path name
+only if the delimiter appears.</pre>
+  </dd>
+  <dt>&#x2013;</dt>
+  <dd>
+    <pre>The
+<i>-name</i>
+operand can be used to exclude all path names
+that contain newline characters, as in
+<br/>
+
+<br/>
+$ find . -name &#x00B4;*
 &gt; *&#x00B4; -prune -o ! -name &#x00B4;*
 &gt; *&#x00B4; -print
 

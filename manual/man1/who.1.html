@@ -9,6 +9,7 @@
    -->
 <head>
   <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
   <title>WHO(1)</title>
 </head>
@@ -21,105 +22,84 @@
   </tr>
 </table>
 <div class="manual-text">
-<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
-who - who is on the system
-<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
-<b>who</b> [<b>-abdHlmpqRrstTu</b>] [<i>utmp_file</i>]
-<div>&#x00A0;</div>
-<b>who</b> <b>-q</b> [<b>-n</b><i> x</i>] [<i>utmp_file</i>]
-<div>&#x00A0;</div>
-<b>who</b> [<b>am i</b>]
-<div>&#x00A0;</div>
-<b>who</b> [<b>am I</b>]
-<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
-The <b>who</b> command, without an argument, lists the login name, terminal
-  name, and login time for each current user.
-<div class="Pp"></div>
-Without an argument, <b>who</b> examines the <b>/var/run/utmp</b> file to obtain
-  its information. If a <i>utmp_file</i> is given, that file is examined.
-  Typically the given file will be <b>/var/log/wtmp</b>, which contains a record
-  of all the logins since it was created. Then <b>who</b> lists logins, logouts
-  and crashes since the creation of the wtmp file. Each login is listed with
-  user name, terminal name (with ` <b>/dev/</b>' suppressed), and date and time.
-<div class="Pp"></div>
-With the two-argument synopsis forms ` <b>who am i</b>' and `<b>who am I</b>',
-  who tells who you are logged in as.
-<div class="Pp"></div>
-The <b>who</b> command accepts the following options:
+<section class="Sh">
+<h1 class="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+<p class="Pp">who - who is on the system</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<p class="Pp"><b>who</b> [<b>-abdHlmpqRrstTu</b>] [<i>utmp_file</i>]
+  <br/>
+  <b>who</b> <b>-q</b> [<b>-n</b><i> x</i>] [<i>utmp_file</i>]
+  <br/>
+  <b>who</b> [<b>am i</b>]
+  <br/>
+  <b>who</b> [<b>am I</b>]</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<p class="Pp">The <b>who</b> command, without an argument, lists the login name,
+    terminal name, and login time for each current user.</p>
+<p class="Pp">Without an argument, <b>who</b> examines the <b>/var/run/utmp</b>
+    file to obtain its information. If a <i>utmp_file</i> is given, that file is
+    examined. Typically the given file will be <b>/var/log/wtmp</b>, which
+    contains a record of all the logins since it was created. Then <b>who</b>
+    lists logins, logouts and crashes since the creation of the wtmp file. Each
+    login is listed with user name, terminal name (with `<b>/dev/</b>'
+    suppressed), and date and time.</p>
+<p class="Pp">With the two-argument synopsis forms `<b>who am i</b>' and `<b>who
+    am I</b>', who tells who you are logged in as.</p>
+<p class="Pp">The <b>who</b> command accepts the following options:</p>
 <dl class="Bl-tag">
-  <dt><b>-a</b></dt>
+  <dt id="a"><a class="permalink" href="#a"><b>-a</b></a></dt>
   <dd>Same as <b>-bdlprtTu</b>.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-b</b></dt>
+  <dt id="b"><a class="permalink" href="#b"><b>-b</b></a></dt>
   <dd>Writes reboot records.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-d</b></dt>
+  <dt id="d"><a class="permalink" href="#d"><b>-d</b></a></dt>
   <dd>Writes records about dead processes along with their termination and exit
       values.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-H</b></dt>
+  <dt id="H"><a class="permalink" href="#H"><b>-H</b></a></dt>
   <dd>Causes column headings to be printed in the first line.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-l</b></dt>
+  <dt id="l"><a class="permalink" href="#l"><b>-l</b></a></dt>
   <dd>Writes records about lines on which the system is waiting for someone to
       login.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-m</b></dt>
-  <dd>Outputs only records about the current terminal, as ` <b>who am I</b>'
+  <dt id="m"><a class="permalink" href="#m"><b>-m</b></a></dt>
+  <dd>Outputs only records about the current terminal, as `<b>who am I</b>'
       does.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-n</b><i> number</i></dt>
+  <dt id="n"><a class="permalink" href="#n"><b>-n</b><i> number</i></a></dt>
   <dd>Sets the number of columns for the <b>-q</b> option.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-p</b></dt>
+  <dt id="p"><a class="permalink" href="#p"><b>-p</b></a></dt>
   <dd>Lists records about other processes currently active that have been
       spawned by <b>init</b>.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-q</b></dt>
+  <dt id="q"><a class="permalink" href="#q"><b>-q</b></a></dt>
   <dd>Quick output format. For each login record, the user name is printed. All
       other options are ignored.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-R</b></dt>
+  <dt id="R"><a class="permalink" href="#R"><b>-R</b></a></dt>
   <dd>Adds the host name field to the output.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-r</b></dt>
+  <dt id="r"><a class="permalink" href="#r"><b>-r</b></a></dt>
   <dd>Writes the current run-level of the <b>init</b> process.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-s</b></dt>
+  <dt id="s"><a class="permalink" href="#s"><b>-s</b></a></dt>
   <dd>Omits idle time and login process ID (default).</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-t</b></dt>
+  <dt id="t"><a class="permalink" href="#t"><b>-t</b></a></dt>
   <dd>Writes records concerning system time changes.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-T</b></dt>
-  <dd>Shows write access to the user's terminal (see <i>mesg</i>(1): ` <b>+</b>'
-      if writing is permitted, ` <b>-</b>' if writing is denied, and ` <b>?</b>'
+  <dt id="T"><a class="permalink" href="#T"><b>-T</b></a></dt>
+  <dd>Shows write access to the user's terminal (see <i>mesg</i>(1): `<b>+</b>'
+      if writing is permitted, `<b>-</b>' if writing is denied, and `<b>?</b>'
       if the status cannot be determined. For <b>/usr/5bin/who</b> and
       <b>/usr/5bin/s42/who</b>, <b>-u</b> is implied.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-u</b></dt>
+  <dt id="u"><a class="permalink" href="#u"><b>-u</b></a></dt>
   <dd>Adds idle time (the time since the last keypress on the terminal) and
       login process ID to the output. A terminal that has not been accessed for
-      24 hours is considered ` <b>old</b>'; a terminal that has been accessed
-      within the last minute is marked with a dot ` <b>.</b>'.</dd>
+      24 hours is considered `<b>old</b>'; a terminal that has been accessed
+      within the last minute is marked with a dot `<b>.</b>'.</dd>
 </dl>
-<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
   ALSO</a></h1>
-mesg(1), utmp(5), init(8)</div>
+<p class="Pp">mesg(1), utmp(5), init(8)</p>
+</section>
+</div>
 <table class="foot">
   <tr>
     <td class="foot-date">10/11/03</td>

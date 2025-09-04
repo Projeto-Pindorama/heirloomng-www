@@ -3,9 +3,10 @@
 <!-- This is an automatically generated file.  Do not edit.
    t
    Copyright (c) 2003 Gunnar Ritter
+   Copyright (c) 2025 Luiz Ant\[u00F4]nio Rangel
   
    SPDX-Licence-Identifier: Zlib
-   Sccsid @(#)cpio.1	1.92 (gritter) 3/26/07
+   Sccsid @(#)cpio.1	1.92 (takusuman) 2/09/25
  -->
 <head>
   <meta charset="utf-8"/>
@@ -118,7 +119,7 @@
     <table class="tbl">
       <tr>
         <td><b></b><b>crc</b></td>
-        <td>SVR4 ASCII cpio format with checksum;&#x00A0;</td>
+        <td>SVR4 ASCII cpio format with checksum;</td>
       </tr>
       <tr>
         <td><b></b><b>sco</b></td>
@@ -171,17 +172,18 @@
       <tr>
         <td></td>
         <td>IEEE Std. 1003.1, 2001 pax format. Format-specific <i>options</i>
-          are: +2n <b>linkdata</b> For a regular file which has multiple hard
-          links, the file data is stored once for each link in the archive,
-          instead of being stored for the first entry only. This option must be
-          used with care since many implementations are unable to read the
-          resulting archive. <b>times</b> Causes the times of last access and
-          last modification of each archived file to be stored in an extended
-          <i>pax</i> header. This in particular allows the time of last access
-          to be restored when the archive is read. -2n</td>
+          are:
+          <b>linkdata</b>&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;
+          For a regular file which has multiple hard links, the file data is
+          stored once for each link in the archive, instead of being stored for
+          the first entry only. This option must be used with care since many
+          implementations are unable to read the resulting archive.
+          <b>times</b>&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;
+          Causes the times of last access and last modification of each archived
+          file to be stored in an extended <i>pax</i> header. This in particular
+          allows the time of last access to be restored when the archive is
+          read.</td>
       </tr>
-    </table>
-    <table class="tbl">
       <tr>
         <td><b>sun</b></td>
         <td>Sun Solaris 7 extended tar format;</td>
@@ -627,7 +629,7 @@
 </div>
 <table class="foot">
   <tr>
-    <td class="foot-date">3/26/07</td>
+    <td class="foot-date">2/09/25</td>
     <td class="foot-os">Heirloom Toolchest</td>
   </tr>
 </table>

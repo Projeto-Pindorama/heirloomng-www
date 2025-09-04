@@ -13,6 +13,7 @@
  -->
 <head>
   <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
   <title>WHAT(1)</title>
 </head>
@@ -25,71 +26,72 @@
   </tr>
 </table>
 <div class="manual-text">
-<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
-what - extract SCCS version information from a file
-<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
-<b>what</b> <i>filename</i>...
-<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
-The <i>what</i> utility searches each <i>filename</i> for occurrences of the
-  pattern <b>@(#)</b> that the SCCS <i>get</i> command (see <i>get</i>(1))
-  substitutes for the <b>@(#)</b> ID keyword, and prints what follows up to a
-  <b>&quot;</b>, <b>&gt;</b>, <b>NEWLINE</b>, <b>\</b>, or <b>NULL</b>
-  character. For example, if a C program in file <b>program.c</b> contains
-<div class="Pp"></div>
+<section class="Sh">
+<h1 class="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+<p class="Pp">what - extract SCCS version information from a file</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<p class="Pp"><b>what</b> <i>filename</i>...</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<p class="Pp">The <i>what</i> utility searches each <i>filename</i> for
+    occurrences of the pattern <b>@(#)</b> that the SCCS <i>get</i> command (see
+    <i>get</i>(1)) substitutes for the <b>@(#)</b> ID keyword, and prints what
+    follows up to a <b>&quot;</b>, <b>&gt;</b>, <b>NEWLINE</b>, <b>\</b>, or
+    <b>NULL</b> character. For example, if a C program in file <b>program.c</b>
+    contains</p>
+<p class="Pp"></p>
 <div class="Bd-indent">
-<pre>
-char sccsid[] = &quot;@(#)identification information&quot;;
-</pre>
+<pre>char sccsid[] = &quot;@(#)identification information&quot;;</pre>
 </div>
-<div class="Pp"></div>
-and <b>program.c</b> is compiled to yield <b>program.o</b> and <b>a.out</b>, the
-  command:
-<div class="Pp"></div>
+<p class="Pp">and <b>program.c</b> is compiled to yield <b>program.o</b> and
+    <b>a.out</b>, the command:</p>
+<p class="Pp"></p>
 <div class="Bd-indent">
-<pre>
-$  <b>what program.c program.o a.out</b>
-</pre>
+<pre>$ <b>what program.c program.o a.out</b></pre>
 </div>
-<div class="Pp"></div>
-produces:
+<p class="Pp">produces:</p>
 <div class="Bd-indent">
 <dl class="Bl-tag">
-  <dt><b>program.c</b>:</dt>
+  <dt id="program.c"><a class="permalink" href="#program.c"><b>program.c</b>:</a></dt>
   <dd>identification information</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>program.o</b>:</dt>
+  <dt id="program.o"><a class="permalink" href="#program.o"><b>program.o</b>:</a></dt>
   <dd>identification information</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>a.out</b>:</dt>
+  <dt id="a.out"><a class="permalink" href="#a.out"><b>a.out</b>:</a></dt>
   <dd>identification information</dd>
 </dl>
 </div>
-<div class="Pp"></div>
-The following option is accepted:
+<p class="Pp">The following option is accepted:</p>
 <dl class="Bl-tag">
-  <dt><b>-s</b></dt>
+  <dt id="s"><a class="permalink" href="#s"><b>-s</b></a></dt>
   <dd>Stops after the first occurrence of the pattern.</dd>
 </dl>
-<div class="Pp"></div>
-The following exit values are returned:
+<p class="Pp">The following exit values are returned:</p>
 <dl class="Bl-tag">
   <dt><b>0</b> </dt>
   <dd>Any matches were found.</dd>
-</dl>
-<dl class="Bl-tag">
   <dt><b>1</b> </dt>
   <dd>No matches found.</dd>
 </dl>
-<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
   ALSO</a></h1>
-get(1), help(1)
-<h1 class="Sh" title="Sh" id="DIAGNOSTICS"><a class="permalink" href="#DIAGNOSTICS">DIAGNOSTICS</a></h1>
-Use the SCCS <i>help</i> command for explanations (see <i>help</i>(1)).
-<h1 class="Sh" title="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
-There is a remote possibility that a spurious occurrence of the ` <b>@(#)</b>'
-  pattern could be found by <i>what</i>.</div>
+<p class="Pp">get(1), help(1)</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DIAGNOSTICS"><a class="permalink" href="#DIAGNOSTICS">DIAGNOSTICS</a></h1>
+<p class="Pp">Use the SCCS <i>help</i> command for explanations (see
+    <i>help</i>(1)).</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
+<p class="Pp">There is a remote possibility that a spurious occurrence of the
+    `<b>@(#)</b>' pattern could be found by <i>what</i>.</p>
+</section>
+</div>
 <table class="foot">
   <tr>
     <td class="foot-date">2/3/07</td>

@@ -8,6 +8,7 @@
    -->
 <head>
   <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
   <title>UNIQ(1)</title>
 </head>
@@ -20,63 +21,65 @@
   </tr>
 </table>
 <div class="manual-text">
-<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
-uniq - report repeated lines in a file
-<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
-<div class="HP"><b>uniq</b> [<b>-udc</b>] [ <b>-f&#x00A0;</b><i>fields</i>] [
-  <b>-s&#x00A0;</b><i>letters</i>] [ <b>+</b><i>letters</i>]
-  [<b>-</b><i>fields</i>] [ <i>input</i>&#x00A0;[<i>output</i>]]
-<div>&#x00A0;</div>
-</div>
-<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
-<i>Uniq</i> reads the input file comparing adjacent lines. In the normal case,
-  the second and succeeding copies of repeated lines are removed; the remainder
-  is written on the output file. Note that repeated lines must be adjacent in
-  order to be found; see <i>sort</i>(1). If the <b>-u</b> flag is used, just the
-  lines that are not repeated in the original file are output. The <b>-d</b>
-  option specifies that one copy of just the repeated lines is to be written.
-  The normal mode output is the union of the <b>-u</b> and <b>-d</b> mode
-  outputs.
-<div class="Pp"></div>
-The <b>-c</b> option supersedes <b>-u</b> and <b>-d</b> and generates an output
-  report in default style but with each line preceded by a count of the number
-  of times it occurred.
-<div class="Pp"></div>
-The <i>letters</i> and <i>chars</i> arguments specify skipping an initial
-  portion of each line in the comparison:
+<section class="Sh">
+<h1 class="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+<p class="Pp">uniq - report repeated lines in a file</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<p class="Pp HP"><b>uniq</b> [<b>-udc</b>] [<b>-f&#x00A0;</b><i>fields</i>]
+    [<b>-s&#x00A0;</b><i>letters</i>] [<b>+</b><i>letters</i>]
+    [<b>-</b><i>fields</i>] [<i>input</i>&#x00A0;[<i>output</i>]]
+  <br/>
+</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<p class="Pp"><i>Uniq</i> reads the input file comparing adjacent lines. In the
+    normal case, the second and succeeding copies of repeated lines are removed;
+    the remainder is written on the output file. Note that repeated lines must
+    be adjacent in order to be found; see <i>sort</i>(1). If the <b>-u</b> flag
+    is used, just the lines that are not repeated in the original file are
+    output. The <b>-d</b> option specifies that one copy of just the repeated
+    lines is to be written. The normal mode output is the union of the <b>-u</b>
+    and <b>-d</b> mode outputs.</p>
+<p class="Pp">The <b>-c</b> option supersedes <b>-u</b> and <b>-d</b> and
+    generates an output report in default style but with each line preceded by a
+    count of the number of times it occurred.</p>
+<p class="Pp">The <i>letters</i> and <i>chars</i> arguments specify skipping an
+    initial portion of each line in the comparison:</p>
 <dl class="Bl-tag">
   <dt><b>-</b><i>n</i></dt>
   <dd>The first <i>n</i> fields together with any blanks before each are
       ignored. A field is defined as a string of non-space, non-tab characters
       separated by tabs and spaces from its neighbors.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-f</b><i> n</i></dt>
+  <dt id="f"><a class="permalink" href="#f"><b>-f</b><i> n</i></a></dt>
   <dd>Same as <b>-</b><i>n</i>. This option was introduced by POSIX.2.</dd>
-</dl>
-<dl class="Bl-tag">
   <dt><b>+</b><i>n</i></dt>
   <dd>The first <i>n</i> characters are ignored. Fields are skipped before
       characters.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-s</b><i> n</i></dt>
+  <dt id="s"><a class="permalink" href="#s"><b>-s</b><i> n</i></a></dt>
   <dd>Same as <b>+</b><i>n</i>. This option was introduced by POSIX.2.</dd>
 </dl>
-<h1 class="Sh" title="Sh" id="ENVIRONMENT_VARIABLES"><a class="permalink" href="#ENVIRONMENT_VARIABLES">ENVIRONMENT
+</section>
+<section class="Sh">
+<h1 class="Sh" id="ENVIRONMENT_VARIABLES"><a class="permalink" href="#ENVIRONMENT_VARIABLES">ENVIRONMENT
   VARIABLES</a></h1>
 <dl class="Bl-tag">
-  <dt><b>LANG</b>, <b>LC_ALL</b></dt>
+  <dt id="LANG"><a class="permalink" href="#LANG"><b>LANG</b>,
+    <b>LC_ALL</b></a></dt>
   <dd>See <i>locale</i>(7).</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>LC_CTYPE</b></dt>
+  <dt id="LC_CTYPE"><a class="permalink" href="#LC_CTYPE"><b>LC_CTYPE</b></a></dt>
   <dd>Determines the mapping of bytes to characters and the set of blank
       characters.</dd>
 </dl>
-<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
   ALSO</a></h1>
-comm(1), sort(1), locale(7)</div>
+<p class="Pp">comm(1), sort(1), locale(7)</p>
+</section>
+</div>
 <table class="foot">
   <tr>
     <td class="foot-date">12/6/04</td>

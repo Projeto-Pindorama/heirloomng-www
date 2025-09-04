@@ -24,6 +24,7 @@
    -->
 <head>
   <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
   <title>UL(1)</title>
 </head>
@@ -36,33 +37,44 @@
   </tr>
 </table>
 <div class="manual-text">
-<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
-ul - underline
-<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
-<b>ul</b> [<b>-i</b>] [<b>-t</b><i>&#x00A0;terminal</i>]
-  [<i>file</i>&#x00A0;.&#x00A0;.&#x00A0;.]
-<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
-<i>Ul</i> reads the named files (or standard input if none are given) and
-  translates occurrences of underscores to the sequence which indicates
-  underlining for the terminal in use, as specified by the environment variable
-  TERM. The <b>-t</b> option overrides the terminal kind specified in the
-  environment. The terminfo database is read to determine the appropriate
-  sequences for underlining. If the terminal is incapable of underlining, but is
-  capable of a standout mode then that is used instead. If the terminal can
-  overstrike, or handles underlining automatically, <i>ul</i> degenerates to
-  <i>cat</i>(1). If the terminal cannot underline, underlining is ignored.
-<div class="Pp"></div>
-The <b>-i</b> option causes <i>ul</i> to indicate underlining onto by a separate
-  line containing appropriate dashes `-'; this is useful when you want to look
-  at the underlining which is present in an <i>nroff</i> output stream on a
-  crt-terminal.
-<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+<section class="Sh">
+<h1 class="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+<p class="Pp">ul - underline</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<p class="Pp"><b>ul</b> [<b>-i</b>] [<b>-t</b><i>&#x00A0;terminal</i>]
+    [<i>file</i>&#x00A0;.&#x00A0;.&#x00A0;.]</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<p class="Pp"><i>Ul</i> reads the named files (or standard input if none are
+    given) and translates occurrences of underscores to the sequence which
+    indicates underlining for the terminal in use, as specified by the
+    environment variable TERM. The <b>-t</b> option overrides the terminal kind
+    specified in the environment. The terminfo database is read to determine the
+    appropriate sequences for underlining. If the terminal is incapable of
+    underlining, but is capable of a standout mode then that is used instead. If
+    the terminal can overstrike, or handles underlining automatically, <i>ul</i>
+    degenerates to <i>cat</i>(1). If the terminal cannot underline, underlining
+    is ignored.</p>
+<p class="Pp">The <b>-i</b> option causes <i>ul</i> to indicate underlining onto
+    by a separate line containing appropriate dashes `-'; this is useful when
+    you want to look at the underlining which is present in an <i>nroff</i>
+    output stream on a crt-terminal.</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
   ALSO</a></h1>
-cat(1), man(1), nroff(1)
-<h1 class="Sh" title="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
-<i>Nroff</i> usually outputs a series of backspaces and underlines intermixed
-  with the text to indicate underlining. No attempt is made to optimize the
-  backward motion.</div>
+<p class="Pp">cat(1), man(1), nroff(1)</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
+<p class="Pp"><i>Nroff</i> usually outputs a series of backspaces and underlines
+    intermixed with the text to indicate underlining. No attempt is made to
+    optimize the backward motion.</p>
+</section>
+</div>
 <table class="foot">
   <tr>
     <td class="foot-date">10/24/03</td>

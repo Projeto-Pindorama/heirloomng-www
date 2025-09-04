@@ -9,6 +9,7 @@
    -->
 <head>
   <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
   <title>UPTIME(1)</title>
 </head>
@@ -21,26 +22,36 @@
   </tr>
 </table>
 <div class="manual-text">
-<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
-uptime - show how long system has been up
-<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
-uptime
-<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
-Uptime prints the current time, the length of time the system has been up, and
-  the average number of jobs in the run queue over the last 1, 5 and 15 minutes.
-  It is, essentially, the first line of a <i>w</i>(1) command.
-<h1 class="Sh" title="Sh" id="FILES"><a class="permalink" href="#FILES">FILES</a></h1>
+<section class="Sh">
+<h1 class="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+<p class="Pp">uptime - show how long system has been up</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<p class="Pp">uptime</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<p class="Pp">Uptime prints the current time, the length of time the system has
+    been up, and the average number of jobs in the run queue over the last 1, 5
+    and 15 minutes. It is, essentially, the first line of a <i>w</i>(1)
+  command.</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="FILES"><a class="permalink" href="#FILES">FILES</a></h1>
 <dl class="Bl-tag">
   <dt><b>/proc</b></dt>
   <dd>list of processes</dd>
-</dl>
-<dl class="Bl-tag">
   <dt><b>/var/run/utmp</b></dt>
   <dd>list of active logins</dd>
 </dl>
-<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
   ALSO</a></h1>
-w(1), proc(5), utmp(5)</div>
+<p class="Pp">w(1), proc(5), utmp(5)</p>
+</section>
+</div>
 <table class="foot">
   <tr>
     <td class="foot-date">4/17/03</td>

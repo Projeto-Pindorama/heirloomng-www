@@ -9,6 +9,7 @@
    -->
 <head>
   <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
   <title>TR(1B)</title>
 </head>
@@ -21,62 +22,57 @@
   </tr>
 </table>
 <div class="manual-text">
-<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
-tr - (BSD) translate characters
-<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
-<b>/usr/ucb/tr</b> [<b>-cCds</b>] [<i>string1</i> [<i>string2</i>]]
-<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
-<i>Tr</i> copies the standard input to the standard output with substitution or
-  deletion of selected characters. Input characters found in <i>string1</i> are
-  mapped into the corresponding characters of <i>string2</i>. When
-  <i>string2</i> is shorter than <i>string1</i>, it is padded to the length of
-  <i>string1</i> by duplicating its last character. Any combination of the
-  options <b>-cds</b> may be used:
+<section class="Sh">
+<h1 class="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+<p class="Pp">tr - (BSD) translate characters</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<p class="Pp"><b>/usr/ucb/tr</b> [<b>-cCds</b>] [<i>string1</i>
+    [<i>string2</i>]]</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<p class="Pp"><i>Tr</i> copies the standard input to the standard output with
+    substitution or deletion of selected characters. Input characters found in
+    <i>string1</i> are mapped into the corresponding characters of
+    <i>string2</i>. When <i>string2</i> is shorter than <i>string1</i>, it is
+    padded to the length of <i>string1</i> by duplicating its last character.
+    Any combination of the options <b>-cds</b> may be used:</p>
 <dl class="Bl-tag">
-  <dt><b>-c</b></dt>
+  <dt id="c"><a class="permalink" href="#c"><b>-c</b></a></dt>
   <dd>complements the set of characters in <i>string1</i> with respect to the
       universe of characters whose byte codes are 01 through 0377 octal, or with
       a multibyte character set, whose wide character codes start at 1.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-d</b></dt>
+  <dt id="d"><a class="permalink" href="#d"><b>-d</b></a></dt>
   <dd>deletes all input characters in <i>string1.</i></dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-s</b></dt>
+  <dt id="s"><a class="permalink" href="#s"><b>-s</b></a></dt>
   <dd>squeezes all strings of repeated output characters that are in
       <i>string2</i> to single characters.</dd>
 </dl>
-<div class="Pp"></div>
-The following option has been introduced by POSIX.1-2001:
+<p class="Pp">The following option has been introduced by POSIX.1-2001:</p>
 <dl class="Bl-tag">
-  <dt><b>-C</b></dt>
+  <dt id="C"><a class="permalink" href="#C"><b>-C</b></a></dt>
   <dd>complements the set of characters in <i>string1</i> like <i>-c</i>, but
       orders ranges according to the collation sequence.</dd>
 </dl>
-<div class="Pp"></div>
-In either string the following character sequences are treated specially:
+<p class="Pp">In either string the following character sequences are treated
+    specially:</p>
 <dl class="Bl-tag">
-  <dt><b>\</b><i>octal</i></dt>
+  <dt id="octal"><a class="permalink" href="#octal"><b>\</b><i>octal</i></a></dt>
   <dd>The character `\' followed by 1, 2 or 3 octal digits stands for the
       character whose byte code is given by those digits. Multibyte characters
       can be specified as a sequence of octal bytes.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>\</b><i>char</i></dt>
+  <dt id="char"><a class="permalink" href="#char"><b>\</b><i>char</i></a></dt>
   <dd>The escape sequences `\a' (bell), `\b' (backspace), `\f' (form feed), `\n'
       (newline), `\r' (carriage return), `\t' (horizontal tabulator), and `\v'
       (vertical tabulator) are supported. A `\' followed by any other character
       (other than an octal digit) stands for that character.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><i>a</i><b>-</b><i>z</i></dt>
+  <dt id="a"><a class="permalink" href="#a"><i>a</i><b>-</b><i>z</i></a></dt>
   <dd>means a range of characters from <i>a</i> to <i>z</i> in increasing byte
       order, or with a multibyte character set, in increasing wide character
       order. With the <i>-C</i> option, characters are ordered according to the
       collation sequence.</dd>
-</dl>
-<dl class="Bl-tag">
   <dt><b>[:</b><i>class</i><b>:]</b></dt>
   <dd>means all characters that belong to character class <i>class</i> in the
       current LC_CTYPE locale in increasing byte order, or with a multibyte
@@ -84,55 +80,57 @@ In either string the following character sequences are treated specially:
       <b>[:upper:]</b> and <b>[:lower:]</b> appear at the same position in
       either string, upper-case characters are mapped to lower-case characters
       (and vice versa).</dd>
-</dl>
-<dl class="Bl-tag">
   <dt><b>[=</b><i>c</i><b>=]</b></dt>
   <dd>where <i>c</i> is a collating symbol in the current LC_COLLATE locale,
       means all characters that belong to the same equivalence class as
       <i>c</i>, i.&#x00A0;e. have the same collating weight as <i>c</i>.</dd>
-</dl>
-<dl class="Bl-tag">
   <dt><b>[</b><i>a</i><b>*</b><i>n</i><b>]</b></dt>
   <dd>means <i>n</i> repetitions of the character <i>a</i>, with <i>n</i> as an
       octal number if it starts with `0' and as a decimal number otherwise. If
       <i>a</i> is omitted or zero, it is taken to be huge (useful for padding
       <i>string2</i> to the length of <i>string1</i>).</dd>
 </dl>
-<h1 class="Sh" title="Sh" id="ENVIRONMENT_VARIABLES"><a class="permalink" href="#ENVIRONMENT_VARIABLES">ENVIRONMENT
+</section>
+<section class="Sh">
+<h1 class="Sh" id="ENVIRONMENT_VARIABLES"><a class="permalink" href="#ENVIRONMENT_VARIABLES">ENVIRONMENT
   VARIABLES</a></h1>
 <dl class="Bl-tag">
-  <dt><b>LANG</b>, <b>LC_ALL</b></dt>
+  <dt id="LANG"><a class="permalink" href="#LANG"><b>LANG</b>,
+    <b>LC_ALL</b></a></dt>
   <dd>See <i>locale</i>(7).</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>LC_COLLATE</b></dt>
+  <dt id="LC_COLLATE"><a class="permalink" href="#LC_COLLATE"><b>LC_COLLATE</b></a></dt>
   <dd>Affects the composition of equivalence classes.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>LC_CTYPE</b></dt>
+  <dt id="LC_CTYPE"><a class="permalink" href="#LC_CTYPE"><b>LC_CTYPE</b></a></dt>
   <dd>Determines the mapping of bytes to characters in translation strings and
       input files, and the availability and composition of character
     classes.</dd>
 </dl>
-<h1 class="Sh" title="Sh" id="EXAMPLES"><a class="permalink" href="#EXAMPLES">EXAMPLES</a></h1>
-The following examples create a list of all the words in `file1' one per line in
-  `file2', where a word is taken to be a maximal string of alphabetics. The
-  second string is quoted to protect `\' from the Shell. 012 is the ASCII code
-  for newline.
+</section>
+<section class="Sh">
+<h1 class="Sh" id="EXAMPLES"><a class="permalink" href="#EXAMPLES">EXAMPLES</a></h1>
+<p class="Pp">The following examples create a list of all the words in `file1'
+    one per line in `file2', where a word is taken to be a maximal string of
+    alphabetics. The second string is quoted to protect `\' from the Shell. 012
+    is the ASCII code for newline.</p>
 <dl class="Bl-tag">
   <dt></dt>
   <dd>/usr/ucb/tr -cs A-Za-z &#x00B4;\012&#x00B4; &lt;file1 &gt;file2</dd>
 </dl>
-<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
   ALSO</a></h1>
-ed(1), ascii(7), locale(7)
-<h1 class="Sh" title="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
-tr does not handle ASCII NUL in <i>string1</i> or <i>string2</i>; it always
-  deletes NUL from input.
-<div class="Pp"></div>
-The LC_COLLATE variable is not respected; equivalence classes consist of exactly
-  one character, and the <i>-c</i> and <i>-C</i> options produce identical
-  results.</div>
+<p class="Pp">ed(1), ascii(7), locale(7)</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
+<p class="Pp">tr does not handle ASCII NUL in <i>string1</i> or <i>string2</i>;
+    it always deletes NUL from input.</p>
+<p class="Pp">The LC_COLLATE variable is not respected; equivalence classes
+    consist of exactly one character, and the <i>-c</i> and <i>-C</i> options
+    produce identical results.</p>
+</section>
+</div>
 <table class="foot">
   <tr>
     <td class="foot-date">8/6/05</td>

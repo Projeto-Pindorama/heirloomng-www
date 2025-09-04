@@ -9,6 +9,7 @@
  -->
 <head>
   <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="/assets/mandoc.css" type="text/css" media="all"/>
   <title>UNAME(1)</title>
 </head>
@@ -21,50 +22,43 @@
   </tr>
 </table>
 <div class="manual-text">
-<h1 class="Sh" title="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
-uname - get system name
-<h1 class="Sh" title="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
-<b>uname</b> [<b>-amnprsv</b>]
-<div class="Pp"></div>
-<b>uname</b> [<b>-S</b><i> system_name</i>]
-<h1 class="Sh" title="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
-The <b>uname</b> command prints the name of the system implementation, or,
-  depending on its options, one of the following:
+<section class="Sh">
+<h1 class="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+<p class="Pp">uname - get system name</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<p class="Pp"><b>uname</b> [<b>-amnprsv</b>]</p>
+<p class="Pp"><b>uname</b> [<b>-S</b><i> system_name</i>]</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<p class="Pp">The <b>uname</b> command prints the name of the system
+    implementation, or, depending on its options, one of the following:</p>
 <dl class="Bl-tag">
-  <dt><b>-a</b></dt>
+  <dt id="a"><a class="permalink" href="#a"><b>-a</b></a></dt>
   <dd>All available information.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-m</b></dt>
+  <dt id="m"><a class="permalink" href="#m"><b>-m</b></a></dt>
   <dd>The name of the hardware type.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-n</b></dt>
+  <dt id="n"><a class="permalink" href="#n"><b>-n</b></a></dt>
   <dd>The node name of this computer.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-p</b></dt>
+  <dt id="p"><a class="permalink" href="#p"><b>-p</b></a></dt>
   <dd>Processor type.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-r</b></dt>
+  <dt id="r"><a class="permalink" href="#r"><b>-r</b></a></dt>
   <dd>Release level of the system implementation.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-s</b></dt>
+  <dt id="s"><a class="permalink" href="#s"><b>-s</b></a></dt>
   <dd>Name of the system implementation.</dd>
-</dl>
-<dl class="Bl-tag">
-  <dt><b>-v</b></dt>
+  <dt id="v"><a class="permalink" href="#v"><b>-v</b></a></dt>
   <dd>Version level of the system implementation.</dd>
 </dl>
-<div class="Pp"></div>
-If <b>-S</b><i>&#x00A0;system_name</i> is specified, the node name is changed to
-  <i>system_name</i>. This requires appropriate privilege.
-<h1 class="Sh" title="Sh" id="ENVIRONMENT_VARIABLES"><a class="permalink" href="#ENVIRONMENT_VARIABLES">ENVIRONMENT
+<p class="Pp">If <b>-S</b><i>&#x00A0;system_name</i> is specified, the node name
+    is changed to <i>system_name</i>. This requires appropriate privilege.</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="ENVIRONMENT_VARIABLES"><a class="permalink" href="#ENVIRONMENT_VARIABLES">ENVIRONMENT
   VARIABLES</a></h1>
 <dl class="Bl-tag">
-  <dt><b>SYSV3</b></dt>
+  <dt id="SYSV3"><a class="permalink" href="#SYSV3"><b>SYSV3</b></a></dt>
   <dd>If set to the empty string, the output of <i>-s</i> is the same as that of
       <i>-n</i>, and the output of <i>-r</i>, <i>-v</i>, and <i>-m</i> is set to
       the fixed values `3.2', `2', and `i386', respectively. Otherwise, it is
@@ -73,8 +67,6 @@ If <b>-S</b><i>&#x00A0;system_name</i> is specified, the node name is changed to
 <dl class="Bl-tag">
   <dt></dt>
   <dd><i>os</i><b>,</b><i>sysname</i><b>,</b><i>nodename</i><b>,</b><i>release</i><b>,</b><i>version</i><b>,</b><i>machine</i></dd>
-</dl>
-<dl class="Bl-tag">
   <dt></dt>
   <dd>where <i>os</i> is ignored, and the other fields specify the output for
       <i>-s</i>, <i>-n</i>, <i>-r</i>, <i>-v</i>, and <i>-m</i>. If fewer than
@@ -82,9 +74,13 @@ If <b>-S</b><i>&#x00A0;system_name</i> is specified, the node name is changed to
       variable also causes the output of <i>-p</i> not to be printed with
       <i>-a</i>.</dd>
 </dl>
-<h1 class="Sh" title="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
   ALSO</a></h1>
-uname(2), sethostname(2)</div>
+<p class="Pp">uname(2), sethostname(2)</p>
+</section>
+</div>
 <table class="foot">
   <tr>
     <td class="foot-date">10/8/03</td>

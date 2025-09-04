@@ -26,18 +26,18 @@
 </section>
 <section class="Sh">
 <h1 class="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
-<p class="Pp"><b>watch</b> <b>-n</b> [<i>seconds</i>] [<b>-bt</b>]
-    [<b>command</b> [<i>args</i>...]]</p>
+<p class="Pp"><b>watch</b> [<b>-n</b> <i>seconds</i>] [<b>-bt</b>]
+    <b>command</b> [<i>args</i>...]</p>
 </section>
 <section class="Sh">
 <h1 class="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
 <p class="Pp">The <b>watch</b> utility executes a command repeatedly every
-    &quot;user-defined&quot; seconds. This allows you to watch a program output
-    change over the time.</p>
+    <i>seconds</i> seconds. This allows you to watch a program output change
+    over the time.</p>
 <p class="Pp">It accepts the following options:</p>
 <dl class="Bl-tag">
   <dt id="n"><a class="permalink" href="#n"><b>-n</b></a></dt>
-  <dd>Specifies the interval to refresh the output. Per default, the interval is
+  <dd>Specifies the interval to refresh the output. By default, the interval is
       of 2 seconds.</dd>
   <dt id="b"><a class="permalink" href="#b"><b>-b</b></a></dt>
   <dd>Beeps if the program being run returns a non-zero exit status.</dd>
@@ -53,10 +53,10 @@
 </section>
 <section class="Sh">
 <h1 class="Sh" id="EXAMPLES"><a class="permalink" href="#EXAMPLES">EXAMPLES</a></h1>
-<p class="Pp">It can be very useful when backuping some disc and needing to see
+<p class="Pp">It can be very useful when backing up a disk and you need to see
     how many files were already copied.
   <br/>
-  Lets suppose you're copying a disc from a terminal and, in another, you want
+  Let's suppose you're copying a disk from a terminal and, in another, you want
     to keep an eye at <i>du</i>(1) output to see every minute if the file size
     matches with what you're expecting.</p>
 <dl class="Bl-tag">
@@ -66,6 +66,9 @@
 </section>
 <section class="Sh">
 <h1 class="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
+<p class="Pp">This implementation supports intervals using both European or
+    Anglo decimal separators, although sleeping in fractionated seconds does not
+    make a lot of sense.</p>
 <p class="Pp">This implementation does not support the
     &quot;<i>WATCH_INTERVAL</i>&quot; environment variable.</p>
 </section>
@@ -77,21 +80,21 @@
 <section class="Sh">
 <h1 class="Sh" id="HISTORY"><a class="permalink" href="#HISTORY">HISTORY</a></h1>
 <p class="Pp">The <b>watch(1)</b> utility has a hazy history. Nobody seems to be
-    actually sure of where it has appeared first.
+    actually sure of where it appeared first.
   <br/>
   According to procps 010114's watch C source code, where it first appeared in
     that package, it was written from scratch by Tony Rems in 1991, and later
-    recieved many modifications and corrections by Francois Pinard.
+    recieved many modifications and corrections by Fran&#x00E7;ois Pinard.
   <br/>
   However, according to Internet Initiative Japan Inc.'s iwatch manual page, the
-    watch utility came first from BSDI Inc. BSD/OS 3.1 and their code is
-    slightly derived from it; he/she &#x2014; who wrote the manual page and
-    comments at the original source code &#x2014; also speculated that its
-    existence was earlier than BSD/OS 3.1, from some another free distribution,
-    but there's no further information that supports this.</p>
-<p class="Pp">This implementation mimicks some of the basic behavior of
-    procps-ng's watch, just the necessary to have a useful, simple and stable
-    program.</p>
+    watch utility came first from BSDi's BSD/OS 3.1 and their code is slightly
+    derived from it; he/she who wrote the manual page and comments at the
+    original source code also speculated that its existence was earlier than
+    BSD/OS 3.1, from some another free distribution, but there's no further
+    information that supports this.</p>
+<p class="Pp">This implementation mimics some of the basic behavior of
+    procps-ng's watch, but only the necessary behavior to have a useful, simple
+    and stable program.</p>
 </section>
 </div>
 <table class="foot">
